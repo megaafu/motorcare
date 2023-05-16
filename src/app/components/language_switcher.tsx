@@ -17,14 +17,14 @@ const LanguageSwitcher = () => {
   
     return (
       <div className="dropdown">
-        <button className="dropdown-toggle" onClick={handleButtonClick}>
+        <button className="dropdown-toggle md:text-md lg:text-lg" onClick={handleButtonClick}>
           {selectedOption}
         </button>
         {isOpen && (
           <div className="dropdown-menu">
-            {selectedOption === 'PT'? <button className="dropdown-option" onClick={() => handleOptionClick('EN')}>
+            {selectedOption === 'PT'? <button className="dropdown-option md:text-md lg:text-lg" onClick={() => handleOptionClick('EN')}>
               EN
-            </button> : <button className="dropdown-option" onClick={() => handleOptionClick('PT')}>
+            </button> : <button className="dropdown-option md:text-md lg:text-lg" onClick={() => handleOptionClick('PT')}>
               PT
             </button>}
             
