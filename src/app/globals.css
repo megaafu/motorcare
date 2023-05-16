@@ -13,7 +13,7 @@
   padding: 8px 16px;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .dropdown-menu {
@@ -38,4 +38,12 @@
 
 .dropdown-option:hover {
   background-color: #f0f0f0;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
 }
