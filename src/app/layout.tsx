@@ -1,9 +1,31 @@
 import Footer from './components/footer'
 import Header from './components/header'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const nissan = localFont({
+  src:[
+    {
+      path:'../../public/fonts/Nissan Font/Nissan Brand Regular.otf',
+      weight:'400',
+      style:'normal'
+    },
+    {
+      path:'../../public/fonts/Nissan Font/Nissan Brand Light.otf',
+      weight:'300',
+      style:'normal'
+    },
+    {
+      path:'../../public/fonts/Nissan Font/Nissan Brand Bold.otf',
+      weight:'600',
+      style:'normal'
+    },
+
+  ],
+  variable:'--font-nissan'
+    
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${nissan.variable} font-sans`}>
       
       <body>
         <Header/>
