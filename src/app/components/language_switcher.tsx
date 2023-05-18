@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react';
+import Globe from './icons/globe';
 
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +18,19 @@ const LanguageSwitcher = () => {
   
     return (
       <div className="dropdown">
-        <button className="dropdown-toggle md:text-md lg:text-lg" onClick={handleButtonClick}>
-          {selectedOption}
+        <button className="dropdown-toggle" onClick={handleButtonClick}>
+          <a href="#" className='flex gap-2 items-center text-lg hover:text-sky-600'>
+            <Globe/>
+            {selectedOption}
+          </a>
         </button>
         {isOpen && (
           <div className="dropdown-menu">
-            {selectedOption === 'PT'? <button className="dropdown-option md:text-md lg:text-lg" onClick={() => handleOptionClick('EN')}>
+            {selectedOption === 'PT'? <button className="dropdown-option text-lg" onClick={() => handleOptionClick('EN')}>
               EN
-            </button> : <button className="dropdown-option md:text-md lg:text-lg" onClick={() => handleOptionClick('PT')}>
+            </button> : <button className="dropdown-option text-lg" onClick={() => handleOptionClick('PT')}>
               PT
             </button>}
-            
-            
           </div>
         )}
       </div>
