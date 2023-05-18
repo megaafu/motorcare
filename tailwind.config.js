@@ -11,9 +11,8 @@ module.exports = {
         sans: ['var(--font-nissan)']
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero': "url('../../public/images/bg-hero.png')",
+        'brochure': "url('../../public/images/bg-brochure.png')",
       },
     },
   },
