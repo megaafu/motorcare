@@ -13,6 +13,7 @@ module.exports = {
       backgroundImage: {
         'hero': "url('../../public/images/bg-hero.png')",
         'brochure': "url('../../public/images/bg-brochure.png')",
+        'cars-hero': "url('../../public/images/bg-cars-hero.png')",
       },
     },
   },

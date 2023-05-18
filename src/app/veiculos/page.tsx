@@ -101,7 +101,10 @@ const Veiculos:React.FC = () =>{
 
   return (
     <main>
-          <div>
+      <div className='bg-cars-hero w-full h-[240px] bg-cover bg-center bg-no-repeat'>
+
+      </div>
+          <div className='py-8'>
           <h2 className="w-36 h-[30px] not-italic font-normal text-2xl leading-[30px] text-[#63707F] ml-16  top-0">Loren Ipsum</h2>
           </div>
           <div className="space-y-4">
