@@ -1,5 +1,6 @@
 import Footer from './components/footer'
 import Header from './components/header'
+import Prefooter from './components/prefooter'
 import './globals.css'
 import localFont from 'next/font/local'
 
@@ -43,7 +44,7 @@ export default function RootLayout({
       <body>
         <Header/>
         {children}
-        <div className="w-full h-[10vh] bg-sky-700"></div>
+        <Prefooter/>
         <Footer/>
       </body>
     </html>
