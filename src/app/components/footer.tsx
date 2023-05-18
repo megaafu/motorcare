@@ -16,9 +16,7 @@ const footer = () => {
     <div className=" bg-blue-950 w-full">
       <div className='flex justify-between max-w-screen-xl gap-x-8 gap-y-4 px-4 py-8 mx-auto lg:py-12 '>
           <div className=' place-self-center'>
-            <span className='text-3xl font-bold text-white'>
-              Logo
-            </span>
+            <img src="/images/footer-logo.svg" alt="MotorCare"/>
           </div>
           <div className=''>
             <h4 className='text-3xl font-bold text-white'>Links Uteis</h4>
