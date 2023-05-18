@@ -2,11 +2,13 @@
 
 import LanguageSwitcher from './language_switcher'
 import { useState } from 'react';
+import Link from 'next/link';
 
 const header = () => {
   var menu = [
     "Home",
     "Sobre Nos",
+    "Veiculos",
     "Pecas e Acessorios",
     "Serviços",
     "Contato",
@@ -33,10 +35,10 @@ const header = () => {
                 return (
                   selectMenu === item ?
                   <li key={index}>
-                    <a href="#" className="group text-sky-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">
+                    <Link href="/veiculos" className="group text-sky-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">
                       {item}
                       <span className="mt-1 block max-w-full h-0.5 bg-sky-600"></span>
-                    </a>
+                    </Link>
                   </li>
                   : <li key={index}>
                   <a href="#" onClick={() => handleMenu(item)} className="group text-gray-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">

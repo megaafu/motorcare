@@ -2,7 +2,7 @@
 import HorizontalScroll from './components/horizontalScroll'
 import Menu from './components/menu'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Veiculos from './veiculos';
+
 
 
 
@@ -25,9 +25,8 @@ export default function Home() {
         
         <div className="py-12 h-full">
           <Menu title='Categoria' navigation={["Hatch","Sedan", "Picape"]}/>
-          
           <HorizontalScroll>
-
+           
             <div className="bg-blue-500 w-40 h-40"></div>
             <div className="bg-red-500 w-40 h-40"></div>
             <div className="bg-green-500 w-40 h-40"></div>
