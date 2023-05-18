@@ -16,7 +16,7 @@ const header = () => {
     },
     {
       "label":"Veiculos",
-      "url":"/"
+      "url":"/veiculos"
     },
     {
       "label":"Pecas e Acessorios",
@@ -30,6 +30,7 @@ const header = () => {
       "label":"Contato",
       "url":"/"
     },
+
 
   ]
 
@@ -59,6 +60,7 @@ const header = () => {
                       <span className="mt-1 block max-w-full h-0.5 bg-sky-600"></span>
                     </Link>
                     
+
                   </li>
                   : <li key={index}>
                     <Link href={item.url} onClick={() => handleMenu(item.label)} className="group text-gray-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">
