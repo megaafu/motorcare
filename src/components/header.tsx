@@ -1,6 +1,6 @@
 "use client"
 
-import LanguageSwitcher from './language_switcher'
+import LanguageSwitcher from './ui/language_switcher'
 import { useState } from 'react';
 import Link from 'next/link';
 

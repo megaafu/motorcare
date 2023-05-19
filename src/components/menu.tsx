@@ -16,7 +16,7 @@ const Menu:React.FC<MenuProps> = ({title, navigation}) => {
 
     return (
         <nav>
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pb-2">
                 <a href="https://flowbite.com/" className="flex items-center">
                     <p className='text-3xl text-sky-700'>{title}</p>
                 </a>
@@ -43,7 +43,7 @@ const Menu:React.FC<MenuProps> = ({title, navigation}) => {
                 </div>
                 
             </div>
-            <span className="mt-1 block max-w-screen-xl mx-auto h-[1px] bg-sky-600"></span>
+            <span className="max-w-screen-xl mt-1 block h-[0.1px] bg-sky-600 mx-auto"></span>
         </nav>    
     ) 
 }

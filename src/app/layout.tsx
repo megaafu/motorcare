@@ -1,6 +1,6 @@
-import Footer from './components/footer'
-import Header from './components/header'
-import Prefooter from './components/prefooter'
+import Footer from '../components/footer'
+import Header from '../components/header'
+import Prefooter from '../components/prefooter'
 import './globals.css'
 import localFont from 'next/font/local'
 

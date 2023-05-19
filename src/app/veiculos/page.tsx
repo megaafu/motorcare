@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import CardCarousel from '../components/CardCarousel';
+import CardCarousel from '../../components/CardCarousel';
 
 
 
