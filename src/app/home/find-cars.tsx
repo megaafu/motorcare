@@ -2,9 +2,11 @@
 
 import React from 'react'
 import { ICarDetails } from '../../model/CarDetails'
-import Menu from '../../components/menu'
-import ArrowFoword from '../../components/icons/arrow-foword'
+
 import CardCarousel from '../../components/CardCarousel'
+import { ArrowFoword } from '@/components/icons/Icons'
+import Menu from '@/components/Menu'
+import Container from '@/components/ui/Container'
 
 type FindCarsProps = {
     cars:ICarDetails[]
@@ -12,9 +14,8 @@ type FindCarsProps = {
 
 const FindCars:React.FC<FindCarsProps> = ({cars}) => {
     return (
-        <div className="py-10">
+        <Container>
             <Menu title='Find your Car' navigation={["All","New","Used"]}/>'
-            <div className=' max-w-screen-xl  mx-auto pt-6'>
                 <div className='flex flex-wrap justify-between'>
                     {cars.map((car, index) => {
                     return(
@@ -29,8 +30,7 @@ const FindCars:React.FC<FindCarsProps> = ({cars}) => {
                         <span className="mt-1 block max-w-full h-0.5 bg-sky-600"></span>
                     </a>
                 </div>
-            </div>
-        </div>    
+        </Container>    
     )
 }
 

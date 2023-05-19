@@ -1,5 +1,6 @@
 "use client"
 
+import Container from '@/components/ui/Container';
 import React, { useRef } from 'react';
 
 
@@ -11,12 +12,16 @@ const LateralScroll: React.FC<LateralScrollProps> = ({ children }) => {
 
 
   return (
-    <div className="py-10 flex overflow-x-scroll max-w-screen-xl items-center justify-between mx-auto hide-scroll-bar">
+    <Container>
+      <div className="flex overflow-x-scroll  items-center justify-between  hide-scroll-bar">
             <div className="flex space-x-4" >
                 {children}
             </div>
            
-    </div>
+      </div>
+    </Container>
+    
+    
     
   );
 };

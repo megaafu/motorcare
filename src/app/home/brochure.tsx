@@ -1,8 +1,9 @@
 import React from 'react'
 import { ICar } from '../../model/Car'
-import Download from '../../components/icons/download'
-import Menu from '../../components/menu'
-import ArrowFoword from '../../components/icons/arrow-foword'
+import Menu from '../../components/Menu'
+import { ArrowFoword, Download } from '@/components/icons/Icons'
+import Container from '@/components/ui/Container'
+
 
 type BrochureProps = {
     carsData:ICar[]
@@ -11,8 +12,8 @@ type BrochureProps = {
 
 const Brochure:React.FC<BrochureProps> = ({carsData}) => {
   return (
-    <div className="py-10 ">
-        <div className="max-w-screen-xl mx-auto pt-10">
+    
+        <Container>
             <Menu title='Car Presentation' navigation={[""]}/>
             <div className="pt-12 grid grid-cols-3 gap-8">
                 <div className=''>
@@ -46,8 +47,8 @@ const Brochure:React.FC<BrochureProps> = ({carsData}) => {
                         <span className="mt-1 block max-w-full h-0.5 bg-sky-600"></span>
                     </a>
                 </div>
-        </div>
-    </div>
+        </Container>
+
   )
 }
 

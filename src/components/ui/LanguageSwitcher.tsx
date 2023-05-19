@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from 'react';
-import Globe from '../icons/globe';
+import { Globe } from '../icons/Icons';
+
 
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);

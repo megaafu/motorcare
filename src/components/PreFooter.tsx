@@ -1,9 +1,7 @@
 import React from 'react'
-import Car from './icons/car'
-import Gear from './icons/gear'
-import Plus from './icons/plus'
-import Coins from './icons/coins'
-import User from './icons/user'
+import { Car, Coins, Gear, Plus, User } from './icons/Icons'
+import ContainerNoPadding from './ui/ContainerNoPadding'
+
 
 const Prefooter = () => {
   const links =[
@@ -32,7 +30,7 @@ const Prefooter = () => {
   
   return (
     <div className=" bg-sky-700 w-full">
-        <div className="max-w-screen-xl mx-auto ">
+        <ContainerNoPadding>
             <ul className='flex justify-around py-6 text-ligth md:text-lg lg:text-xl'>
               {links.map((link,index)=>{
                 return (
@@ -46,7 +44,7 @@ const Prefooter = () => {
                 )
               })}
             </ul>
-        </div>
+        </ContainerNoPadding>
             
             
     </div>
