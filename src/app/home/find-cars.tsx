@@ -7,6 +7,7 @@ import CardCarousel from '@/components/CardCarousel'
 import Menu from '@/components/Menu'
 import ContentPadding from '@/components/ui/ContentPadding'
 import SecundaryButton from '@/components/ui/SecundaryButton'
+import PagePadding from '@/components/ui/PagePadding'
 
 
 type FindCarsProps = {
@@ -16,8 +17,8 @@ type FindCarsProps = {
 const FindCars:React.FC<FindCarsProps> = ({cars}) => {
     return (
         <Container>
-            <Menu title='Find your Car' navigation={["All","New","Used"]}/>'
-            <ContentPadding>
+            <PagePadding>
+                <Menu title='Find your Car' navigation={["All","New","Used"]}/>'
                 <div className='flex flex-wrap justify-between '>
                     {cars.map((car, index) => {
                     return(
@@ -26,7 +27,9 @@ const FindCars:React.FC<FindCarsProps> = ({cars}) => {
                     })}
                 </div>
                 <SecundaryButton/>
-            </ContentPadding>
+            </PagePadding>
+            
+          
         </Container>    
     )
 }

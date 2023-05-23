@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Divider from './ui/Divider';
 
 
@@ -11,7 +11,14 @@ interface MenuProps{
 
 const Menu:React.FC<MenuProps> = ({title, navigation}) => {
 
-    const [selectMenu, setSelectedMenu] = useState(navigation[0]);
+
+    const[selectedIndex, setIndex] = useState(0)
+    const [selectMenu, setSelectedMenu] = useState(navigation[selectedIndex])
+
+
+    const handleIndex = (index:number) =>{
+        setIndex(index)
+    }
     const handleMenu =(item:string) => {
       setSelectedMenu(item);
     }
@@ -34,7 +41,7 @@ const Menu:React.FC<MenuProps> = ({title, navigation}) => {
                                         </a>
                                     </li>
                                     : <li key={index}>
-                                        <a href="#" onClick={() => handleMenu(nav)} className="group text-gray-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">
+                                        <a href="#" onClick={() =>{handleMenu(nav), handleIndex(index)} } className="group text-gray-700 after:text-sky-600 transition duration-300 md:text-md lg:text-lg">
                                             {nav}
                                             <span className="mt-1 block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
                                         </a>
