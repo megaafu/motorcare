@@ -1,15 +1,12 @@
-import Container from '@/components/ui/Container';
+import Container from '@/core/components/ui/Container';
 
 const Divider= () => {
 
 
   return (
-    <Container>
+    <div className='py-6'>
         <span className="mt-1 block h-[0.1px] bg-sky-600"></span>
-    </Container>
-    
-    
-    
+    </div>
   );
 };
 

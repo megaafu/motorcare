@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useState } from 'react'
-import Container from './ui/Container';
-import Divider from './ui/Divider';
-import ContainerNoPadding from './ui/ContainerNoPadding';
+import Container from '../core/components/ui/Container';
+import Divider from '../core/components/ui/Divider';
+
 
 interface MenuProps{
     title: string;
@@ -19,7 +19,6 @@ const Menu:React.FC<MenuProps> = ({title, navigation}) => {
 
     return (
         <nav>
-            <ContainerNoPadding>
                 <div className=" flex flex-wrap items-center justify-between ">
                     <a href="#" className="flex items-center">
                         <p className='text-3xl text-sky-700'>{title}</p>
@@ -47,7 +46,7 @@ const Menu:React.FC<MenuProps> = ({title, navigation}) => {
                     </div>
                     
                 </div>
-            </ContainerNoPadding>
+           
             <Divider/>             
         </nav>    
     ) 

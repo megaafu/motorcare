@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { ICarDetails } from '../model/CarDetails';
+import { ICarDetails } from '../core/model/CarDetails';
 
 type CardCarouselProps ={
   car:ICarDetails
@@ -9,7 +9,7 @@ type CardCarouselProps ={
 const CardCarousel: React.FC<CardCarouselProps> = ({ car }) => {
   
     return (
-      <div className="max-w-sm bg-white border border-gray-200  shadow rounded-lg overflow-hidden">
+      <div className="max-w-md bg-white border border-gray-200  shadow rounded-lg overflow-hidden">
         
         <Carousel autoPlay={true} showThumbs={false} showStatus={false} infiniteLoop={true} dynamicHeight={false} showIndicators={true} showArrows={false} stopOnHover={false} swipeable={true} emulateTouch={true} interval={5000} transitionTime={500}>
           {
@@ -23,7 +23,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ car }) => {
           )}
         </Carousel>
   
-        <div className="px-4 pb-6">
+        <div className="px-4 py-6">
           <h3 className=' text-xl font-bold '>{car.title}</h3>
           <div className='flex justify-between py-2 '>
             <p className=' text-lg text-gray-700'>{car.description}</p>

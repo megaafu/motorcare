@@ -1,10 +1,10 @@
 "use client"
 
-import LanguageSwitcher from './ui/LanguageSwitcher'
+import LanguageSwitcher from '../core/components/ui/LanguageSwitcher'
 import { useState } from 'react';
 import Link from 'next/link';
-import Container from './ui/Container';
-import ContainerNoPadding from './ui/ContainerNoPadding';
+import Container from '../core/components/ui/Container';
+
 
 const header = () => {
   var menu = [
@@ -36,7 +36,7 @@ const header = () => {
 
   ]
 
-  const [selectMenu, setSelectedMenu] = useState(menu[0]?.label);
+  const [selectMenu, setSelectedMenu] = useState("");
   const handleMenu =(item:string) => {
     setSelectedMenu(item);
   }
@@ -44,7 +44,7 @@ const header = () => {
   return (
     <header className=' mt-11 absolute w-full z-50'>      
       <nav className="bg-white border-gray-200">
-        <ContainerNoPadding>
+        <Container>
           <div className=" flex flex-wrap items-center justify-between py-2">
             <a href="#" className="flex items-center">
                 <img src="/images/logo.svg" alt="MotorCare"/>
@@ -76,7 +76,7 @@ const header = () => {
               </ul>
             </div>
           </div>
-        </ContainerNoPadding>
+        </Container>
         
       </nav>
     </header>

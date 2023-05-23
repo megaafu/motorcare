@@ -1,8 +1,11 @@
 import React from 'react'
-import { ICar } from '../../model/Car'
+import { ICar } from '../../core/model/Car'
 import Menu from '../../components/Menu'
-import { ArrowFoword, Download } from '@/components/icons/Icons'
-import Container from '@/components/ui/Container'
+import { ArrowFoword, Download } from '@/core/components/icons/Icons'
+import Container from '@/core/components/ui/Container'
+import PagePadding from '@/core/components/ui/PagePadding'
+import ContentPadding from '@/core/components/ui/ContentPadding'
+import SecundaryButton from '@/core/components/ui/SecundaryButton'
 
 
 type BrochureProps = {
@@ -14,39 +17,39 @@ const Brochure:React.FC<BrochureProps> = ({carsData}) => {
   return (
     
         <Container>
+            <PagePadding>
+
             <Menu title='Car Presentation' navigation={[""]}/>
-            <div className="pt-12 grid grid-cols-3 gap-8">
-                <div className=''>
-                    { carsData.map((card, index) => {
-                        return(
-                    
-                            <div className="flex flex-col justify-center items-center gap-4 p-2 mb-2 border rounded-xl">
-                                <img className=" rounded-xl" src={card.image} alt=""/>
-                                <p className='text-2xl font-bold'>{card.brand}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className='col-span-2'>
-                    <div className="bg-brochure bg-no-repeat bg-cover bg-center rounded-xl">
-                        <div className="relative max-w-screen-xl  py-8 mx-auto h-[600px]">
-                            <div className="absolute right-0 bottom-0 place-self-center">
-                                <a href='#' className="flex self-center text-white gap-4 hover:text-sky-600 transition duration-300 p-4">
-                                    <span className='text-xl md:text-xl xl:text-2xl '>Download Brochure</span>
-                                    <Download/>
-                                </a>
+            <ContentPadding>
+                <div className="grid grid-cols-3 gap-8">
+                        <div className=''>
+                            { carsData.map((card, index) => {
+                                return(
+                            
+                                    <div className="flex flex-col justify-center items-center gap-4 p-2 mb-2 border rounded-xl">
+                                        <img className=" rounded-xl" src={card.image} alt=""/>
+                                        <p className='text-2xl font-bold'>{card.brand}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className='col-span-2'>
+                            <div className="bg-brochure bg-no-repeat bg-cover bg-center rounded-xl">
+                                <div className="relative max-w-screen-xl  py-8 mx-auto h-[600px]">
+                                    <div className="absolute right-0 bottom-0 place-self-center">
+                                        <a href='#' className="flex self-center text-white gap-4 hover:text-sky-600 transition duration-300 p-4">
+                                            <span className='text-xl md:text-xl xl:text-2xl '>Download Brochure</span>
+                                            <Download/>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className='flex justify-end pt-10'>
-                    <a href="#" className='flex group alig-center text-sky-600 gap-2 rounded-lg px-5 border border-transparent py-2 hover:border-sky-600'>
-                        <p className='text-xl md:text-xl xl:text-xl '>View More</p>
-                        <ArrowFoword />
-                        <span className="mt-1 block max-w-full h-0.5 bg-sky-600"></span>
-                    </a>
-                </div>
+                    <SecundaryButton/>
+            </ContentPadding>    
+
+            </PagePadding>
         </Container>
 
   )

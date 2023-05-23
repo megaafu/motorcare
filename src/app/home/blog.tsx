@@ -1,10 +1,11 @@
 import React from 'react'
 
-
-import { ArrowFoword } from '@/components/icons/Icons'
-import Container from '@/components/ui/Container'
+import Container from '@/core/components/ui/Container'
 import Menu from '@/components/Menu'
-import { IBlog } from '@/model/blog'
+import PagePadding from '@/core/components/ui/PagePadding'
+import ContentPadding from '@/core/components/ui/ContentPadding'
+import SecundaryButton from '@/core/components/ui/SecundaryButton'
+import { IBlog } from '@/core/model/blog'
 
 type BlogProps = {
     blogs:IBlog[]
@@ -12,42 +13,41 @@ type BlogProps = {
 
 const Blog:React.FC<BlogProps> = ({blogs}) => {
     return (
-        <div className="py-10 ">
-            <Menu title='Blog' navigation={["All","Trending", "last Week"]}/>
+           
             <Container>
-                <div className="flex justify-between ">
-                    {
-                    blogs.map((post, index) => {
-                        return(
-                        <div className={`bg-white border border-gray-200 rounded-lg shadow `}>
-                            <a href="#" className="">
-                                <img src={post.image} className='w-full rounded-t-lg'/>
-                            </a>
-                            <div className='p-5'>
-                                <div className='pt-4 '>
-                                    <h1 className="text-xl font-bold ">{post.title}</h1>
-                                    <p className="text-sm pt-2 text-gray-700 ">{post.description}</p>
-                                </div>
-                                <div className='flex justify-between pt-8'>
-                                    <h1 className="text-md font-bold text-gray-700">{post.date}</h1>
-                                    <a href="#" className="inline-flex items-center px-4 py-2 text-md font-regular text-center text-white bg-sky-700 rounded-lg hover:bg-blue-950 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        Read more
-                                        <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <PagePadding>
+                    <Menu title='Blog' navigation={["All","Trending", "last Week"]}/>   
+                    <ContentPadding>
+                        <div className="flex justify-between">
+                            {
+                            blogs.map((post, index) => {
+                                return(
+                                <div className={`bg-white border border-gray-200 rounded-lg shadow `}>
+                                    <a href="#" className="">
+                                        <img src={post.image} className='w-full rounded-t-lg'/>
                                     </a>
+                                    <div className='p-5'>
+                                        <div className='pt-4 '>
+                                            <h1 className="text-xl font-bold ">{post.title}</h1>
+                                            <p className="text-sm pt-2 text-gray-700 ">{post.description}</p>
+                                        </div>
+                                        <div className='flex justify-between pt-8'>
+                                            <h1 className="text-md font-bold text-gray-700">{post.date}</h1>
+                                            <a href="#" className="inline-flex items-center px-4 py-2 text-md font-regular text-center text-white bg-sky-700 rounded-lg hover:bg-blue-950 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                Read more
+                                                <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                )
+                            })}
                         </div>
-                        )
-                    })}
-                </div>
-                <div className='flex justify-end pt-10'>
-                    <a href="#" className='flex group alig-center text-sky-600 gap-2 rounded-lg px-5 border border-transparent py-2 hover:border-sky-600'>
-                        <p className='text-xl md:text-xl xl:text-xl '>View More</p>
-                        <ArrowFoword />
-                    </a>
-                </div>
+                        <SecundaryButton/>
+                    </ContentPadding>
+                </PagePadding>
+                
             </Container>
-        </div>
   )
 }
 

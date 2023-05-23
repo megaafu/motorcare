@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import CardCarousel from '../../components/CardCarousel';
-import Container from '@/components/ui/Container';
+import Container from '@/core/components/ui/Container';
 
 
 

@@ -1,3 +1,5 @@
+"use client"
+import { motion } from 'framer-motion'
 import React from 'react'
 
 interface CardProps{
@@ -5,7 +7,7 @@ interface CardProps{
 }
 const Card:React.FC<CardProps> = ({children}) => {
   return (
-      <div className='border border-gray-200 rounded-lg shadow'>
+      <div className='max-w-md bg-white overflow-hidden'>
           {children}
       </div>
 

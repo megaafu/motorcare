@@ -3,6 +3,7 @@ import Categories from './categories';
 import Brochure from './brochure';
 import FindCars from './find-cars';
 import Blog from './blog';
+import InformativeReport from './report';
 
 export default function Home() {
   const cars =[
@@ -85,6 +86,7 @@ export default function Home() {
         <Categories cars={cars}/>
         <Brochure carsData={carsData}/>
         <FindCars cars={cardData}/>
+        <InformativeReport/>
         <Blog blogs={blogPosts}/>
     
       </main>
