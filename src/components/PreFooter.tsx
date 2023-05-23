@@ -1,6 +1,6 @@
 import React from 'react'
-import { Car, Coins, Gear, Plus, User } from '../core/components/icons/Icons'
-import Container from '../core/components/ui/Container'
+import { Car, Coins, Gear, Plus, User } from './icons/Icons'
+import Container from './ui/Container'
 
 
 const Prefooter = () => {

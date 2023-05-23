@@ -1,11 +1,12 @@
+import Menu from '@/components/Menu'
+import { Download } from '@/components/icons/Icons'
+import Container from '@/components/ui/Container'
+import ContentPadding from '@/components/ui/ContentPadding'
+import PagePadding from '@/components/ui/PagePadding'
+import SecundaryButton from '@/components/ui/SecundaryButton'
+import { ICar } from '@/core/model/Car'
 import React from 'react'
-import { ICar } from '../../core/model/Car'
-import Menu from '../../components/Menu'
-import { ArrowFoword, Download } from '@/core/components/icons/Icons'
-import Container from '@/core/components/ui/Container'
-import PagePadding from '@/core/components/ui/PagePadding'
-import ContentPadding from '@/core/components/ui/ContentPadding'
-import SecundaryButton from '@/core/components/ui/SecundaryButton'
+
 
 
 type BrochureProps = {

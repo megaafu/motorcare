@@ -1,11 +1,12 @@
 import React from 'react'
 
-import Container from '@/core/components/ui/Container'
-import Menu from '@/components/Menu'
-import PagePadding from '@/core/components/ui/PagePadding'
-import ContentPadding from '@/core/components/ui/ContentPadding'
-import SecundaryButton from '@/core/components/ui/SecundaryButton'
+
 import { IBlog } from '@/core/model/blog'
+import Container from '@/components/ui/Container'
+import Menu from '@/components/Menu'
+import ContentPadding from '@/components/ui/ContentPadding'
+import PagePadding from '@/components/ui/PagePadding'
+import SecundaryButton from '@/components/ui/SecundaryButton'
 
 type BlogProps = {
     blogs:IBlog[]

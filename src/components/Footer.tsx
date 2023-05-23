@@ -1,6 +1,7 @@
 import React from 'react'
-import Container from '../core/components/ui/Container'
-import PagePadding from '../core/components/ui/PagePadding'
+import Container from './ui/Container'
+import PagePadding from './ui/PagePadding'
+
 
 const footer = () => {
   const links =[

@@ -1,4 +1,4 @@
-import Container from '@/core/components/ui/Container'
+import Container from '@/components/ui/Container'
 import React from 'react'
 
 

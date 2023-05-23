@@ -2,13 +2,12 @@
 
 import React from 'react'
 import { ICarDetails } from '../../core/model/CarDetails'
-
-import CardCarousel from '../../components/CardCarousel'
-import { ArrowFoword } from '@/core/components/icons/Icons'
+import Container from '@/components/ui/Container'
+import CardCarousel from '@/components/CardCarousel'
 import Menu from '@/components/Menu'
-import Container from '@/core/components/ui/Container'
-import ContentPadding from '@/core/components/ui/ContentPadding'
-import SecundaryButton from '@/core/components/ui/SecundaryButton'
+import ContentPadding from '@/components/ui/ContentPadding'
+import SecundaryButton from '@/components/ui/SecundaryButton'
+
 
 type FindCarsProps = {
     cars:ICarDetails[]

@@ -1,6 +1,7 @@
+
 import Subscribe from '@/components/Subscribe'
-import Container from '@/core/components/ui/Container'
-import PagePadding from '@/core/components/ui/PagePadding'
+import Container from '@/components/ui/Container'
+import PagePadding from '@/components/ui/PagePadding'
 import React from 'react'
 
 const InformativeReport = () => {

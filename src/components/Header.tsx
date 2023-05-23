@@ -1,9 +1,10 @@
 "use client"
 
-import LanguageSwitcher from '../core/components/ui/LanguageSwitcher'
 import { useState } from 'react';
 import Link from 'next/link';
-import Container from '../core/components/ui/Container';
+import Container from './ui/Container';
+import LanguageSwitcher from './ui/LanguageSwitcher';
+
 
 
 const header = () => {

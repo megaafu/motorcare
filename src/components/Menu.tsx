@@ -1,8 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import Container from '../core/components/ui/Container';
-import Divider from '../core/components/ui/Divider';
+import Divider from './ui/Divider';
 
 
 interface MenuProps{

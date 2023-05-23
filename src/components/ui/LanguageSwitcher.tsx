@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Globe } from '../icons/Icons';
 
 
+
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('PT');

@@ -1,13 +1,15 @@
 "use client"
 
 import React from 'react'
-import HorizontalScroll from '../../core/components/ui/HorizontalScroll'
-import Menu from '../../components/Menu'
-import Card from '@/core/components/ui/Card'
-import Container from '@/core/components/ui/Container'
-import PagePadding from '@/core/components/ui/PagePadding'
-import ContentPadding from '@/core/components/ui/ContentPadding'
+
 import { motion } from 'framer-motion'
+import Container from '@/components/ui/Container'
+import PagePadding from '@/components/ui/PagePadding'
+import Menu from '@/components/Menu'
+import ContentPadding from '@/components/ui/ContentPadding'
+import HorizontalScroll from '@/components/ui/HorizontalScroll'
+import Card from '@/components/ui/Card'
+
 
 interface CategoryProps {
     cars:string[]
