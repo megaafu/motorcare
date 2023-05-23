@@ -47,17 +47,19 @@ const Categories: React.FC<CategoryProps> = ({ cars }) => {
                     <AnimatePresence>
                       {hoveredIndex === index && (
                         <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.3 }}
-                          className="absolute top-full mxy-2 w-48 bg-white rounded shadow-lg"
-                        >
-                          <div className="p-4">SubMenu</div>
-                          <div className="p-4">SubMenu</div>
-                          <div className="p-4">SubMenu</div>
-                          <div className="p-4">SubMenu</div>
-                        </motion.div>
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute top-full mx-2 w-52 bg-white rounded shadow-lg"
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
+                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
+                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
+                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
+                      </motion.div>
                       )}
                     </AnimatePresence>
                   </a>

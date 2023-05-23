@@ -7,6 +7,7 @@ import MenuHeaderItem from './MenuHeaderItem';
 interface MenuItem {
   label: string;
   url: string;
+  subMenu:string[]
 }
 
 
@@ -16,26 +17,32 @@ const Header: React.FC = () => {
     {
       label: 'Home',
       url: '/home',
+      subMenu:['submenu','submenu2']
     },
     {
       label: 'Sobre Nos',
-      url: '/about',
+      url: '/',
+      subMenu:['submenu','submenu2']
     },
     {
       label: 'Veiculos',
       url: '/veiculos',
+      subMenu:['submenu','submenu2']
     },
     {
       label: 'Pecas e Acessorios',
       url: '/',
+      subMenu:['submenu','submenu2']
     },
     {
       label: 'Serviços',
       url: '/',
+      subMenu:['submenu','submenu2']
     },
     {
       label: 'Contato',
       url: '/',
+      subMenu:['submenu','submenu2']
     },
   ];
 
