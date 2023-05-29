@@ -1,5 +1,3 @@
-import Container from '@/core/components/ui/Container';
-
 const Divider= () => {
 
 

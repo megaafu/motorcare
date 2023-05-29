@@ -1,59 +1,68 @@
-import Menu from '@/components/Menu'
-import { Download } from '@/components/icons/Icons'
-import Container from '@/components/ui/Container'
-import ContentPadding from '@/components/ui/ContentPadding'
-import PagePadding from '@/components/ui/PagePadding'
-import SecundaryButton from '@/components/ui/SecundaryButton'
-import { ICar } from '@/core/model/Car'
-import React from 'react'
+"use client"
+
+import Menu from '@/components/Menu';
+import Container from '@/components/ui/Container';
+import ContentPadding from '@/components/ui/ContentPadding';
+import PagePadding from '@/components/ui/PagePadding';
+import SecundaryButton from '@/components/ui/SecundaryButton';
+import { ICar } from '@/core/model/Car';
+import React, { useEffect, useState } from 'react';
+import BrochureItem from './brochureItem';
+import IGetAllCarsUseCase from '@/core/usecases/IGetAllCarsUseCase';
+import GetAllCarsUseCase from '@/lib/usecases/GetAllCarsUseCase';
 
 
 
-type BrochureProps = {
-    carsData:ICar[]
-    
-}
+const Brochure = () => {
+  const [cars, setCars] = useState<ICar[]>([]);
+  const [selectedIndex, setIndex] = useState(0);
 
-const Brochure:React.FC<BrochureProps> = ({carsData}) => {
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const getAllCarsUseCase: IGetAllCarsUseCase = new GetAllCarsUseCase();
+        const carsData = await getAllCarsUseCase.execute();
+        setCars(carsData);
+      } catch (error) {
+        // Handle error
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  const handleIndex = (index: number) => {
+    setIndex(index);
+  };
+
   return (
-    
-        <Container>
-            <PagePadding>
+    <Container>
+      <PagePadding>
+        <Menu title="Car Presentation" navigation={[""]} />
+        <ContentPadding>
+          <div className="grid grid-cols-3 gap-8">
+            <div className="flex flex-col justify-between">
+              {cars
+                .filter((_car, index) => index < 2)
+                .map((car, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleIndex(index)}
+                    className="flex flex-col cursor-pointer"
+                  >
+                    <img className="rounded-xl" src={car.imageUrl[0]} alt="" />
+                  </div>
+                ))}
+            </div>
+            <div className="col-span-2">
+              {cars.length > 0 && <BrochureItem car={cars[selectedIndex]} />}
+            </div>
+          </div>
+          <SecundaryButton />
+        </ContentPadding>
+      </PagePadding>
+    </Container>
+  );
+};
 
-            <Menu title='Car Presentation' navigation={[""]}/>
-            <ContentPadding>
-                <div className="grid grid-cols-3 gap-8">
-                        <div className=''>
-                            { carsData.map((card, index) => {
-                                return(
-                            
-                                    <div className="flex flex-col justify-center items-center gap-4 p-2 mb-2 border rounded-xl">
-                                        <img className=" rounded-xl" src={card.image} alt=""/>
-                                        <p className='text-2xl font-bold'>{card.brand}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className='col-span-2'>
-                            <div className="bg-brochure bg-no-repeat bg-cover bg-center rounded-xl">
-                                <div className="relative max-w-screen-xl  py-8 mx-auto h-[600px]">
-                                    <div className="absolute right-0 bottom-0 place-self-center">
-                                        <a href='#' className="flex self-center text-white gap-4 hover:text-sky-600 transition duration-300 p-4">
-                                            <span className='text-xl md:text-xl xl:text-2xl '>Download Brochure</span>
-                                            <Download/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <SecundaryButton/>
-            </ContentPadding>    
-
-            </PagePadding>
-        </Container>
-
-  )
-}
-
-export default Brochure
+export default Brochure;

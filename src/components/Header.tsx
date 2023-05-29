@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     },
     {
       label: 'Veiculos',
-      url: '/veiculos',
+      url: '/cars',
       subMenu:['submenu','submenu2']
     },
     {

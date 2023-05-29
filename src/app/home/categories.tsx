@@ -35,7 +35,6 @@ const Categories: React.FC<CategoryProps> = ({ cars }) => {
                 <div className="flex justify-center px-20">
                   <a href="#">
                     <motion.img
-                      whileHover={{ scale: 1.2 }}
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={handleMouseLeave}
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -51,14 +50,30 @@ const Categories: React.FC<CategoryProps> = ({ cars }) => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute top-full mx-2 w-52 bg-white rounded shadow-lg"
+                        className="absolute top-full mx-auto w-60 bg-white mt-4"
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={handleMouseLeave}
                       >
-                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
-                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
-                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
-                        <div className="p-4 hover:bg-gray-200 transition duration-200">SubMenu</div>
+                        <div className="p-2 hover:bg-sky-600 hover:text-white text-center transition ease-in-out duration-200 mb-2 bg-gray-300">
+                          <motion.p whileHover={{scale:1.2}} transition={{duration:0.3, ease:'easeInOut'}}>
+                            EXPLORE
+                          </motion.p>
+                        </div>
+                        <div className="p-2 hover:bg-sky-600 hover:text-white text-center transition ease-in-out duration-200 mb-2 bg-gray-300">
+                          <motion.p whileHover={{scale:1.2}} transition={{duration:0.3, ease:'easeInOut'}}>
+                            BOOK A TEST DRIVE
+                          </motion.p>
+                        </div>
+                        <div className="p-2 hover:bg-sky-600 hover:text-white text-center transition ease-in-out duration-200 mb-2 bg-gray-300">
+                          <motion.p whileHover={{scale:1.2}} transition={{duration:0.3, ease:'easeInOut'}}>
+                            REQUEST A COTE
+                          </motion.p>
+                        </div>
+                        <div className="p-2 hover:bg-sky-600 hover:text-white text-center transition ease-in-out duration-500 mb-2 bg-gray-300">
+                          <motion.p whileHover={{scale:1.2}} transition={{duration:0.3, ease:'easeInOut'}}>
+                            MORE INFO
+                          </motion.p>
+                        </div>
                       </motion.div>
                       )}
                     </AnimatePresence>
