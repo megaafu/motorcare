@@ -35,7 +35,7 @@ const FindCars = () => {
         <Container>
             <PagePadding>
                 <Menu title='Find your Car' navigation={["All","New","Used"]}/>'
-                <div className='flex flex-wrap justify-between '>
+                <div className='grid grid-cols-3 gap-8'>
                     {cars.filter((cars,index)=>index<3)
                     .map((car, index) => {
                     return(

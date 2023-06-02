@@ -28,6 +28,12 @@ export default async function Home() {
       "image": "/images/post-2.png",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem."
     },
+    {
+      "title": "Lorem Ipsum",
+      "date": "25/05/2022",
+      "image": "/images/post-2.png",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem."
+    },
     
   ]
   

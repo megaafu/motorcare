@@ -6,13 +6,13 @@ import React from 'react'
 
 const InformativeReport = () => {
   return (
-    <div className="w-full bg-blue-950">
+    <div className="w-full bg-informative bg-no-repeat bg-cover bg-center">
         <Container>
             <PagePadding>
                 <div className="flex justify-between items-center">
                     <div className='flex flex-col'>
-                        <span className='text-gray-300 text-md'>subscreva ao nosso</span>
-                        <span className='text-white text-2xl'>subscreva ao nosso</span>
+                        <span className='text-gray-300 text-md'>subscribe to our</span>
+                        <span className='text-white text-2xl'>Informative Report</span>
                     </div>
                    <Subscribe/>
                 </div>
