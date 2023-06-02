@@ -1,31 +1,10 @@
 import React from 'react'
-import { Car, Coins, Gear, Plus, User } from './icons/Icons'
 import Container from './ui/Container'
+import { links } from '@/data/preFooterData'
 
 
 const Prefooter = () => {
-  const links =[
-    {
-      "label":"Solicitar Cotacao",
-      "icon":Coins
-    },
-    {
-      "label":"Agendar Test-Drive",
-      "icon": Car
-    },
-    {
-      "label":"Agendar Manutencao",
-      "icon":Gear
-    },
-    {
-      "label":"Saber Mais",
-      "icon":Plus
-    },
-    {
-      "label":"Contate-nos",
-      "icon":User
-    },
-  ]
+
   
   
   return (

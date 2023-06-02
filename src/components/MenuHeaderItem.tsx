@@ -86,7 +86,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
                 onMouseEnter={() => handleMouseEnter(label)} // Keep sub-menu open when hovering over it
                 onMouseLeave={handleMouseLeave}
               >
-                <SubMenu items={subMenu} />
+              { subMenu.length > 0 ? <SubMenu items={subMenu} />: null}  
               </div>
             )}
           </li>

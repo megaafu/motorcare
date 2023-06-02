@@ -1,22 +1,15 @@
 import React from 'react'
 import Container from './ui/Container'
 import PagePadding from './ui/PagePadding'
+import { links, terms } from '@/data/footerData'
+import { Facebook, Instagram, Youtube } from './icons/Icons'
 
 
 const footer = () => {
-  const links =[
-    "Sobre Nos",
-    "Nossa Historia",
-    "Nossas Marcas",
-  ]
-  const terms =[
-    "Termos e Condicoes",
-    "Provacidade",
-    "ISO",
-  ]
+
 
   return (
-    <div className=" bg-blue-950 w-full">
+    <div className=" bg-footer w-full bg-no-repeat bg-cover bg-center">
       <Container>
         <PagePadding>
           <div className='flex justify-between gap-x-8 gap-y-4 '>
@@ -24,16 +17,21 @@ const footer = () => {
                 <img src="/images/footer-logo.svg" alt="MotorCare"/>
               </div>
               <div className=''>
-                <h4 className='text-3xl font-bold text-white'>Links Uteis</h4>
+                <h4 className='text-3xl font-bold text-white'>Useful Links</h4>
                 <ul className='text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl'>
                   {links.map((link,index)=>{
                     return <li key={index} className='mt-2'><a href="#">{link}</a></li>
                   })}
                 </ul>
+                <div className="flex gap-4 text-white w-full pt-4 ali">
+                  <Facebook/>
+                  <Instagram/>
+                  <Youtube/>
+                </div>
                 
               </div>
               <div className=''>
-                <h4 className='text-3xl font-bold text-white'>Termos Legais</h4>
+                <h4 className='text-3xl font-bold text-white'>Legal Terms</h4>
                 <ul className='text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl'>
                 {terms.map((term,index)=>{
                     return <li key={index} className='mt-2'><a href="#">{term}</a></li>
@@ -41,7 +39,9 @@ const footer = () => {
                 </ul>
               </div>
           </div>
+          
         </PagePadding>
+          
       </Container>
      
 
