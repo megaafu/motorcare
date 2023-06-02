@@ -12,10 +12,10 @@ const CarList = () => {
     useEffect(() => {
     const fetchCars = async () => {
         try {
-        const getAllCarsUseCase:IGetAllCarsUseCase = new GetAllCarsUseCase();
-        const carsData = await getAllCarsUseCase.execute();
-        setCars(carsData);
-        } catch (error) {
+          const getAllCarsUseCase:IGetAllCarsUseCase = new GetAllCarsUseCase();
+          const carsData = await getAllCarsUseCase.execute();
+          setCars(carsData);
+        }catch (error) {
         }
     };
 
@@ -23,7 +23,7 @@ const CarList = () => {
     }, []);
 
   return (
-    <div className="grid lg:grid-cols-3 lg:gap-10">      
+    <div className="grid lg:grid-cols-3 lg:gap-8">      
     {cars.map((car, index) => (
         <CardCarousel key={index} car={car} />
       ))

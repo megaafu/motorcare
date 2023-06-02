@@ -14,7 +14,6 @@ export default async function UsedCars(){
       </div>
       <Container>
         <PagePadding>
-          
           <div className="">
             <h1 className="h-[45px] not-italic font-normal text-4xl leading-[45px] uppercase text-[#0D77B5] top-72 ">Loren Ipsum</h1>
           </div>
