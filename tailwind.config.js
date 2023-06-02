@@ -14,6 +14,10 @@ module.exports = {
         'hero': "url('../../public/images/bg-hero.png')",
         'brochure': "url('../../public/images/bg-brochure.png')",
         'cars-hero': "url('../../public/images/bg-cars-hero.png')",
+        'about-hero': "url('../../public/images/bg-about.png')",
+        'nissan':"url(../../public/images/nissan_background.png)",
+        'informative':"url(../../public/images/informative.png)",
+        'footer':"url(../../public/images/footer.png)"
       },
     },
   },
