@@ -1,28 +1,20 @@
 "use client"
 
 import React from 'react';
-import Paragraph from './Paragraph';
+import { Activities } from '../data/timeline';
 
-interface TimelineEvent {
-  title: string;
-  description: string;
-  date: string;
-}
 
-interface TimelineProps {
-  events: TimelineEvent[];
-}
 
-const CustomTimeLine: React.FC<TimelineProps> = ({ events }) => {
+const CustomTimeLine = () => {
   return (
     <ol className="flex justify-center mx-auto">
-      {events.map((event, index) => (
-        <li key={index} className="relative mb-6 sm:mb-0">
+      {Activities.activities.map((event, index) => (
+        <li key={index} className="relative ">
           <div className="flex items-center">
-            <div className="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+            <div className="z-10 flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
               <svg
                 aria-hidden="true"
-                className="w-3 h-3 text-blue-800 dark:text-blue-300"
+                className="w-4 h-4 text-ancent"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,16 +26,17 @@ const CustomTimeLine: React.FC<TimelineProps> = ({ events }) => {
                 ></path>
               </svg>
             </div>
-            {index !== events.length - 1 && (
+            {index !== Activities.activities.length - 1 && (
               <div className="flex w-full bg-gray-200 h-0.5"></div>
             )}
           </div>
-          <div className="mt-3 sm:pr-8">
-            <h3 className="text-xl font-semibold text-gray-900 ">{event.title}</h3>
-            <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
+          <div className="mt-3 pr-12">
+            <time className="block mb-2 text-md font-normal leading-none text-light-text ">
               {event.date}
             </time>
-            <Paragraph>{event.description}</Paragraph>
+             <div className='text-lg '>
+                {event.event}
+             </div>
           </div>
         </li>
       ))}

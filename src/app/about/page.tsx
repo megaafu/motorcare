@@ -1,58 +1,49 @@
-import Menu from '@/components/Menu'
+"use client"
+
 import Container from '@/components/ui/Container'
 import ContentPadding from '@/components/ui/ContentPadding'
 import PagePadding from '@/components/ui/PagePadding'
-import React from 'react'
-import CustomAccording from './According'
-import Row from './Row'
-import Paragraph from './Paragraph'
-import CustomTimeLine from './CustomTimeLine'
+import React, { useState } from 'react'
+import CustomAccording from './components/According'
+import Row from '../../components/ui/Row'
+import Paragraph from '../../components/ui/Paragraph'
+import CustomTimeLine from './components/CustomTimeLine'
+import { AboutMenu, BrandsMenu, HistoryMenu, IsoMenu } from '@/data/menuData'
+import AnchorMenuItem from '@/components/AnchorMenuItem'
+import NavBrands from './components/NavBrands'
+import SubMenu from '@/components/SubMenu'
+import { History, Holding, Iso } from './data/data'
 
 type Props = {}
 
 function About({}: Props) {
-    const events = [
-        {
-          title: 'Event 1',
-          description: 'Event 1 description',
-          date: 'May 1, 2023',
-        },
-        {
-          title: 'Event 2',
-          description: 'Event 2 description',
-          date: 'May 15, 2023',
-        },
-        {
-            title: 'Event 3',
-            description: 'Event 2 description',
-            date: 'May 15, 2023',
-          },
-        // Add more events as needed
-      ];
+    const [selectedIndex, setIndex] = useState(0);
+    const handleIndex = (index: number) => {
+        setIndex(index);
+      };
+
   return (
     <main>
         <div className='bg-about-hero w-full h-[360px] bg-cover bg-center bg-no-repeat'>
         </div>
         <Container>
             <PagePadding>
-                <Menu title='About US' navigation={['Our History', 'Our Brands']} />
+                <SubMenu label={AboutMenu.label}>
+                    {AboutMenu.subMenu.map((nav, index) => (
+                        <AnchorMenuItem
+                        key={nav}
+                        label={nav}
+                        isActive={selectedIndex === index}
+                        onClick={() => handleIndex(index)}
+                        />
+                    ))}
+                    
+                </SubMenu>    
                 <ContentPadding>
-                    <h4 className='text-2xl text-sky-700 text-bold pb-4'>Lorem Ipson</h4>
                     <Row>
                         <div> 
                             <Paragraph>
-                                But I must explain to you how all this mistaken idea of denouncing pleasure
-                                and praising pain was born and I will give you a complete account of the system,
-                                and expound the actual teachings of the great explorer of the truth, 
-                                the master-builder of human happiness. No one rejects, dislikes, 
-                                or avoids pleasure itself, because it is pleasure, but because those 
-                                who do not know how to pursue pleasure rationally encounter consequences 
-                                that are extremely painful. Nor again is there anyone who loves or pursues 
-                                or desires to obtain pain of itself, because it is pain, but because occasionally 
-                                circumstances occur in which toil and pain can procure him some great pleasure. 
-                                To take a trivial example, which of us ever undertakes laborious physical exercise, 
-                                except to obtain some advantage from it? But who has any right to find fault with a man 
-                            
+                                {Holding.info}
                             </Paragraph>
                         </div>
                         <div className='w-full justify-center items-center'>
@@ -73,88 +64,37 @@ function About({}: Props) {
                     </Row>
                 </ContentPadding>
             </PagePadding>
+            <NavBrands/>
             <PagePadding>
-                <div>
-                <Menu title='Our Brands' navigation={['Nissan','Renault','General Tyres', 'Niu', 'CST tyres','Continental']} />
-                <ContentPadding>
-                    <div className='bg-nissan bg-no-repeat bg-contain bg-center'>
-                        <h4 className='text-2xl text-sky-700 text-bold pb-4'>Lorem Ipson</h4>
-                        <Row>
-                            <div>
-                                <Paragraph>
-                                    But I must explain to you how all this mistaken idea of denouncing pleasure
-                                    and praising pain was born and I will give you a complete account of the system,
-                                    and expound the actual teachings of the great explorer of the truth, 
-                                    the master-builder of human happiness. No one rejects, dislikes, 
-                                    or avoids pleasure itself, because it is pleasure, but because those 
-                                    who do not know how to pursue pleasure rationally encounter consequences 
-                                    that are extremely painful. Nor again is there anyone who loves or pursues 
-                                    or desires to obtain pain of itself, because it is pain, but because occasionally 
-                                    circumstances occur in which toil and pain can procure him some great pleasure. 
-                                    To take a trivial example, which of us ever undertakes laborious physical exercise, 
-                                    except to obtain some advantage from it? But who has any right to find fault with a man 
-                                
-                                </Paragraph>
-                            </div>
-                            <div className='w-full grid grid-cols-3 gap-12'>
-                                <img className='w-44 h-44' src="images/nissan.png" alt="img" />
-                                <img className='w-44 h-44' src="images/maxxis.png" alt="img" />
-                                <img className='w-44 h-44' src="images/cst.png" alt="img" />
-                                <img className='w-44 h-44' src="images/renault.png" alt="img" />
-                                <img className='w-44 h-44' src="images/generaltire.png" alt="img" />
-                                <img className='w-44 h-44' src="images/continental.png" alt="img" />
-                            </div>
-                        </Row>
-                    </div>
-                </ContentPadding>
+                <div id='Our History'>
+                    <SubMenu label={HistoryMenu.label}>
+                        {AboutMenu.subMenu.map((nav, index) => (
+                            <AnchorMenuItem
+                            key={nav}
+                            label={nav}
+                            isActive={selectedIndex === index}
+                            onClick={() => handleIndex(index)}
+                            />
+                        ))}
+                    </SubMenu>    
+                    <ContentPadding>
+                        <Paragraph>
+                            {History.info}
+                        </Paragraph>
+                    </ContentPadding>
+                    <ContentPadding>
+                        <CustomTimeLine/>
+                    </ContentPadding>
                 </div>
+                
             </PagePadding>
             <PagePadding>
-                <Menu title='Our History' navigation={['Our History', 'Our Brands']} />
+                <SubMenu label={IsoMenu.label}/>
                 <ContentPadding>
                     <Row>
                         <div>
-                            <h4 className='text-2xl text-sky-700 text-bold pb-4'>Lorem Ipson</h4>
                             <Paragraph>
-                                But I must explain to you how all this mistaken idea of denouncing pleasure
-                                and praising pain was born and I will give you a complete account of the system,
-                                and expound the actual teachings of the great explorer of the truth, 
-                                the master-builder of human happiness. No one rejects, dislikes, 
-                                or avoids pleasure itself, because it is pleasure, but because those 
-                                who do not know how to pursue pleasure rationally encounter consequences 
-                                that are extremely painful. Nor again is there anyone who loves or pursues 
-                                or desires to obtain pain of itself, because it is pain, but because occasionally 
-                                circumstances occur in which toil and pain can procure him some great pleasure. 
-                                To take a trivial example, which of us ever undertakes laborious physical exercise, 
-                                except to obtain some advantage from it? But who has any right to find fault with a man 
-                            
-                            </Paragraph>
-                        </div>
-                        <div className='w-full flex justify-center items-end'>
-                            <CustomTimeLine events={events}/>
-                        </div>
-                    </Row>
-                </ContentPadding>
-            </PagePadding>
-            <PagePadding>
-                <Menu title='ISO Certification' navigation={[]} />
-                <ContentPadding>
-                    <h4 className='text-2xl text-sky-700 text-bold pb-4'>Lorem Ipson</h4>
-                    <Row>
-                        <div>
-                            
-                            <Paragraph>
-                                But I must explain to you how all this mistaken idea of denouncing pleasure
-                                and praising pain was born and I will give you a complete account of the system,
-                                and expound the actual teachings of the great explorer of the truth, 
-                                the master-builder of human happiness. No one rejects, dislikes, 
-                                or avoids pleasure itself, because it is pleasure, but because those 
-                                who do not know how to pursue pleasure rationally encounter consequences 
-                                that are extremely painful. Nor again is there anyone who loves or pursues 
-                                or desires to obtain pain of itself, because it is pain, but because occasionally 
-                                circumstances occur in which toil and pain can procure him some great pleasure. 
-                                To take a trivial example, which of us ever undertakes laborious physical exercise, 
-                                except to obtain some advantage from it? But who has any right to find fault with a man 
+                                {Iso.info}
                             </Paragraph>
                         </div>
                         <div className='w-full flex justify-center items-center'>
