@@ -2,7 +2,7 @@ import React from 'react'
 import Container from './ui/Container'
 import PagePadding from './ui/PagePadding'
 import { links, terms } from '@/data/footerData'
-import { Facebook, Instagram, Youtube } from './icons/Icons'
+import { Facebook, Instagram, Linkedin,} from './icons/Icons'
 
 
 const footer = () => {
@@ -20,13 +20,19 @@ const footer = () => {
                 <h4 className='text-3xl font-bold text-white'>Useful Links</h4>
                 <ul className='text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl'>
                   {links.map((link,index)=>{
-                    return <li key={index} className='mt-2'><a href="#">{link}</a></li>
+                    return <li key={index} className='mt-2 hover:text-secundary'><a href="#">{link}</a></li>
                   })}
                 </ul>
-                <div className="flex gap-4 text-white w-full pt-4 ali">
-                  <Facebook/>
-                  <Instagram/>
-                  <Youtube/>
+                <div className="flex gap-4 text-white w-full pt-4 ">
+                  <a href="http://www.linkedin.com/company/nissan-moçambique" className='hover:text-secundary'>
+                    <Linkedin/>
+                  </a>
+                  <a href="http://www.facebook.com/motorcaremz" className='hover:text-secundary'>
+                    <Facebook/>
+                  </a>
+                  <a href="http://www.instagram.com/motorcaremz" className='hover:text-secundary'>
+                    <Instagram/>
+                  </a>
                 </div>
                 
               </div>
@@ -34,7 +40,7 @@ const footer = () => {
                 <h4 className='text-3xl font-bold text-white'>Legal Terms</h4>
                 <ul className='text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl'>
                 {terms.map((term,index)=>{
-                    return <li key={index} className='mt-2'><a href="#">{term}</a></li>
+                    return <li key={index} className='mt-2 hover:text-secundary'><a href="#">{term}</a></li>
                   })}
                 </ul>
               </div>

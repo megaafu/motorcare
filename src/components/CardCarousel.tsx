@@ -48,15 +48,15 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ car }) => {
         <div className="flex justify-between py-4">
           <div className="flex gap-2">
             <img src="/icons/gearshift.svg" alt="" />
-            <p className="text-md font-bold text-gray-500">{car.transmission}</p>
+            <p className="text-md font-bold text-light-text">{car.transmission}</p>
           </div>
           <div className="flex gap-2">
             <img src="/icons/gas.svg" alt="" />
-            <p className="text-md font-bold text-gray-500">{car.fuel}</p>
+            <p className="text-md font-bold text-light-text">{car.fuel}</p>
           </div>
           <div className="flex gap-2">
             <img src="/icons/speed.svg" alt="" />
-            <p className="text-md font-bold text-gray-500">{car.mileage}</p>
+            <p className="text-md font-bold text-light-text">{car.mileage}</p>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { Globe } from '../icons/Icons';
 
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('PT');
+    const [selectedOption, setSelectedOption] = useState('EN');
   
     const handleButtonClick = () => {
       setIsOpen(!isOpen);
@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
     return (
       <div className="dropdown">
         <button className="dropdown-toggle" onClick={handleButtonClick}>
-          <a href="#" className='flex gap-2 items-center text-lg hover:text-sky-600'>
+          <a href="#" className='flex gap-2 items-center text-light-text text-lg hover:text-primary'>
             <Globe/>
             {selectedOption}
           </a>

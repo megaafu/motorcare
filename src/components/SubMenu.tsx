@@ -1,22 +1,29 @@
-import Link from 'next/link';
-import React from 'react'
+"use client"
 
-type SubMenuProps = {
-    items:string[]
+import React, { ReactNode } from 'react';
+import Divider from './ui/Divider';
+interface SubMenuProps {
+  label:string
+  children?:ReactNode
 }
 
-const SubMenu: React.FC<SubMenuProps> = ({ items }) => {
-    return (
-      <ul className="absolute w-48 mt-2 ml-0 bg-white border border-gray-200 rounded-md shadow-md z-10">
-        {items.map((item) => (
-          <li key={item} className="py-2 px-4">
-            <Link href="#">
-              <div className="text-gray-800 hover:text-sky-600">{item}</div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+const SubMenu: React.FC<SubMenuProps> = ({label, children }) => {
 
-export default SubMenu
+  return (
+    <div>
+      <div className="flex flex-wrap items-center justify-between">
+        <a href="#" className="flex items-center">
+          <p className="text-3xl text-primary">{label}</p>
+        </a>
+        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+            {children}
+          </ul>
+        </div>
+      </div>
+      <Divider />
+    </div>
+  );
+};
+
+export default SubMenu;

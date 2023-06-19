@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Container from './ui/Container';
 import LanguageSwitcher from './ui/LanguageSwitcher';
 import MenuHeaderItem from './MenuHeaderItem';
-import { menu } from '@/data/menuData';
+import { menu } from '@/data/headerData';
 
 const Header: React.FC = () => {
   

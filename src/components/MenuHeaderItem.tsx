@@ -1,11 +1,10 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from 'react';
-import MenuItem from './ui/MenuItem';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
-import SubMenu from './SubMenu';
+import SubMenu from './DroDownMenu';
 
 interface MenuItem {
   label: string;
@@ -59,8 +58,8 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
         const menuItemClasses = classNames(
           'group',
           {
-            'text-sky-700 after:text-sky-600': isActive,
-            'text-gray-700 after:text-sky-600': !isActive,
+            'text-primary after:text-primary': isActive,
+            'text-light-text after:text-light-text': !isActive,
           },
           'transition duration-300 md:text-md lg:text-lg'
         );
@@ -76,7 +75,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
               <div className={menuItemClasses}>
                 {label}
                 {isActive && (
-                  <span className="mt-1 block max-w-full h-0.5 bg-sky-600" />
+                  <span className="mt-1 block max-w-full h-0.5 bg-primary" />
                 )}
               </div>
             </Link>
