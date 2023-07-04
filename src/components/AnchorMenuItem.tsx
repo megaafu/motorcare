@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link, animateScroll as scroll } from "react-scroll";
+import React from 'react';
+import { Link } from "react-scroll";
 
 interface AnchorMenuItemProps {
     label: string;
     isActive: boolean;
     onClick: () => void;
   }
+  
   
   const AnchorMenuItemProps: React.FC<AnchorMenuItemProps> = ({ label, isActive, onClick }) => {
     return (
