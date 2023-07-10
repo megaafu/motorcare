@@ -1,20 +1,17 @@
-"use client"
+'use client'
 
-import React from 'react';
-import { Activities } from '../data/timeline';
-
-
+import { Activities } from '../constants/timeline'
 
 const CustomTimeLine = () => {
   return (
-    <ol className="flex justify-center mx-auto">
+    <ol className="mx-auto flex justify-center">
       {Activities.activities.map((event, index) => (
         <li key={index} className="relative ">
           <div className="flex items-center">
-            <div className="z-10 flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full ring-0 ring-white sm:ring-8 shrink-0">
+            <div className="z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 ring-0 ring-white sm:ring-8">
               <svg
                 aria-hidden="true"
-                className="w-4 h-4 text-ancent"
+                className="h-4 w-4 text-ancent"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -27,21 +24,19 @@ const CustomTimeLine = () => {
               </svg>
             </div>
             {index !== Activities.activities.length - 1 && (
-              <div className="flex w-full bg-gray-200 h-0.5"></div>
+              <div className="flex h-0.5 w-full bg-gray-200"></div>
             )}
           </div>
           <div className="mt-3 pr-12">
-            <time className="block mb-2 text-md font-normal leading-none text-light-text ">
+            <time className="text-md mb-2 block font-normal leading-none text-light-text ">
               {event.date}
             </time>
-             <div className='text-lg '>
-                {event.event}
-             </div>
+            <div className="text-lg ">{event.event}</div>
           </div>
         </li>
       ))}
     </ol>
-  );
-};
+  )
+}
 
-export default CustomTimeLine;
+export default CustomTimeLine
