@@ -1,31 +1,29 @@
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Prefooter from '../components/PreFooter'
-import './globals.css'
 import localFont from 'next/font/local'
-
+import React from 'react'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import Prefooter from '../components/PreFooter/PreFooter'
+import './globals.css'
 
 const nissan = localFont({
-  src:[
+  src: [
     {
-      path:'../../public/fonts/Nissan Font/Nissan Brand Regular.otf',
-      weight:'400',
-      style:'normal'
+      path: '../../public/fonts/Nissan Font/Nissan Brand Regular.otf',
+      weight: '400',
+      style: 'normal',
     },
     {
-      path:'../../public/fonts/Nissan Font/Nissan Brand Light.otf',
-      weight:'300',
-      style:'normal'
+      path: '../../public/fonts/Nissan Font/Nissan Brand Light.otf',
+      weight: '300',
+      style: 'normal',
     },
     {
-      path:'../../public/fonts/Nissan Font/Nissan Brand Bold.otf',
-      weight:'600',
-      style:'normal'
+      path: '../../public/fonts/Nissan Font/Nissan Brand Bold.otf',
+      weight: '600',
+      style: 'normal',
     },
-
   ],
-  variable:'--font-nissan'
-    
+  variable: '--font-nissan',
 })
 
 export const metadata = {
@@ -40,12 +38,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nissan.variable} font-sans`}>
-      
       <body>
-        <Header/>
+        <Header />
         {children}
-        <Prefooter/>
-        <Footer/>
+        <Prefooter />
+        <Footer />
       </body>
     </html>
   )
