@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import ContentPadding from '@/components/ui/ContentPadding'
 import SecundaryButton from '@/components/ui/SecundaryButton'
-import { IBlog } from '@/core/model/blog'
+import { IBlog } from '@/model/blog'
+import Image from 'next/image'
 import React from 'react'
 
 interface BlogProps {
@@ -19,7 +20,9 @@ const BlogList: React.FC<BlogProps> = ({ blogs }) => {
               className="rounded-lg border border-gray-200 bg-white shadow"
             >
               <a key={index} href="#" className="">
-                <img
+                <Image
+                  width={1080}
+                  height={1080}
                   key={index}
                   src={post.image}
                   alt="{post.image}"
@@ -65,7 +68,7 @@ const BlogList: React.FC<BlogProps> = ({ blogs }) => {
           )
         })}
       </div>
-      <SecundaryButton />
+      <SecundaryButton label="View More" />
     </ContentPadding>
   )
 }
