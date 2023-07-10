@@ -1,70 +1,67 @@
+import CustomDropdown from '@/components/CustomForm/CustomDropdown'
+import Row from '@/components/ui/Row'
+
 const CarFilters = () => {
   return (
     <div className="bg-white">
-      <div className="grid grid-cols-5 gap-6 mb-4">
-        
-        <select id="car-brand" className="form-select w-full py-2 px-4 bg-white  border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Brand</option>
-          <option value="toyota">Toyota</option>
-          <option value="honda">Honda</option>
-          <option value="ford">Ford</option>
-        </select>
-        <select id="car-model" className="form-select w-full py-2 px-4 bg-white border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Model</option>
-          <option value="corolla">Corolla</option>
-          <option value="civic">Civic</option>
-          <option value="focus">Focus</option>
-        </select>
-        <select id="car-year" className="form-select w-full py-2 px-4 bg-white border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Year</option>
-          <option value="2010">2010</option>
-          <option value="2015">2015</option>
-          <option value="2020">2020</option>
-        </select>
-        <select id="car-transmition" className="form-select w-full py-2 px-4 bg-white border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Transmission</option>
-          <option value="minibus">Minibus</option>
-          <option value="sedan">Sedan</option>
-          <option value="suv">SUV</option>
-        </select>
-        <select id="car-cilinder" className="form-select w-full py-2 px-4 bg-white border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Cilinder</option>
-          <option value="compact">Compacto</option>
-          <option value="midsize">Médio</option>
-          <option value="luxury">Luxo</option>
-        </select>
-        <select id="car-fuel" className="form-select w-full py-2 px-4 bg-white border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Fuel</option>
-          <option value="gasoline">Gasolina</option>
-          <option value="diesel">Diesel</option>
-          <option value="hybrid">Híbrido</option>
-        </select>
-        <select id="car-milage" className="form-select w-full py-2 px-4 bg-white  border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Kms</option>
-          <option value="10000">10,000</option>
-          <option value="50000">50,000</option>
-          <option value="100000">100,000</option>
-        </select>
-        <select id="car-seats" className="form-select w-full py-2 px-4 bg-white  border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Number of Seats</option>
-          <option value="10000">10,000</option>
-          <option value="50000">50,000</option>
-          <option value="100000">100,000</option>
-        </select>
-        <select id="car-doors" className="form-select w-full py-2 px-4 bg-white  border border-gray-300 focus:outline-none focus:border-primary">
-          <option value="">Doors</option>
-          <option value="10000">10,000</option>
-          <option value="50000">50,000</option>
-          <option value="100000">100,000</option>
-        </select>
+      <Row className="mb-4 grid-cols-5 gap-x-4 gap-y-0">
+        <CustomDropdown
+          className="py-2"
+          id="car-brand"
+          options={['Nissan', 'NIUI', 'Ford']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-model"
+          options={['Terra', 'Navara']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-year"
+          options={['2010', '2015', '2020']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-transmition"
+          options={['Automatic', 'Manual']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-cylinder"
+          options={['2', '4', '8']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-fuel"
+          options={['Diesel', 'Gasoline', 'Hybrid']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-seats"
+          options={['2', '4', '6']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-milage"
+          options={['120km', '180km', '220km']}
+        />
+        <CustomDropdown
+          className="py-2"
+          id="car-status"
+          options={['Used', 'New']}
+        />
+
         <div className="col-span-1 flex w-full items-center justify-end">
-          <button type="button" className=" w-full bg-primary text-white py-2 px-4  focus:outline-none hover:bg-blue-600">
+          <button
+            type="button"
+            className=" w-full bg-primary px-4 py-2 text-white  hover:bg-blue-600 focus:outline-none"
+          >
             Search
           </button>
         </div>
-      </div>
+      </Row>
     </div>
-  );
-};
+  )
+}
 
-export default CarFilters;
+export default CarFilters

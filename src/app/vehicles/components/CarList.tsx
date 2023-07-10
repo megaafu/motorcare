@@ -1,32 +1,30 @@
-"use client"
+'use client'
 
-import CardCarousel from '@/components/CardCarousel';
-import { Cars } from '@/data/cars';
-import React, { useEffect, useState } from 'react'
+import CardCarousel from '@/components/Card/CardCarousel'
+import { Cars } from '@/constants/cars'
 
 const CarList = () => {
-    // const [cars, setCars] = useState<ICar[]>([]);
+  // const [cars, setCars] = useState<ICar[]>([]);
 
-    // useEffect(() => {
-    // const fetchCars = async () => {
-    //     try {
-    //       const getAllCarsUseCase:IGetAllCarsUseCase = new GetAllCarsUseCase();
-    //       const carsData = await getAllCarsUseCase.execute();
-    //       setCars(carsData);
-    //     }catch (error) {
-    //     }
-    // };
+  // useEffect(() => {
+  // const fetchCars = async () => {
+  //     try {
+  //       const getAllCarsUseCase:IGetAllCarsUseCase = new GetAllCarsUseCase();
+  //       const carsData = await getAllCarsUseCase.execute();
+  //       setCars(carsData);
+  //     }catch (error) {
+  //     }
+  // };
 
-    // fetchCars();
-    // }, []);
+  // fetchCars();
+  // }, []);
 
   return (
-    <div className="grid lg:grid-cols-3 lg:gap-8">      
-    {Cars.cars.map((car, index) => (
+    <div className="grid lg:grid-cols-3 lg:gap-8">
+      {Cars.cars.map((car, index) => (
         <CardCarousel key={index} car={car} />
-      ))
-    }
-  </div>
+      ))}
+    </div>
   )
 }
 
