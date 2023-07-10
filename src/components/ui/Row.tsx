@@ -1,12 +1,16 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
-interface RowProps{
-    children:React.ReactNode
+interface RowProps {
+  className?: string
+  children: React.ReactNode
 }
-const Row:React.FC<RowProps> = ({children}) => {
+const Row: React.FC<RowProps> = ({ children, className }) => {
   return (
-    <div className="grid grid-cols-2 gap-12 justify-between">
-        {children}
+    <div
+      className={twMerge('grid grid-cols-2 justify-between gap-12', className)}
+    >
+      {children}
     </div>
   )
 }

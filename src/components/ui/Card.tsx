@@ -1,16 +1,14 @@
-"use client"
-import { motion } from 'framer-motion'
+'use client'
 import React from 'react'
 
-interface CardProps{
-  children:React.ReactNode
+interface CardProps {
+  children: React.ReactNode
 }
-const Card:React.FC<CardProps> = ({children}) => {
+const Card: React.FC<CardProps> = ({ children }) => {
   return (
-      <div className='max-w-md bg-white overflow-hidden'>
-          {children}
-      </div>
-
+    <div className="max-w-md overflow-hidden bg-white shadow-xl">
+      {children}
+    </div>
   )
 }
 

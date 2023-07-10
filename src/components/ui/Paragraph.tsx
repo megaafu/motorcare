@@ -1,15 +1,11 @@
 import React, { ReactNode } from 'react'
 
-interface ParagraphProps{
-    children:ReactNode
+interface ParagraphProps {
+  children: ReactNode
 }
 
-const Paragraph:React.FC<ParagraphProps> = ({children}) => {
-  return (
-    <p className='text-lg text-justify'>
-        {children}
-    </p>
-  )
+const Paragraph: React.FC<ParagraphProps> = ({ children }) => {
+  return <p className="text-justify text-lg">{children}</p>
 }
 
 export default Paragraph
