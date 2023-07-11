@@ -37,7 +37,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
     subMenuTimeoutRef.current = setTimeout(() => {
       setSelectedMenu('')
       setShowSubMenu(false)
-    }, 1000) // Adjust the delay as needed (in milliseconds)
+    }, 1000)
   }
 
   return (

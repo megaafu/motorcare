@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin } from '../icons/Icons'
 import Container from '../ui/Container'
 import PagePadding from '../ui/PagePadding'
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className=" w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
@@ -70,4 +70,4 @@ const footer = () => {
   )
 }
 
-export default footer
+export default Footer

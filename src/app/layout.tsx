@@ -1,8 +1,5 @@
 import localFont from 'next/font/local'
 import React from 'react'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
-import Prefooter from '../components/PreFooter/PreFooter'
 import './globals.css'
 
 const nissan = localFont({
@@ -38,12 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nissan.variable} font-sans`}>
-      <body>
-        <Header />
-        {children}
-        <Prefooter />
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

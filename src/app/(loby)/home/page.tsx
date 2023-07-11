@@ -37,7 +37,7 @@ export default async function Home() {
     <main>
       <div className=" bg-hero bg-cover bg-center bg-no-repeat">
         <Container>
-          <div className="relative h-[700px] lg:gap-8 lg:py-16 xl:gap-0">
+          <div className="relative h-[80vh] lg:gap-8 lg:py-16 xl:gap-0">
             <div className="absolute bottom-24 left-0 place-self-center ">
               <p className="max-w-2xl text-4xl  leading-none tracking-tight text-white md:text-5xl xl:text-6xl">
                 COMMITED TO MANUFACTURING EXCELLENCE

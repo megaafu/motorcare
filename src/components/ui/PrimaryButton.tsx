@@ -2,16 +2,25 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface PrimaryButtonPropos {
-  className?: string
+  onClick?: () => void
+  type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
   label: string
-  type?: any
+  className?: string
 }
 
 const PrimaryButton: React.FC<PrimaryButtonPropos> = ({
+  onClick,
   label,
-  type,
+  type = 'button',
+  disabled = false,
   className,
 }) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    }
+  }
   return (
     <button
       className={twMerge(
@@ -19,6 +28,8 @@ const PrimaryButton: React.FC<PrimaryButtonPropos> = ({
         className,
       )}
       type={type}
+      disabled={disabled}
+      onClick={handleClick}
     >
       {label}
       <svg

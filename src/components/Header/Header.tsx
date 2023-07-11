@@ -8,7 +8,7 @@ import MenuHeaderItem from './MenuHeaderItem'
 
 const Header: React.FC = () => {
   return (
-    <header className="absolute z-50 mt-11 w-full">
+    <header className="absolute z-20 mt-11 w-full">
       <nav className="border-gray-200 bg-white">
         <Container>
           <div className="flex flex-wrap items-center justify-between py-2">
