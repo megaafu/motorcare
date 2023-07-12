@@ -4,11 +4,11 @@ import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
 import ContentPadding from '@/components/ui/ContentPadding'
 import PagePadding from '@/components/ui/PagePadding'
+import Paragraph from '@/components/ui/Paragraph'
+import Row from '@/components/ui/Row'
 import { BrandsMenu } from '@/constants/menuData'
 import Image from 'next/image'
 import { useState } from 'react'
-import Paragraph from '../../../components/ui/Paragraph'
-import Row from '../../../components/ui/Row'
 import { AllBrands } from '../constants/brands'
 
 const NavBrands = () => {

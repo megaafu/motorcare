@@ -1,4 +1,4 @@
-import SubMenu from '@/components/SubMenu'
+import { Title } from '@/components/Title'
 import Container from '@/components/ui/Container'
 import ContentPadding from '@/components/ui/ContentPadding'
 import PagePadding from '@/components/ui/PagePadding'
@@ -16,7 +16,9 @@ export default function Requests(props: IAppProps) {
       <div className="h-[340px] w-full bg-request-hero bg-cover bg-no-repeat"></div>
       <Container>
         <PagePadding>
-          <SubMenu label="Quote Request" />
+          <Title.Root>
+            <Title.Label label="Quote Request" />
+          </Title.Root>
           <Row>
             <PeacesForm />
             <ContentPadding>
