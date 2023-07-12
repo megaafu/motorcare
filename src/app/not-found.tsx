@@ -22,10 +22,9 @@ export default function NotFound() {
                 please click here to go back home
               </Paragraph>
               <div className="mt-4 flex justify-start">
-                <PrimaryButton
-                  label="Back to Home"
-                  onClick={handleButtonClick}
-                />
+                <PrimaryButton onClick={handleButtonClick}>
+                  Back to Home
+                </PrimaryButton>
               </div>
             </div>
             <div className="flex justify-center gap-4 self-center">
