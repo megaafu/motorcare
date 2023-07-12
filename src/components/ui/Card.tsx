@@ -1,4 +1,5 @@
 'use client'
+import { cn } from '@/lib/util'
 import React from 'react'
 
 interface CardProps {
@@ -6,7 +7,7 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({ children }) => {
   return (
-    <div className="max-w-md overflow-hidden bg-white shadow-xl">
+    <div className={cn('max-w-md overflow-hidden bg-white shadow-xl')}>
       {children}
     </div>
   )
