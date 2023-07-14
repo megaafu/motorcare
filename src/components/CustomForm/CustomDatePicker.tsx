@@ -6,14 +6,11 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { Calendar } from '../icons/Icons'
 
 interface CustomDatePickerProps {
+  id: string
   label?: string
-  placeholder: string
 }
 
-const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
-  label,
-  placeholder,
-}) => {
+const CustomDatePicker: React.FC<CustomDatePickerProps> = ({ id, label }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
   const handleDateChange = (date: Date | null) => {
@@ -21,9 +18,12 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   }
   return (
     <div className="w-full pb-4">
-      <span className="text-md mb-2 block text-light-text">{label}</span>
+      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
+        {label}
+      </label>
       <div className="relative w-full">
         <DatePicker
+          id={id}
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="dd/MM/yyyy"

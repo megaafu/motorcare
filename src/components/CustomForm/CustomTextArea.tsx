@@ -13,7 +13,7 @@ const CustomTextArea: React.FC<TextAreaProps> = ({
 }) => {
   return (
     <div className="pb-8">
-      <label className="text-md mb-2 block text-light-text" htmlFor="name">
+      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>
       <textarea

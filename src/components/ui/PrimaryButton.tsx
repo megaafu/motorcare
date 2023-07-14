@@ -2,6 +2,7 @@ import { cn } from '@/lib/util'
 import React, { ReactNode } from 'react'
 
 interface PrimaryButtonPropos {
+  className?: string
   onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
@@ -9,6 +10,7 @@ interface PrimaryButtonPropos {
 }
 
 const PrimaryButton: React.FC<PrimaryButtonPropos> = ({
+  className,
   onClick,
   children,
   type = 'button',
@@ -23,6 +25,7 @@ const PrimaryButton: React.FC<PrimaryButtonPropos> = ({
     <button
       className={cn(
         'font-regular inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-lg text-white hover:bg-ancent ',
+        className,
       )}
       type={type}
       disabled={disabled}

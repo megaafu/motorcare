@@ -16,7 +16,9 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
 }) => {
   return (
     <div className="w-full pb-4">
-      <span className="text-md mb-2 block text-light-text">{label}</span>
+      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
+        {label}
+      </label>
       <select
         id={id}
         className={twMerge(
