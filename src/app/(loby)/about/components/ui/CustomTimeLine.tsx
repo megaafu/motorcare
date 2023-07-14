@@ -1,6 +1,6 @@
 'use client'
 
-import { Activities } from '../constants/timeline'
+import { Activities } from '../../constants/timeline'
 
 const CustomTimeLine = () => {
   return (

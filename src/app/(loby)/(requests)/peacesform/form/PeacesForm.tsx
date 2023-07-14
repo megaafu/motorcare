@@ -40,7 +40,7 @@ const PeacesForm = () => {
         placeholder="Enter Your Peace Description"
       />
       <div className="flex w-full justify-end">
-        <PrimaryButton label="send" type="submit" />
+        <PrimaryButton type="submit">Send</PrimaryButton>
       </div>
     </CustomForm.Root>
   )

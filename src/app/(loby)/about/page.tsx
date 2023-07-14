@@ -10,12 +10,12 @@ import Row from '@/components/ui/Row'
 import { AboutMenu, HistoryMenu, IsoMenu } from '@/constants/menuData'
 import Image from 'next/image'
 import { useState } from 'react'
-import CustomAccording from './components/According'
-import CustomTimeLine from './components/CustomTimeLine'
 import NavBrands from './components/NavBrands'
+import CustomAccording from './components/ui/According'
+import CustomTimeLine from './components/ui/CustomTimeLine'
 import { History, Holding, Iso } from './constants/data'
 
-function About() {
+export default function About() {
   const [selectedIndex, setIndex] = useState(0)
   const handleIndex = (index: number) => {
     setIndex(index)
@@ -102,7 +102,6 @@ function About() {
                 ))}
               </Title.Nav>
             </Title.Root>
-
             <ContentPadding>
               <Paragraph>{History.info}</Paragraph>
             </ContentPadding>
@@ -115,7 +114,6 @@ function About() {
           <Title.Root>
             <Title.Label label={IsoMenu.label} />
           </Title.Root>
-
           <ContentPadding>
             <Row>
               <div>
@@ -137,5 +135,3 @@ function About() {
     </main>
   )
 }
-
-export default About

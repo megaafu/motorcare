@@ -40,7 +40,7 @@ const QuoteForm = () => {
         placeholder="Enter Your Service Description"
       />
       <div className="flex w-full justify-end">
-        <PrimaryButton label="send" type="submit" />
+        <PrimaryButton type="submit">Send</PrimaryButton>
       </div>
     </CustomForm.Root>
   )

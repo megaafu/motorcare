@@ -20,8 +20,8 @@ const TestDriveForm = () => {
         placeholder="Enter Your Email"
       />
       <CustomForm.DatePicker
+        id="expiredDate"
         label="Drive Lincense Expired Date"
-        placeholder="Enter Drive Lincense Expired Date"
       />
       <CustomForm.FormField
         id="drivelincese"
@@ -39,7 +39,7 @@ const TestDriveForm = () => {
         placeholder="Enter Your Car Model"
       />
       <div className="flex w-full justify-end">
-        <PrimaryButton label="send" type="submit" />
+        <PrimaryButton type="submit">Send</PrimaryButton>
       </div>
     </CustomForm.Root>
   )

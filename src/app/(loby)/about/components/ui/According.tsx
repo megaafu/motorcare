@@ -1,13 +1,13 @@
 'use client'
 
 import {
-  Accordion,
-  AccordionBody,
-  AccordionHeader,
+    Accordion,
+    AccordionBody,
+    AccordionHeader,
 } from '@material-tailwind/react'
 import { Fragment, useState } from 'react'
-import { AllAcording } from '../constants/acordings'
-import Icon from './ui/Icon'
+import { AllAcording } from '../../constants/acordings'
+import Icon from './Icon'
 
 const CustomAccording = () => {
   const [open, setOpen] = useState(0)

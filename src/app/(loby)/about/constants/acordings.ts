@@ -23,7 +23,7 @@ const Vision: IAcordingItem = {
 
 const Values: IAcordingItem = {
   id: 2,
-  title: 'Vision',
+  title: 'Values',
   description: `Professionalism: Fact based and competent in everything we do. This is how we conduct our business and how we interact with each other.
                  Respect: Mutual respect between colleagues, partners, customers and other stakeholders we interact with is fundamental for us.
                  Honesty: We aim to conduct ourselves and business matters with the utmost honesty in all that we do, ensuring that we are reliable and honor our promises and commitments.
