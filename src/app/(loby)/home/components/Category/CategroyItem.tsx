@@ -1,89 +1,64 @@
-'use client'
-
-import ContentPadding from '@/components/ui/ContentPadding'
 import { ICar } from '@/model/Car'
-import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 interface CarItemProps {
-  index: number
+  carIndex: number
   car: ICar
 }
 
-const CategroyItem: React.FC<CarItemProps> = ({ index, car }) => {
-  const [hoveredIndex, setHoveredIndex] = useState(false)
+const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
+  const [isHovered, setIsHovered] = useState(false)
 
-  const handleMouseEnter = () => {
-    setHoveredIndex(true)
-  }
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(false)
-  }
   return (
-    <ContentPadding>
-      <div key={index} className="flex justify-center">
-        <a href="#">
-          <motion.img
-            onMouseEnter={() => handleMouseEnter()}
-            onMouseLeave={handleMouseLeave}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="mx-auto h-[240px]"
+    <div key={carIndex} className="flex">
+      <a href="#">
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="w- group relative h-[30vh] w-[75vw] lg:h-72 lg:w-80"
+        >
+          <Image
+            width={1080}
+            height={1080}
+            className=" h-3/4 w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
             src={car.imageUrl[0]}
             alt=""
           />
-          <p className="text-bold px-12 py-4 text-2xl">{car.model}</p>
-          <AnimatePresence>
-            {hoveredIndex === true && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="absolute  mx-auto w-60 bg-white"
-                onMouseEnter={() => handleMouseEnter()}
-                onMouseLeave={handleMouseLeave}
+          <p className="text-bold mt-4 text-2xl">{car.model}</p>
+          {isHovered && (
+            <div className="absolute bottom-0 left-0 right-0 hidden space-y-2 bg-transparent  group-hover:block">
+              <a
+                href="#"
+                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
               >
-                <div className="mb-2 bg-gray-300 p-2 text-center transition duration-200 ease-in-out hover:bg-primary hover:text-white">
-                  <motion.p
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  >
-                    EXPLORE
-                  </motion.p>
-                </div>
-                <div className="mb-2 bg-gray-300 p-2 text-center transition duration-200 ease-in-out hover:bg-primary hover:text-white">
-                  <motion.p
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  >
-                    BOOK A TEST DRIVE
-                  </motion.p>
-                </div>
-                <div className="mb-2 bg-gray-300 p-2 text-center transition duration-200 ease-in-out hover:bg-primary hover:text-white">
-                  <motion.p
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  >
-                    REQUEST A COTE
-                  </motion.p>
-                </div>
-                <div className="mb-2 bg-gray-300 p-2 text-center transition duration-500 ease-in-out hover:bg-primary hover:text-white">
-                  <motion.p
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  >
-                    MORE INFO
-                  </motion.p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </a>
-      </div>
-    </ContentPadding>
+                EXPLORE
+              </a>
+              <a
+                href="#"
+                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
+              >
+                BOOK A TEST DRIVE
+              </a>
+              <a
+                href="#"
+                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
+              >
+                REQUEST A QUOTE
+              </a>
+              <a
+                href="#"
+                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
+              >
+                MORE INFO
+              </a>
+            </div>
+          )}
+        </div>
+      </a>
+    </div>
   )
 }
 
-export default CategroyItem
+export default CategoryItem

@@ -1,6 +1,5 @@
 'use client'
 
-import { cn } from '@/lib/util'
 import React from 'react'
 interface TitleLabelProps {
   label: string
@@ -8,13 +7,9 @@ interface TitleLabelProps {
 
 const TitleLabel: React.FC<TitleLabelProps> = ({ label }) => {
   return (
-    <div>
-      <div className={cn('flex flex-wrap items-center justify-between')}>
-        <a href="#" className="flex items-center">
-          <p className="text-3xl text-primary">{label}</p>
-        </a>
-      </div>
-    </div>
+    <h2 className="log:font-medium w-full text-2xl font-bold text-primary lg:w-auto lg:text-3xl lg:font-normal">
+      {label}
+    </h2>
   )
 }
 

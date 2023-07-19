@@ -6,7 +6,7 @@ const Prefooter = () => {
   return (
     <div className=" w-full bg-primary">
       <Container>
-        <ul className="text-ligth flex justify-around py-6 md:text-lg lg:text-xl">
+        <ul className=" text-ligth flex flex-col gap-2 py-6 md:text-lg lg:flex-row lg:justify-around lg:text-xl">
           {links.map((link, index) => {
             return (
               <li key={index} className="flex  items-center">

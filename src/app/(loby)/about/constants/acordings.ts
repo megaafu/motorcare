@@ -9,20 +9,20 @@ interface IAcordings {
 }
 
 const Mission: IAcordingItem = {
-  id: 0,
+  id: 1,
   title: 'Mission',
   description: `To build a high performing environment where contributions of personnel, customers and business partners are respected. 
     Delivering a portfolio of brands and groundbreaking services to outperform our peers and deliver the highest value in the way we do business.`,
 }
 
 const Vision: IAcordingItem = {
-  id: 1,
+  id: 2,
   title: 'Vision',
   description: `To provide premier automotive solutions in emerging economies.`,
 }
 
 const Values: IAcordingItem = {
-  id: 2,
+  id: 3,
   title: 'Values',
   description: `Professionalism: Fact based and competent in everything we do. This is how we conduct our business and how we interact with each other.
                  Respect: Mutual respect between colleagues, partners, customers and other stakeholders we interact with is fundamental for us.

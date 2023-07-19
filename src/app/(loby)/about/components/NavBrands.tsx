@@ -2,7 +2,7 @@
 
 import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
-import ContentPadding from '@/components/ui/ContentPadding'
+import LateralScroll from '@/components/ui/LateralScolling'
 import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
@@ -21,7 +21,7 @@ const NavBrands = () => {
       <div id="Our Brands">
         <Title.Root>
           <Title.Label label={BrandsMenu.label} />
-          <Title.Nav>
+          <LateralScroll>
             {AllBrands.brands.map((nav, index) => (
               <TitleNavItem
                 key={nav.id}
@@ -30,28 +30,25 @@ const NavBrands = () => {
                 onClick={() => handleIndex(nav.id)}
               />
             ))}
-          </Title.Nav>
+          </LateralScroll>
         </Title.Root>
-
-        <ContentPadding>
-          <Row>
-            <div className="">
-              <h4 className="text-bold pb-4 text-2xl text-sky-700">
-                {AllBrands.brands[selectedIndex].brand}
-              </h4>
-              <Paragraph>{AllBrands.brands[selectedIndex].info}</Paragraph>
-            </div>
-            <div className="flex w-full items-center justify-center ">
-              <Image
-                width={1000}
-                height={1000}
-                className="w-[280px]"
-                src={AllBrands.brands[selectedIndex].img}
-                alt="img"
-              />
-            </div>
-          </Row>
-        </ContentPadding>
+        <Row className="sm:grid-cols-2">
+          <div className="">
+            <h4 className="text-bold pb-4 text-2xl text-sky-700">
+              {AllBrands.brands[selectedIndex].brand}
+            </h4>
+            <Paragraph>{AllBrands.brands[selectedIndex].info}</Paragraph>
+          </div>
+          <div className="flex w-full items-center justify-center ">
+            <Image
+              width={1000}
+              height={1000}
+              className="w-[280px]"
+              src={AllBrands.brands[selectedIndex].img}
+              alt="img"
+            />
+          </div>
+        </Row>
       </div>
     </PagePadding>
   )

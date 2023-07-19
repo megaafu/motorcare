@@ -8,7 +8,9 @@ const InformativeReport = () => {
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-md text-light-text">subscribe to our</span>
-            <span className="text-2xl text-white">Informative Report</span>
+            <span className="text-md text-white lg:text-2xl">
+              Informative Report
+            </span>
           </div>
           <Subscribe />
         </div>

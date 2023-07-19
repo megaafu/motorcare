@@ -1,5 +1,6 @@
 import CardCarousel from '@/components/Card/CardCarousel'
-import ContentPadding from '@/components/ui/ContentPadding'
+import LateralScroll from '@/components/ui/LateralScolling'
+import Row from '@/components/ui/Row'
 import { Cars } from '@/constants/cars'
 
 const CarsList = () => {
@@ -18,13 +19,18 @@ const CarsList = () => {
   // fetchCars();
   // }, []);
   return (
-    <ContentPadding>
-      <div className="grid grid-cols-3 gap-8">
+    <>
+      <Row className="hidden gap-8 lg:grid lg:grid-cols-3">
         {Cars.cars.slice(0, 3).map((car, index) => {
           return <CardCarousel key={index} car={car} />
         })}
-      </div>
-    </ContentPadding>
+      </Row>
+      <LateralScroll className="sm:hidden">
+        {Cars.cars.slice(0, 3).map((car, index) => {
+          return <CardCarousel key={index} car={car} />
+        })}
+      </LateralScroll>
+    </>
   )
 }
 

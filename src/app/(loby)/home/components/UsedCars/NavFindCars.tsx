@@ -2,6 +2,7 @@
 
 import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
+import PagePadding from '@/components/ui/PagePadding'
 import SecundaryButton from '@/components/ui/SecundaryButton'
 import { FindCarsMenu } from '@/constants/menuData'
 import { useState } from 'react'
@@ -14,7 +15,7 @@ const NavFindCars = () => {
   }
 
   return (
-    <>
+    <PagePadding>
       <Title.Root>
         <Title.Label label={FindCarsMenu.label} />
         <Title.Nav>
@@ -31,7 +32,7 @@ const NavFindCars = () => {
 
       <CarsList />
       <SecundaryButton label="View More" />
-    </>
+    </PagePadding>
   )
 }
 

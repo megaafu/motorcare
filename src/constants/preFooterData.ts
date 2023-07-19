@@ -1,9 +1,10 @@
 import { Car, Coins, Gear, Plus, User } from '@/components/icons/Icons'
+import { ElementType } from 'react'
 
 interface items {
   link: string
   label: string
-  icon: any
+  icon: ElementType
 }
 
 export const links: items[] = [

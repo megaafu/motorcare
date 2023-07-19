@@ -1,9 +1,9 @@
 'use client'
 
 import {
-    Accordion,
-    AccordionBody,
-    AccordionHeader,
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
 } from '@material-tailwind/react'
 import { Fragment, useState } from 'react'
 import { AllAcording } from '../../constants/acordings'
@@ -17,13 +17,13 @@ const CustomAccording = () => {
   }
   return (
     <Fragment>
-      {AllAcording.acordings.map((acording, index) => {
+      {AllAcording.acordings.map((acording) => {
         return (
           <Accordion
-            key={index}
+            key={acording.id}
             className="mb-4 bg-sky-100 px-8"
             open={open === acording.id}
-            icon={<Icon id={1} open={open} />}
+            icon={<Icon id={0} open={open} />}
           >
             <AccordionHeader
               className="text-bold text-xl text-black"

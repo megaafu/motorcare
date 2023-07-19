@@ -9,11 +9,11 @@ const Footer = () => {
     <div className=" w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
         <PagePadding>
-          <div className="flex justify-between gap-x-8 gap-y-4 ">
-            <div className=" place-self-center">
+          <div className="flex flex-wrap justify-between gap-x-8 gap-y-4 lg:flex-nowrap">
+            <div className="hidden lg:flex lg:place-self-center">
               <Image
-                width="0"
-                height="0"
+                width="1080"
+                height="1080"
                 src="/images/footer-logo.svg"
                 alt="MotorCare"
                 className="h-full w-full"
@@ -30,7 +30,7 @@ const Footer = () => {
                   )
                 })}
               </ul>
-              <div className="flex w-full gap-4 pt-4 text-white ">
+              <div className="hidden w-full gap-4 pt-4 text-white lg:flex ">
                 <a
                   href="http://www.linkedin.com/company/nissan-moçambique"
                   className="hover:text-secundary"
@@ -62,6 +62,26 @@ const Footer = () => {
                   )
                 })}
               </ul>
+            </div>
+            <div className=" flex w-full justify-center gap-2 text-white sm:hidden  ">
+              <a
+                href="http://www.linkedin.com/company/nissan-moçambique"
+                className="hover:text-secundary"
+              >
+                <Linkedin />
+              </a>
+              <a
+                href="http://www.facebook.com/motorcaremz"
+                className="hover:text-secundary"
+              >
+                <Facebook />
+              </a>
+              <a
+                href="http://www.instagram.com/motorcaremz"
+                className="hover:text-secundary"
+              >
+                <Instagram />
+              </a>
             </div>
           </div>
         </PagePadding>

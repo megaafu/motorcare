@@ -5,12 +5,12 @@ interface TitleRootProps {
 }
 const TitleRoot = ({ children }: TitleRootProps) => {
   return (
-    <>
-      <div className="flex flex-wrap items-center justify-between">
+    <div className="mb-8 lg:mb-10">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         {children}
       </div>
       <Divider />
-    </>
+    </div>
   )
 }
 

@@ -3,7 +3,6 @@
 import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
 import Container from '@/components/ui/Container'
-import ContentPadding from '@/components/ui/ContentPadding'
 import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
@@ -17,14 +16,18 @@ import { History, Holding, Iso } from './constants/data'
 
 export default function About() {
   const [selectedIndex, setIndex] = useState(0)
+
   const handleIndex = (index: number) => {
     setIndex(index)
   }
 
   return (
     <main>
+      {/* Hero section */}
       <div className="h-[360px] w-full bg-about-hero bg-cover bg-center bg-no-repeat"></div>
+
       <Container>
+        {/* Holding Info */}
         <PagePadding>
           <Title.Root>
             <Title.Label label={AboutMenu.label} />
@@ -39,56 +42,61 @@ export default function About() {
               ))}
             </Title.Nav>
           </Title.Root>
-          <ContentPadding>
-            <Row>
-              <div>
-                <Paragraph>{Holding.info}</Paragraph>
-              </div>
-              <div className="w-full items-center justify-center">
-                <Image
-                  width={1000}
-                  height={1000}
-                  className="h-full w-full rounded-2xl"
-                  src="/images/bg-hero.png"
-                  alt="img"
-                />
-              </div>
-            </Row>
-          </ContentPadding>
-          <ContentPadding>
-            <Row>
-              <div className=" relative h-[440px] w-full ">
-                <Image
-                  width={1000}
-                  height={1000}
-                  alt="img"
-                  src="/images/card-1.png"
-                  className=" shadow-blue-gray-900/50 absolute right-0  top-0 z-0 h-[240px] w-[380px] rounded-3xl border opacity-80 shadow-xl"
-                />
-                <Image
-                  width={1000}
-                  height={1000}
-                  alt="img"
-                  src="/images/card-2.png"
-                  className=" shadow-blue-gray-900/50 absolute bottom-32  left-0 z-10 h-[240px] w-[380px] rounded-3xl border opacity-90 shadow-xl"
-                />
-                <Image
-                  width={1000}
-                  height={1000}
-                  alt="img"
-                  src="/images/bg-about.png"
-                  className=" shadow-blue-gray-900/50 absolute bottom-0  right-16 z-20 h-[240px] w-[380px] rounded-3xl border shadow-xl"
-                />
-              </div>
-              <div className="">
-                <CustomAccording />
-              </div>
-            </Row>
-          </ContentPadding>
+          <Row className="sm:grid-cols-2">
+            <div>
+              <Paragraph>{Holding.info}</Paragraph>
+            </div>
+            <div className="hidden w-full items-center justify-center lg:flex">
+              <Image
+                width={1000}
+                height={1000}
+                className="h-full w-full rounded-2xl"
+                src="/images/bg-hero.png"
+                alt="img"
+              />
+            </div>
+          </Row>
         </PagePadding>
-        <NavBrands />
+
+        {/* According Section */}
         <PagePadding>
-          <div id="Our History">
+          <Row className="sm:grid-cols-2">
+            <div className=" hidden w-full lg:relative lg:flex lg:h-[440px] ">
+              {/* Image cards */}
+              <Image
+                width={1000}
+                height={1000}
+                alt="img"
+                src="/images/card-1.png"
+                className=" shadow-blue-gray-900/50 absolute right-0  top-0 z-0 h-[240px] w-[380px] rounded-3xl border opacity-80 shadow-xl"
+              />
+              <Image
+                width={1000}
+                height={1000}
+                alt="img"
+                src="/images/card-2.png"
+                className=" shadow-blue-gray-900/50 absolute bottom-32  left-0 z-10 h-[240px] w-[380px] rounded-3xl border opacity-90 shadow-xl"
+              />
+              <Image
+                width={1000}
+                height={1000}
+                alt="img"
+                src="/images/bg-about.png"
+                className=" shadow-blue-gray-900/50 absolute bottom-0  right-16 z-20 h-[240px] w-[380px] rounded-3xl border shadow-xl"
+              />
+            </div>
+            <div className="">
+              <CustomAccording />
+            </div>
+          </Row>
+        </PagePadding>
+
+        {/* NavBrands Section */}
+        <NavBrands />
+
+        {/* History Section */}
+        <PagePadding>
+          <div id="Our History" className="flex flex-col gap-8">
             <Title.Root>
               <Title.Label label={HistoryMenu.label} />
               <Title.Nav>
@@ -102,34 +110,30 @@ export default function About() {
                 ))}
               </Title.Nav>
             </Title.Root>
-            <ContentPadding>
-              <Paragraph>{History.info}</Paragraph>
-            </ContentPadding>
-            <ContentPadding>
-              <CustomTimeLine />
-            </ContentPadding>
+            <Paragraph>{History.info}</Paragraph>
+            <CustomTimeLine />
           </div>
         </PagePadding>
+
+        {/* Iso Section */}
         <PagePadding>
           <Title.Root>
             <Title.Label label={IsoMenu.label} />
           </Title.Root>
-          <ContentPadding>
-            <Row>
-              <div>
-                <Paragraph>{Iso.info}</Paragraph>
-              </div>
-              <div className="flex w-full items-center justify-center">
-                <Image
-                  width={1000}
-                  height={1000}
-                  className="w-64"
-                  src="/images/iso.png"
-                  alt="img"
-                />
-              </div>
-            </Row>
-          </ContentPadding>
+          <Row className="sm:grid-cols-2">
+            <div>
+              <Paragraph>{Iso.info}</Paragraph>
+            </div>
+            <div className="flex w-full items-center justify-center">
+              <Image
+                width={1000}
+                height={1000}
+                className="w-64"
+                src="/images/iso.png"
+                alt="img"
+              />
+            </div>
+          </Row>
         </PagePadding>
       </Container>
     </main>

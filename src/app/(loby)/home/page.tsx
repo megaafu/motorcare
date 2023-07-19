@@ -11,6 +11,7 @@ import NavFindCars from './components/UsedCars/NavFindCars'
 export default async function Home() {
   const blogPosts = [
     {
+      id: 1,
       title: 'Lorem Ipsum',
       date: '25/05/2022',
       image: '/images/post-1.png',
@@ -18,6 +19,7 @@ export default async function Home() {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
     },
     {
+      id: 2,
       title: 'Lorem Ipsum',
       date: '25/05/2022',
       image: '/images/post-2.png',
@@ -25,6 +27,7 @@ export default async function Home() {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
     },
     {
+      id: 3,
       title: 'Lorem Ipsum',
       date: '25/05/2022',
       image: '/images/post-2.png',
@@ -52,26 +55,24 @@ export default async function Home() {
         </Container>
       </div>
       <Container>
-        <PagePadding>
-          <NavCategories />
-        </PagePadding>
-        <PagePadding>
-          <Title.Root>
-            <Title.Label label={BrochureMenu.label} />
-          </Title.Root>
-          <BrochureList />
-        </PagePadding>
-        <PagePadding>
-          <NavFindCars />
-        </PagePadding>
+        <NavCategories />
+        <Title.Root>
+          <Title.Label label={BrochureMenu.label} />
+        </Title.Root>
+
+        <BrochureList />
+
+        <NavFindCars />
       </Container>
       <div className="w-full bg-informative bg-cover bg-center bg-no-repeat">
         <PagePadding>
           <Container>
-            <div className="flex items-center justify-between">
-              <div className="flex flex-col">
+            <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:justify-between">
+              <div className="flex w-full flex-col">
                 <span className="text-md text-gray-300">subscribe to our</span>
-                <span className="text-2xl text-white">Informative Report</span>
+                <span className=" text-xl text-white lg:text-2xl">
+                  Informative Report
+                </span>
               </div>
               <Subscribe />
             </div>
@@ -79,9 +80,7 @@ export default async function Home() {
         </PagePadding>
       </div>
       <Container>
-        <PagePadding>
-          <NavBlogs blogs={blogPosts} />
-        </PagePadding>
+        <NavBlogs blogs={blogPosts} />
       </Container>
     </main>
   )

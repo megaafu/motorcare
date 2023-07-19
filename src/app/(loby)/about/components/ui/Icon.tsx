@@ -9,8 +9,8 @@ const Icon: React.FC<IconProps> = ({ id, open }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={`${
-        id === open ? 'rotate-180' : ''
-      } h-5 w-5 transition-transform`}
+        id === open ? 'rotate-[-90deg]' : ''
+      } h-5 w-5  transition-transform duration-500`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"

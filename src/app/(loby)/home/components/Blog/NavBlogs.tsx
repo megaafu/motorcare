@@ -2,6 +2,7 @@
 
 import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
+import PagePadding from '@/components/ui/PagePadding'
 import { BlogMenu } from '@/constants/menuData'
 import { IBlog } from '@/model/blog'
 import React, { useState } from 'react'
@@ -12,13 +13,14 @@ interface NavBlogsProps {
 }
 
 const NavBlogs: React.FC<NavBlogsProps> = ({ blogs }) => {
-  const [selectedIndex, setIndex] = useState(0)
-  const handleIndex = (index: number) => {
-    setIndex(index)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handleNavItemClick = (index: number) => {
+    setActiveIndex(index)
   }
 
   return (
-    <>
+    <PagePadding>
       <Title.Root>
         <Title.Label label={BlogMenu.label} />
         <Title.Nav>
@@ -26,15 +28,15 @@ const NavBlogs: React.FC<NavBlogsProps> = ({ blogs }) => {
             <TitleNavItem
               key={nav}
               label={nav}
-              isActive={selectedIndex === index}
-              onClick={() => handleIndex(index)}
+              isActive={activeIndex === index}
+              onClick={() => handleNavItemClick(index)}
             />
           ))}
         </Title.Nav>
       </Title.Root>
 
       <BlogList blogs={blogs} />
-    </>
+    </PagePadding>
   )
 }
 

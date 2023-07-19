@@ -10,7 +10,7 @@ type BrochureItemProps = {
 
 const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
   return (
-    <div id="Sedan" className="relative mx-auto h-[640px] max-w-screen-xl ">
+    <div id={car.id} className="relative h-[44vh] lg:h-[640px]">
       <Carousel
         autoPlay={true}
         showThumbs={false}
@@ -32,24 +32,28 @@ const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
               height={1080}
               src={image}
               alt={`Image ${index}`}
-              className="h-[520px] rounded-t-lg"
+              className="h-[38vh] rounded-t-lg lg:h-[520px]"
             />
           </div>
         ))}
       </Carousel>
-      <div className="px-8">
-        <p className="absolute bottom-8 left-8 text-4xl ">{car.carname}</p>
-      </div>
-      <div className="absolute bottom-0 right-0 place-self-center">
-        <a
-          href="#"
-          className="flex gap-4 self-center p-4 transition duration-300 hover:text-secundary"
-        >
-          <span className="text-xl md:text-xl xl:text-2xl">
-            Download Brochure
-          </span>
-          <Download />
-        </a>
+
+      <div className="px-8"></div>
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="flex justify-between">
+          <p className="text-xl lg:text-4xl">{car.carname}</p>
+          <div>
+            <a
+              href="#"
+              className="flex gap-2 transition duration-300 hover:text-secundary"
+            >
+              <span className="text-md md:text-xl xl:text-2xl">
+                Download {car.carname} Brochure
+              </span>
+              <Download className="mt-1 h-4 w-4 lg:h-6 lg:w-6" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )

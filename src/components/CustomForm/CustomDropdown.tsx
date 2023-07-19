@@ -15,7 +15,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   className,
 }) => {
   return (
-    <div className="w-full pb-4">
+    <div className="w-full">
       <label className="text-md mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>

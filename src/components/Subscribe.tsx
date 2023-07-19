@@ -1,11 +1,8 @@
 const Subscribe = () => {
   return (
     <form action="#">
-      <div className="flex w-[560px] space-y-0">
+      <div className="flex space-y-0 md:w-[560px]">
         <div className="relative w-full">
-          <label className="mb-2 hidden text-sm font-medium text-light-text">
-            Email address
-          </label>
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <svg
               className="h-5 w-5 text-light-text"
@@ -18,16 +15,21 @@ const Subscribe = () => {
             </svg>
           </div>
           <input
-            className="focus:ring-primary-500 focus:border-primary-500 w-full rounded-lg border border-gray-300 bg-gray-50 p-3 pl-10 text-lg text-light-text sm:rounded-none sm:rounded-l-lg "
+            className="focus:ring-primary-500 focus:border-primary-500 w-full  rounded-none rounded-l-lg border-gray-300 bg-gray-50 p-3 pl-10 text-lg text-light-text"
             placeholder="Enter your email"
             type="email"
             id="email"
+            name="email" // Add name attribute for better form handling
+            required // Add required attribute for HTML5 form validation
           />
+          <label htmlFor="email" className="sr-only">
+            Email Address
+          </label>
         </div>
         <div>
           <button
             type="submit"
-            className="w-full cursor-pointer rounded-lg border bg-primary px-5 py-3 text-center text-lg text-white hover:bg-ancent sm:rounded-none sm:rounded-r-lg"
+            className="hover:bg-accent cursor-pointer rounded-none rounded-r-lg bg-primary px-5 py-3 text-center text-lg text-white"
           >
             Subscribe
           </button>

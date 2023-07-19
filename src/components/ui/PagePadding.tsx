@@ -4,7 +4,7 @@ interface PagePaddingProps {
   children: React.ReactNode
 }
 const PagePadding: React.FC<PagePaddingProps> = ({ children }) => {
-  return <div className="py-10">{children}</div>
+  return <div className="py-2 md:py-4 lg:py-10">{children}</div>
 }
 
 export default PagePadding
