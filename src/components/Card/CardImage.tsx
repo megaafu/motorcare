@@ -1,10 +1,9 @@
-import Image from 'next/image'
 const CardImage = ({ image }: { image: string }) => {
   return (
-    <Image
+    <img
       width={1080}
       height={1080}
-      src={image}
+      src={`https://cbf3-160-242-34-30.ngrok-free.app/public/${image}`}
       alt={`Image ${image}`}
       className="h-1/2 w-full rounded-t-lg"
     />

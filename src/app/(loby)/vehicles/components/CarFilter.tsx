@@ -7,7 +7,7 @@ const CarFilters = () => {
     <div className="bg-white">
       {/* Car Filters Form */}
       <form>
-        <Row className="mb-4 grid-cols-3 gap-x-4 gap-y-0 lg:grid-cols-5">
+        <Row className="grid-cols-3 gap-x-4 gap-y-0 lg:grid-cols-5">
           {/* Car Brand Dropdown */}
           <CustomDropdown
             className="py-2"
@@ -64,7 +64,7 @@ const CarFilters = () => {
           />
 
           {/* Search Button */}
-          <div className="col-span-3 mt-4 flex w-full items-center justify-end  lg:col-span-1">
+          <div className="col-span-3 mt-4 flex w-full items-center justify-end lg:col-span-1  lg:mt-0">
             <PrimaryButton className="w-full justify-center">
               Search
             </PrimaryButton>

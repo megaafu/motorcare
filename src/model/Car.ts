@@ -8,7 +8,7 @@ export interface ICar {
   cilinder: string
   fuel: string
   mileage: string
-  imageUrl: string[]
+  car_image: string
   price: string
   transmission: string
   color: string

@@ -27,7 +27,7 @@ export default function Error({
                   Refresh
                   <Refresh />
                 </PrimaryButton>
-                <PrimaryButton className=" border border-primary bg-transparent text-primary">
+                <PrimaryButton className="whitespace-nowrap border border-primary bg-transparent text-primary">
                   Go Home
                 </PrimaryButton>
               </div>

@@ -15,9 +15,7 @@ export default async function UsedCars() {
           </Title.Root>
           <CarFilter />
         </PagePadding>
-        <PagePadding>
-          <CarList />
-        </PagePadding>
+        <CarList />
       </Container>
     </main>
   )

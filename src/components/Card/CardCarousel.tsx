@@ -5,10 +5,10 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CardDescription from './CardDescription'
+import CardImage from './CardImage'
 import CardRoot from './CardRoot'
 import CardSub from './CardSub'
 import CardTitle from './CardTitle'
-import ImageCarousel from './ImageCarousel'
 
 interface CardCarouselProps {
   className?: string
@@ -25,7 +25,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
   return (
     <motion.div onHoverStart={handleAutoPlay} onHoverEnd={handleAutoPlay}>
       <CardRoot className={className}>
-        <ImageCarousel autoPlay={autoPlay} images={car.imageUrl} />
+        <CardImage image={car.car_image} />
         <div className="px-4 py-6">
           <CardTitle>{car.carname}</CardTitle>
           <CardDescription>

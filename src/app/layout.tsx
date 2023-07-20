@@ -1,3 +1,4 @@
+import Provider from '@/util/provider'
 import localFont from 'next/font/local'
 import React from 'react'
 import './globals.css'
@@ -34,8 +35,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${nissan.variable} font-sans`}>
-      <body>{children}</body>
-    </html>
+    <Provider>
+      <html lang="en" className={`${nissan.variable} font-sans`}>
+        <body>{children}</body>
+      </html>
+    </Provider>
   )
 }
