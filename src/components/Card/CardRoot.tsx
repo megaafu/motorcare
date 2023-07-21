@@ -8,7 +8,7 @@ const CardRoot = ({ children, className }: CardProps) => {
   return (
     <div
       className={cn(
-        'h-auto w-[80vw] rounded-lg border border-gray-200 bg-white shadow lg:w-auto',
+        'h-auto w-[80vw]  rounded-lg border border-gray-200   shadow  lg:w-auto',
         className,
       )}
     >

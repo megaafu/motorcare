@@ -20,10 +20,13 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
           className="w- group relative h-[30vh] w-[75vw] lg:h-72 lg:w-80"
         >
           <Image
+            loader={() =>
+              `http://localhost:8000/${JSON.parse(car.car_image)[0]}`
+            }
             width={1080}
             height={1080}
             className=" h-3/4 w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
-            src={car.imageUrl[0]}
+            src={`http://localhost:8000/${car.car_image[0]}`}
             alt=""
           />
           <p className="text-bold mt-4 text-2xl">{car.model}</p>

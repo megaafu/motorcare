@@ -128,8 +128,8 @@ export default function About() {
               <Image
                 width={1000}
                 height={1000}
-                className="w-64"
-                src="/images/iso.png"
+                className=" h-fit bg-cover"
+                src="/images/iso.jpg"
                 alt="img"
               />
             </div>

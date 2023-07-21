@@ -5,10 +5,10 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CardDescription from './CardDescription'
-import CardImage from './CardImage'
 import CardRoot from './CardRoot'
 import CardSub from './CardSub'
 import CardTitle from './CardTitle'
+import ImageCarousel from './ImageCarousel'
 
 interface CardCarouselProps {
   className?: string
@@ -22,14 +22,20 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
       return (oldAutoPlay = !oldAutoPlay)
     })
   }
+  const images: string[] = JSON.parse(car.car_image)
   return (
     <motion.div onHoverStart={handleAutoPlay} onHoverEnd={handleAutoPlay}>
       <CardRoot className={className}>
-        <CardImage image={car.car_image} />
+        <ImageCarousel
+          images={images}
+          autoPlay={autoPlay}
+          interval={1500}
+          transitionTime={2000}
+        />
         <div className="px-4 py-6">
-          <CardTitle>{car.carname}</CardTitle>
+          <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
           <CardDescription>
-            <p className="text-md text-gray-700 lg:text-lg">{car.year}</p>
+            <p className="text-md text-gray-700 lg:text-lg">{car.year_model}</p>
             <p className="text-md text-red-500 lg:text-lg">{car.price}</p>
           </CardDescription>
           <hr className="border-1 border-[#272424]" />

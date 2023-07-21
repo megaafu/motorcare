@@ -1,16 +1,18 @@
 import { Download } from '@/components/icons/Icons'
 import { ICar } from '@/model/Car'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { Carousel } from 'react-responsive-carousel'
 
 type BrochureItemProps = {
   car: ICar
 }
-
 const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
+  const images: string[] = JSON.parse(car.car_image)
+
   return (
-    <div id={car.id} className="relative h-[44vh] lg:h-[640px]">
+    <div id={car.id} className="relative h-[44vh] lg:h-[65vh]">
       <Carousel
         autoPlay={true}
         showThumbs={false}
@@ -25,33 +27,34 @@ const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
         interval={3000}
         transitionTime={3000}
       >
-        {car.imageUrl.map((image, index) => (
+        {images.map((image, index) => (
           <div key={index} className="w-full">
             <Image
+              loader={() => `http://localhost:8000/${image}`}
               width={1080}
               height={1080}
-              src={image}
+              src={`http://localhost:8000/${image}`}
               alt={`Image ${index}`}
-              className="h-[38vh] rounded-t-lg lg:h-[520px]"
+              className="h-[40vh] rounded-t-lg lg:h-[60vh]"
             />
           </div>
         ))}
       </Carousel>
-
       <div className="px-8"></div>
       <div className="absolute bottom-0 left-0 right-0">
-        <div className="flex justify-between">
-          <p className="text-xl lg:text-4xl">{car.carname}</p>
+        <div className="flex justify-end lg:justify-between">
+          <p className="hidden text-xl lg:flex lg:text-4xl">{`${car.brand} ${car.model}`}</p>
           <div>
-            <a
-              href="#"
+            <Link
+              target="_blank"
+              href={`http://localhost:8000/${car.brochura}`}
               className="flex gap-2 transition duration-300 hover:text-secundary"
             >
               <span className="text-md md:text-xl xl:text-2xl">
-                Download {car.carname} Brochure
+                Download Brochure
               </span>
               <Download className="mt-1 h-4 w-4 lg:h-6 lg:w-6" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

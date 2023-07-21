@@ -1,17 +1,19 @@
 export interface ICar {
   id: string
-  carname: string
-  brand: string
   model: string
-  year: string
+  license_plate: string
+  year_model: number
+  mileage: number
+  seats: number
   doors: number
-  cilinder: string
-  fuel: string
-  mileage: string
-  car_image: string
-  price: string
   transmission: string
+  brand: string
+  car_image: string
+  brochura: string
+  cilinder: number
+  fuel: string
   color: string
-  sits: number
-  category: string
+  price: string
+  type: string
+  status: string
 }

@@ -1,11 +1,21 @@
+import { cn } from '@/lib/util'
 import Image from 'next/image'
 import { Carousel } from 'react-responsive-carousel'
 interface ImageCarouselProps {
+  className?: string
+  interval: number
+  transitionTime: number
   images: string[]
   autoPlay: boolean
 }
 
-const ImageCarousel = ({ images, autoPlay }: ImageCarouselProps) => {
+const ImageCarousel = ({
+  images,
+  autoPlay,
+  interval,
+  transitionTime,
+  className,
+}: ImageCarouselProps) => {
   return (
     <Carousel
       autoPlay={autoPlay}
@@ -18,8 +28,8 @@ const ImageCarousel = ({ images, autoPlay }: ImageCarouselProps) => {
       stopOnHover={false}
       swipeable={true}
       emulateTouch={true}
-      interval={1500}
-      transitionTime={1000}
+      interval={interval}
+      transitionTime={transitionTime}
     >
       {images.map((image, index) => (
         <div
@@ -28,11 +38,13 @@ const ImageCarousel = ({ images, autoPlay }: ImageCarouselProps) => {
           style={{ background: '#ccc' }}
         >
           <Image
+            loader={() => `http://localhost:8000/${image}`}
             width={1080}
             height={1080}
-            src={image}
+            quality={100}
+            src={`http://localhost:8000/${image}`}
             alt={`Image ${index}`}
-            className="h-full w-full rounded-t-lg"
+            className={cn('h-full w-full rounded-t-lg bg-cover', className)}
           />
         </div>
       ))}
