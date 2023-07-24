@@ -1,3 +1,4 @@
+import { BASEURL } from '@/lib/util'
 import { ICar } from '@/model/Car'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -21,14 +22,15 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
         >
           <Image
             loader={() =>
-              `http://localhost:8000/${JSON.parse(car.car_image)[0]}`
+              `${BASEURL}${JSON.parse(car.car_image)[0]}`
             }
             width={1080}
             height={1080}
             className=" h-3/4 w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
-            src={`http://localhost:8000/${car.car_image[0]}`}
+            src={`${BASEURL}${car.car_image[0]}`}
             alt=""
           />
+          
           <p className="text-bold mt-4 text-2xl">{car.model}</p>
           {isHovered && (
             <div className="absolute bottom-0 left-0 right-0 hidden space-y-2 bg-transparent  group-hover:block">

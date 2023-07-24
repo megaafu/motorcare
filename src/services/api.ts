@@ -1,6 +1,7 @@
+import { BASEURL } from '@/lib/util'
 import axios from 'axios'
 
-const baseUrl = 'https://api.champier.co.mz/api/v1'
+const baseUrl = BASEURL+'api/v1'
 const api = axios.create({
   baseURL: baseUrl,
   headers: {

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import BlogCard from '@/components/Card/BlogCard'
-import LateralScroll from '@/components/ui/LateralScolling'
+import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import SecundaryButton from '@/components/ui/SecundaryButton'
 import useBlogs from '@/hooks/use-blogs'

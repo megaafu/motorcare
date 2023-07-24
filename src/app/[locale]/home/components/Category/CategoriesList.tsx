@@ -1,4 +1,4 @@
-import LateralScroll from '@/components/ui/LateralScolling'
+import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import useVehicles from '@/hooks/use-vehicles'
 import React from 'react'

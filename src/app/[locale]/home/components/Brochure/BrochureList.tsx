@@ -1,9 +1,11 @@
 'use client'
 
-import LateralScroll from '@/components/ui/LateralScolling'
+import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import SecundaryButton from '@/components/ui/SecundaryButton'
+import VerticalScroll from '@/components/ui/VerticalScroll'
 import useVehicles from '@/hooks/use-vehicles'
+import { BASEURL } from '@/lib/util'
 import Image from 'next/image'
 import { useState } from 'react'
 import BrochureItem from './BrochureItem'
@@ -14,12 +16,13 @@ const BrochureList = () => {
   const handleIndex = (index: number) => {
     setIndex(index)
   }
+  console.log(data)
   return (
     <>
       {data ? (
         <>
-            <Row className="grid-col-1  gap-8 lg:h-[640px] lg:grid-cols-3">
-              <div className="hidden flex-col justify-between overflow-y-hidden hover:overflow-y-auto lg:flex">
+            <Row className="grid-col-1  gap-8 lg:h-[65vh] lg:grid-cols-3">
+              <VerticalScroll className="hidden lg:flex">
                 {data.map((car, index) => {
                   return (
                     <div
@@ -29,14 +32,14 @@ const BrochureList = () => {
                     >
                       <Image
                         loader={() =>
-                          `http://localhost:8000/${
+                          `${BASEURL}${
                             JSON.parse(car.car_image)[0]
                           }`
                         }
                         width={1080}
                         height={1080}
                         className="max-w-xs"
-                        src={`http://localhost:8000/${
+                        src={`${BASEURL}${
                           JSON.parse(car.car_image)[0]
                         }`}
                         alt=""
@@ -44,7 +47,7 @@ const BrochureList = () => {
                     </div>
                   )
                 })}
-              </div>
+              </VerticalScroll>
               <LateralScroll className="col-span-2  sm:hidden">
                 {data.map((car, index) => (
                   <div

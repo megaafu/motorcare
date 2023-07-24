@@ -1,4 +1,4 @@
-import { cn } from '@/lib/util'
+import { BASEURL, cn } from '@/lib/util'
 import Image from 'next/image'
 import { Carousel } from 'react-responsive-carousel'
 interface ImageCarouselProps {
@@ -38,11 +38,11 @@ const ImageCarousel = ({
           style={{ background: '#ccc' }}
         >
           <Image
-            loader={() => `http://localhost:8000/${image}`}
+            loader={() => `${BASEURL}${image}`}
             width={1080}
             height={1080}
             quality={100}
-            src={`http://localhost:8000/${image}`}
+            src={`${BASEURL}${image}`}
             alt={`Image ${index}`}
             className={cn('h-full w-full rounded-t-lg bg-cover', className)}
           />

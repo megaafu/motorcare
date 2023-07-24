@@ -1,12 +1,14 @@
+import { BASEURL } from '@/lib/util'
 import Image from 'next/image'
 const CardImage = ({ image }: { image: string }) => {
+  console.log(image)
   return (
     <Image
-      loader={() => `http://localhost:8000/${image}`}
+      loader={() => `${BASEURL}${image}`}
       width={1080}
       height={1080}
       quality={100}
-      src={`http://localhost:8000/${image}`}
+      src={`${BASEURL}${image}`}
       alt={`Image ${image}`}
       className="h-fit w-full rounded-t-lg lg:bg-cover"
     />

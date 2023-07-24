@@ -1,4 +1,5 @@
 import { Download } from '@/components/icons/Icons'
+import { BASEURL } from '@/lib/util'
 import { ICar } from '@/model/Car'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,7 +13,7 @@ const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
   const images: string[] = JSON.parse(car.car_image)
 
   return (
-    <div id={car.id} className="relative h-[44vh] lg:h-[65vh]">
+    <div id={car.id} className="relative h-[45vh] lg:h-[65vh]">
       <Carousel
         autoPlay={true}
         showThumbs={false}
@@ -30,10 +31,10 @@ const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
         {images.map((image, index) => (
           <div key={index} className="w-full">
             <Image
-              loader={() => `http://localhost:8000/${image}`}
+              loader={() => `${BASEURL}${image}`}
               width={1080}
               height={1080}
-              src={`http://localhost:8000/${image}`}
+              src={`${BASEURL}${image}`}
               alt={`Image ${index}`}
               className="h-[40vh] rounded-t-lg lg:h-[60vh]"
             />
@@ -47,7 +48,7 @@ const BrochureItem: React.FC<BrochureItemProps> = ({ car }) => {
           <div>
             <Link
               target="_blank"
-              href={`http://localhost:8000/${car.brochura}`}
+              href={`${BASEURL}${car.brochura}`}
               className="flex gap-2 transition duration-300 hover:text-secundary"
             >
               <span className="text-md md:text-xl xl:text-2xl">

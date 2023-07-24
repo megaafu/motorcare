@@ -4,3 +4,4 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+export const BASEURL = "https://api.champier.co.mz/"

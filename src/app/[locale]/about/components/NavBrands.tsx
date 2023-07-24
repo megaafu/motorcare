@@ -2,7 +2,7 @@
 
 import { Title } from '@/components/Title'
 import TitleNavItem from '@/components/Title/TitleNavItem'
-import LateralScroll from '@/components/ui/LateralScolling'
+import LateralScroll from '@/components/ui/LateralScoll'
 import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
