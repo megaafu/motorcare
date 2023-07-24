@@ -32,7 +32,7 @@ export const menu: IMenu[] = [
   },
   {
     label: 'contact',
-    url: '/',
+    url: '/dealer',
     subMenu: ['find_dealer', 'complains'],
   },
 ]
