@@ -18,12 +18,12 @@ export const menu: IMenu[] = [
   {
     label: 'vehicles',
     url: '/vehicles',
-    subMenu: ['New', 'Pre-Owned', 'Trucks', 'Scooter'],
+    subMenu: ['new', 'pre_owned', 'trucks', 'scooter'],
   },
   {
     label: 'parts_accesories',
     url: '/',
-    subMenu: ['parts', 'tires', 'accessories'],
+    subMenu: ['parts', 'tires', 'acessories'],
   },
   {
     label: 'services',
