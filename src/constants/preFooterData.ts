@@ -10,27 +10,27 @@ interface items {
 export const links: items[] = [
   {
     link: '/peacesform',
-    label: 'Get a Quote',
+    label: 'quote',
     icon: Coins,
   },
   {
     link: '/testdriveform',
-    label: 'Book a Test-Drive',
+    label: 'test_drive',
     icon: Car,
   },
   {
     link: '/serviceform',
-    label: 'Book a Service',
+    label: 'service',
     icon: Gear,
   },
   {
     link: '/requests/',
-    label: 'Learn More',
+    label: 'learn_more',
     icon: Plus,
   },
   {
     link: '/requests/',
-    label: 'Contact Us',
+    label: 'contacts',
     icon: User,
   },
 ]

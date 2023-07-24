@@ -1,8 +1,12 @@
+"use client"
 import { links } from '@/constants/preFooterData'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import Container from '../ui/Container'
 
 const Prefooter = () => {
+  const t = useTranslations("PreFooter")
+  const locale = useLocale()
   return (
     <div className=" w-full bg-primary">
       <Container>
@@ -11,11 +15,11 @@ const Prefooter = () => {
             return (
               <li key={index} className="flex  items-center">
                 <Link
-                  href={link.link}
+                  href={`${locale}${link.link}`}
                   className="color flex items-center gap-4 text-white transition duration-300 hover:text-secundary"
                 >
                   {<link.icon />}
-                  <span>{link.label}</span>
+                  <span>{t(link.label)}</span>
                 </Link>
               </li>
             )

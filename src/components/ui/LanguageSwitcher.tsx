@@ -1,32 +1,35 @@
 'use client'
-import { useState } from 'react'
-import { Globe } from '../icons/Icons'
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { Globe } from '../icons/Icons';
 
-const languageOptions = [
-  { code: 'EN', label: 'EN' },
-  { code: 'PT', label: 'PT' },
-]
+const languageOptions = ['en','pt']
 
 const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('EN')
+  const [selectedOption, setSelectedOption] = useState(languageOptions[1])
 
   const handleButtonClick = () => {
+    
     setIsOpen(!isOpen)
   }
-
+  
   const handleOptionClick = (option: string) => {
     setSelectedOption(option)
     setIsOpen(false)
   }
-
+  const pathName = usePathname()
+  const locale = useLocale()
   const DropdownOption = ({ option }: { option: string }) => (
-    <button
+    <Link
+      href={`${option}/${pathName.replace("/"+locale, "")}`}
       className="absolute left-0 top-full z-10 rounded-xl border bg-white px-8 py-2 text-lg shadow-md shadow-black hover:text-primary"
       onClick={() => handleOptionClick(option)}
     >
       {option}
-    </button>
+    </Link>
   )
 
   return (
@@ -44,12 +47,12 @@ const LanguageSwitcher = () => {
         <div className="flex justify-evenly gap-5 border-light-text">
           {languageOptions.map((option) => (
             <button
-              key={option.code}
+              key={option}
               className="text-lg text-light-text hover:text-primary"
-              onClick={() => handleOptionClick(option.code)}
-              aria-label={`Select ${option.label} Language`}
+              onClick={() => handleOptionClick(option)}
+              aria-label={`Select ${option} Language`}
             >
-              {option.label}
+              {option}
             </button>
           ))}
         </div>
@@ -71,8 +74,8 @@ const LanguageSwitcher = () => {
           <div className="relative block">
             {languageOptions.map(
               (option) =>
-                option.code !== selectedOption && (
-                  <DropdownOption key={option.code} option={option.code} />
+                option !== selectedOption && (
+                  <DropdownOption key={option} option={option} />
                 ),
             )}
           </div>

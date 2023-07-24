@@ -6,7 +6,7 @@ interface TitleRootProps {
 const TitleRoot = ({ children }: TitleRootProps) => {
   return (
     <div className="mb-8 lg:mb-10">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 my-auto lg:flex-nowrap">
         {children}
       </div>
       <Divider />

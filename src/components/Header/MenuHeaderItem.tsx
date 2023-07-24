@@ -1,5 +1,6 @@
 'use client'
 import classNames from 'classnames'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
@@ -10,24 +11,29 @@ interface MenuItem {
   label: string
   url: string
   subMenu: string[]
+ 
 }
 
 interface MenuProps {
   menu: MenuItem[]
+  
 }
 
-const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
+const MenuHeaderItem: React.FC<MenuProps> = ({ menu}) => {
+ 
   const pathName = usePathname()
   const [selectedMenuIndex, setSelectedMenuIndex] = useState<number>(-1)
 
   const handleArrowClick = (index: number) => {
     setSelectedMenuIndex((prevIndex) => (prevIndex === index ? -1 : index))
   }
-
+  const t= useTranslations('Header')
+  const locale = useLocale()
+  
   return (
     <ul className="relative mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
       {menu.map(({ label, url, subMenu }, index) => {
-        const isActive = pathName === url
+        const isActive = pathName === "/"+locale+url
         const hasSubMenu = subMenu.length > 0
         const menuItemClasses = classNames(
           'group',
@@ -44,8 +50,8 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
             {hasSubMenu ? (
               <div className={menuItemClasses}>
                 <span className="mr-4 cursor-pointer">
-                  <Link onClick={() => handleArrowClick(-1)} href={url}>
-                    {label}
+                  <Link onClick={() => handleArrowClick(-1)} href={`${locale}${url}`}>
+                    {t(label)}
                   </Link>
                 </span>
                 {isActive && (
@@ -65,9 +71,9 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
                 </span>
               </div>
             ) : (
-              <Link href={url} onClick={() => handleArrowClick(-1)}>
+              <Link href={`${locale}${url}`} onClick={() => handleArrowClick(-1)}>
                 <div className={menuItemClasses}>
-                  <span className="mr-4 cursor-pointer">{label}</span>
+                  <span className="mr-4 cursor-pointer">{t(label)}</span>
                   {isActive && (
                     <span className="mt-1 block h-0.5 max-w-full bg-primary" />
                   )}

@@ -1,10 +1,14 @@
-import { links, terms } from '@/constants/footerData'
-import Image from 'next/image'
-import { Facebook, Instagram, Linkedin } from '../icons/Icons'
-import Container from '../ui/Container'
-import PagePadding from '../ui/PagePadding'
+"use client"
+import { links, terms } from '@/constants/footerData';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { Facebook, Instagram, Linkedin } from '../icons/Icons';
+import Container from '../ui/Container';
+import PagePadding from '../ui/PagePadding';
 
-const Footer = () => {
+const Footer =  () => {
+  const t= useTranslations('Footer')
+  
   return (
     <div className=" w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
@@ -20,12 +24,12 @@ const Footer = () => {
               />
             </div>
             <div className="">
-              <h4 className="text-3xl font-bold text-white">Useful Links</h4>
+              <h4 className="text-3xl font-bold text-white">{t('links')}</h4>
               <ul className="text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl">
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <a href="#">{link}</a>
+                      <a href="#">{t(link)}</a>
                     </li>
                   )
                 })}
@@ -52,12 +56,12 @@ const Footer = () => {
               </div>
             </div>
             <div className="">
-              <h4 className="text-3xl font-bold text-white">Legal Terms</h4>
+              <h4 className="text-3xl font-bold text-white">{t('legal_terms')}</h4>
               <ul className="text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl">
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <a href="#">{term}</a>
+                      <a href="#">{t(term)}</a>
                     </li>
                   )
                 })}

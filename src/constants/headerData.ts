@@ -6,33 +6,33 @@ interface IMenu {
 
 export const menu: IMenu[] = [
   {
-    label: 'Home',
+    label: 'home',
     url: '/home',
     subMenu: [],
   },
   {
-    label: 'About Us',
+    label: 'about',
     url: '/about',
-    subMenu: ['Mission', 'Vision', 'Values', 'History'],
+    subMenu: ['mission', 'vision', 'values', 'history'],
   },
   {
-    label: 'Vehicles',
+    label: 'vehicles',
     url: '/vehicles',
     subMenu: ['New', 'Pre-Owned', 'Trucks', 'Scooter'],
   },
   {
-    label: 'Parts and Accesories',
+    label: 'parts_accesories',
     url: '/',
-    subMenu: ['Parts', 'Tires', 'Accessories'],
+    subMenu: ['parts', 'tires', 'accessories'],
   },
   {
-    label: 'Services',
+    label: 'services',
     url: '/',
-    subMenu: ['Revision', 'Repair', 'Diagnosis', 'Panel Beater and Painting'],
+    subMenu: ['revision', 'repair', 'diagnosis', 'panel_beating'],
   },
   {
-    label: 'Contacts',
+    label: 'contact',
     url: '/',
-    subMenu: ['Find a Dealer', 'Complains and Suggestions'],
+    subMenu: ['find_dealer', 'complains'],
   },
 ]

@@ -31,12 +31,15 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  
 }: {
   children: React.ReactNode
+ 
 }) {
+
   return (
     <Provider>
-      <html lang="en" className={`${nissan.variable} font-sans`}>
+      <html className={`${nissan.variable} font-sans`}>
         <body>{children}</body>
       </html>
     </Provider>

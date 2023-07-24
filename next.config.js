@@ -1,21 +1,14 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: ['http://localhost'],
   },
 }
-const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-        permanent: true,
-      },
-    ]
-  },
-}
-
-module.exports = nextConfig
+const withNextIntl = require('next-intl/plugin')(
+  // This is the default (also the `src` folder is supported out of the box)
+  './i18n.ts'
+)
+module.exports = withNextIntl(nextConfig)

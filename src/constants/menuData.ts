@@ -4,39 +4,39 @@ interface IMenu {
 }
 
 export const BrochureMenu: IMenu = {
-  label: 'Presented Vehicles',
+  label: 'presented_vehicles',
   subMenu: [''],
 }
 export const IsoMenu: IMenu = {
-  label: 'ISO Certification',
+  label: 'certification',
   subMenu: [''],
 }
 export const HistoryMenu: IMenu = {
-  label: 'Our History',
+  label: 'history',
   subMenu: [''],
 }
 export const CategoriesMenu: IMenu = {
-  label: 'Categories',
-  subMenu: ['Vehicles', 'Trucks', 'Scooters'],
+  label: 'categories',
+  subMenu: ['vehicles', 'trucks', 'scooters'],
 }
 
 export const FindCarsMenu: IMenu = {
-  label: 'Find your Car',
-  subMenu: ['All', 'New', 'Used'],
+  label: 'find_cars',
+  subMenu: [''],
 }
 
 export const BlogMenu: IMenu = {
-  label: 'Blog',
-  subMenu: ['All', 'Trending', 'last Week'],
+  label: 'blog',
+  subMenu: ['all', 'tranding', 'last_week'],
 }
 
 export const AboutMenu: IMenu = {
-  label: 'About US',
+  label: 'about',
   subMenu: ['Our History', 'Our Brands'],
 }
 
 export const BrandsMenu: IMenu = {
-  label: 'Our Brands',
+  label: 'brands',
   subMenu: [
     'Nissan',
     'Renault',
