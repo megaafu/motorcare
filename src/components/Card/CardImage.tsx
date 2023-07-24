@@ -1,7 +1,6 @@
 import { BASEURL } from '@/lib/util'
 import Image from 'next/image'
 const CardImage = ({ image }: { image: string }) => {
-  console.log(image)
   return (
     <Image
       loader={() => `${BASEURL}${image}`}
