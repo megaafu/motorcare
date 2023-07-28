@@ -1,48 +1,110 @@
-import { CustomForm } from '@/components/CustomForm'
-import PrimaryButton from '@/components/ui/PrimaryButton'
+'use client'
+import { CustomForm } from '@/components/CustomForm';
+import CustomDropdown from '@/components/CustomForm/CustomDropdown';
+import PrimaryButton from '@/components/ui/PrimaryButton';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
 const QuoteForm = () => {
+  const [selectedOption,setSelectedOption] = useState('')
+  const handleSelectChange = (selectedValue:string)=>{
+    setSelectedOption(selectedValue)
+  }
+  const t = useTranslations("Request")
   return (
-    <CustomForm.Root>
+    <div>
+      <CustomDropdown onSelectChange={handleSelectChange} label={t('client')} id='client' options={[t('individual'),t('company')]}/>
+      {selectedOption === t('individual')?(<CustomForm.Root>
       <CustomForm.FormField
         id="name"
-        label="Name"
-        placeholder="Enter Your Name"
+        label={t("name")}
+        placeholder=""
       />
       <CustomForm.FormField
         id="phone"
-        label="Phone"
-        placeholder="Enter Your Phone"
+        label={t("phone")}
+        placeholder=""
       />
       <CustomForm.FormField
         id="email"
-        label="Email"
-        placeholder="Enter Your Email"
+        label={t("email")}
+        placeholder=""
       />
+      <CustomForm.DatePicker id='date' label='Pretended Date'/>
       <CustomForm.DropDown
-        label="Delation"
+        onSelectChange={handleSelectChange}
+        label={t("delation")}
         id="delegation"
         options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
       />
       <CustomForm.FormField
         id="plate"
-        label="Plate"
-        placeholder="Enter Car Plate"
+        label={t("plate")}
+        placeholder=""
       />
       <CustomForm.FormField
         id="milage"
-        label="Milage"
+        label={t("milage")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="service_description"
+        label={t('service_description')}
+        placeholder=""
+      />
+       <div className="mt-2 flex w-ful lg:justify-end">
+        <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
+      </div>
+    </CustomForm.Root>):selectedOption ===t('company') ?(
+      <CustomForm.Root>
+      <CustomForm.FormField
+        id="name"
+        label={t("name")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="phone"
+        label={t("phone")}
+        placeholder=""
+      />
+       <CustomForm.FormField
+        id="person_phone"
+        label={t("person_phone")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="email"
+        label={t("email")}
+        placeholder=""
+      />
+      <CustomForm.DatePicker id='date' label='Pretended Date'/>
+      <CustomForm.DropDown
+        onSelectChange={handleSelectChange}
+        label={t("delation")}
+        id="delegation"
+        options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+      />
+      <CustomForm.FormField
+        id="plate"
+        label={t("plate")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="milage"
+        label={t("milage")}
         placeholder="Enter Car Milage"
       />
       <CustomForm.FormField
-        id="description"
-        label="Service Description"
-        placeholder="Enter Your Service Description"
+        id="service_description"
+        label={t('service_description')}
+        placeholder=""
       />
-      <div className="flex w-full justify-end">
-        <PrimaryButton type="submit">Send</PrimaryButton>
+       <div className="mt-2 flex w-ful lg:justify-end">
+        <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
       </div>
     </CustomForm.Root>
+    ):null}
+    </div>
   )
 }
 export default QuoteForm

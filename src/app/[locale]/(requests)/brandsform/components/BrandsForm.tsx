@@ -5,13 +5,13 @@ import PrimaryButton from '@/components/ui/PrimaryButton'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
-const PeacesForm = () => {
+const BrandsForm = () => {
   const [selectedOption,setSelectedOption] = useState('')
   const handleSelectChange = (selectedValue:string)=>{
     setSelectedOption(selectedValue)
   }
   const t = useTranslations("Request")
-  
+
   return (
     <div>
       <CustomDropdown onSelectChange={handleSelectChange} label={t('client')} id='client' options={[t('individual'),t('company')]}/>
@@ -50,7 +50,7 @@ const PeacesForm = () => {
       />
       <CustomForm.FormField
         id="service_description"
-        label={t('pieces_description')}
+        label={t('service_description')}
         placeholder=""
       />
        <div className="mt-2 flex w-ful lg:justify-end">
@@ -97,7 +97,7 @@ const PeacesForm = () => {
       />
       <CustomForm.FormField
         id="service_description"
-        label={t('pieces_description')}
+        label={t('service_description')}
         placeholder=""
       />
        <div className="mt-2 flex w-ful lg:justify-end">
@@ -108,4 +108,4 @@ const PeacesForm = () => {
     </div>
   )
 }
-export default PeacesForm
+export default BrandsForm

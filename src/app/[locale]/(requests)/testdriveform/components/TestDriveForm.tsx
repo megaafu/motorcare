@@ -1,47 +1,115 @@
+'use client'
 import { CustomForm } from '@/components/CustomForm'
+import CustomDropdown from '@/components/CustomForm/CustomDropdown'
 import PrimaryButton from '@/components/ui/PrimaryButton'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 const TestDriveForm = () => {
+  const [selectedOption,setSelectedOption] = useState('')
+  const handleSelectChange = (selectedValue:string)=>{
+    setSelectedOption(selectedValue)
+  }
+  const t = useTranslations("Request")
+
   return (
-    <CustomForm.Root>
+    <div>
+      <CustomDropdown onSelectChange={handleSelectChange} label={t('client')} id='client' options={[t('individual'),t('company')]}/>
+      {selectedOption === t('individual')?(<CustomForm.Root>
       <CustomForm.FormField
         id="name"
-        label="Name"
-        placeholder="Enter Your Name"
+        label={t("name")}
+        placeholder=""
       />
       <CustomForm.FormField
         id="phone"
-        label="Phone"
-        placeholder="Enter Your Phone"
+        label={t("phone")}
+        placeholder=""
       />
       <CustomForm.FormField
         id="email"
-        label="Email"
-        placeholder="Enter Your Email"
+        label={t("email")}
+        placeholder=""
       />
       <CustomForm.DatePicker
-        id="expiredDate"
-        label="Drive Lincense Expired Date"
+        id="drive_date"
+        label={t('drive_date')}
       />
       <CustomForm.FormField
-        id="drivelincese"
-        label="Drive Licence"
-        placeholder="Enter Your Licence"
+        id="drive_number"
+        label={t('drive_number')}
+        placeholder=""
       />
       <CustomForm.FormField
         id="location"
-        label="Location"
-        placeholder="Enter Your Location"
+        label={t('location')}
+        placeholder=""
+      />
+      <CustomForm.DropDown
+        onSelectChange={handleSelectChange}
+        label={t("delation")}
+        id="delegation"
+        options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
       />
       <CustomForm.FormField
-        id="carmodel"
-        label="Car Model"
-        placeholder="Enter Your Car Model"
+        id="car_model"
+        label={t('drive_number')}
+        placeholder=""
       />
-      <div className="flex w-full justify-end">
-        <PrimaryButton type="submit">Send</PrimaryButton>
+       <div className="mt-2 flex w-ful lg:justify-end">
+        <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
       </div>
-    </CustomForm.Root>
+    </CustomForm.Root>):selectedOption === t('company')?(<CustomForm.Root>
+      <CustomForm.FormField
+        id="name"
+        label={t("name")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="phone"
+        label={t("phone")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="person_phone"
+        label={t("person_phone")}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="email"
+        label={t("email")}
+        placeholder=""
+      />
+     <CustomForm.DatePicker
+        id="drive_date"
+        label={t('drive_date')}
+      />
+      <CustomForm.FormField
+        id="drive_number"
+        label={t('drive_number')}
+        placeholder=""
+      />
+      <CustomForm.FormField
+        id="location"
+        label={t('location')}
+        placeholder=""
+      />
+      <CustomForm.DropDown
+        onSelectChange={handleSelectChange}
+        label={t("delation")}
+        id="delegation"
+        options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+      />
+      <CustomForm.FormField
+        id="car_model"
+        label={t('drive_number')}
+        placeholder=""
+      />
+       <div className="mt-2 flex w-ful lg:justify-end">
+        <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
+      </div>
+    </CustomForm.Root>):null}
+    </div>
   )
 }
 export default TestDriveForm

@@ -17,7 +17,12 @@
         "explore":"Explore",
         "test-drive":"Book a Test Drive",
         "quote":"Request a Quote",
-        "more_info":"More Info"
+        "more_info":"More Info",
+        "view_more":"View More",
+        "view_brochure":"View More Brochures",
+        "sub":"Subscribe",
+        "email":"Enter your email",
+        "download":"Baixar Brochura"
     },
     "About":{
         "about":"About Us",
@@ -45,6 +50,31 @@
         "2023":"Restructuring of the Maputo, Beira, and Nampula delegations.",
         "certification":"ISO certification",
         "certification_info":"Motorcare provides services and products respecting international standards regarding health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health and Safety), ISO 14001 (Environment) and ISO 9001 (Quality) which are audited annually internally, as well as externally by an international entity. ISO 45001 certification provides the organization with a high level of understanding of the important issues that can positively or negatively affect the way it manages its occupational health and safety responsibilities towards employees and partners. ISO 14001 certification is an international standard that allows companies to demonstrate their commitment to environmental protection through the management of environmental risks associated with their activity. ISO 9001 certification aims to ensure greater quality in the delivery of products or services, focusing on the company's strategic management. Therefore, it is possible to improve operational efficiency and Customer Satisfaction."
+    },
+    "Request":{
+        "quote":"Request a Quote",
+        "service":"Request a Service",
+        "other":"Request Other Brands",
+        "test_drive":"Request a Test Drive",
+        "client": "Client Type",
+        "company": "Company",
+        "individual": "Individual",
+        "name":"Name",
+        "phone":"Phone",
+        "person_phone":"Person Phone",
+        "email":"Email",
+        "plate":"Plate",
+        "delegation":"Delegation",
+        "location":"Where you want to do the test-drive?",
+        "mileage":"Mileage",
+        "vin":"VIN Number",
+        "car_model":"Car Model",
+        "service_description":"Description of Required service",
+        "peaces_description":"Description of Required Peace",
+        "drive_number":"Driver License Number",
+        "drive_date":"Expired Date of Driver License",
+        "sugestions": "Suggestions and Complaints",
+        "submit":"Send Request"
     },
     "Footer":{
         "links":"Useful Links",

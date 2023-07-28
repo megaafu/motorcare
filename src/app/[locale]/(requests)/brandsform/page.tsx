@@ -3,7 +3,7 @@ import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
-import PeacesForm from './form/PeacesForm'
+import BrandsForm from './components/BrandsForm'
 
 export interface IAppProps {}
 
@@ -19,7 +19,7 @@ export default function Requests(props: IAppProps) {
             <Title.Label label="Quote Request" />
           </Title.Root>
           <Row className='lg:grid-cols-2'>
-            <PeacesForm />
+            <BrandsForm />
             <Paragraph>{info}</Paragraph>
           </Row>
         </PagePadding>

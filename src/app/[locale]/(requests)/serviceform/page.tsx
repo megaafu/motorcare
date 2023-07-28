@@ -18,7 +18,7 @@ export default function Requests(props: IAppProps) {
           <Title.Root>
             <Title.Label label="Quote Request" />
           </Title.Root>
-          <Row className='sm:grid-cols-2'>
+          <Row className='lg:grid-cols-2'>
             <QuoteForm />
             <Paragraph>{info}</Paragraph>
           </Row>
