@@ -10,10 +10,10 @@ const Prefooter = () => {
   return (
     <div className=" w-full bg-primary">
       <Container>
-        <ul className=" text-ligth flex flex-col gap-2 py-6 md:text-lg lg:flex-row lg:justify-around lg:text-xl">
+        <ul className="grid whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 md:text-lg lg:text-xl lg:flex lg:justify-around">
           {links.map((link, index) => {
             return (
-              <li key={index} className="flex  items-center">
+              <li key={index} className="flex items-center">
                 <Link
                   href={`${locale}${link.link}`}
                   className="color flex items-center gap-4 text-white transition duration-300 hover:text-secundary"

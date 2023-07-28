@@ -25,7 +25,7 @@ export const Activities: IActivities = {
     },
     {
       date: '2014',
-      event: ' 2014',
+      event: '2014',
     },
     {
       date: '2023',

@@ -2,6 +2,7 @@ import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import useVehicles from '@/hooks/use-vehicles'
 import React from 'react'
+import CategorySkeletion from './CategorySkeletion'
 import CategroyItem from './CategroyItem'
 
 interface CategoryProps {
@@ -9,10 +10,10 @@ interface CategoryProps {
 }
 
 const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
-  const { data } = useVehicles()
+  const { data,isLoading } = useVehicles()
   return (
     <>
-      {data ? (
+      {isLoading? <CategorySkeletion/>:data ? (
         <>
           <Row className="hidden grid-cols-4 gap-5 lg:grid">
             {data
@@ -22,7 +23,7 @@ const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
                 <CategroyItem key={index} car={car} carIndex={index} />
               ))}
           </Row>
-          <LateralScroll className="sm:hidden">
+          <LateralScroll className="lg:hidden ">
             {data
               .filter((car) => car.type === filter)
               .slice(0, 4)

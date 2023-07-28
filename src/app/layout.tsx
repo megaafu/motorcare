@@ -1,4 +1,4 @@
-import Provider from '@/util/provider'
+import Provider from '@/lib/util/provider'
 import localFont from 'next/font/local'
 import React from 'react'
 import './globals.css'

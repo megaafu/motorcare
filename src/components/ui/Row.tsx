@@ -1,4 +1,4 @@
-import { cn } from '@/lib/util'
+import { cn } from '@/lib/util/util'
 import React from 'react'
 
 interface RowProps {

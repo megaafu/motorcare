@@ -28,7 +28,7 @@ export const menu: IMenu[] = [
   {
     label: 'services',
     url: '/',
-    subMenu: ['revision', 'repair', 'diagnosis', 'panel_beating'],
+    subMenu: ['revision', 'reparation', 'diagnosis', 'panel_beating'],
   },
   {
     label: 'contact',

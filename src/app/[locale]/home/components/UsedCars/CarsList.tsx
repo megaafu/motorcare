@@ -1,20 +1,22 @@
+
 import CardCarousel from '@/components/Card/CardCarousel'
 import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import useVehicles from '@/hooks/use-vehicles'
+import CarsSkeletion from './CarsSkeletion'
 
 const CarsList = () => {
-  const { data } = useVehicles()
+  const { data, isLoading } = useVehicles()
   return (
     <>
-      {data ? (
+      {isLoading ? <CarsSkeletion/>:data ? (
         <>
-          <Row className="hidden gap-8 lg:grid lg:grid-cols-3">
+          <Row className="hidden gap-8 lg:grid xl:grid-cols-3">
             {data.slice(0, 3).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}
           </Row>
-          <LateralScroll className="sm:hidden">
+          <LateralScroll className="lg:hidden">
             {data.slice(0, 3).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}

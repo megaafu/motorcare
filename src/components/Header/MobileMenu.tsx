@@ -1,5 +1,5 @@
 'use client'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowDown, Cancel, MenuIcon } from '../icons/Icons'
@@ -28,7 +28,7 @@ const MobileMenu = ({ menu }: MenuProps) => {
     setOpenSubMenuIndex(-1)
   }
   const t= useTranslations('Header')
-
+  const locale = useLocale()
   return (
     <>
       <div className="z-10" onClick={handleMenuToggle}>
@@ -44,7 +44,7 @@ const MobileMenu = ({ menu }: MenuProps) => {
         {menu.map(({ label, url, subMenu }, index) => (
           <div className="relative" key={index}>
             <div className="flex justify-between text-xl font-bold">
-              <Link href={url} onClick={handleMenuToggle}>
+              <Link href={`${locale}${url}`} onClick={handleMenuToggle}>
                 {t(label)}
               </Link>
               {subMenu.length > 0 && (

@@ -1,5 +1,5 @@
 'use client'
-import { cn } from '@/lib/util'
+import { cn } from '@/lib/util/util'
 import React, { useRef, useState } from 'react'
 
 interface VerticalScrollProps {

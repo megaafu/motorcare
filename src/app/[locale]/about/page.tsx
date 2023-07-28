@@ -29,7 +29,7 @@ export default async function About({
             <Title.Label label={t(AboutMenu.label)} />
            
           </Title.Root>
-          <Row className="sm:grid-cols-2">
+          <Row className="lg:grid-cols-2">
             <div>
               <Paragraph>{t(Holding.info)}</Paragraph>
             </div>
@@ -47,7 +47,7 @@ export default async function About({
 
         {/* According Section */}
         <PagePadding>
-          <Row className="sm:grid-cols-2">
+          <Row className="lg:grid-cols-2">
             <div className=" hidden w-full lg:relative lg:flex lg:h-[440px] ">
               {/* Image cards */}
               <Image
@@ -98,7 +98,7 @@ export default async function About({
           <Title.Root>
             <Title.Label label={t(IsoMenu.label)} />
           </Title.Root>
-          <Row className="sm:grid-cols-2">
+          <Row className="lg:grid-cols-2">
             <div>
               <Paragraph>{t(Iso.info)}</Paragraph>
             </div>

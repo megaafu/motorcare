@@ -6,12 +6,12 @@ const CustomTimeLine = () => {
   const t = useTranslations("About")
   return (
     <div className="mx-auto ">
-      <ul className="hidden justify-between border-b-2 border-t-2 py-4 lg:flex">
+      <ul className="hidden border-b-2 border-t-2 gap-8 py-4 md:grid md:grid-cols-3 lg:grid-cols-6">
         {Activities.activities.map((event, index) => (
-          <li key={index} className="flex items-center space-x-4">
+          <li key={index} className="flex  space-x-4">
             <div className="ml-4">
               <div className="flex gap-2">
-                <div className="flex items-center justify-center rounded-full bg-blue-100 px-2 py-2 ring-0 ring-white sm:ring-8">
+                <div className="flex  rounded-full bg-blue-100 px-2 py-2 ring-0 ring-white sm:ring-8">
                   <svg
                     aria-hidden="true"
                     className="h-4 w-4 text-ancent"
@@ -36,9 +36,9 @@ const CustomTimeLine = () => {
           </li>
         ))}
       </ul>
-      <ul className="space-y-6 lg:hidden">
+      <ul className="space-y-6 sm:hidden">
         {Activities.activities.map((event, index) => (
-          <li key={index} className="flex flex-col ">
+          <li key={index} className="flex flex-col">
             <div className="flex gap-2 rounded-full bg-blue-100 p-2 ring-0 ring-white sm:ring-8">
               <svg
                 aria-hidden="true"
@@ -58,7 +58,7 @@ const CustomTimeLine = () => {
               </time>
             </div>
             <div className="mt-3">
-              <div className="text-lg">{event.event}</div>
+              <div className="text-lg">{t(event.event)}</div>
             </div>
           </li>
         ))}

@@ -16,7 +16,7 @@ const NavFindCars = () => {
       </Title.Root>
 
       <CarsList />
-      <SecundaryButton label="View More" />
+      <SecundaryButton label={t('view_more')} />
     </PagePadding>
   )
 }

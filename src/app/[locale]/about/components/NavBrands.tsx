@@ -36,7 +36,7 @@ const NavBrands = () => {
             </LateralScroll>
           </Title.Nav>
         </Title.Root>
-        <Row className="sm:grid-cols-2">
+        <Row className="lg:grid-cols-2">
           <div className="">
             <h4 className="text-bold pb-4 text-2xl text-sky-700">
               {AllBrands.brands[selectedIndex].brand}

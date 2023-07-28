@@ -7,10 +7,11 @@ import useVehicles from '@/hooks/use-vehicles'
 import { Pagination } from '@mantine/core'
 import { usePagination } from '@mantine/hooks'
 import { useEffect, useMemo, useState } from 'react'
+import CarsSkeletion from './CarsSkeletion'
 
 const ITEMS_PER_PAGE = 6
 const CarList = () => {
-  const { data, isLoading, isFetching, error } = useVehicles()
+  const { data, isLoading} = useVehicles()
 
   const carsData = useMemo(() => data ?? [], [data])
 
@@ -34,13 +35,9 @@ const CarList = () => {
 
   return (
     <>
-      {error ? (
-        <p>Oh no, there was an error</p>
-      ) : isFetching || isLoading ? (
-        <p style={{ textAlign: 'center' }}>loading... on the client-side</p>
-      ) : data ? (
+      {isLoading? <CarsSkeletion/>: data ? (
         <>
-          <Row className="grid-col-1 gap-8 lg:grid-cols-3">
+          <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {visibleResults.map((car, index) => (
               <CardCarousel
                 key={index}

@@ -1,4 +1,4 @@
-import { BASEURL } from '@/lib/util'
+import { BASEURL } from '@/lib/util/util'
 import { ICar } from '@/model/Car'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -18,7 +18,7 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="w- group relative h-[30vh] w-[75vw] lg:h-72 lg:w-80"
+          className=" group relative h-[30vh] w-[75vw] aspect-[4/3] md:w-[50vw] lg:h-auto lg:w-auto"
         >
           <Image
             loader={() =>
@@ -26,7 +26,7 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
             }
             width={1080}
             height={1080}
-            className=" h-3/4 w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
+            className=" h-3/4 aspect-square w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
             src={`${BASEURL}${car.car_image[0]}`}
             alt=""
           />

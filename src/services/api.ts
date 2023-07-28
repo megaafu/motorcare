@@ -1,4 +1,4 @@
-import { BASEURL } from '@/lib/util'
+import { BASEURL } from '@/lib/util/util'
 import axios from 'axios'
 
 const baseUrl = BASEURL+'api/v1'

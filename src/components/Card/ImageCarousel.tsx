@@ -1,4 +1,4 @@
-import { BASEURL, cn } from '@/lib/util'
+import { BASEURL, cn } from '@/lib/util/util'
 import Image from 'next/image'
 import { Carousel } from 'react-responsive-carousel'
 interface ImageCarouselProps {
@@ -34,7 +34,7 @@ const ImageCarousel = ({
       {images.map((image, index) => (
         <div
           key={index}
-          className="h-[240px] w-full"
+          className="h-[300px] w-full"
           style={{ background: '#ccc' }}
         >
           <Image

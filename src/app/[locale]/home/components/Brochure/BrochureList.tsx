@@ -5,21 +5,23 @@ import Row from '@/components/ui/Row'
 import SecundaryButton from '@/components/ui/SecundaryButton'
 import VerticalScroll from '@/components/ui/VerticalScroll'
 import useVehicles from '@/hooks/use-vehicles'
-import { BASEURL } from '@/lib/util'
+import { BASEURL } from '@/lib/util/util'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 import BrochureItem from './BrochureItem'
+import BrochureSkeletion from './BrochureSkeletion'
 
 const BrochureList = () => {
-  const { data } = useVehicles()
+  const { data, isLoading } = useVehicles()
   const [selectedIndex, setIndex] = useState(0)
   const handleIndex = (index: number) => {
     setIndex(index)
   }
-  console.log(data)
+  const t = useTranslations("Home")
   return (
     <>
-      {data ? (
+      { isLoading?<BrochureSkeletion />:data ? (
         <>
             <Row className="grid-col-1  gap-8 lg:h-[65vh] lg:grid-cols-3">
               <VerticalScroll className="hidden lg:flex">
@@ -38,7 +40,7 @@ const BrochureList = () => {
                         }
                         width={1080}
                         height={1080}
-                        className="max-w-xs"
+                        className="max-w-xs aspect-[4/3]"
                         src={`${BASEURL}${
                           JSON.parse(car.car_image)[0]
                         }`}
@@ -48,7 +50,7 @@ const BrochureList = () => {
                   )
                 })}
               </VerticalScroll>
-              <LateralScroll className="col-span-2  sm:hidden">
+              <LateralScroll className="col-span-1  lg:hidden">
                 {data.map((car, index) => (
                   <div
                     key={index}
@@ -65,7 +67,7 @@ const BrochureList = () => {
                 {data.length > 0 && <BrochureItem car={data[selectedIndex]} />}
               </div>
             </Row>
-            <SecundaryButton label="View More Brochures" />
+            <SecundaryButton label={t('view_brochure')} />
         </>
       ) : null}
     </>

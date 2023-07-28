@@ -34,7 +34,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div>
-      <div className="flex gap-2 sm:hidden">
+      <div className="flex gap-2 lg:hidden">
         <button
           className="text-lg text-light-text hover:text-primary"
           onClick={handleButtonClick}
@@ -46,18 +46,17 @@ const LanguageSwitcher = () => {
         </button>
         <div className="flex justify-evenly gap-5 border-light-text">
           {languageOptions.map((option) => (
-            <button
+            <Link
+              href={`${option}/${pathName.replace("/"+locale, "")}`}
               key={option}
               className="text-lg text-light-text hover:text-primary"
-              onClick={() => handleOptionClick(option)}
-              aria-label={`Select ${option} Language`}
             >
               {option}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
-      <div className="hidden flex-col sm:flex">
+      <div className="hidden flex-col lg:flex">
         <button onClick={handleButtonClick}>
           <a
             href="#"

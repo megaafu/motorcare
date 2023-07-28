@@ -24,13 +24,13 @@ const Header: React.FC = () => {
                 />
               </div>
             </Link>
-            <div className="hidden items-center sm:flex md:order-2">
+            <div className="hidden items-center lg:flex md:order-2">
               <LanguageSwitcher />
             </div>
-            <div className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto">
+            <div className="hidden w-full items-center justify-between md:order-1 lg:flex md:w-auto">
               <MenuHeaderItem menu={menu} />
             </div>
-            <div className="flex w-auto sm:hidden md:order-1">
+            <div className="flex w-auto lg:hidden md:order-1">
               <MobileMenu menu={menu} />
             </div>
           </div>

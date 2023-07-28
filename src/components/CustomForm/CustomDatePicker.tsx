@@ -21,15 +21,15 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({ id, label }) => {
       <label className="text-md mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>
-      <div className="relative w-full">
+      <div className="relative">
         <DatePicker
           id={id}
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="dd/MM/yyyy"
-          placeholderText="Select a date"
-          className="w-full appearance-none rounded border border-black px-3 py-2 pl-10 leading-tight text-light-text shadow focus:outline-none"
-          popperPlacement="bottom-start"
+          placeholderText="12/12/2012"
+          className="rounded border border-black px-3 py-4 pl-10 leading-tight text-light-text shadow focus:outline-none"
+
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <Calendar />

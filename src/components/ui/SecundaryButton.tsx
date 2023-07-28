@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
-import { ArrowFoword } from '../icons/Icons'
+import { cn } from '@/lib/util/util';
+import Link from 'next/link';
+import { ArrowFoword } from '../icons/Icons';
 interface SecundaryButtonPropos {
   className?: string
   label: string
@@ -10,13 +10,13 @@ const SecundaryButton = ({ label, className }: SecundaryButtonPropos) => {
     <div className="flex justify-end pt-10">
       <Link
         href="#"
-        className={twMerge(
-          'alig-center group flex gap-2 rounded-lg border border-transparent px-5 py-2 text-primary hover:border-primary',
+        className={cn(
+          'alig-center group flex  underline underline-offset-8 text-primary/60 hover:text-secundary',
           className,
         )}
       >
-        <p className="text-xl md:text-xl xl:text-xl ">{label}</p>
-        <ArrowFoword />
+        <p className="text-md md:text-lg xl:text-xl">{label}</p>
+        <ArrowFoword/>
       </Link>
     </div>
   )
