@@ -1,0 +1,12 @@
+import { ReactNode } from "react"
+import PrimaryButton from "../ui/PrimaryButton"
+
+const CardButton = ({children}:{children:ReactNode}) => {
+  return (
+    <div className='absolute bottom-5 right-4 left-4 lg:left-0'>
+      <PrimaryButton className="w-[100%] justify-center lg:w-auto">{children}</PrimaryButton>
+    </div>
+  )
+}
+ 
+export default CardButton

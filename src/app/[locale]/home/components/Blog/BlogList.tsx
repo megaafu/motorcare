@@ -19,7 +19,7 @@ const BlogList = () => {
               return <BlogCard key={post.id} blog={post} />
             })}
           </Row>
-          <LateralScroll className="md:hidden">
+          <LateralScroll className="lg:hidden">
             {data.slice(0, 3).map((post) => {
               return <BlogCard key={post.id} blog={post} />
             })}
