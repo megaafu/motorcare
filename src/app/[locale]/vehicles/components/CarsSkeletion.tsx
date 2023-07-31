@@ -9,7 +9,7 @@ const CarsSkeletion = () => {
     <PagePadding>
         <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {items.map((car, index) => (
-                <CarousellCardSkeletion/>
+                <CarousellCardSkeletion className='mx-auto w-[92vw]'/>
             ))}
         </Row>
     </PagePadding>

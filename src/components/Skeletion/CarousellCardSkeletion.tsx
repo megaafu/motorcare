@@ -1,14 +1,15 @@
+import { cn } from "@/lib/util/util";
 import CardDescription from "../Card/CardDescription";
 import CardRoot from "../Card/CardRoot";
 import CardSub from "../Card/CardSub";
 import CardTitle from "../Card/CardTitle";
 
-const CarousellCardSkeletion = () => {
+const CarousellCardSkeletion = ({className}:{className?:string}) => {
     const totalItems=3 
     const items = new Array(totalItems).fill(null)
   return (
    
-    <CardRoot className=" lg:aspect-[4/3]">
+    <CardRoot className={cn("lg:aspect-[4/3]",className)}>
         <div className=" aspect-[4/3] bg-slate-500 w-full h-[300px] lg:h-3/4 animate-pulse"></div>
         <div className="px-4 py-6">
             <CardTitle>
