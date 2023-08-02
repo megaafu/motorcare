@@ -1,4 +1,4 @@
-import { Car, Coins, Gear, Plus, User } from '@/components/icons/Icons'
+import { Accessorie, Car, Coins, Service, Suggestion } from '@/components/icons/Icons'
 import { ElementType } from 'react'
 
 interface items {
@@ -9,7 +9,7 @@ interface items {
 
 export const links: items[] = [
   {
-    link: '/peacesform',
+    link: '/brandsform',
     label: 'quote',
     icon: Coins,
   },
@@ -21,16 +21,16 @@ export const links: items[] = [
   {
     link: '/serviceform',
     label: 'service',
-    icon: Gear,
+    icon: Service,
   },
   {
-    link: '/requests/',
-    label: 'learn_more',
-    icon: Plus,
+    link: '/peacesform',
+    label: 'parts_accesories',
+    icon: Accessorie,
   },
   {
-    link: '/requests/',
-    label: 'contacts',
-    icon: User,
+    link: '/sugestionsform',
+    label: 'complains',
+    icon: Suggestion,
   },
 ]

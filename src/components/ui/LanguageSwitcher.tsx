@@ -1,84 +1,36 @@
 'use client'
 import { useLocale } from 'next-intl';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Globe } from '../icons/Icons';
 
 const languageOptions = ['en','pt']
 
 const LanguageSwitcher = () => {
-  const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(languageOptions[1])
-
-  const handleButtonClick = () => {
-    
-    setIsOpen(!isOpen)
-  }
   
   const handleOptionClick = (option: string) => {
     setSelectedOption(option)
-    setIsOpen(false)
   }
   const pathName = usePathname()
   const locale = useLocale()
-  const DropdownOption = ({ option }: { option: string }) => (
-    <Link
-      href={`${option}/${pathName.replace("/"+locale, "")}`}
-      className="absolute left-0 top-full z-10 rounded-xl border bg-white px-8 py-2 text-lg shadow-md shadow-black hover:text-primary"
-      onClick={() => handleOptionClick(option)}
-    >
-      {option}
-    </Link>
-  )
-
+ 
   return (
     <div>
-      <div className="flex gap-2 lg:hidden">
-        <button
-          className="text-lg text-light-text hover:text-primary"
-          onClick={handleButtonClick}
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          aria-label="Language Selector"
-        >
-          <Globe />
-        </button>
+      <div className="flex gap-2">
         <div className="flex justify-evenly gap-5 border-light-text">
           {languageOptions.map((option) => (
             <Link
               href={`${option}/${pathName.replace("/"+locale, "")}`}
               key={option}
-              className="text-lg text-light-text hover:text-primary"
+              className="flex gap-2 justify-center self-center text-lg text-light-text hover:text-primary"
             >
+              <Image width={30} height={30} src={`/icons/${option}.png`} alt=''/>
               {option}
             </Link>
           ))}
         </div>
-      </div>
-      <div className="hidden flex-col lg:flex">
-        <button onClick={handleButtonClick}>
-          <a
-            href="#"
-            className="flex items-center gap-2 text-lg text-light-text hover:text-primary"
-            aria-expanded={isOpen}
-            aria-haspopup="true"
-            aria-label="Language Selector"
-          >
-            <Globe />
-            {selectedOption}
-          </a>
-        </button>
-        {isOpen && (
-          <div className="relative block">
-            {languageOptions.map(
-              (option) =>
-                option !== selectedOption && (
-                  <DropdownOption key={option} option={option} />
-                ),
-            )}
-          </div>
-        )}
       </div>
     </div>
   )
