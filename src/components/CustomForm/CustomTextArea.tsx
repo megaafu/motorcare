@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
-interface TextAreaProps {
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
   label: string
-  placeholder: string
+  register?: UseFormRegister<any>;
+  name?: string;
+
 }
 
 const CustomTextArea: React.FC<TextAreaProps> = ({
   id,
   label,
-  placeholder,
+  register,
+  name,
+  ...props
 }) => {
   return (
     <div className="pb-8">
@@ -20,7 +25,8 @@ const CustomTextArea: React.FC<TextAreaProps> = ({
         className="w-full resize-none appearance-none rounded border border-black px-3 py-2 leading-tight text-light-text shadow focus:outline-none"
         id={id}
         rows={6}
-        placeholder={placeholder}
+        {...register?.(name || '')}
+        {...props}
       />
     </div>
   )

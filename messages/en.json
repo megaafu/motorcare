@@ -54,8 +54,11 @@
     "Request":{
         "quote":"Request a Quote",
         "service":"Request a Service",
+        "service_content":"The provision of high quality maintenance services (whether preventive or corrective) is ingrained in our culture. Our workshops are modern and capable of handling large volumes of vehicles. Whatever the maintenance, rest assured that we will carry it out efficiently. We are factual and competent in everything we do. This is how we do business and interact with each other.",
         "other":"Request Other Brands",
         "test_drive":"Request a Test Drive",
+        "peaces_accessories":"Request Peaces and Acessories",
+        "peaces_content":"Motorcare is concerned with maximum customer satisfaction, which is why it works with genuine parts, that is, certified by the manufacturer (OEM), hence the ISO9001 certificate issued by Bureau Veritas. In addition to parts, we also have all types of vehicle accessories.",
         "client": "Client Type",
         "company": "Company",
         "individual": "Individual",
@@ -74,7 +77,14 @@
         "drive_number":"Driver License Number",
         "drive_date":"Expired Date of Driver License",
         "sugestions": "Suggestions and Complaints",
-        "submit":"Send Request"
+        "submit":"Send Request",
+        "revision":"Revision",
+        "reparation":"Reparation",
+        "diagnosis":"Diagnosis",
+        "panel_beating":"Panel Beating and Painting",
+        "parts":"Parts",
+        "tires":"Tires",
+        "acessories":"Acessories"
     },
     "Footer":{
         "links":"Useful Links",
@@ -89,33 +99,14 @@
     "Header":{
         "home":"Home",
         "about":"About Us",
-        "mission":"Mission",
-        "vision":"Vision",
-        "values":"Values",
-        "history":"History",
         "vehicles":"Vehicles",
-        "new":"New",
-        "pre_owned":"Pre Owned",
-        "trucks":"Trucks",
-        "scooter":"Scooters",
-        "parts_accesories":"Parts and Acessories",
-        "parts":"Parts",
-        "tires":"Tires",
-        "acessories":"Acessories",
-        "services":"Services",
-        "revision":"Revision",
-        "reparation":"Reparation",
-        "diagnosis":"Diagnosis",
-        "panel_beating":"Panel Beating and Painting",
-        "contact":"Contacts",
-        "find_dealer":"Find Dealer",
-        "complains":"Complains and Sugestions"
+        "find_dealer":"Find Dealer"
     },
     "PreFooter":{
         "quote":"Get a Quote",
         "test_drive":"Book a Test-Drive",
-        "service":"Book a Service",
-        "learn_more":"Learn More",
-        "contacts":"Contact Us"
+        "service":"Request a Service",
+        "parts_accesories":"Request Parts",
+        "complains":"Complains and Sugestions"
     }
 }
