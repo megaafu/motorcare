@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-export async function SendSugestion(data:any) {
+export async function SendSugestion(data: any) {
   try {
-    await axios.post(`/api/sugestion`, data).then((response:AxiosResponse)=>(alert(response.data['message'])))
+    await axios.post(`/api/sugestion`, data).then((response: AxiosResponse) => (response.data['message']))
   } catch (error) {
-    alert(error);
+    return error
   }
 }
