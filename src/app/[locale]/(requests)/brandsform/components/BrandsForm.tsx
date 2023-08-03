@@ -9,26 +9,27 @@ import { z } from 'zod'
 
 const BrandsForm = () => {
   const schema = z.object({
-    name:z.string(),
-    phone:z.string(),
-    person_phone:z.string().optional(),
-    email:z.string(),
-    delegation:z.string(),
-    plate:z.string(),
-    mileage:z.string(),
-    service_description:z.string(),
-    client:z.string()
+    name: z.string(),
+    phone: z.string(),
+    person_phone: z.string().optional(),
+    email: z.string(),
+    delegation: z.string(),
+    plate: z.string(),
+    mileage: z.string(),
+    date: z.date(),
+    service_description: z.string(),
+    client: z.string()
   })
-  type BrandsFormProps =z.infer<typeof schema>
+  type BrandsFormProps = z.infer<typeof schema>
 
-  const {register, handleSubmit} = useForm<BrandsFormProps>({
-    resolver:zodResolver(schema)
+  const { register, handleSubmit, control } = useForm<BrandsFormProps>({
+    resolver: zodResolver(schema)
   })
-  const handleForm =(data:BrandsFormProps)=>{
+  const handleForm = (data: BrandsFormProps) => {
     console.log(data)
   }
-  const [selectedOption,setSelectedOption] = useState('')
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>)=>{
+  const [selectedOption, setSelectedOption] = useState('')
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue)
   }
@@ -36,11 +37,11 @@ const BrandsForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleForm)} method='POST'>
-      <CustomForm.DropDown 
-        onChange={handleSelectChange} 
-        label={t('client')} 
-        id='client' 
-        options={[t('individual'),t('company')]}
+      <CustomForm.DropDown
+        onChange={handleSelectChange}
+        label={t('client')}
+        id='client'
+        options={[t('individual'), t('company')]}
         register={register}
         name='client'
       />
@@ -57,7 +58,7 @@ const BrandsForm = () => {
           register={register}
           name='phone'
         />
-        {selectedOption ===t('company') &&(
+        {selectedOption === t('company') && (
           <CustomForm.FormField
             id="person_phone"
             label={t("person_phone")}
@@ -71,7 +72,7 @@ const BrandsForm = () => {
           register={register}
           name='email'
         />
-        <CustomForm.DatePicker id='date' label='Pretended Date'/>
+        <CustomForm.DatePicker control={control} name='date' id='date' label='Pretended Date' />
         <CustomForm.DropDown
           label={t("delegation")}
           id="delegation"
