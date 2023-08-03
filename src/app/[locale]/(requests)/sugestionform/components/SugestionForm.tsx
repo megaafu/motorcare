@@ -1,4 +1,5 @@
 'use client'
+import { SendSugestion } from '@/actions/SendSugestion'
 import { CustomForm } from '@/components/CustomForm'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -18,8 +19,8 @@ const SugestionForm = () => {
   const {register, handleSubmit} = useForm<SugestionFormProps>({
     resolver:zodResolver(schema)
   })
-  const handleForm =(data:SugestionFormProps)=>{
-    console.log(data)
+  const handleForm =async (data:SugestionFormProps)=>{
+    await SendSugestion(data)
   }
   const t = useTranslations("Request")
 

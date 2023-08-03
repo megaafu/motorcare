@@ -1,5 +1,5 @@
 'use client'
-import { SubmitForm } from '@/actions/SubmitForm';
+import { SendTestDrive } from '@/actions/SendTest-Drive';
 import { CustomForm } from '@/components/CustomForm';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,7 +20,6 @@ const TestDriveForm = () => {
     location:z.string(), 
     delegation:z.string(),
     car_model:z.string(),
-    service_categories:z.string(),
     drive_date:z.date(),
     client:z.string()
   })
@@ -31,9 +30,7 @@ const TestDriveForm = () => {
   })
   const handleForm =async (data:TestDriveProps)=>{
     try {
-       await SubmitForm(data);
-      // await SubmitEmail(data)
-
+       await SendTestDrive(data);
     } catch (error) {
       console.error('Error handling form submission:', error);
     }
@@ -90,14 +87,6 @@ const TestDriveForm = () => {
             label={t('drive_date')}
             control={control}
             name='drive_date'
-          />
-          <CustomForm.DropDown
-            className='hidden'
-            label={t("pieces_description")}
-            id="service_categories"
-            options={['Test-Drive']}
-            register={register}
-            name='service_categories'
           />
           <CustomForm.DropDown
             label={t("delegation")}

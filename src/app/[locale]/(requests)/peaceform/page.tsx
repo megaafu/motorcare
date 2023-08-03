@@ -4,10 +4,9 @@ import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
 import { getTranslator } from 'next-intl/server'
-import BrandsForm from './components/BrandsForm'
+import PeacesForm from './form/PeaceForm'
 
 export default async function Requests({params:{locale}}:{params:{locale:string}}) {
-  
   const t = await getTranslator(locale, 'Request')
   return (
     <>
@@ -15,11 +14,11 @@ export default async function Requests({params:{locale}}:{params:{locale:string}
       <Container>
         <PagePadding>
           <Title.Root>
-            <Title.Label label={t('other')} />
+            <Title.Label label={t('peaces_accessories')} />
           </Title.Root>
           <Row className='lg:grid-cols-2'>
-            <BrandsForm />
-            <Paragraph> </Paragraph>
+            <PeacesForm />
+            <Paragraph>{t('peaces_content')}</Paragraph>
           </Row>
         </PagePadding>
       </Container>

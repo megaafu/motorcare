@@ -1,4 +1,6 @@
 'use client'
+import { SendService } from '@/actions/SendService';
+import { SubmitForm } from '@/actions/SubmitForm';
 import { CustomForm } from '@/components/CustomForm';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -25,8 +27,9 @@ const ServicesForm = () => {
   const {register, handleSubmit,control} = useForm<ServicesFormProps>({
     resolver:zodResolver(schema)
   })
-  const handleForm =(data:ServicesFormProps)=>{
-    console.log(data)
+  const handleForm =async (data:ServicesFormProps)=>{
+    await SendService(data)
+    await SubmitForm(data)
   }
   const [selectedOption,setSelectedOption] = useState('')
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>)=>{

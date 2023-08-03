@@ -1,51 +1,52 @@
 'use client'
-import { CustomForm } from '@/components/CustomForm'
-import PrimaryButton from '@/components/ui/PrimaryButton'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
-import { ChangeEvent, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { SendPeace } from '@/actions/SendPeace';
+import { SubmitForm } from '@/actions/SubmitForm';
+import { CustomForm } from '@/components/CustomForm';
+import PrimaryButton from '@/components/ui/PrimaryButton';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+import { ChangeEvent, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-const BrandsForm = () => {
+const PeacesForm = () => {
   const schema = z.object({
-    name: z.string(),
-    phone: z.string(),
-    person_phone: z.string().optional(),
-    email: z.string(),
-    delegation: z.string(),
-    plate: z.string(),
-    mileage: z.string(),
-    date: z.date(),
-    service_description: z.string(),
-    client: z.string()
+    name:z.string(),
+    phone:z.string(),
+    person_phone:z.string().optional(),
+    email:z.string(),
+    plate:z.string(),
+    delegation:z.string(),
+    mileage:z.string(),
+    service_categories:z.string(),
+    client:z.string(),
   })
-  type BrandsFormProps = z.infer<typeof schema>
+  type PiecesFormProps =z.infer<typeof schema>
 
-  const { register, handleSubmit, control } = useForm<BrandsFormProps>({
-    resolver: zodResolver(schema)
+  const {register, handleSubmit} = useForm<PiecesFormProps>({
+    resolver:zodResolver(schema)
   })
-  const handleForm = (data: BrandsFormProps) => {
-    console.log(data)
+  const handleForm =async (data:PiecesFormProps)=>{
+    await SendPeace(data)
+    await SubmitForm(data)
   }
-  const [selectedOption, setSelectedOption] = useState('')
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const [selectedOption,setSelectedOption] = useState('')
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>)=>{
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue)
   }
   const t = useTranslations("Request")
-
   return (
     <form onSubmit={handleSubmit(handleForm)} method='POST'>
-      <CustomForm.DropDown
-        onChange={handleSelectChange}
-        label={t('client')}
-        id='client'
-        options={[t('individual'), t('company')]}
-        register={register}
-        name='client'
-      />
       <CustomForm.Root>
+        <CustomForm.DropDown 
+          onChange={handleSelectChange} 
+          label={t('client')} 
+          id='client' 
+          options={[t('individual'),t('company')]}
+          register={register}
+          name='client'
+        />
         <CustomForm.FormField
           id="name"
           label={t("name")}
@@ -58,7 +59,7 @@ const BrandsForm = () => {
           register={register}
           name='phone'
         />
-        {selectedOption === t('company') && (
+        {selectedOption ===t('company') &&(
           <CustomForm.FormField
             id="person_phone"
             label={t("person_phone")}
@@ -72,7 +73,13 @@ const BrandsForm = () => {
           register={register}
           name='email'
         />
-        <CustomForm.DatePicker control={control} name='date' id='date' label='Pretended Date' />
+        <CustomForm.DropDown
+          label={t("peaces_description")}
+          id="service_categories"
+          options={[t('parts'), t('tires'), t('acessories')]}
+          register={register}
+          name='service_categories'
+        />
         <CustomForm.DropDown
           label={t("delegation")}
           id="delegation"
@@ -92,12 +99,6 @@ const BrandsForm = () => {
           register={register}
           name='mileage'
         />
-        <CustomForm.FormField
-          id="service_description"
-          label={t('service_description')}
-          register={register}
-          name='service_description'
-        />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
         </div>
@@ -105,4 +106,4 @@ const BrandsForm = () => {
     </form>
   )
 }
-export default BrandsForm
+export default PeacesForm
