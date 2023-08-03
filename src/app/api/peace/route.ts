@@ -3,16 +3,16 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
 export async function POST(request: NextRequest) {
-  const { 
+  const {
     name,
     phone,
     person_phone,
     email,
-    plate, 
+    plate,
     delegation,
     service_categories,
     mileage,
-    client 
+    client
   } = await request.json();
 
   const transport = nodemailer.createTransport({
@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Sugestões e Reclamações',
-      text: `
+    subject: '[Motorcare] Marcação de Serviço de Peças',
+    text: `
         Tipo de Client: ${client}
         Nome: ${name}
         Email: ${email}
