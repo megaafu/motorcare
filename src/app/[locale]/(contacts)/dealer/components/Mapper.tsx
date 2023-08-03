@@ -25,7 +25,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
     lng: 34.842768295566614,
     name: '',
   })
-  
+
 
   const customIcon = new Icon({
     iconUrl: '/images/location.svg',
@@ -124,9 +124,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
               >
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>MAPUTO</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
+                  <Accordion.Panel className='bg-slate-200 pt-2'>
+                    <p>PHONE: 21 35 08 00</p>
+                    <p>EMAIL: info@mz.motorcare.com</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -143,47 +143,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
               >
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>BEIRA</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
-                  </Accordion.Panel>
-                </Accordion.Item>
-              </Accordion>
-              <Accordion
-                className="border-gray-200 border-2 bg-white shadow-lg"
-                chevron={<IconPlus size="1rem" />}
-                styles={{
-                  chevron: {
-                    '&[data-rotate]': {
-                      transform: 'rotate(45deg)',
-                    },
-                  },
-                }}
-              >
-                <Accordion.Item value="flexibility">
-                  <Accordion.Control>BEIRA</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
-                  </Accordion.Panel>
-                </Accordion.Item>
-              </Accordion>
-              <Accordion
-                className="border-gray-200 border-2 bg-white shadow-lg"
-                chevron={<IconPlus size="1rem" />}
-                styles={{
-                  chevron: {
-                    '&[data-rotate]': {
-                      transform: 'rotate(45deg)',
-                    },
-                  },
-                }}
-              >
-                <Accordion.Item value="flexibility">
-                  <Accordion.Control>BEIRA</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
+                  <Accordion.Panel className='bg-slate-200 pt-2'>
+                    <p>PHONE: 23 32 65 03</p>
+                    <p>EMAIL: info@mz.motorcare.com</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -200,9 +162,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
               >
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>MOATIZE</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
+                  <Accordion.Panel className='bg-slate-200 pt-2'>
+                    <p>PHONE: 25 24 22 20</p>
+                    <p>EMAIL: info@mz.motorcare.com</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -219,9 +181,32 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
               >
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>NAMPULA</Accordion.Control>
-                  <Accordion.Panel>
-                    Configure components appearance and behavior with vast
-                    amount of settings or overwrite any part of component styles
+                  <Accordion.Panel className='bg-slate-200 pt-2'>
+                    <p>
+                      PHONE: 26 21 72 51
+                    </p>
+                    <p>
+                      EMAIL: info@mz.motorcare.com
+                    </p>
+                  </Accordion.Panel>
+                </Accordion.Item>
+              </Accordion>
+              <Accordion
+                className="border-gray-200 border-2 bg-white shadow-lg"
+                chevron={<IconPlus size="1rem" />}
+                styles={{
+                  chevron: {
+                    '&[data-rotate]': {
+                      transform: 'rotate(45deg)',
+                    },
+                  },
+                }}
+              >
+                <Accordion.Item value="flexibility">
+                  <Accordion.Control>PEMBA</Accordion.Control>
+                  <Accordion.Panel className='bg-slate-200 pt-2'>
+                    <p>PHONE: 27 22 07 71</p>
+                    <p>EMAIL: info@mz.motorcare.com</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
