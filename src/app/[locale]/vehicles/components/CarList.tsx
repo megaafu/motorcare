@@ -3,17 +3,22 @@
 import CardCarousel from '@/components/Card/CardCarousel'
 import PagePadding from '@/components/ui/PagePadding'
 import Row from '@/components/ui/Row'
-import useVehicles from '@/hooks/use-vehicles'
+import { ICar } from '@/model/Car'
 import { Pagination } from '@mantine/core'
 import { usePagination } from '@mantine/hooks'
-import { useEffect, useMemo, useState } from 'react'
+import { data } from 'autoprefixer'
+import { useEffect, useState } from 'react'
 import CarsSkeletion from './CarsSkeletion'
 
-const ITEMS_PER_PAGE = 6
-const CarList = () => {
-  const { data, isLoading} = useVehicles()
 
-  const carsData = useMemo(() => data ?? [], [data])
+// remove this line after working on this component
+interface CustomPageProps {
+  carsData: ICar[]
+  isLoading?: boolean
+}
+
+const ITEMS_PER_PAGE = 6
+const CarList = ({ carsData, isLoading }: CustomPageProps) => {
 
   const [visibleResults, setVisibleResults] = useState(
     carsData.slice(0, ITEMS_PER_PAGE),
@@ -35,7 +40,7 @@ const CarList = () => {
 
   return (
     <>
-      {isLoading? <CarsSkeletion/>: data ? (
+      {isLoading ? <CarsSkeletion key={Math.random()} /> : data ? (
         <>
           <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {visibleResults.map((car, index) => (

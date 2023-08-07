@@ -1,8 +1,25 @@
+"use client"
+
 import CustomDropdown from '@/components/CustomForm/CustomDropdown'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import Row from '@/components/ui/Row'
+import { ICar } from '@/model/Car'
+import { useForm } from 'react-hook-form'
 
-const CarFilters = () => {
+
+// remove this line after working on this component
+interface FilterType {
+  carsData: ICar[]
+  onFilter: (filteredData: ICar[]) => void
+}
+
+const CarFilters = ({ carsData, onFilter }: FilterType) => {
+  const { register, handleSubmit } = useForm()
+
+  let filteredData = carsData
+
+
+
   return (
     <div className="bg-white">
       {/* Car Filters Form */}
