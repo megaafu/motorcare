@@ -6,7 +6,6 @@ import Row from '@/components/ui/Row'
 import { ICar } from '@/model/Car'
 import { Pagination } from '@mantine/core'
 import { usePagination } from '@mantine/hooks'
-import { data } from 'autoprefixer'
 import { useEffect, useState } from 'react'
 import CarsSkeletion from './CarsSkeletion'
 
@@ -40,7 +39,7 @@ const CarList = ({ carsData, isLoading }: CustomPageProps) => {
 
   return (
     <>
-      {isLoading ? <CarsSkeletion key={Math.random()} /> : data ? (
+      {isLoading ? <CarsSkeletion key={Math.random()} /> : carsData ? (
         <>
           <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {visibleResults.map((car, index) => (

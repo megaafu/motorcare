@@ -1,7 +1,6 @@
 "use client"
 
 import CustomDropdown from '@/components/CustomForm/CustomDropdown'
-import PrimaryButton from '@/components/ui/PrimaryButton'
 import Row from '@/components/ui/Row'
 import { ICar } from '@/model/Car'
 import { useForm } from 'react-hook-form'
@@ -18,74 +17,95 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
 
   let filteredData = carsData
 
+  const handleForm = async (cars: any) => {
+    filteredData = carsData.filter((car: ICar) => {
+      console.log(car.brand.toLowerCase().includes(cars.carBrand.toLowerCase()));
 
+      if (!cars.carBrand.includes("Select") && !car.brand.toLowerCase().includes(cars.carBrand.toLowerCase())) {
+        return false
+      }
+
+      if (!cars.carModel.includes("Select") && !car.model.toLowerCase().includes(cars.carModel.toLowerCase())) {
+        return false
+      }
+
+      return true;
+    })
+
+    console.log(filteredData);
+
+    onFilter(filteredData)
+  }
 
   return (
     <div className="bg-white">
       {/* Car Filters Form */}
-      <form>
+      <form onChange={handleSubmit(handleForm)} method='POST'>
         <Row className="grid-cols-3 gap-x-4 gap-y-0 lg:grid-cols-5">
           {/* Car Brand Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-brand"
-            options={['Nissan', 'NIUI', 'Ford']}
+            options={['Select brand', 'Nissan', 'NIUI', 'Ford']}
+            register={register}
+            name='carBrand'
           />
           {/* Car Model Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-model"
-            options={['Terra', 'Navara']}
+            options={['Select model', 'Terra', 'Navara', 'Qashqai', 'Leaf']}
+            register={register}
+            name='carModel'
           />
           {/* Car Year Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-year"
-            options={['2010', '2015', '2020']}
+            options={['select year', '2010', '2015', '2020']}
+            register={register}
+            name='carYear'
           />
           {/* Car Transmission Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-transmission"
-            options={['Automatic', 'Manual']}
+            options={['select transmission', 'Automatic', 'Manual']}
+            register={register}
+            name='carTransmission'
           />
           {/* Car Cylinder Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-cylinder"
-            options={['2', '4', '8']}
+            options={['select cylinder', '2', '4', '8']}
+            register={register}
+            name='carCylinder'
           />
           {/* Car Fuel Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-fuel"
-            options={['Diesel', 'Gasoline', 'Hybrid']}
+            options={['select fuel', 'Diesel', 'Gasoline', 'Hybrid']}
           />
           {/* Car Seats Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-seats"
-            options={['2', '4', '6']}
+            options={['select fuel', '2', '4', '6']}
           />
           {/* Car Mileage Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-mileage"
-            options={['120km', '180km', '220km']}
+            options={['select mileage', '120km', '180km', '220km']}
           />
           {/* Car Status Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-status"
-            options={['Used', 'New']}
+            options={['select status', 'Used', 'New']}
           />
-
-          {/* Search Button */}
-          <div className="col-span-3 mt-4 flex w-full items-center justify-end lg:col-span-1  lg:mt-0">
-            <PrimaryButton className="w-full justify-center">
-              Search
-            </PrimaryButton>
-          </div>
         </Row>
       </form>
     </div>
