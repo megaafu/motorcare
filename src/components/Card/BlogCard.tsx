@@ -3,7 +3,6 @@ import CardButton from './CardButton'
 import CardDescription from './CardDescription'
 import CardImage from './CardImage'
 import CardRoot from './CardRoot'
-import CardSub from './CardSub'
 import CardTitle from './CardTitle'
 
 interface BlogCardProps {
@@ -18,9 +17,6 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <CardDescription>
           <p className="text-md text-gray-700 lg:text-lg">{blog.subtitle}</p>
         </CardDescription>
-        <CardSub>
-          <p className="text-md font-bold text-light-text">{blog.status}</p>
-        </CardSub>
         <div className=' h-12'></div>
         <CardButton>
           Read More
