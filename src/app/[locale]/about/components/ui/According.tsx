@@ -33,7 +33,9 @@ const CustomAccordion = () => {
           </div>
           {open === acording.id && (
             <div className="py-4 text-lg text-light-text">
-              {t(acording.description)}
+              <ul className='pl-4 list-disc flex flex-col gap-2'>
+                {acording.description.map((description)=>(<li>{t(description)}</li>))}
+              </ul>
             </div>
           )}
         </div>

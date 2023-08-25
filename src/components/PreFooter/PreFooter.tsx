@@ -1,14 +1,16 @@
 "use client"
 import { links } from '@/constants/preFooterData'
+import useScroll from '@/hooks/use-scroll'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import Container from '../ui/Container'
 
 const Prefooter = () => {
+  const scroll = useScroll()
   const t = useTranslations("PreFooter")
   const locale = useLocale()
   return (
-    <div className=" w-full bg-primary">
+    <div className={`${scroll > 91?"ease-out duration-300 ":"fixed bottom-0 ease-in duration-300"}  "  bg-primary " w-full bg-primary"`} >
       <Container>
         <ul className="grid whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 md:text-lg lg:text-xl lg:flex lg:justify-around">
           {links.map((link, index) => {

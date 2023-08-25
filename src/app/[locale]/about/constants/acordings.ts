@@ -1,7 +1,7 @@
 interface IAcordingItem {
   id: number
   title: string
-  description: string
+  description: string[]
 }
 
 interface IAcordings {
@@ -11,19 +11,19 @@ interface IAcordings {
 const Mission: IAcordingItem = {
   id: 1,
   title: 'mission',
-  description: 'mission_description'
+  description: ['mission_description1','mission_description2']
 }
 
 const Vision: IAcordingItem = {
   id: 2,
   title: 'vision',
-  description: 'vision_description',
+  description: ['vision_description'],
 }
 
 const Values: IAcordingItem = {
   id: 3,
   title: 'values',
-  description: 'values_description',
+  description: ['values_description1','values_description2','values_description3','values_description4'],
 }
 
 export const AllAcording: IAcordings = {

@@ -41,7 +41,7 @@ const NavBrands = () => {
             <h4 className="text-bold pb-4 text-2xl text-sky-700">
               {AllBrands.brands[selectedIndex].brand}
             </h4>
-            <Paragraph>{AllBrands.brands[selectedIndex].info}</Paragraph>
+            <Paragraph>{t(AllBrands.brands[selectedIndex].info)}</Paragraph>
           </div>
           <div className="flex w-full items-center justify-center ">
             <Image

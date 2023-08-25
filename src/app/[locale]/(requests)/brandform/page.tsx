@@ -15,7 +15,7 @@ export default async function Requests({params:{locale}}:{params:{locale:string}
       <Container>
         <PagePadding>
           <Title.Root>
-            <Title.Label label={t('other')} />
+            <Title.Label label={t('quote')} />
           </Title.Root>
           <Row className='lg:grid-cols-2'>
             <BrandsForm />

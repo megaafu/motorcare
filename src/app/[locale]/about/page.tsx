@@ -20,14 +20,13 @@ export default async function About({
   return (
     <main>
       {/* Hero section */}
-      <div className="h-[360px] w-full bg-about-hero bg-cover bg-center bg-no-repeat"></div>
+      <div className="h-[65vh] w-full bg-about-hero bg-cover bg-center bg-no-repeat"></div>
 
       <Container>
         {/* Holding Info */}
         <PagePadding>
           <Title.Root>
             <Title.Label label={t(AboutMenu.label)} />
-           
           </Title.Root>
           <Row className="lg:grid-cols-2">
             <div>
@@ -38,7 +37,7 @@ export default async function About({
                 width={1000}
                 height={1000}
                 className="h-full w-full rounded-2xl"
-                src="/images/bg-hero.png"
+                src="/images/about.JPG"
                 alt="img"
               />
             </div>
@@ -54,21 +53,21 @@ export default async function About({
                 width={1000}
                 height={1000}
                 alt="img"
-                src="/images/card-1.png"
+                src="/images/bg-about.JPG"
                 className=" shadow-blue-gray-900/50 absolute right-0  top-0 z-0 h-[240px] w-[380px] rounded-3xl border opacity-80 shadow-xl"
               />
               <Image
                 width={1000}
                 height={1000}
                 alt="img"
-                src="/images/card-2.png"
+                src="/images/about.JPG"
                 className=" shadow-blue-gray-900/50 absolute bottom-32  left-0 z-10 h-[240px] w-[380px] rounded-3xl border opacity-90 shadow-xl"
               />
               <Image
                 width={1000}
                 height={1000}
                 alt="img"
-                src="/images/bg-about.png"
+                src="/images/bg-about.JPG"
                 className=" shadow-blue-gray-900/50 absolute bottom-0  right-16 z-20 h-[240px] w-[380px] rounded-3xl border shadow-xl"
               />
             </div>
@@ -83,12 +82,12 @@ export default async function About({
 
         {/* History Section */}
         <PagePadding>
-          <div id="Our History" className="flex flex-col gap-8">
+          <div id="Our History" className="flex flex-col">
             <Title.Root>
               <Title.Label label={t(HistoryMenu.label)} />
-             
             </Title.Root>
             <Paragraph>{t(History.info)}</Paragraph>
+            <div className='h-10'></div>
             <CustomTimeLine />
           </div>
         </PagePadding>

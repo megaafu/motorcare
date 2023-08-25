@@ -16,15 +16,9 @@ interface MenuProps {
 
 const MobileMenu = ({ menu }: MenuProps) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const [openSubMenuIndex, setOpenSubMenuIndex] = useState(-1)
-
-  const handleSubMenuToggle = (index: number) => {
-    setOpenSubMenuIndex((prevIndex) => (prevIndex === index ? -1 : index))
-  }
 
   const handleMenuToggle = () => {
     setMenuOpen((prevIsOpen) => !prevIsOpen)
-    setOpenSubMenuIndex(-1)
   }
   const t= useTranslations('Header')
   const locale = useLocale()

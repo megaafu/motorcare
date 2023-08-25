@@ -20,7 +20,7 @@ module.exports = {
         hero: "url('/images/bg-hero.png')",
         brochure: "url('/images/bg-brochure.png')",
         'cars-hero': "url('/images/bg-cars-hero.png')",
-        'about-hero': "url('/images/bg-about.png')",
+        'about-hero': "url('/images/bg-about.JPG')",
         'request-hero': "url('/images/bg-request.png')",
         nissan: "url('/images/nissan_background.png')",
         informative: "url('/images/informative.png')",

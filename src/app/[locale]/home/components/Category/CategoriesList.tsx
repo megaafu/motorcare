@@ -17,7 +17,7 @@ const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
         <>
           <Row className="hidden grid-cols-4 gap-5 lg:grid">
             {data
-              .filter((car) => car.type === filter)
+              .filter((car) => car.status ==="Novo" && car.type === filter)
               .slice(0, 4)
               .map((car, index) => (
                 <CategroyItem key={index} car={car} carIndex={index} />
@@ -25,7 +25,7 @@ const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
           </Row>
           <LateralScroll className="lg:hidden ">
             {data
-              .filter((car) => car.type === filter)
+              .filter((car) =>car.status ==="Novo" && car.type === filter)
               .slice(0, 4)
               .map((car, index) => (
                 <CategroyItem key={index} car={car} carIndex={index} />
