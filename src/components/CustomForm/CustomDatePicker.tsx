@@ -27,7 +27,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
 
   return (
     <div className="w-full pb-4">
-      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
+      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>
       <Controller
@@ -44,11 +44,11 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                 field.onChange(date);
               }}
               dateFormat="dd/MM/yyyy"
-              className="rounded border w-[92vw] lg:w-[32vw] border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
+              className="rounded border w-full border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
             />
-           <div className='absolute right-4 bottom-4'>
+            <div className='absolute right-4 bottom-4'>
               <Calendar />
-           </div>
+            </div>
           </div>
         )}
       />

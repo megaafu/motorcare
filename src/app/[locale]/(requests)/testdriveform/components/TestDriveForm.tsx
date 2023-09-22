@@ -104,12 +104,6 @@ const TestDriveForm = () => {
           name='drive_number'
         />
         <CustomForm.FormField
-          id="location"
-          label={t('location')}
-          register={register}
-          name='location'
-        />
-        <CustomForm.FormField
           id="car_model"
           label={t('car_model')}
           register={register}

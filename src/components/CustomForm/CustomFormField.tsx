@@ -1,7 +1,7 @@
 import React from 'react';
 import { UseFormRegister } from 'react-hook-form';
 
-interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement>{
+interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
   register?: UseFormRegister<any>;
   name?: string;
@@ -16,7 +16,7 @@ const CustomFormField: React.FC<FormFieldProps> = ({
 }) => {
   return (
     <div className="pb-4">
-      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
+      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>
       <input

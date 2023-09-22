@@ -9,8 +9,7 @@ export interface ICar {
   transmission: string
   brand: string
   car_image: string
-  brochura: string
-  cilinder: number
+  cylinder: number
   fuel: string
   color: string
   price: string

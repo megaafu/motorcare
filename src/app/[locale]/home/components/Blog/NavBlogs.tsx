@@ -19,18 +19,7 @@ const NavBlogs = () => {
     <PagePadding>
       <Title.Root>
         <Title.Label label={t(BlogMenu.label)} />
-        <Title.Nav>
-          {BlogMenu.subMenu.map((nav, index) => (
-            <TitleNavItem
-              key={nav}
-              label={t(nav)}
-              isActive={activeIndex === index}
-              onClick={() => handleNavItemClick(index)}
-            />
-          ))}
-        </Title.Nav>
       </Title.Root>
-
       <BlogList />
     </PagePadding>
   )

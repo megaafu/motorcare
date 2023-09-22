@@ -10,23 +10,22 @@ interface CategoryProps {
 }
 
 const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
-  const { data,isLoading } = useVehicles()
+
+  const { data, isLoading } = useVehicles()
   return (
     <>
-      {isLoading? <CategorySkeletion/>:data ? (
+      {isLoading ? <CategorySkeletion /> : data ? (
         <>
           <Row className="hidden grid-cols-4 gap-5 lg:grid">
             {data
-              .filter((car) => car.status ==="Novo" && car.type === filter)
-              .slice(0, 4)
+              .filter((car) => car.status === "Novo" && car.type === filter)
               .map((car, index) => (
                 <CategroyItem key={index} car={car} carIndex={index} />
               ))}
           </Row>
           <LateralScroll className="lg:hidden ">
             {data
-              .filter((car) =>car.status ==="Novo" && car.type === filter)
-              .slice(0, 4)
+              .filter((car) => car.status === "Novo" && car.type === filter)
               .map((car, index) => (
                 <CategroyItem key={index} car={car} carIndex={index} />
               ))}

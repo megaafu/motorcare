@@ -18,23 +18,22 @@ const CustomAccordion = () => {
       {AllAcording.acordings.map((acording) => (
         <div
           key={acording.id}
-          className={`mb-4 bg-sky-100 px-8 py-5 transition-all duration-300 ${
-            open === acording.id ? 'max-h-50' : 'max-h-20'
-          } overflow-hidden`}
+          className={`mb-4 bg-sky-100 px-8 py-5 transition-all duration-300 ${open === acording.id ? 'max-h-50' : 'max-h-20'
+            } overflow-hidden`}
         >
           <div
             className="flex items-center justify-between cursor-pointer"
             onClick={() => handleOpen(acording.id)}
           >
-            <div className="text-bold text-xl text-black">
+            <div className="text-bold text-lg text-black">
               {t(acording.title)}
             </div>
             <Icon id={0} open={open === acording.id} />
           </div>
           {open === acording.id && (
-            <div className="py-4 text-lg text-light-text">
+            <div className="py-4 text-sm text-light-text">
               <ul className='pl-4 list-disc flex flex-col gap-2'>
-                {acording.description.map((description)=>(<li>{t(description)}</li>))}
+                {acording.description.map((description) => (<li>{t(description)}</li>))}
               </ul>
             </div>
           )}

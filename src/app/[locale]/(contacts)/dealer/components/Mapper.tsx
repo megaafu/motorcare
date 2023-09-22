@@ -81,7 +81,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
 
         <div className="absolute bottom-[5%] left-[6%] top-[5%] z-[1000] w-[30%] overflow-y-auto bg-white shadow-lg">
           <div className="flex flex-col p-10">
-            <p className="text-3xl font-bold ">
+            <p className="text-2xl font-bold ">
               Encontre sua <br />
               Concessionária
             </p>

@@ -42,7 +42,7 @@ const CarList = ({ carsData, isLoading }: CustomPageProps) => {
       {isLoading ? <CarsSkeletion key={Math.random()} /> : carsData ? (
         <>
           <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {visibleResults.map((car, index) => (
+            {visibleResults.slice(0).reverse().filter((car) => car.status === "Usado").map((car, index) => (
               <CardCarousel
                 key={index}
                 car={car}

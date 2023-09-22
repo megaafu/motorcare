@@ -1,5 +1,6 @@
 import { BASEURL } from '@/lib/util/util'
 import { ICar } from '@/model/Car'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -10,6 +11,7 @@ interface CarItemProps {
 }
 
 const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
+  const t = useTranslations("Home")
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -18,7 +20,7 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className=" group relative h-[30vh] w-[75vw] aspect-[4/3] md:w-[50vw] lg:h-auto lg:w-auto"
+          className=" group relative h-[30vh] w-[75vw] aspect-[4/3] md:w-[50vw] lg:h-auto lg:w-auto pb-12"
         >
           <Image
             loader={() =>
@@ -26,39 +28,25 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
             }
             width={1080}
             height={1080}
-            className=" h-3/4 aspect-square w-full transform-gpu transition-transform group-hover:scale-105 lg:h-64 lg:w-80"
+            className=" h-3/4 aspect-square w-full transform-gpu transition-transform group-hover:scale-110 lg:h-64 lg:w-80"
             src={`${BASEURL}${car.car_image[0]}`}
             alt=""
           />
-          
-          <p className="text-bold mt-4 text-2xl">{car.model}</p>
+
+          <p className="text-bold mt-4 text-xl text-center">{car.model}</p>
           {isHovered && (
-            <div className="absolute bottom-0 left-0 right-0 hidden space-y-2 bg-transparent  group-hover:block">
-              <a
-                href="#"
-                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
-              >
-                EXPLORE
-              </a>
-              <a
-                href="#"
-                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
-              >
-                BOOK A TEST DRIVE
-              </a>
-              <a
-                href="#"
-                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
-              >
-                REQUEST A QUOTE
-              </a>
-              <a
-                href="#"
-                className="block  bg-gray-300 p-2 text-center duration-300 hover:bg-primary hover:text-white"
-              >
-                MORE INFO
-              </a>
-            </div>
+            <>
+
+              <div className="absolute bottom-0 left-0 right-0  hidden space-y-2 bg-transparent  group-hover:block">
+                <a
+                  href="#"
+                  className="block p-2 text-center duration-300 bg-primary text-white"
+                >
+                  {t("explore")}
+                </a>
+              </div>
+              <div className='absolute top-0 bottom-0 left-0 right-0 border border-primary'></div>
+            </>
           )}
         </div>
       </a>

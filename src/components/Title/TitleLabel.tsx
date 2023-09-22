@@ -7,7 +7,7 @@ interface TitleLabelProps {
 
 const TitleLabel: React.FC<TitleLabelProps> = ({ label }) => {
   return (
-    <h2 className="log:font-medium w-full text-2xl font-bold text-primary lg:w-auto lg:text-3xl lg:font-normal whitespace-nowrap">
+    <h2 className="log:font-medium w-full text-xl font-bold text-primary lg:w-auto lg:font-normal whitespace-nowrap">
       {label}
     </h2>
   )

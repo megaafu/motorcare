@@ -25,7 +25,7 @@ export const links: items[] = [
   },
   {
     link: '/peaceform',
-    label: 'parts_accesories',
+    label: 'parts_accessories',
     icon: Accessorie,
   },
   {

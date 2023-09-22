@@ -1,5 +1,5 @@
 'use client'
-import { SendSugestion } from '@/actions/SendSugestion'
+import { SendSuggestion } from '@/actions/SendSuggestion'
 import { CustomForm } from '@/components/CustomForm'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -7,30 +7,31 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-const SugestionForm = () => {
+const SuggestionForm = () => {
   const schema = z.object({
-    name:z.string(),
-    phone:z.string(),
-    email:z.string(),
-    sugestions:z.string(),
-    client:z.string()
+    name: z.string(),
+    phone: z.string(),
+    email: z.string(),
+    option: z.string(),
+    suggestions: z.string(),
+    client: z.string()
   })
-  type SugestionFormProps =z.infer<typeof schema>
-  const {register, handleSubmit} = useForm<SugestionFormProps>({
-    resolver:zodResolver(schema)
+  type SuggestionFormProps = z.infer<typeof schema>
+  const { register, handleSubmit } = useForm<SuggestionFormProps>({
+    resolver: zodResolver(schema)
   })
-  const handleForm =async (data:SugestionFormProps)=>{
-    await SendSugestion(data)
+  const handleForm = async (data: SuggestionFormProps) => {
+    await SendSuggestion(data)
   }
   const t = useTranslations("Request")
 
   return (
     <form onSubmit={handleSubmit(handleForm)} method='POST'>
       <CustomForm.Root>
-        <CustomForm.DropDown 
-          label={t('client')} 
-          id='client' 
-          options={[t('individual'),t('company')]}
+        <CustomForm.DropDown
+          label={t('client')}
+          id='client'
+          options={[t('individual'), t('company')]}
           register={register}
           name='client'
         />
@@ -52,11 +53,18 @@ const SugestionForm = () => {
           register={register}
           name='email'
         />
-        <CustomForm.TextArea 
-          id="sugestions" 
-          label={t('sugestions')} 
+        <CustomForm.DropDown
+          label={t("suggestions")}
+          id="option"
+          options={[t("suggestion"), t("complain")]}
           register={register}
-          name='sugestions'
+          name='option'
+        />
+        <CustomForm.TextArea
+          id="suggestions"
+          label=""
+          register={register}
+          name='suggestions'
         />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'> {t('submit')} </PrimaryButton>
@@ -64,6 +72,6 @@ const SugestionForm = () => {
       </CustomForm.Root>
     </form>
   )
-  
+
 }
-export default SugestionForm
+export default SuggestionForm

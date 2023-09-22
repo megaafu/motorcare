@@ -6,9 +6,9 @@ import { Facebook, Instagram, Linkedin } from '../icons/Icons';
 import Container from '../ui/Container';
 import PagePadding from '../ui/PagePadding';
 
-const Footer =  () => {
-  const t= useTranslations('Footer')
-  
+const Footer = () => {
+  const t = useTranslations('Footer')
+
   return (
     <div className=" w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
@@ -24,8 +24,8 @@ const Footer =  () => {
               />
             </div>
             <div className="">
-              <h4 className="text-3xl font-bold text-white">{t('links')}</h4>
-              <ul className="text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl">
+              <h4 className="text-xl font-bold text-white">{t('links')}</h4>
+              <ul className="text-ligth mt-8 text-gray-300 text-sm">
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
@@ -56,8 +56,8 @@ const Footer =  () => {
               </div>
             </div>
             <div className="">
-              <h4 className="text-3xl font-bold text-white">{t('legal_terms')}</h4>
-              <ul className="text-ligth mt-8 text-gray-300 md:text-lg lg:text-xl">
+              <h4 className="text-xl font-bold text-white">{t('legal_terms')}</h4>
+              <ul className="text-ligth mt-8 text-gray-300 text-sm">
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">

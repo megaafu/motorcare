@@ -14,7 +14,7 @@ import { History, Holding, Iso } from './constants/data'
 
 export default async function About({
   params: { locale }
-}:{params:{locale:string}}) {
+}: { params: { locale: string } }) {
 
   const t = await getTranslator(locale, 'About')
   return (
@@ -61,14 +61,14 @@ export default async function About({
                 height={1000}
                 alt="img"
                 src="/images/about.JPG"
-                className=" shadow-blue-gray-900/50 absolute bottom-32  left-0 z-10 h-[240px] w-[380px] rounded-3xl border opacity-90 shadow-xl"
+                className=" shadow-blue-gray-900/50 absolute bottom-32  left-0  h-[240px] w-[380px] rounded-3xl border opacity-90 shadow-xl"
               />
               <Image
                 width={1000}
                 height={1000}
                 alt="img"
                 src="/images/bg-about.JPG"
-                className=" shadow-blue-gray-900/50 absolute bottom-0  right-16 z-20 h-[240px] w-[380px] rounded-3xl border shadow-xl"
+                className=" shadow-blue-gray-900/50 absolute bottom-0  right-16  h-[240px] w-[380px] rounded-3xl border shadow-xl"
               />
             </div>
             <div className="">

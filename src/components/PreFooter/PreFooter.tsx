@@ -10,9 +10,9 @@ const Prefooter = () => {
   const t = useTranslations("PreFooter")
   const locale = useLocale()
   return (
-    <div className={`${scroll > 91?"ease-out duration-300 ":"fixed bottom-0 ease-in duration-300"}  "  bg-primary " w-full bg-primary"`} >
+    <div className={`${scroll > 91 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
       <Container>
-        <ul className="grid whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 md:text-lg lg:text-xl lg:flex lg:justify-around">
+        <ul className="grid whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm lg:flex lg:justify-around">
           {links.map((link, index) => {
             return (
               <li key={index} className="flex items-center">

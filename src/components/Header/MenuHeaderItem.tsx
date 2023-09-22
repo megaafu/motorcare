@@ -29,7 +29,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu}) => {
   
   return (
     <ul className="relative mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
-      {menu.map(({ label, url, }, index) => {
+      {menu.map(({ label, url, }) => {
         const isActive = pathName === "/"+locale+url
         const menuItemClasses = classNames(
           'group',
@@ -38,7 +38,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu}) => {
             'text-light-text after:text-light-text hover:text-primary':
               !isActive,
           },
-          'transition duration-300 ease-in-out md:text-md lg:text-lg',
+          'transition duration-300 ease-in-out text-sm',
         )
 
         return (

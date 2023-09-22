@@ -19,7 +19,7 @@ const Subscribe = () => {
             </svg>
           </div>
           <input
-            className="focus:ring-primary-500 focus:border-primary-500 w-full  rounded-none rounded-l-lg border-gray-300 bg-gray-50 p-3 pl-10 text-lg text-light-text"
+            className="focus:ring-primary-500 focus:border-primary-500 w-full  rounded-none rounded-l-lg border-gray-300 bg-gray-50 p-3 pl-10 text-sm text-light-text"
             placeholder={t('email')}
             type="email"
             id="email"
@@ -33,7 +33,7 @@ const Subscribe = () => {
         <div>
           <button
             type="submit"
-            className="hover:bg-accent cursor-pointer rounded-none rounded-r-lg bg-primary px-5 py-3 text-center text-lg text-white"
+            className="hover:bg-accent cursor-pointer rounded-none rounded-r-lg bg-primary px-5 py-3 text-center text-sm text-white"
           >
             {t('sub')}
           </button>

@@ -3,7 +3,7 @@
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge'
-interface CustomDropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement>{
+interface CustomDropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string
   id: string
   options: string[]
@@ -20,18 +20,18 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   register,
   name,
   ...props
-  
+
 }) => {
- 
+
   return (
     <div className="w-full">
-      <label className="text-md mb-2 block text-light-text" htmlFor={id}>
+      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
         {label}
       </label>
       <select
         id={id}
         className={twMerge(
-          'form-select text-md mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-light-text focus:border-primary focus:outline-none',
+          'form-select text-sm mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-light-text focus:border-primary focus:outline-none',
           className,
         )}
         {...register?.(name || '')}

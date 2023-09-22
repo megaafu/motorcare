@@ -35,24 +35,24 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
         <div className="px-4 py-6">
           <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
           <CardDescription>
-            <p className="text-md text-gray-700 lg:text-lg">{car.year_model}</p>
-            <p className="text-md text-red-500 lg:text-lg">{car.price}</p>
+            <p className="text-sm text-gray-700 ">{car.year_model}</p>
+            <p className="text-sm text-red-500 ">{car.price}</p>
           </CardDescription>
           <hr className="border-1 border-[#272424]" />
           <CardSub>
             <div className="flex gap-2 ">
               <Image width={20} height={20} src="/icons/gearshift.svg" alt="" />
-              <p className="text-md  font-bold text-light-text">
+              <p className="text-xs  font-bold text-light-text">
                 {car.transmission}
               </p>
             </div>
             <div className="flex gap-2 ">
               <Image width={20} height={20} src="/icons/gas.svg" alt="" />
-              <p className="text-md  font-bold text-light-text">{car.fuel}</p>
+              <p className="text-xs  font-bold text-light-text">{car.fuel}</p>
             </div>
             <div className="flex gap-2">
               <Image width={20} height={20} src="/icons/speed.svg" alt="" />
-              <p className="text-md  font-bold text-light-text">
+              <p className="text-xs  font-bold text-light-text">
                 {car.mileage}
               </p>
             </div>
