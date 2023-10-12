@@ -1,6 +1,30 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/pt/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      }
+    ]
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
