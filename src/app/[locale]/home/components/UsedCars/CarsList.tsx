@@ -11,13 +11,13 @@ const CarsList = () => {
     <>
       {isLoading ? <CarsSkeletion /> : data ? (
         <>
-          <Row className="hidden gap-8 lg:grid xl:grid-cols-3">
-            {data.filter((car) => car.status === "Usado").slice(0).reverse().slice(0, 3).map((car, index) => {
+          <Row className="hidden gap-8 lg:grid xl:grid-cols-4">
+            {data.filter((car) => car.status === "Usado").slice(0).reverse().slice(0, 4).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}
           </Row>
           <LateralScroll className="lg:hidden">
-            {data.filter((car) => car.status === "Usado").slice(0).reverse().slice(0, 3).map((car, index) => {
+            {data.filter((car) => car.status === "Usado").slice(0).reverse().slice(0, 4).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}
           </LateralScroll>

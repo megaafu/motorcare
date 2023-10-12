@@ -4,8 +4,8 @@ const CardImage = ({ image }: { image: string }) => {
   return (
     <Image
       loader={() => `${BASEURL}${image}`}
-      width={1080}
-      height={1080}
+      width={6048}
+      height={4024}
       quality={100}
       src={`${BASEURL}${image}`}
       alt={`Image ${image}`}

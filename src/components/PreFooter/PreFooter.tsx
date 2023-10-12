@@ -12,16 +12,16 @@ const Prefooter = () => {
   return (
     <div className={`${scroll > 91 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
       <Container>
-        <ul className="grid whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm lg:flex lg:justify-around">
+        <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm flex justify-around">
           {links.map((link, index) => {
             return (
               <li key={index} className="flex items-center">
                 <Link
                   href={`${locale}${link.link}`}
-                  className="color flex items-center gap-4 text-white transition duration-300 hover:text-secundary"
+                  className="color flex flex-col lg:flex-row items-center gap-4 text-white transition duration-300 hover:text-secundary"
                 >
                   {<link.icon />}
-                  <span>{t(link.label)}</span>
+                  <span className='hidden md:flex'>{t(link.label)}</span>
                 </Link>
               </li>
             )

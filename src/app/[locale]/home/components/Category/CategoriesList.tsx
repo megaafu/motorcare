@@ -4,6 +4,7 @@ import useVehicles from '@/hooks/use-vehicles'
 import React from 'react'
 import CategorySkeletion from './CategorySkeletion'
 import CategroyItem from './CategroyItem'
+import CarSlider from '@/app/[locale]/vehicles/components/CarSlider'
 
 interface CategoryProps {
   filter: string
@@ -16,13 +17,7 @@ const CategoriesList: React.FC<CategoryProps> = ({ filter }) => {
     <>
       {isLoading ? <CategorySkeletion /> : data ? (
         <>
-          <Row className="hidden grid-cols-4 gap-5 lg:grid">
-            {data
-              .filter((car) => car.status === "Novo" && car.type === filter)
-              .map((car, index) => (
-                <CategroyItem key={index} car={car} carIndex={index} />
-              ))}
-          </Row>
+          <CarSlider  carsData={data} isLoading={isLoading} filter={filter} />
           <LateralScroll className="lg:hidden ">
             {data
               .filter((car) => car.status === "Novo" && car.type === filter)

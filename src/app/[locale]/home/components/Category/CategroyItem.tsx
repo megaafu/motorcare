@@ -15,20 +15,20 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div key={carIndex} className="flex">
+    <div key={carIndex}>
       <a href="#">
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className=" group relative h-[30vh] w-[75vw] aspect-[4/3] md:w-[50vw] lg:h-auto lg:w-auto pb-12"
+          className=" group relative h-[40vh] w-[75vw] aspect-[4/3] md:w-[50vw] lg:h-auto lg:w-auto pb-12"
         >
           <Image
             loader={() =>
               `${BASEURL}${JSON.parse(car.car_image)[0]}`
             }
-            width={1080}
-            height={1080}
-            className=" h-3/4 aspect-square w-full transform-gpu transition-transform group-hover:scale-110 lg:h-64 lg:w-80"
+            width={6048}
+            height={4024}
+            className=" aspect-[4/3] w-full transform-gpu transition-transform group-hover:scale-110"
             src={`${BASEURL}${car.car_image[0]}`}
             alt=""
           />

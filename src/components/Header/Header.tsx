@@ -8,11 +8,11 @@ import MenuHeaderItem from './MenuHeaderItem'
 import MobileMenu from './MobileMenu'
 
 const Header: React.FC = () => {
- 
+
   return (
     <header className="fixed left-0 top-0 z-[1200] w-full shadow-2xl md:top-8 lg:absolute">
       <nav className="border-gray-200 bg-white">
-        <Container>
+        <Container className=' max-w-screen-2xl'>
           <div className="flex flex-wrap items-center justify-between md:py-2">
             <Link href="/">
               <div className="flex items-center">

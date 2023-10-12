@@ -10,11 +10,11 @@ const Footer = () => {
   const t = useTranslations('Footer')
 
   return (
-    <div className=" w-full bg-footer bg-cover bg-center bg-no-repeat">
+    <div className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
         <PagePadding>
           <div className="flex flex-wrap justify-between gap-x-8 gap-y-4 lg:flex-nowrap">
-            <div className="hidden lg:flex lg:place-self-center">
+            <div className="hidden  md:flex lg:place-self-center">
               <Image
                 width="1080"
                 height="1080"

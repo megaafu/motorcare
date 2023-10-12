@@ -14,7 +14,7 @@ export default async function Home({
   const t = await getTranslator(locale, 'Home')
   return (
     <main>
-      <BannerCarousel />y
+      <BannerCarousel />
       <Container>
         <NavCategories />
         <NavFindCars />

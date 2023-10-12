@@ -34,13 +34,13 @@ const ImageCarousel = ({
       {images.map((image, index) => (
         <div
           key={index}
-          className="h-[300px] w-full"
+          className=" aspect-[4/3] w-full"
           style={{ background: '#ccc' }}
         >
           <Image
             loader={() => `${BASEURL}${image}`}
-            width={1080}
-            height={1080}
+            width={6048}
+            height={4024}
             quality={100}
             src={`${BASEURL}${image}`}
             alt={`Image ${index}`}

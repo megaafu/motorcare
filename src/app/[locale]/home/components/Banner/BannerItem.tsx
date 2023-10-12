@@ -10,16 +10,16 @@ const BannerItem = ({ banner }: { banner: IBanner }) => {
         <>
             <Image
                 loader={() => `${BASEURL}${banner.imagem}`}
-                width={1080}
-                height={1080}
+                width={6048}
+                height={4024}
                 src={`${BASEURL}${banner.imagem}`}
                 alt={`Image ${banner.id}`}
-                className="w-full h-[85vh]"
+                className="w-full h-[45vh] lg:h-[85vh] aspect-video"
             />
             <Container>
                 <div className='relative'>
-                    <div className="absolute bottom-24 left-0  ">
-                        <p className="max-w-2xl text-3xl text-start leading-none tracking-tight text-white xl:text-5xl">
+                    <div className="absolute bottom-8  lg:bottom-24 left-0  ">
+                        <p className="max-w-2xl text-2xl text-start leading-none tracking-tight text-white xl:text-5xl">
                             {banner.title}
                         </p>
                     </div>

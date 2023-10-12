@@ -29,8 +29,8 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
         <ImageCarousel
           images={images}
           autoPlay={autoPlay}
-          interval={1500}
-          transitionTime={2000}
+          interval={3000}
+          transitionTime={1500}
         />
         <div className="px-4 py-6">
           <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
