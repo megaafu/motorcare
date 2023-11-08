@@ -49,12 +49,14 @@ const BrandsForm = () => {
           label={t("name")}
           register={register}
           name='name'
+          required
         />
         <CustomForm.FormField
           id="phone"
           label={t("phone")}
           register={register}
           name='phone'
+          required
         />
         {selectedOption === t('company') && (
           <CustomForm.FormField
