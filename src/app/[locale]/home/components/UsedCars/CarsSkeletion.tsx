@@ -3,20 +3,20 @@ import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 
 const CarsSkeletion = () => {
-    const totalItems=3 
-    const items = new Array(totalItems).fill(null)
+  const totalItems = 4
+  const items = new Array(totalItems).fill(null)
   return (
     <>
-        <Row className="grid-col-1 hidden gap-8 lg:grid lg:grid-cols-3">
-            {items.map((_,index) => {
-              return <CarousellCardSkeletion key={index} />
-            })}
-        </Row>
-        <LateralScroll className="lg:hidden">
-            {items.map((_,index) => {
-              return <CarousellCardSkeletion key={index} />
-            })}
-        </LateralScroll>
+      <Row className="grid-col-1 hidden gap-8 lg:grid lg:grid-cols-4">
+        {items.map((_, index) => {
+          return <CarousellCardSkeletion key={index} />
+        })}
+      </Row>
+      <LateralScroll className="lg:hidden">
+        {items.map((_, index) => {
+          return <CarousellCardSkeletion key={index} />
+        })}
+      </LateralScroll>
     </>
   )
 }

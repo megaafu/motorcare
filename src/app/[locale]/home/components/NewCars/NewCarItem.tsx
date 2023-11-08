@@ -1,22 +1,23 @@
 import { BASEURL } from '@/lib/util/util'
-import { ICar } from '@/model/Car'
+import { INewCar } from '@/model/newCar'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-interface CarItemProps {
+interface NewCarItemProps {
   carIndex: number
-  car: ICar
+  car: INewCar
 }
 
-const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
+const NewCarItem: React.FC<NewCarItemProps> = ({ carIndex, car }) => {
   const t = useTranslations("Home")
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div key={carIndex}>
-      <a href="#">
+      <Link href={car.url_link} target='blank'>
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -24,34 +25,31 @@ const CategoryItem: React.FC<CarItemProps> = ({ carIndex, car }) => {
         >
           <Image
             loader={() =>
-              `${BASEURL}${JSON.parse(car.car_image)[0]}`
+              `${BASEURL}${car.car_image}`
             }
             width={6048}
             height={4024}
             className=" aspect-[4/3] w-full transform-gpu transition-transform group-hover:scale-110"
-            src={`${BASEURL}${car.car_image[0]}`}
+            src={`${BASEURL}${car.car_image}`}
             alt=""
           />
 
           <p className="text-bold mt-4 text-xl text-center">{car.model}</p>
-          {isHovered && (
-            <>
 
-              <div className="absolute bottom-0 left-0 right-0  hidden space-y-2 bg-transparent  group-hover:block">
-                <a
-                  href="#"
-                  className="block p-2 text-center duration-300 bg-primary text-white"
-                >
-                  {t("explore")}
-                </a>
-              </div>
-              <div className='absolute top-0 bottom-0 left-0 right-0 border border-primary'></div>
-            </>
-          )}
+          <div className={`${isHovered ? 'block' : 'block lg:hidden'}`}>
+
+            <div className="absolute bottom-0 left-0 right-0  space-y-2 bg-transparent  group-hover:block">
+              <span className="block p-2 text-center duration-300 bg-primary text-white">
+                {t("explore")}
+              </span>
+            </div>
+            <div className='absolute top-0 bottom-0 left-0 right-0 border border-primary'></div>
+          </div>
+
         </div>
-      </a>
+      </Link>
     </div>
   )
 }
 
-export default CategoryItem
+export default NewCarItem

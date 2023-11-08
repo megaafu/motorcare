@@ -4,12 +4,13 @@ import LateralScroll from '@/components/ui/LateralScoll'
 import Row from '@/components/ui/Row'
 import SecundaryButton from '@/components/ui/SecundaryButton'
 import useBlogs from '@/hooks/use-blogs'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import BlogSkeletion from './BlogSkeletion'
 
 const BlogList = () => {
   const { data, isLoading } = useBlogs()
   const t = useTranslations("Home")
+  const locale = useLocale()
   return (
     <>
       {isLoading ? <BlogSkeletion /> : data ? (
@@ -24,7 +25,7 @@ const BlogList = () => {
               return <BlogCard key={post.id} blog={post} />
             })}
           </LateralScroll>
-          <SecundaryButton label={t('view_more')} />
+          <SecundaryButton href={`${locale}/blogs`} label={t('view_more')} />
         </>
       ) : null}
     </>

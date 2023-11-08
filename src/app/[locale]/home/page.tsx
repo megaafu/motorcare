@@ -3,7 +3,7 @@ import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
 import { getTranslator } from 'next-intl/server'
 import NavBlogs from './components/Blog/NavBlogs'
-import NavCategories from './components/Category/NavCategories'
+import NavNewCars from './components/NewCars/NavNewCars'
 import NavFindCars from './components/UsedCars/NavFindCars'
 import BannerCarousel from './components/Banner/BannerCarousel'
 
@@ -16,7 +16,7 @@ export default async function Home({
     <main>
       <BannerCarousel />
       <Container>
-        <NavCategories />
+        <NavNewCars />
         <NavFindCars />
       </Container>
       <div className="w-full bg-informative bg-cover bg-center bg-no-repeat">

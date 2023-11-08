@@ -6,26 +6,26 @@ import BannerItem from './BannerItem'
 
 const BannerCarousel = () => {
   const { data, isLoading } = useBanners()
-  console.log(data)
   return (
     <>
-      {isLoading ? (<div className='w-full h-[85vh]'></div>) : data ? (<Carousel
-        className=''
-        autoPlay={true}
-        showThumbs={false}
-        showStatus={false}
-        infiniteLoop={true}
-        dynamicHeight={false}
-        showIndicators={true}
-        showArrows={false}
-        stopOnHover={false}
-        emulateTouch={true}
-        interval={6000}
-        transitionTime={1000}
+      {isLoading ? (<div className='w-full h-[85vh]'></div>) : data ? (
+        <Carousel
+          className=''
+          autoPlay={true}
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop={true}
+          dynamicHeight={false}
+          showIndicators={true}
+          showArrows={false}
+          stopOnHover={false}
+          emulateTouch={true}
+          interval={6000}
+          transitionTime={1000}
 
-      >
-        {data.map((banner) => <BannerItem banner={banner} />)}
-      </Carousel>) : null}
+        >
+            {data.map((banner) => <BannerItem banner={banner} />)}
+        </Carousel>) : null}
     </>
 
   )

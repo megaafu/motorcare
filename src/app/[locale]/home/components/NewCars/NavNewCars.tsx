@@ -6,9 +6,9 @@ import PagePadding from '@/components/ui/PagePadding'
 import { CategoriesMenu } from '@/constants/menuData'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
-import CategoriesList from './CategoriesList'
+import NewCarList from './NewCarList'
 
-const NavCategories = () => {
+const NavNewCars = () => {
   const [filter, setFilter] = useState('Vehicles')
   const [selectedIndex, setIndex] = useState(0)
   const handleIndex = (index: number) => {
@@ -36,9 +36,9 @@ const NavCategories = () => {
           ))}
         </Title.Nav>
       </Title.Root>
-      <CategoriesList filter={filter} />
+      <NewCarList filter={filter} />
     </PagePadding>
   )
 }
 
-export default NavCategories
+export default NavNewCars
