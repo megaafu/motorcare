@@ -3,7 +3,7 @@
     "hero-text": "COMPROMETIDO COM A EXCELÊNCIA DE FABRICAÇÃO",
     "hero-sub": "Fabricando com Excelência",
     "presented_vehicles": "Veículos Apresentados",
-    "categories": "Categorias",
+    "new_vehicles": "Novos Veículos",
     "Vehicles": "Veículos",
     "Trucks": "Camiões",
     "Electrics": "Eletricos",
@@ -108,7 +108,10 @@
     "home": "Página Inicial",
     "about": "Sobre Nós",
     "vehicles": "Veículos",
-    "find_dealer": "Encontrar Concessionária"
+    "after_sales": "Pós Venda",
+    "find_dealer": "Encontrar Concessionária",
+    "parts_accessories": "Requisitar Peças",
+    "service": "Requisitar Serviço"
   },
   "PreFooter": {
     "quote": "Pedir Cotação",

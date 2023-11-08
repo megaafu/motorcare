@@ -3,7 +3,7 @@
         "hero-text": "COMMITED TO MANUFACTURING EXCELLENCE",
         "hero-sub": "Manufaturing with Excellence",
         "presented_vehicles": "Presented Vehicles",
-        "categories": "Categories",
+        "new_vehicles": "New Vehicles",
         "Vehicles": "Vehicles",
         "Trucks": "Trucks",
         "Electrics": "Electrics",
@@ -108,7 +108,10 @@
         "home": "Home",
         "about": "About Us",
         "vehicles": "Vehicles",
-        "find_dealer": "Find Dealer"
+        "find_dealer": "Find Dealer",
+        "after_sales": "After sales",
+        "service": "Request a Service",
+        "parts_accessories": "Request Parts"
     },
     "PreFooter": {
         "quote": "Get a Quote",
