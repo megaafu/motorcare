@@ -2,14 +2,14 @@
 
 import CustomDropdown from '@/components/CustomForm/CustomDropdown'
 import Row from '@/components/ui/Row'
-import { ICar } from '@/model/Car'
+import { IUsedCar } from '@/model/usedCar'
 import { useForm } from 'react-hook-form'
 
 
 // remove this line after working on this component
 interface FilterType {
-  carsData: ICar[]
-  onFilter: (filteredData: ICar[]) => void
+  carsData: IUsedCar[]
+  onFilter: (filteredData: IUsedCar[]) => void
 }
 
 const CarFilters = ({ carsData, onFilter }: FilterType) => {
@@ -18,7 +18,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
   let filteredData = carsData
 
   const handleForm = async (cars: any) => {
-    filteredData = carsData.filter((car: ICar) => {
+    filteredData = carsData.filter((car: IUsedCar) => {
       console.log(car.brand.toLowerCase().includes(cars.carBrand.toLowerCase()));
 
       if (!cars.carBrand.includes("Select") && !car.brand.toLowerCase().includes(cars.carBrand.toLowerCase())) {

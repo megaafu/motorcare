@@ -3,16 +3,16 @@
 import CardCarousel from '@/components/Card/CardCarousel'
 import PagePadding from '@/components/ui/PagePadding'
 import Row from '@/components/ui/Row'
-import { ICar } from '@/model/Car'
 import { Pagination } from '@mantine/core'
 import { usePagination } from '@mantine/hooks'
 import { useEffect, useState } from 'react'
 import CarsSkeletion from './CarsSkeletion'
+import { IUsedCar } from '@/model/usedCar'
 
 
 // remove this line after working on this component
 interface CustomPageProps {
-  carsData: ICar[]
+  carsData: IUsedCar[]
   isLoading?: boolean
 }
 
@@ -42,7 +42,7 @@ const CarList = ({ carsData, isLoading }: CustomPageProps) => {
       {isLoading ? <CarsSkeletion key={Math.random()} /> : carsData ? (
         <>
           <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {visibleResults.slice(0).reverse().filter((car) => car.status === "Usado").map((car, index) => (
+            {visibleResults.slice(0).reverse().map((car, index) => (
               <CardCarousel
                 key={index}
                 car={car}
