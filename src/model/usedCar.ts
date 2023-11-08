@@ -1,4 +1,4 @@
-export interface ICar {
+export interface IUsedCar {
   id: string
   model: string
   license_plate: string
@@ -14,5 +14,4 @@ export interface ICar {
   color: string
   price: string
   type: string
-  status: string
 }

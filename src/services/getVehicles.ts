@@ -1,10 +1,11 @@
-import { ICar } from '@/model/Car'
+
+import { IUsedCar } from '@/model/usedCar'
 import api from './api'
 
 async function getVehicles() {
   const response = await api('/vehicles')
   const data = await response.data
-  return data.data as ICar[]
+  return data.data as IUsedCar[]
 }
 
 export default getVehicles
