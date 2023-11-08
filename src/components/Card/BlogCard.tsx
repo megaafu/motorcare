@@ -6,8 +6,11 @@ import { motion } from 'framer-motion'
 import CardRoot from './CardRoot'
 import CardTitle from './CardTitle'
 import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation';
 import ImageCarousel from './ImageCarousel'
 import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface BlogCardProps {
   blog: IBlog
@@ -21,6 +24,8 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   }
   const images: string[] = JSON.parse(blog.image)
   const t = useTranslations("Home")
+  const router = useRouter()
+  const pathName = usePathname()
   return (
     <motion.div onHoverStart={handleAutoPlay} onHoverEnd={handleAutoPlay}>
       <CardRoot>
@@ -33,10 +38,10 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <div className="w-[80vw] md:w-[40vw]  px-4 py-6 lg:w-auto">
           <CardTitle>{blog.title}</CardTitle>
           <CardDescription>
-            <p className="text-md text-gray-700 lg:text-sm">{blog.subtitle}</p>
+            <p className="text-md text-gray-700 lg:text-sm line-clamp-1">{blog.subtitle}</p>
           </CardDescription>
           <div className=' h-12'></div>
-          <CardButton>
+          <CardButton onClick={() => router.push(`blogs/${blog.id}`)}>
             {t("read_more")}
           </CardButton>
         </div>

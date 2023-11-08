@@ -1,6 +1,7 @@
 import { BASEURL, cn } from '@/lib/util/util'
 import Image from 'next/image'
 import { Carousel } from 'react-responsive-carousel'
+
 interface ImageCarouselProps {
   className?: string
   interval: number
