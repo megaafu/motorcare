@@ -1,4 +1,34 @@
-import { cn } from '@/lib/util/util';
+import { cn } from '@/lib/util/util'
+
+export const NextArrow = ({
+  className,
+  onClick,
+}: {
+  className?: string
+  onClick?: () => void
+}) => {
+  return (
+    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}
+      className={cn('', className)}
+    >
+      <path d="M9 5L15 12L9 19" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+export const PrevArrow = ({
+  className,
+  onClick,
+}: {
+  className?: string
+  onClick?: () => void
+}) => {
+  return (
+    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}
+      className={cn('', className)}>
+      <path d="M15 5L9 12L15 19" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
 
 export const ArrowDown = ({
   className,
@@ -9,6 +39,7 @@ export const ArrowDown = ({
 }) => {
   return (
     <svg
+      onClick={onClick}
       width="18"
       height="18"
       viewBox="0 -4.5 20 20"
