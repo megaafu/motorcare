@@ -36,7 +36,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         defaultValue={selectedDate}
         rules={rules}
         render={({ field }) => (
-          <div className='relative w-full'>
+          <section className='relative w-full '>
             <DatePicker
               id={id}
               selected={field.value}
@@ -44,12 +44,12 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                 field.onChange(date);
               }}
               dateFormat="dd/MM/yyyy"
-              className="rounded border w-full border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
+              className="rounded border w-[32vw]  border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
             />
-            <div className='absolute right-4 bottom-4'>
+            <span className='absolute right-4 bottom-4'>
               <Calendar />
-            </div>
-          </div>
+            </span>
+          </section>
         )}
       />
     </div>

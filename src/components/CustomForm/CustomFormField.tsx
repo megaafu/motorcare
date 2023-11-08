@@ -5,6 +5,7 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
   register?: UseFormRegister<any>;
   name?: string;
+  required?: boolean
 }
 
 const CustomFormField: React.FC<FormFieldProps> = ({
@@ -12,12 +13,13 @@ const CustomFormField: React.FC<FormFieldProps> = ({
   label,
   name,
   register,
+  required,
   ...props
 }) => {
   return (
     <div className="pb-4">
-      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {label}
+      <label className="text-sm  mb-2 block text-light-text " htmlFor={id}>
+        {`${label} ${required ? '*' : ''}`}
       </label>
       <input
         className="w-full appearance-none rounded border border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
