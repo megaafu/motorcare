@@ -16,7 +16,7 @@ export const HistoryMenu: IMenu = {
   subMenu: [''],
 }
 export const CategoriesMenu: IMenu = {
-  label: 'categories',
+  label: 'new_vehicles',
   subMenu: ['Vehicles', 'Trucks', 'Electrics'],
 }
 
