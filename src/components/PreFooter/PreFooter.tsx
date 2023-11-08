@@ -10,7 +10,7 @@ const Prefooter = () => {
   const t = useTranslations("PreFooter")
   const locale = useLocale()
   return (
-    <div className={`${scroll > 91 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
+    <div className={`${scroll > 80 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
       <Container>
         <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm flex justify-around">
           {links.map((link, index) => {
