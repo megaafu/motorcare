@@ -2,6 +2,9 @@ import Provider from '@/lib/util/provider'
 import localFont from 'next/font/local'
 import React from 'react'
 import './globals.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const nissan = localFont({
   src: [
