@@ -22,7 +22,49 @@ const nextConfig = {
         source: "/pt/en/:path",
         destination: "/en/:path",
         permanent: true,
-      }
+      },
+      {
+        source: "/pt/blogs/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+
+      {
+        source: "/en/blogs/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/blogs/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/blogs/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/blogs/pt/blogs/:path",
+        destination: "/pt/blogs/:path",
+        permanent: true,
+      },
+
+      {
+        source: "/en/blogs/pt/blogs/:path",
+        destination: "/pt/blogs/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/blogs/en/blogs/:path",
+        destination: "/en/blogs/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/blogs/en/blogs/:path",
+        destination: "/en/blogs/:path",
+        permanent: true,
+      },
     ]
   },
   reactStrictMode: true,
