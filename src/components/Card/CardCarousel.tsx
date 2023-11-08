@@ -1,5 +1,5 @@
 'use client'
-import { ICar } from '@/model/Car'
+import { IUsedCar } from '@/model/usedCar'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -12,7 +12,7 @@ import ImageCarousel from './ImageCarousel'
 
 interface CardCarouselProps {
   className?: string
-  car: ICar
+  car: IUsedCar
 }
 
 const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {

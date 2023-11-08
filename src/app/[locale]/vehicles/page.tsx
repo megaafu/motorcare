@@ -4,10 +4,12 @@ import { Title } from '@/components/Title'
 import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
 import useVehicles from '@/hooks/use-vehicles'
-import { ICar } from '@/model/Car'
+import { IUsedCar } from '@/model/usedCar'
 import { useEffect, useMemo, useState } from 'react'
 import CarFilter from './components/CarFilter'
 import CarList from './components/CarList'
+
+
 
 export default function UsedCars() {
   const { data, isLoading } = useVehicles()
@@ -16,7 +18,7 @@ export default function UsedCars() {
 
   const [filteredCarsData, setFilteredCarsData] = useState(carsData)
 
-  const handleFilter = (filteredData: ICar[]) => {
+  const handleFilter = (filteredData: IUsedCar[]) => {
     setFilteredCarsData(filteredData)
   }
 
