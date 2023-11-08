@@ -1,36 +1,28 @@
 'use client'
+import { INav } from '@/constants/headerData'
 import classNames from 'classnames'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useState } from 'react'
-
-interface MenuItem {
-  label: string
-  url: string
- 
-}
-
+import React from 'react'
+import DropDown from './DropDown'
 interface MenuProps {
-  menu: MenuItem[]
-  
+  menu: INav[]
+
 }
 
-const MenuHeaderItem: React.FC<MenuProps> = ({ menu}) => {
- 
-  const pathName = usePathname()
-  const [selectedMenuIndex, setSelectedMenuIndex] = useState<number>(-1)
+const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
 
-  const handleArrowClick = (index: number) => {
-    setSelectedMenuIndex((prevIndex) => (prevIndex === index ? -1 : index))
-  }
-  const t= useTranslations('Header')
+  const pathName = usePathname()
+
+  const t = useTranslations('Header')
   const locale = useLocale()
-  
+
+  console.log(pathName)
   return (
     <ul className="relative mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
-      {menu.map(({ label, url, }) => {
-        const isActive = pathName === "/"+locale+url
+      {menu.map(({ menu, dropdown }) => {
+        const isActive = pathName === "/" + locale + menu.url
         const menuItemClasses = classNames(
           'group',
           {
@@ -42,15 +34,19 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu}) => {
         )
 
         return (
-          <li key={label} className="group relative">
-              <Link href={`${locale}${url}`} onClick={() => handleArrowClick(-1)}>
+          <li key={menu.label} className="group relative">
+            {dropdown ?
+              <DropDown label={menu.label} dropdown={dropdown} />
+              :
+              <Link href={`${locale}${menu.url}`} replace={true}>
                 <div className={menuItemClasses}>
-                  <span className="mr-4 cursor-pointer">{t(label)}</span>
+                  <span className="mr-4 cursor-pointer">{t(menu.label)}</span>
                   {isActive && (
-                    <span className="mt-1 block h-0.5 max-w-full bg-primary" />
+                    <span className="mt-1 block h-0.5 w-3/4 bg-primary" />
                   )}
                 </div>
-              </Link>
+              </Link>}
+
           </li>
         )
       })}
