@@ -116,7 +116,7 @@ const ServicesForm = () => {
           />
           <CustomForm.DatePicker
             id='date'
-            label='Pretended Date'
+            label={t("pretended_date")}
             control={control}
             name='date'
           />

@@ -15,7 +15,6 @@ const DropDown = ({ label, dropdown }: DropDownProps) => {
     const handleIsOpen = () => {
         setIsOpen(!isOpen)
     }
-    console.log(isOpen)
     const t = useTranslations('Header')
     const locale = useLocale()
     return (
