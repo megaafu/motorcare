@@ -44,7 +44,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                 field.onChange(date);
               }}
               dateFormat="dd/MM/yyyy"
-              className="rounded border w-[32vw]  border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
+              className="rounded border w-[92vw] lg:w-[44vw] xl:w-[32vw]  border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
             />
             <span className='absolute right-4 bottom-4'>
               <Calendar />

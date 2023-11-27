@@ -82,6 +82,7 @@
         "peaces_description": "Description of Required Peace",
         "drive_number": "Driver License Number",
         "drive_date": "Expired Date of Driver License",
+        "pretended_date":"pretended Date",
         "suggestions": "Suggestions and Complaints",
         "submit": "Submit",
         "revision": "Revision",

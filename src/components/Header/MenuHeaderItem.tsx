@@ -18,7 +18,6 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
   const t = useTranslations('Header')
   const locale = useLocale()
 
-  console.log(pathName)
   return (
     <ul className="relative mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
       {menu.map(({ menu, dropdown }) => {

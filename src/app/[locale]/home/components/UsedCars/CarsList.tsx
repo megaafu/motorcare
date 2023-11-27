@@ -11,7 +11,7 @@ const CarsList = () => {
     <>
       {isLoading ? <CarsSkeletion /> : data ? (
         <>
-          <Row className="hidden gap-8 lg:grid xl:grid-cols-4">
+          <Row className="hidden gap-8 lg:grid lg:grid-cols-4">
             {data.slice(0).reverse().slice(0, 4).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}

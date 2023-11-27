@@ -15,7 +15,7 @@ const BannerItem = ({ banner }: { banner: IBanner }) => {
                 height={4024}
                 src={`${BASEURL}${banner.imagem}`}
                 alt={`Image ${banner.id}`}
-                className="w-full h-[45vh] lg:h-[85vh] aspect-video"
+                className="w-full h-[45vh] lg:h-[64vh] xl:h-[85vh] aspect-video"
             />
             <Container>
                 <div className='relative'>
