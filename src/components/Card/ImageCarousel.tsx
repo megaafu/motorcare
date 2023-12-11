@@ -40,8 +40,8 @@ const ImageCarousel = ({
         >
           <Image
             loader={() => `${BASEURL}${image}`}
-            width={6048}
-            height={4024}
+            width={4080}
+            height={3072}
             quality={100}
             src={`${BASEURL}${image}`}
             alt={`Image ${index}`}

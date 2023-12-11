@@ -4,12 +4,12 @@ const CardImage = ({ image }: { image: string }) => {
   return (
     <Image
       loader={() => `${BASEURL}${image}`}
-      width={6048}
-      height={4024}
+      width={4080}
+      height={3072}
       quality={100}
       src={`${BASEURL}${image}`}
       alt={`Image ${image}`}
-      className="h-[300px] w-full rounded-t-lg lg:bg-cover"
+      className="h-[307px] w-full rounded-t-lg lg:bg-cover"
     />
   )
 }
