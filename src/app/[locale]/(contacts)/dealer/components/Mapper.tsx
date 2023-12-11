@@ -17,13 +17,14 @@ interface PlaceCordinate {
   lng: number
 }
 
+
 const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
   const GOOGLE_MAPS_API_KEY = 'AIzaSyAD-sDFj__5UcpWyxXU-VuxgqFK3XtVwC8'
 
   const [location, setLocation] = useState<PlaceCordinate>({
     lat: -19.831767430887417,
     lng: 34.842768295566614,
-    name: '',
+    name: 'Maputo',
   })
 
 
