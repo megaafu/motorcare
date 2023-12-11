@@ -24,7 +24,7 @@ const BannerCarousel = () => {
           transitionTime={1000}
 
         >
-            {data.map((banner) => <BannerItem banner={banner} />)}
+          {data.map((banner) => <BannerItem banner={banner} />)}
         </Carousel>) : null}
     </>
 

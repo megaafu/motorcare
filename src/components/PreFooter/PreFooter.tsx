@@ -12,7 +12,7 @@ const Prefooter = () => {
   return (
     <div className={`${scroll > 80 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
       <Container>
-        <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm flex justify-around">
+        <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm flex justify-between">
           {links.map((link, index) => {
             return (
               <li key={index} className="flex items-center">
