@@ -27,7 +27,6 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
     name: 'Maputo',
   })
 
-
   const customIcon = new Icon({
     iconUrl: '/images/location.svg',
     iconSize: [75, 75],
