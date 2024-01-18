@@ -16,6 +16,10 @@ interface CardCarouselProps {
 }
 
 const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
+
+  function currencyFormat(num: number) {
+    return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + " MZN"
+  }
   const [autoPlay, setAutoPlay] = useState(false)
   const handleAutoPlay = () => {
     setAutoPlay((oldAutoPlay: boolean) => {
@@ -36,22 +40,22 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
           <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
           <CardDescription>
             <p className="text-sm text-gray-700 ">{car.year_model}</p>
-            <p className="text-sm text-red-500 ">{car.price}</p>
+            <p className="text-sm text-red-500 diagonal-fractions">{currencyFormat(Number(car.price))}</p>
           </CardDescription>
           <hr className="border-1 border-[#272424]" />
           <CardSub>
-            <div className="flex gap-2 ">
-              <Image width={20} height={20} src="/icons/gearshift.svg" alt="" />
+            <div className="flex gap-1 ">
+              <Image width={18} height={18} src="/icons/gas.svg" alt="" />
+              <p className="text-xs  font-bold text-light-text">{car.fuel}</p>
+            </div>
+            <div className="flex gap-1 ">
+              <Image width={18} height={18} src="/icons/gearshift.svg" alt="" />
               <p className="text-xs  font-bold text-light-text">
                 {car.transmission}
               </p>
             </div>
-            <div className="flex gap-2 ">
-              <Image width={20} height={20} src="/icons/gas.svg" alt="" />
-              <p className="text-xs  font-bold text-light-text">{car.fuel}</p>
-            </div>
-            <div className="flex gap-2">
-              <Image width={20} height={20} src="/icons/speed.svg" alt="" />
+            <div className="flex gap-1">
+              <Image width={18} height={18} src="/icons/speed.svg" alt="" />
               <p className="text-xs  font-bold text-light-text">
                 {car.mileage}
               </p>

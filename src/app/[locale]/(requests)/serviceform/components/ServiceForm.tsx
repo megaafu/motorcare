@@ -21,6 +21,7 @@ const ServicesForm = () => {
     mileage: z.string(),
     service_categories: z.string(),
     client: z.string(),
+    vin: z.string(),
     date: z.date()
   })
   type ServicesFormProps = z.infer<typeof schema>
@@ -100,12 +101,11 @@ const ServicesForm = () => {
             register={register}
             name='email'
           />
-          <CustomForm.DropDown
-            label={t("service_description")}
-            id="service_categories"
-            options={[t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]}
-            register={register}
-            name='service_categories'
+          <CustomForm.DatePicker
+            id='date'
+            label={t("pretended_date")}
+            control={control}
+            name='date'
           />
           <CustomForm.DropDown
             label={t("delegation")}
@@ -113,12 +113,6 @@ const ServicesForm = () => {
             options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
             register={register}
             name='delegation'
-          />
-          <CustomForm.DatePicker
-            id='date'
-            label={t("pretended_date")}
-            control={control}
-            name='date'
           />
           <CustomForm.FormField
             id="plate"
@@ -132,7 +126,19 @@ const ServicesForm = () => {
             register={register}
             name='mileage'
           />
-
+          <CustomForm.FormField
+            id="vin"
+            label={t("vin")}
+            register={register}
+            name='vin'
+          />
+          <CustomForm.DropDown
+            label={t("service_description")}
+            id="service_categories"
+            options={[t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]}
+            register={register}
+            name='service_categories'
+          />
           <div className="mt-2 flex w-ful lg:justify-end">
             <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
           </div>

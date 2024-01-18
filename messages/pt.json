@@ -93,7 +93,8 @@
     "tires": "Pneus",
     "acessories": "Acessórios",
     "complain": "Reclamação",
-    "suggestion": "Sugestão"
+    "suggestion": "Sugestão",
+    "description": "Descrição"
   },
   "Footer": {
     "links": "Links Úteis",
@@ -108,7 +109,7 @@
   "Header": {
     "home": "Página Inicial",
     "about": "Sobre Nós",
-    "vehicles": "Veículos",
+    "vehicles": "Usados",
     "after_sales": "Pós Venda",
     "find_dealer": "Encontrar Concessionária",
     "parts_accessories": "Requisitar Peças",

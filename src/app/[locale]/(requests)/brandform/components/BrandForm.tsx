@@ -16,6 +16,10 @@ const BrandsForm = () => {
     email: z.string(),
     delegation: z.string(),
     car_model: z.string(),
+    plate: z.string(),
+    mileage: z.string(),
+    vin: z.string(),
+    service_categories: z.string(),
     client: z.string()
   })
   type BrandsFormProps = z.infer<typeof schema>
@@ -80,10 +84,29 @@ const BrandsForm = () => {
           name='delegation'
         />
         <CustomForm.FormField
-          id="car_model"
-          label={t("car_model")}
+          id="plate"
+          label={t("plate")}
           register={register}
-          name='car_model'
+          name='plate'
+        />
+        <CustomForm.FormField
+          id="mileage"
+          label={t("mileage")}
+          register={register}
+          name='mileage'
+        />
+        <CustomForm.FormField
+          id="vin"
+          label={t("vin")}
+          register={register}
+          name='vin'
+        />
+        <CustomForm.DropDown
+          label={t("service_description")}
+          id="service_categories"
+          options={[t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]}
+          register={register}
+          name='service_categories'
         />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>

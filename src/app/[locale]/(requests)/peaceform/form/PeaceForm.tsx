@@ -22,6 +22,8 @@ const PeacesForm = () => {
     mileage: z.string(),
     service_categories: z.string(),
     client: z.string(),
+    vin: z.string(),
+    description: z.string(),
   })
   type PiecesFormProps = z.infer<typeof schema>
 
@@ -95,13 +97,6 @@ const PeacesForm = () => {
             name='email'
           />
           <CustomForm.DropDown
-            label={t("peaces_description")}
-            id="service_categories"
-            options={[t('parts'), t('tires'), t('acessories')]}
-            register={register}
-            name='service_categories'
-          />
-          <CustomForm.DropDown
             label={t("delegation")}
             id="delegation"
             options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
@@ -119,6 +114,25 @@ const PeacesForm = () => {
             label={t("mileage")}
             register={register}
             name='mileage'
+          />
+          <CustomForm.FormField
+            id="vin"
+            label={t("vin")}
+            register={register}
+            name='vin'
+          />
+          <CustomForm.DropDown
+            label={t("peaces_description")}
+            id="service_categories"
+            options={[t('parts'), t('acessories'), t('tires')]}
+            register={register}
+            name='service_categories'
+          />
+          <CustomForm.TextArea
+            id="description"
+            label={t("description")}
+            register={register}
+            name='description'
           />
           <div className="mt-2 flex w-ful lg:justify-end">
             <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>

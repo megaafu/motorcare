@@ -11,14 +11,14 @@ interface IBrands {
 const Nissan: IBrand = {
   id: 0,
   brand: 'Nissan',
-  info:"nissan",
+  info: "nissan",
   img: '/images/nissan.png',
 }
 
 const Renault: IBrand = {
   id: 1,
-  brand: 'Renault',
-  info:"renault",
+  brand: 'Renault Trucks',
+  info: "renault",
   img: '/images/renault.png',
 }
 const NIU: IBrand = {
@@ -31,26 +31,26 @@ const NIU: IBrand = {
 const Continental: IBrand = {
   id: 3,
   brand: 'Continental',
-  info:"continental",
+  info: "continental",
   img: '/images/continental.png',
 }
 const GeneralTyre: IBrand = {
   id: 4,
-  brand: 'General Tyres',
-  info:"general",
+  brand: 'General Tire',
+  info: "general",
   img: '/images/generaltire.png',
 }
 const MaxxisTyre: IBrand = {
   id: 5,
   brand: 'Maxxis Tyres',
-  info:"maxxis",
+  info: "maxxis",
   img: '/images/maxxis.png',
 }
 
 const CstTyre: IBrand = {
   id: 6,
   brand: 'CST Tyres',
-  info:"cst",
+  info: "cst",
   img: '/images/cst.png',
 }
 export const AllBrands: IBrands = {

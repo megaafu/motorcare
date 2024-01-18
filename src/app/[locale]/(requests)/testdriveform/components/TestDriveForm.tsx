@@ -85,11 +85,13 @@ const TestDriveForm = () => {
           register={register}
           name='email'
         />
-        <CustomForm.DatePicker
-          id="drive_date"
-          label={t('drive_date')}
-          control={control}
-          name='drive_date'
+
+        <CustomForm.FormField
+          id="drive_number"
+          label={t('drive_number')}
+          placeholder=""
+          register={register}
+          name='drive_number'
         />
         <CustomForm.DropDown
           label={t("delegation")}
@@ -97,13 +99,6 @@ const TestDriveForm = () => {
           options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
           register={register}
           name='delegation'
-        />
-        <CustomForm.FormField
-          id="drive_number"
-          label={t('drive_number')}
-          placeholder=""
-          register={register}
-          name='drive_number'
         />
         <CustomForm.FormField
           id="car_model"

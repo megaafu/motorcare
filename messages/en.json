@@ -82,7 +82,7 @@
         "peaces_description": "Description of Required Peace",
         "drive_number": "Driver License Number",
         "drive_date": "Expired Date of Driver License",
-        "pretended_date":"pretended Date",
+        "pretended_date": "pretended Date",
         "suggestions": "Suggestions and Complaints",
         "submit": "Submit",
         "revision": "Revision",
@@ -93,7 +93,8 @@
         "tires": "Tires",
         "accessories": "Accessories",
         "complain": "Complain",
-        "suggestion": "Suggestion"
+        "suggestion": "Suggestion",
+        "description": "Description"
     },
     "Footer": {
         "links": "Useful Links",
@@ -108,7 +109,7 @@
     "Header": {
         "home": "Home",
         "about": "About Us",
-        "vehicles": "Vehicles",
+        "vehicles": "Used",
         "find_dealer": "Find Dealer",
         "after_sales": "After sales",
         "service": "Request a Service",
