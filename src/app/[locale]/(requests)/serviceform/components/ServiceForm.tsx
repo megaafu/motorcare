@@ -69,7 +69,7 @@ const ServicesForm = () => {
             onChange={handleSelectChange}
             label={t('client')}
             id='client'
-            options={[t('individual'), t('company')]}
+            options={[{ options: [t('individual'), t('company')] }]}
             register={register}
             name='client'
           />
@@ -93,6 +93,7 @@ const ServicesForm = () => {
               label={t("person_phone")}
               register={register}
               name='person_phone'
+              required
             />
           )}
           <CustomForm.FormField
@@ -100,6 +101,7 @@ const ServicesForm = () => {
             label={t("email")}
             register={register}
             name='email'
+            required
           />
           <CustomForm.DatePicker
             id='date'
@@ -110,9 +112,15 @@ const ServicesForm = () => {
           <CustomForm.DropDown
             label={t("delegation")}
             id="delegation"
-            options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+            options={[
+              {
+
+                options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']
+              }
+            ]}
             register={register}
             name='delegation'
+            required
           />
           <CustomForm.FormField
             id="plate"
@@ -135,9 +143,13 @@ const ServicesForm = () => {
           <CustomForm.DropDown
             label={t("service_description")}
             id="service_categories"
-            options={[t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]}
+            options={[{
+
+              options: [t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]
+            }]}
             register={register}
             name='service_categories'
+            required
           />
           <div className="mt-2 flex w-ful lg:justify-end">
             <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>

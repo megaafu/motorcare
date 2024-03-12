@@ -6,7 +6,7 @@
     "new_vehicles": "Novos Veículos",
     "Vehicles": "Veículos",
     "Trucks": "Camiões",
-    "Electrics": "Eletricos",
+    "Electrics": "Eléctricos",
     "find_cars": "Veículos Usados",
     "blog": "Blog",
     "all": "Todos",
@@ -70,16 +70,17 @@
     "individual": "Individual",
     "name": "Nome",
     "phone": "Contacto",
-    "person_phone": "Pessoa do Contacto",
+    "person_phone": "Pessoa de contacto",
     "email": "E-mail",
     "plate": "Matrícula",
     "delegation": "Delegação",
     "location": "Onde pretende fazer o test-drive?",
+    "province": "Província",
     "mileage": "Quilometragem",
-    "vin": "Número VIN",
-    "car_model": "Modelo do Carro",
-    "service_description": "Descrição do Serviço Necessário",
-    "peaces_description": "Descrição da Peça Necessária",
+    "vin": "Número de VIN",
+    "car_model": "Modelo pretendido",
+    "service_description": "Serviço Pretendido",
+    "category": "Categoria",
     "drive_number": "Número da Carta de Condução",
     "drive_date": "Data de Validade da Carta de Condução",
     "pretended_date": "Data Pretendida",
@@ -94,7 +95,10 @@
     "acessories": "Acessórios",
     "complain": "Reclamação",
     "suggestion": "Sugestão",
-    "description": "Descrição"
+    "description": "Descrição",
+    "nissan": "Viaturas Nissan",
+    "renault": "Camiões Renault",
+    "electrics": "Eléctricos"
   },
   "Footer": {
     "links": "Links Úteis",
@@ -113,7 +117,8 @@
     "after_sales": "Pós Venda",
     "find_dealer": "Encontrar Concessionária",
     "parts_accessories": "Requisitar Peças",
-    "service": "Requisitar Serviço"
+    "service": "Requisitar Serviço",
+    "whistleblowing": "Portal de denúncias"
   },
   "PreFooter": {
     "quote": "Pedir Cotação",
@@ -121,5 +126,18 @@
     "service": "Requisitar Serviço",
     "parts_accessories": "Requisitar Peças",
     "complains": "Sugestõese e Reclamações"
+  },
+  "Whistleblowing": {
+    "whistleblowing": "Portal de denúncias",
+    "description": "A KJAER GROUP está comprometido em conduzir negócios com integridade e fazer o que é certo para nossos clientes, colegas e a sociedade.\n Encorajamos todos aqueles que têm preocupações sérias que desejam denunciar, a fazerem uso do nosso Sistema de Denúncia, onde podem denunciar de forma confidencial e anonimamente,  se assim o desejarem .",
+    "report": "Reporte Aqui"
+  },
+  "Contacts": {
+    "find_dealer": "Encontrar Concessionária",
+    "address": "Endereço da Concessionária",
+    "search": "Pesquisar",
+    "phone": "TELEFONE",
+    "email": "E-mail",
+    "physical": "Endereço Físico"
   }
 }

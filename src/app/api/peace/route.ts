@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
     delegation,
     service_categories,
     mileage,
+    vin,
     client
   } = await request.json();
 
@@ -37,6 +38,7 @@ export async function POST(request: NextRequest) {
         Delegação: ${delegation}
         Matrícula: ${plate}
         Descrição da Peça Necessária:${service_categories}
+        Número de VIN: ${vin}
       `,
   };
 

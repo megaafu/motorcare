@@ -4,7 +4,7 @@ import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
 import { getTranslator } from 'next-intl/server'
-import BrandsForm from './components/BrandForm'
+import BrandsForm from './components/QuotesForm'
 
 export default async function Requests({params:{locale}}:{params:{locale:string}}) {
   
