@@ -31,7 +31,7 @@ const SuggestionForm = () => {
         <CustomForm.DropDown
           label={t('client')}
           id='client'
-          options={[t('individual'), t('company')]}
+          options={[{ options: [t('individual'), t('company')] }]}
           register={register}
           name='client'
         />
@@ -58,7 +58,7 @@ const SuggestionForm = () => {
         <CustomForm.DropDown
           label={t("suggestions")}
           id="option"
-          options={[t("suggestion"), t("complain")]}
+          options={[{ options: [t("suggestion"), t("complain")] }]}
           register={register}
           name='option'
         />

@@ -46,7 +46,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-brand"
-            options={['Select brand', 'Nissan', 'NIUI', 'Ford']}
+            options={[{ options: ['Select brand', 'Nissan', 'NIUI', 'Ford'] }]}
             register={register}
             name='carBrand'
           />
@@ -54,7 +54,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-model"
-            options={['Select model', 'Terra', 'Navara', 'Qashqai', 'Leaf']}
+            options={[{ options: ['Select model', 'Terra', 'Navara', 'Qashqai', 'Leaf'] }]}
             register={register}
             name='carModel'
           />
@@ -62,7 +62,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-year"
-            options={['select year', '2010', '2015', '2020']}
+            options={[{ options: ['select year', '2010', '2015', '2020'] }]}
             register={register}
             name='carYear'
           />
@@ -70,7 +70,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-transmission"
-            options={['select transmission', 'Automatic', 'Manual']}
+            options={[{ options: ['select transmission', 'Automatic', 'Manual'] }]}
             register={register}
             name='carTransmission'
           />
@@ -78,7 +78,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-cylinder"
-            options={['select cylinder', '2', '4', '8']}
+            options={[{ options: ['select cylinder', '2', '4', '8'] }]}
             register={register}
             name='carCylinder'
           />
@@ -86,25 +86,25 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-fuel"
-            options={['select fuel', 'Diesel', 'Gasoline', 'Hybrid']}
+            options={[{ options: ['select fuel', 'Diesel', 'Gasoline', 'Hybrid'] }]}
           />
           {/* Car Seats Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-seats"
-            options={['select fuel', '2', '4', '6']}
+            options={[{ options: ['select fuel', '2', '4', '6'] }]}
           />
           {/* Car Mileage Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-mileage"
-            options={['select mileage', '120km', '180km', '220km']}
+            options={[{ options: ['select mileage', '120km', '180km', '220km'] }]}
           />
           {/* Car Status Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-status"
-            options={['select status', 'Used', 'New']}
+            options={[{ options: ['select status', 'Used', 'New'] }]}
           />
         </Row>
       </form>
