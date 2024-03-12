@@ -75,11 +75,12 @@
         "plate": "Plate",
         "delegation": "Delegation",
         "location": "Where you want to do the test-drive?",
+        "province": "Province",
         "mileage": "Mileage",
         "vin": "VIN Number",
         "car_model": "Car Model",
         "service_description": "Description of Required service",
-        "peaces_description": "Description of Required Peace",
+        "category": "Category",
         "drive_number": "Driver License Number",
         "drive_date": "Expired Date of Driver License",
         "pretended_date": "pretended Date",
@@ -94,7 +95,10 @@
         "accessories": "Accessories",
         "complain": "Complain",
         "suggestion": "Suggestion",
-        "description": "Description"
+        "description": "Description",
+        "nissan": "Nissan Vehicles",
+        "renault": "Renault Trucks",
+        "electrics": "Electric Vehicles"
     },
     "Footer": {
         "links": "Useful Links",
@@ -113,7 +117,8 @@
         "find_dealer": "Find Dealer",
         "after_sales": "After sales",
         "service": "Request a Service",
-        "parts_accessories": "Request Parts"
+        "parts_accessories": "Request Parts",
+        "whistleblowing": "Whistleblowing"
     },
     "PreFooter": {
         "quote": "Get a Quote",
@@ -121,5 +126,18 @@
         "service": "Request a Service",
         "parts_accessories": "Request Parts",
         "complains": "Suggestions and Complains"
+    },
+    "Whistleblowing": {
+        "whistleblowing": "Whistleblowing",
+        "description": "KJAER GROUP is committed to conducting business with integrity and doing the right thing for our customers, colleagues, and society.\n We encourage all those who have serious concerns they wish to report, to make use of our Whistleblowing Scheme, where they can report in confidence and – if they choose to do so – anonymously.",
+        "report": "Report Here"
+    },
+    "Contacts": {
+        "find_dealer": "Find Dealer",
+        "address": "Dealer Address",
+        "search": "Search",
+        "phone": "PHONE",
+        "email": "Email",
+        "physical": "Physical Address"
     }
 }
