@@ -4,9 +4,9 @@ import { UseFormRegister } from 'react-hook-form';
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
   label: string
-  register?: UseFormRegister<any>;
-  name?: string;
-
+  register?: UseFormRegister<any>
+  name?: string
+  required?: boolean
 }
 
 const CustomTextArea: React.FC<TextAreaProps> = ({
@@ -14,12 +14,13 @@ const CustomTextArea: React.FC<TextAreaProps> = ({
   label,
   register,
   name,
+  required,
   ...props
 }) => {
   return (
     <div className="pb-8">
       <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {label}
+        {`${label} ${required ? '*' : ''}`}
       </label>
       <textarea
         className="w-full resize-none appearance-none rounded border border-black px-3 py-2 leading-tight text-light-text shadow focus:outline-none"

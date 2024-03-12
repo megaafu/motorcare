@@ -18,9 +18,7 @@ const TestDriveForm = () => {
     email: z.string(),
     drive_number: z.string(),
     location: z.string(),
-    delegation: z.string(),
     car_model: z.string(),
-    drive_date: z.date(),
     client: z.string()
   })
   type TestDriveProps = z.infer<typeof schema>
@@ -50,7 +48,7 @@ const TestDriveForm = () => {
           onChange={handleSelectChange}
           label={t('client')}
           id='client'
-          options={[t('individual'), t('company')]}
+          options={[{ options: [t('individual'), t('company')] }]}
           register={register}
           name='client'
         />
@@ -76,6 +74,7 @@ const TestDriveForm = () => {
             placeholder=""
             register={register}
             name='person_phone'
+            required
           />
         )}
         <CustomForm.FormField
@@ -84,6 +83,7 @@ const TestDriveForm = () => {
           placeholder=""
           register={register}
           name='email'
+          required
         />
 
         <CustomForm.FormField
@@ -92,18 +92,20 @@ const TestDriveForm = () => {
           placeholder=""
           register={register}
           name='drive_number'
+          required
         />
         <CustomForm.DropDown
-          label={t("delegation")}
-          id="delegation"
-          options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+          label={t("location")}
+          id="location"
+          options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
           register={register}
-          name='delegation'
+          name='location'
         />
-        <CustomForm.FormField
+        <CustomForm.DropDown
           id="car_model"
           label={t('car_model')}
-          register={register}
+          options={[{ options: ['Magnite', 'Qashqai', 'X-Trail', 'Navara', 'Terra', 'Patrol', 'Leaf (Eléctrico)', 'Outro',] }
+          ]} register={register}
           name='car_model'
         />
         <div className="mt-2 flex w-ful lg:justify-end">

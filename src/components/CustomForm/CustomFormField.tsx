@@ -3,8 +3,8 @@ import { UseFormRegister } from 'react-hook-form';
 
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
-  register?: UseFormRegister<any>;
-  name?: string;
+  register?: UseFormRegister<any>
+  name?: string
   required?: boolean
 }
 

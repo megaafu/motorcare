@@ -3,13 +3,19 @@
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge'
+
+interface options {
+  title?: string
+  options: string[]
+}
 interface CustomDropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string
   id: string
-  options: string[]
+  options: options[]
   className?: string
-  register?: UseFormRegister<any>;
+  register?: UseFormRegister<any>
   name?: string;
+  required?: boolean
 }
 
 const CustomDropdown: React.FC<CustomDropdownProps> = ({
@@ -19,6 +25,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   className,
   register,
   name,
+  required,
   ...props
 
 }) => {
@@ -26,7 +33,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   return (
     <div className="w-full">
       <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {label}
+        {`${label} ${required ? '*' : ''}`}
       </label>
       <select
         id={id}
@@ -37,11 +44,27 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         {...register?.(name || '')}
         {...props}
       >
-        {options.map((option, index) => {
-          return (
-            <option key={index} value={option}>
-              {option}
-            </option>
+        {options.map((option) => {
+          return option.title != null ? (
+            <optgroup label={option.title} disabled>
+              {option.options.map((optionDropDown, index) => {
+                return (
+                  <option key={index} value={optionDropDown}>
+                    {optionDropDown}
+                  </option>
+                )
+              })}
+            </optgroup>
+          ) : (
+            <>
+              {option.options.map((optionDropDown, index) => {
+                return (
+                  <option key={index} value={optionDropDown}>
+                    {optionDropDown}
+                  </option>
+                )
+              })}
+            </>
           )
         })}
       </select>

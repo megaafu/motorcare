@@ -20,7 +20,7 @@ const PeacesForm = () => {
     plate: z.string(),
     delegation: z.string(),
     mileage: z.string(),
-    service_categories: z.string(),
+    category: z.string(),
     client: z.string(),
     vin: z.string(),
     description: z.string(),
@@ -64,7 +64,7 @@ const PeacesForm = () => {
             onChange={handleSelectChange}
             label={t('client')}
             id='client'
-            options={[t('individual'), t('company')]}
+            options={[{ options: [t('individual'), t('company')] }]}
             register={register}
             name='client'
           />
@@ -95,13 +95,15 @@ const PeacesForm = () => {
             label={t("email")}
             register={register}
             name='email'
+            required
           />
           <CustomForm.DropDown
             label={t("delegation")}
             id="delegation"
-            options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+            options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
             register={register}
             name='delegation'
+            required
           />
           <CustomForm.FormField
             id="plate"
@@ -122,11 +124,12 @@ const PeacesForm = () => {
             name='vin'
           />
           <CustomForm.DropDown
-            label={t("peaces_description")}
-            id="service_categories"
-            options={[t('parts'), t('acessories'), t('tires')]}
+            label={t("category")}
+            id="category"
+            options={[{ options: [t('parts'), t('acessories'), t('tires')] }]}
             register={register}
-            name='service_categories'
+            name='category'
+            required
           />
           <CustomForm.TextArea
             id="description"

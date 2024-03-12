@@ -5,13 +5,14 @@ import { Control, Controller, DeepMap, FieldError } from 'react-hook-form';
 import { Calendar } from '../icons/Icons';
 
 interface CustomDatePickerProps {
-  id: string;
-  label?: string;
-  name: string;
-  value?: Date | null;
-  control: Control<any>;
-  rules?: any;
-  errors?: DeepMap<any, FieldError>;
+  id: string
+  label?: string
+  name: string
+  value?: Date | null
+  control: Control<any>
+  rules?: any
+  errors?: DeepMap<any, FieldError>
+  required?: boolean
 }
 
 const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
@@ -21,6 +22,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   value,
   control,
   rules,
+  required,
   errors,
 }) => {
   const selectedDate = value || null;
@@ -28,7 +30,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   return (
     <div className="w-full pb-4">
       <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {label}
+        {`${label} ${required ? '*' : ''}`}
       </label>
       <Controller
         name={name}

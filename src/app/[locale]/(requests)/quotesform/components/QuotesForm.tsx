@@ -14,12 +14,8 @@ const BrandsForm = () => {
     phone: z.string(),
     person_phone: z.string().optional(),
     email: z.string(),
-    delegation: z.string(),
+    province: z.string(),
     car_model: z.string(),
-    plate: z.string(),
-    mileage: z.string(),
-    vin: z.string(),
-    service_categories: z.string(),
     client: z.string()
   })
   type BrandsFormProps = z.infer<typeof schema>
@@ -43,9 +39,10 @@ const BrandsForm = () => {
         onChange={handleSelectChange}
         label={t('client')}
         id='client'
-        options={[t('individual'), t('company')]}
+        options={[{ options: [t('individual'), t('company')] }]}
         register={register}
         name='client'
+        required
       />
       <CustomForm.Root>
         <CustomForm.FormField
@@ -68,6 +65,7 @@ const BrandsForm = () => {
             label={t("person_phone")}
             register={register}
             name='person_phone'
+            required
           />
         )}
         <CustomForm.FormField
@@ -75,38 +73,34 @@ const BrandsForm = () => {
           label={t("email")}
           register={register}
           name='email'
+          required
         />
         <CustomForm.DropDown
-          label={t("delegation")}
-          id="delegation"
-          options={['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']}
+          id="province"
+          label={t("province")}
+          options={[{ options: ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Nampula', 'Niassa', 'Cabo Delgado'] }]}
           register={register}
-          name='delegation'
-        />
-        <CustomForm.FormField
-          id="plate"
-          label={t("plate")}
-          register={register}
-          name='plate'
-        />
-        <CustomForm.FormField
-          id="mileage"
-          label={t("mileage")}
-          register={register}
-          name='mileage'
-        />
-        <CustomForm.FormField
-          id="vin"
-          label={t("vin")}
-          register={register}
-          name='vin'
+          name='province'
         />
         <CustomForm.DropDown
-          label={t("service_description")}
-          id="service_categories"
-          options={[t('revision'), t('reparation'), t('diagnosis'), t('panel_beating'),]}
+          label={t("car_model")}
+          id="car_model"
+          options={[
+            {
+              title: t("nissan"),
+              options: ["Almera", "Magnite", "Qashqai", "X-Trail", "Navara", "Terra", "Patrol", "Urvan", "NP200", "Outra"]
+            },
+            {
+              title: t("renault"),
+              options: ["Série D", "Série C", "Série K"]
+            },
+            {
+              title: t("electrics"),
+              options: ["Leaf", "NIU",]
+            },
+          ]}
           register={register}
-          name='service_categories'
+          name='car_model'
         />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
