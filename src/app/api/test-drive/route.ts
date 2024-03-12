@@ -3,17 +3,16 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
 export async function POST(request: NextRequest) {
-  const { 
+  const {
     name,
     phone,
     person_phone,
     email,
     drive_number,
-    location, 
-    delegation,
+    location,
     car_model,
     drive_date,
-    client 
+    client
   } = await request.json();
 
   const transport = nodemailer.createTransport({
@@ -28,15 +27,14 @@ export async function POST(request: NextRequest) {
     from: email,
     to: process.env.MY_EMAIL,
     subject: 'Sugestões e Reclamações',
-      text: `
+    text: `
         Tipo de Client: ${client}
         Nome: ${name}
         Email: ${email}
         Contacto:${phone}
         Pessoa de Contacto:${person_phone}
         Numero da Carta de Conducao: ${drive_number}
-        Delegação: ${delegation}
-        Modelo do Carro: ${car_model}
+        Modelo pretendido: ${car_model}
         Onde pretende fazer o test-drive: ${location}
         Data de Validade da Carta de Condução: ${drive_date}
       `,

@@ -8,10 +8,8 @@ export async function POST(request: NextRequest) {
     phone,
     person_phone,
     email,
-    plate,
-    delegation,
-    service_categories,
-    mileage,
+    province,
+    car_model,
     client
   } = await request.json();
 
@@ -33,10 +31,8 @@ export async function POST(request: NextRequest) {
         Email: ${email}
         Contacto:${phone}
         Pessoa de Contacto:${person_phone}
-        Quilometragem: ${mileage}
-        Delegação: ${delegation}
-        Matrícula: ${plate}
-        Descrição do Serviço Necessário:${service_categories}
+        Província: ${province}
+        Veículo pretendido: ${car_model}
       `,
   };
 
