@@ -10,6 +10,7 @@ import Autocomplete from 'react-google-autocomplete'
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import RecenterAutomatically from './CenterMap'
+import { useTranslations } from 'next-intl'
 
 interface PlaceCordinate {
   name: string | undefined
@@ -19,6 +20,7 @@ interface PlaceCordinate {
 
 
 const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
+  const t = useTranslations('Contacts')
   const GOOGLE_MAPS_API_KEY = 'AIzaSyAD-sDFj__5UcpWyxXU-VuxgqFK3XtVwC8'
 
   const [location, setLocation] = useState<PlaceCordinate>({
@@ -82,15 +84,14 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
         <div className="absolute bottom-[5%] left-[6%] top-[5%] z-[1000] w-[32%] overflow-y-auto  bg-white shadow-lg">
           <div className="flex flex-col p-10">
             <p className="text-2xl font-bold ">
-              Encontre sua <br />
-              Concessionária
+              {t("find_dealer")}
             </p>
 
             <form method="post">
               <div className="py-6">
                 <Autocomplete
                   className="w-full border px-2 py-4"
-                  placeholder="Endereço da Concessionária"
+                  placeholder={t("address")}
                   apiKey={GOOGLE_MAPS_API_KEY}
                   onPlaceSelected={(place) => {
                     const searchPlace: PlaceCordinate = {
@@ -104,7 +105,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
               </div>
               <div>
                 <Button className="w-full bg-primary" radius="xs" size="md">
-                  Pesquisar
+                  {t('search')}
                 </Button>
               </div>
             </form>
@@ -125,8 +126,8 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>MAPUTO</Accordion.Control>
                   <Accordion.Panel className='bg-slate-200 pt-2'>
-                    <p>PHONE: 21 35 08 00</p>
-                    <p>EMAIL: info@mz.motorcare.com</p>
+                    <p>{t("phone")}: 21 35 08 00</p>
+                    <p>{t("email")}: info@mz.motorcare.com</p>
                     <p>Endeço Físico: Rua Kanwalanga N.141</p>
                   </Accordion.Panel>
                 </Accordion.Item>
@@ -145,9 +146,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>BEIRA</Accordion.Control>
                   <Accordion.Panel className='bg-slate-200 pt-2'>
-                    <p>PHONE: 23 32 65 03</p>
-                    <p>EMAIL: info@mz.motorcare.com</p>
-                    <p>Endereço Físico: Av. Samora Machel, n.3024, Beira</p>
+                    <p>{t("phone")}: 23 32 65 03</p>
+                    <p>{t("email")}: info@mz.motorcare.com</p>
+                    <p>t("physical"): Av. Samora Machel, n.3024, Beira</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -165,9 +166,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>MOATIZE</Accordion.Control>
                   <Accordion.Panel className='bg-slate-200 pt-2'>
-                    <p>PHONE: 25 24 22 20</p>
-                    <p>EMAIL: info@mz.motorcare.com</p>
-                    <p>Endereço Físico: E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete</p>
+                    <p>{t("phone")}: 25 24 22 20</p>
+                    <p>{t("email")}: info@mz.motorcare.com</p>
+                    <p>t("pysical"): E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -186,12 +187,12 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                   <Accordion.Control>NAMPULA</Accordion.Control>
                   <Accordion.Panel className='bg-slate-200 pt-2'>
                     <p>
-                      PHONE: 26 21 72 51
+                      {t("phone")}: 26 21 72 51
                     </p>
                     <p>
-                      EMAIL: info@mz.motorcare.com
+                      {t("email")}: info@mz.motorcare.com
                     </p>
-                    <p>Endereço Físico: Rua da França, Parcela 3, Bairro da Carrupeia</p>
+                    <p>t("pysical"): Rua da França, Parcela 3, Bairro da Carrupeia</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -209,9 +210,9 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                 <Accordion.Item value="flexibility">
                   <Accordion.Control>PEMBA</Accordion.Control>
                   <Accordion.Panel className='bg-slate-200 pt-2'>
-                    <p>PHONE: 27 22 07 71</p>
-                    <p>EMAIL: info@mz.motorcare.com</p>
-                    <p>Endereço Físico: E.N.106 Bairro do Alto Giongone</p>
+                    <p>{t("phone")}: 27 22 07 71</p>
+                    <p>{t("email")}: info@mz.motorcare.com</p>
+                    <p>t("pysical"): E.N.106 Bairro do Alto Giongone</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
