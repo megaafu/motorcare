@@ -3,6 +3,7 @@ import Header from '@/components/Header/Header'
 import Prefooter from '@/components/PreFooter/PreFooter'
 import { NextIntlClientProvider } from 'next-intl'
 import React from 'react'
+
 export default async function RootLayout({
   children,
   params:{locale}

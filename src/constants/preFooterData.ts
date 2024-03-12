@@ -9,7 +9,7 @@ interface items {
 
 export const links: items[] = [
   {
-    link: '/brandform',
+    link: '/quotesform',
     label: 'quote',
     icon: Coins,
   },

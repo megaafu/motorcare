@@ -1,5 +1,6 @@
 'use client'
-import { SendBrand } from '@/actions/SendBrands'
+
+import { SendQuotes } from '@/actions/SendQuotes'
 import { CustomForm } from '@/components/CustomForm'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -24,7 +25,7 @@ const BrandsForm = () => {
     resolver: zodResolver(schema)
   })
   const handleForm = async (data: BrandsFormProps) => {
-    await SendBrand(data)
+    await SendQuotes(data)
   }
   const [selectedOption, setSelectedOption] = useState('')
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {

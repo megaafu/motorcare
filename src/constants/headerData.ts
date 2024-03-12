@@ -53,4 +53,10 @@ export const menu: INav[] = [
       url: '/dealer',
     }
   },
+  {
+    menu: {
+      label: 'whistleblowing',
+      url: '/whistleblowing',
+    }
+  },
 ]
