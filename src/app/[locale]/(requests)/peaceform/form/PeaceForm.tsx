@@ -88,6 +88,7 @@ const PeacesForm = () => {
               label={t("person_phone")}
               register={register}
               name='person_phone'
+              required
             />
           )}
           <CustomForm.FormField

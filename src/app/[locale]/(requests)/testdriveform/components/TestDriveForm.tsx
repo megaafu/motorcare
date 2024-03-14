@@ -17,6 +17,7 @@ const TestDriveForm = () => {
     person_phone: z.string().optional(),
     email: z.string(),
     drive_number: z.string(),
+    drive_date: z.date(),
     location: z.string(),
     car_model: z.string(),
     client: z.string()
@@ -94,6 +95,13 @@ const TestDriveForm = () => {
           name='drive_number'
           required
         />
+        <CustomForm.DatePicker
+          id='drive_date'
+          label={t("drive_date")}
+          control={control}
+          name='drive_date'
+        />
+
         <CustomForm.DropDown
           label={t("location")}
           id="location"

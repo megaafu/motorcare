@@ -20,6 +20,11 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
   function currencyFormat(num: number) {
     return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + " MZN"
   }
+
+  function mileageFormat(num: number) {
+    return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   const [autoPlay, setAutoPlay] = useState(false)
   const handleAutoPlay = () => {
     setAutoPlay((oldAutoPlay: boolean) => {
@@ -57,7 +62,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
             <div className="flex gap-1">
               <Image width={18} height={18} src="/icons/speed.svg" alt="" />
               <p className="text-xs  font-bold text-light-text">
-                {car.mileage}
+                {mileageFormat(Number(car.mileage))}
               </p>
             </div>
           </CardSub>

@@ -1,13 +1,15 @@
 "use client"
 import { links, terms } from '@/constants/footerData';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Facebook, Instagram, Linkedin } from '../icons/Icons';
 import Container from '../ui/Container';
 import PagePadding from '../ui/PagePadding';
 
 const Footer = () => {
   const t = useTranslations('Footer')
+  const locale = useLocale()
 
   return (
     <div className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat">
@@ -29,7 +31,7 @@ const Footer = () => {
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <a href="#">{t(link)}</a>
+                      <Link href={`${locale}/about`} replace={true}>{t(link)}</Link>
                     </li>
                   )
                 })}
@@ -61,7 +63,8 @@ const Footer = () => {
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <a href="#">{t(term)}</a>
+                      <Link href={`${locale}/about`} replace={true}>{t(term)}</Link>
+
                     </li>
                   )
                 })}
