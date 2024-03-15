@@ -8,9 +8,9 @@ import 'leaflet/dist/leaflet.css'
 import { useState } from 'react'
 import Autocomplete from 'react-google-autocomplete'
 
+import { useTranslations } from 'next-intl'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import RecenterAutomatically from './CenterMap'
-import { useTranslations } from 'next-intl'
 
 interface PlaceCordinate {
   name: string | undefined
@@ -128,7 +128,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                   <Accordion.Panel className='bg-slate-200 pt-2'>
                     <p>{t("phone")}: 21 35 08 00</p>
                     <p>{t("email")}: info@mz.motorcare.com</p>
-                    <p>Endeço Físico: Rua Kanwalanga N.141</p>
+                    <p>{t("physical")}: Rua Kanwalanga N.141</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -148,7 +148,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                   <Accordion.Panel className='bg-slate-200 pt-2'>
                     <p>{t("phone")}: 23 32 65 03</p>
                     <p>{t("email")}: info@mz.motorcare.com</p>
-                    <p>t("physical"): Av. Samora Machel, n.3024, Beira</p>
+                    <p>{t("physical")}: Av. Samora Machel, n.3024, Beira</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -168,7 +168,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                   <Accordion.Panel className='bg-slate-200 pt-2'>
                     <p>{t("phone")}: 25 24 22 20</p>
                     <p>{t("email")}: info@mz.motorcare.com</p>
-                    <p>t("pysical"): E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete</p>
+                    <p>{t("pysical")}: E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -192,7 +192,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                     <p>
                       {t("email")}: info@mz.motorcare.com
                     </p>
-                    <p>t("pysical"): Rua da França, Parcela 3, Bairro da Carrupeia</p>
+                    <p>{t("pysical")}: Rua da França, Parcela 3, Bairro da Carrupeia</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>
@@ -212,7 +212,7 @@ const Mapp = ({ name, image }: { name: string | undefined; image: string }) => {
                   <Accordion.Panel className='bg-slate-200 pt-2'>
                     <p>{t("phone")}: 27 22 07 71</p>
                     <p>{t("email")}: info@mz.motorcare.com</p>
-                    <p>t("pysical"): E.N.106 Bairro do Alto Giongone</p>
+                    <p>{t("pysical")}: E.N.106 Bairro do Alto Giongone</p>
                   </Accordion.Panel>
                 </Accordion.Item>
               </Accordion>

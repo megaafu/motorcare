@@ -108,13 +108,15 @@ const TestDriveForm = () => {
           options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
           register={register}
           name='location'
+          required
         />
         <CustomForm.DropDown
           id="car_model"
           label={t('car_model')}
-          options={[{ options: ['Magnite', 'Qashqai', 'X-Trail', 'Navara', 'Terra', 'Patrol', 'Leaf (Eléctrico)', 'Outro',] }
+          options={[{ options: ['Almera', 'Magnite', 'Qashqai', 'X-Trail', 'Navara', 'Terra', 'Patrol', 'Leaf (Eléctrico)', 'Outro',] }
           ]} register={register}
           name='car_model'
+          required
         />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>

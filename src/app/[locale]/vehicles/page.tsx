@@ -5,6 +5,7 @@ import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
 import useVehicles from '@/hooks/use-vehicles'
 import { IUsedCar } from '@/model/usedCar'
+import { useTranslations } from 'next-intl'
 import { useEffect, useMemo, useState } from 'react'
 import CarFilter from './components/CarFilter'
 import CarList from './components/CarList'
@@ -12,6 +13,9 @@ import CarList from './components/CarList'
 
 
 export default function UsedCars() {
+
+  const t = useTranslations('Vehicles')
+
   const { data, isLoading } = useVehicles()
 
   const carsData = useMemo(() => data ?? [], [data])
@@ -32,7 +36,7 @@ export default function UsedCars() {
       <Container>
         <PagePadding>
           <Title.Root>
-            <Title.Label label="All Vehicles" />
+            <Title.Label label={t('vehicles')} />
           </Title.Root>
           <CarFilter carsData={carsData} onFilter={handleFilter} />
         </PagePadding>

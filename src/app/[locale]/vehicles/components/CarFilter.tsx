@@ -3,6 +3,7 @@
 import CustomDropdown from '@/components/CustomForm/CustomDropdown'
 import Row from '@/components/ui/Row'
 import { IUsedCar } from '@/model/usedCar'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
 
@@ -14,7 +15,7 @@ interface FilterType {
 
 const CarFilters = ({ carsData, onFilter }: FilterType) => {
   const { register, handleSubmit } = useForm()
-
+  const t = useTranslations('Vehicles')
   let filteredData = carsData
 
   const handleForm = async (cars: any) => {
@@ -32,7 +33,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
       return true;
     })
 
-    console.log(filteredData);
+
 
     onFilter(filteredData)
   }
@@ -41,12 +42,12 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
     <div className="bg-white">
       {/* Car Filters Form */}
       <form onChange={handleSubmit(handleForm)} method='POST'>
-        <Row className="grid-cols-3 gap-x-4 gap-y-0 lg:grid-cols-5">
+        <Row className="grid-cols-3 gap-x-4 gap-y-0 lg:grid-cols-4">
           {/* Car Brand Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-brand"
-            options={[{ options: ['Select brand', 'Nissan', 'NIUI', 'Ford'] }]}
+            options={[{ options: [t("brand"), 'Nissan', 'NIUI', 'Ford'] }]}
             register={register}
             name='carBrand'
           />
@@ -54,7 +55,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-model"
-            options={[{ options: ['Select model', 'Terra', 'Navara', 'Qashqai', 'Leaf'] }]}
+            options={[{ options: [t('model'), 'Terra', 'Navara', 'Qashqai', 'Leaf'] }]}
             register={register}
             name='carModel'
           />
@@ -62,7 +63,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-year"
-            options={[{ options: ['select year', '2010', '2015', '2020'] }]}
+            options={[{ options: [t('year'), '2010', '2015', '2020'] }]}
             register={register}
             name='carYear'
           />
@@ -70,7 +71,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-transmission"
-            options={[{ options: ['select transmission', 'Automatic', 'Manual'] }]}
+            options={[{ options: [t('transmission'), 'Automatic', 'Manual'] }]}
             register={register}
             name='carTransmission'
           />
@@ -78,7 +79,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-cylinder"
-            options={[{ options: ['select cylinder', '2', '4', '8'] }]}
+            options={[{ options: [t('cylinders'), '2', '4', '8'] }]}
             register={register}
             name='carCylinder'
           />
@@ -86,26 +87,22 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-fuel"
-            options={[{ options: ['select fuel', 'Diesel', 'Gasoline', 'Hybrid'] }]}
+            options={[{ options: [t('fuel'), 'Diesel', 'Gasoline', 'Hybrid'] }]}
           />
           {/* Car Seats Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-seats"
-            options={[{ options: ['select fuel', '2', '4', '6'] }]}
+            options={[{ options: [t('seats'), '2', '4', '6'] }]}
           />
           {/* Car Mileage Dropdown */}
           <CustomDropdown
             className="py-2"
             id="car-mileage"
-            options={[{ options: ['select mileage', '120km', '180km', '220km'] }]}
+            options={[{ options: [t('mileage'), '120km', '180km', '220km'] }]}
           />
           {/* Car Status Dropdown */}
-          <CustomDropdown
-            className="py-2"
-            id="car-status"
-            options={[{ options: ['select status', 'Used', 'New'] }]}
-          />
+
         </Row>
       </form>
     </div>

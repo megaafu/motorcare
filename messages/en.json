@@ -79,6 +79,7 @@
         "mileage": "Mileage",
         "vin": "VIN Number",
         "car_model": "Car Model",
+        "vehicle": "vehicle pretended",
         "service_description": "Description of Required service",
         "category": "Category",
         "drive_number": "Driver License Number",
@@ -139,5 +140,16 @@
         "phone": "PHONE",
         "email": "Email",
         "physical": "Physical Address"
+    },
+    "Vehicles": {
+        "vehicles": "All Used Vehicles",
+        "brand": "Select Brand",
+        "model": "Select Model",
+        "year": "Select Year",
+        "transmission": "Select Transmission",
+        "cylinders": "Select Cylinders",
+        "fuel": "Select Fuel Type",
+        "seats": "Select Seats",
+        "mileage": "Select Mileage"
     }
 }

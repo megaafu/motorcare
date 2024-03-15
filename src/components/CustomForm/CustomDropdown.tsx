@@ -32,9 +32,12 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
   return (
     <div className="w-full">
-      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {`${label} ${required ? '*' : ''}`}
-      </label>
+      {label != null && (
+        <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
+          {`${label} ${required ? '*' : ''}`}
+        </label>
+      )}
+
       <select
         id={id}
         className={twMerge(

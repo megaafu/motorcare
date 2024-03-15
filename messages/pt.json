@@ -79,6 +79,7 @@
     "mileage": "Quilometragem",
     "vin": "Número de VIN",
     "car_model": "Modelo pretendido",
+    "vehicle": "Veiculo pretendido",
     "service_description": "Serviço Pretendido",
     "category": "Categoria",
     "drive_number": "Número da Carta de Condução",
@@ -125,7 +126,7 @@
     "test_drive": "Agendar Test Drive",
     "service": "Requisitar Serviço",
     "parts_accessories": "Requisitar Peças",
-    "complains": "Sugestõese e Reclamações"
+    "complains": "Sugestões e Reclamações"
   },
   "Whistleblowing": {
     "whistleblowing": "Portal de denúncias",
@@ -139,5 +140,16 @@
     "phone": "TELEFONE",
     "email": "E-mail",
     "physical": "Endereço Físico"
+  },
+  "Vehicles": {
+    "vehicles": "Todos Veículos Usados",
+    "brand": "Selecione a Marca",
+    "model": "Selecione o Modelo",
+    "year": "Selecione o Ano",
+    "transmission": "Selecione a Transmissão",
+    "cylinders": "Selecione os Cilindros",
+    "seats": "Selecione os Lugares",
+    "fuel": "Selecione o Tipo de Combustível",
+    "mileage": "Selecione a Quilometragem"
   }
 }

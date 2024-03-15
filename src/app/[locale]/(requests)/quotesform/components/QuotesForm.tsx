@@ -16,7 +16,7 @@ const BrandsForm = () => {
     person_phone: z.string().optional(),
     email: z.string(),
     province: z.string(),
-    car_model: z.string(),
+    vehicle: z.string(),
     client: z.string()
   })
   type BrandsFormProps = z.infer<typeof schema>
@@ -82,10 +82,11 @@ const BrandsForm = () => {
           options={[{ options: ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Nampula', 'Niassa', 'Cabo Delgado'] }]}
           register={register}
           name='province'
+          required
         />
         <CustomForm.DropDown
-          label={t("car_model")}
-          id="car_model"
+          label={t("vehicle")}
+          id="vehicle"
           options={[
             {
               title: t("nissan"),
@@ -101,7 +102,8 @@ const BrandsForm = () => {
             },
           ]}
           register={register}
-          name='car_model'
+          name='vehicle'
+          required
         />
         <div className="mt-2 flex w-ful lg:justify-end">
           <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
