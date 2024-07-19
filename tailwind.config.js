@@ -11,10 +11,10 @@ module.exports = {
         sans: ['var(--font-nissan)'],
       },
       colors: {
-        primary: '#006bb8',
-        secundary: '#ff8e00',
+        primary: '#355c7d',
+        secundary: '#f8b067',
         ancent: '#002257',
-        'light-text': '#555555',
+        'light-text': '#2B415A',
       },
       backgroundImage: {
         hero: "url('/images/bg-hero.png')",

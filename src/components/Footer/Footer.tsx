@@ -20,9 +20,9 @@ const Footer = () => {
               <Image
                 width="1080"
                 height="1080"
-                src="/images/footer-logo.svg"
+                src="/images/footer-logo.png"
                 alt="MotorCare"
-                className="h-full w-full"
+                className="h-4 w-auto"
               />
             </div>
             <div className="">
