@@ -8,7 +8,7 @@ const BannerCarousel = () => {
   const { data, isLoading } = useBanners()
   return (
     <>
-      {isLoading ? (<div className='w-full h-[85vh]'></div>) : data ? (
+      {isLoading ? (<div className='w-full h-[84vh]'></div>) : data ? (
         <Carousel
           className=''
           autoPlay={true}
