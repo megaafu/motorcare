@@ -12,16 +12,24 @@ const Header: React.FC = () => {
   return (
     <header className="fixed left-0 top-0 z-[1200] w-full shadow-2xl md:top-8 lg:absolute">
       <nav className="border-gray-200 bg-white">
-        <Container className=' max-w-screen-2xl'>
+        <Container className='max-w-screen-2xl'>
           <div className="flex flex-wrap items-center justify-between md:py-4">
             <Link href="/">
               <div className="flex items-center">
                 <Image
+<<<<<<< HEAD
                   width={1475}
                   height={381}
                   src="/images/logo.png"
                   alt="MotorCare"
                   className=" h-10 w-auto "
+=======
+                  width={1080}
+                  height={1080}
+                  src="/images/primary.png"
+                  alt="MotorCare"
+                  className="md:h-10 w-auto h-4 sm:h-4 sm:w-auto"
+>>>>>>> refs/remotes/origin/main
                 />
               </div>
             </Link>
