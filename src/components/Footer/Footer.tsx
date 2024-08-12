@@ -22,12 +22,12 @@ const Footer = () => {
                 height="1080"
                 src="/images/footer-logo.png"
                 alt="MotorCare"
-                className="h-4 w-auto"
+                className=" h-20 w-auto"
               />
             </div>
             <div className="">
               <h4 className="text-xl font-bold text-white">{t('links')}</h4>
-              <ul className="text-ligth mt-8 text-gray-300 text-sm">
+              <ul className="text-ligth mt-8 text-gray-300 ">
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
             <div className="">
               <h4 className="text-xl font-bold text-white">{t('legal_terms')}</h4>
-              <ul className="text-ligth mt-8 text-gray-300 text-sm">
+              <ul className="text-ligth mt-8 text-gray-300 ">
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">

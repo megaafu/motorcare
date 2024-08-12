@@ -10,15 +10,15 @@ const Prefooter = () => {
   const t = useTranslations("PreFooter")
   const locale = useLocale()
   return (
-    <div className={`${scroll > 80 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-primary w-full z-50"`} >
+    <div className={`${scroll > 80 ? "ease-out duration-300 " : "fixed bottom-0 ease-in duration-300"}  " bg-secundary w-full z-50"`} >
       <Container>
-        <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 text-sm flex justify-between">
+        <ul className=" whitespace-nowrap text-ligth content-center  gap-2 py-6 md:grid-cols-3 flex justify-between">
           {links.map((link, index) => {
             return (
               <li key={index} className="flex items-center">
                 <Link
                   href={`${locale}${link.link}`}
-                  className="color flex flex-col lg:flex-row items-center gap-4 text-white transition duration-300 hover:text-secundary"
+                  className="color flex flex-col lg:flex-row items-center gap-4 text-[#969696] transition duration-300 hover:text-white"
                 >
                   {<link.icon />}
                   <span className='hidden md:flex'>{t(link.label)}</span>

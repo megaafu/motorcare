@@ -49,7 +49,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
       >
         {options.map((option) => {
           return option.title != null ? (
-            <optgroup label={option.title} disabled>
+            <optgroup label={option.title} >
               {option.options.map((optionDropDown, index) => {
                 return (
                   <option key={index} value={optionDropDown}>

@@ -17,11 +17,11 @@ const Header: React.FC = () => {
             <Link href="/">
               <div className="flex items-center">
                 <Image
-                  width={1080}
-                  height={1080}
+                  width={1475}
+                  height={381}
                   src="/images/logo.png"
                   alt="MotorCare"
-                  className="h-4 w-auto sm:h-4 sm:w-auto"
+                  className=" h-10 w-auto "
                 />
               </div>
             </Link>

@@ -15,7 +15,7 @@ const BlogList = () => {
     <>
       {isLoading ? <BlogSkeletion /> : data ? (
         <>
-          <Row className="grid-col-1 hidden gap-8 lg:grid lg:grid-cols-3">
+          <Row className="grid-col-1 hidden gap-5 lg:grid lg:grid-cols-3">
             {data.slice(0).reverse().slice(0, 3).map((post) => {
               return <BlogCard key={post.id} blog={post} />
             })}

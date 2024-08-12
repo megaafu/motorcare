@@ -58,11 +58,11 @@
     "certification_info": "A Motorcare fornece serviços e produtos respeitando padrões internacionais de saúde, segurança, meio ambiente e qualidade. Por isso, possui um Sistema de Gestão Integrado baseado em três normas internacionais: ISO 45001 (Saúde e Segurança), ISO 14001 (Meio Ambiente) e ISO 9001 (Qualidade) que são auditadas anualmente internamente, bem como externamente por uma entidade internacional. A certificação ISO 14001 é uma norma internacional que permite às empresas demonstrar o seu compromisso com a proteção ambiental através da gestão dos riscos ambientais associados à sua atividade. A certificação ISO 9001 visa assegurar uma maior qualidade na entrega de produtos ou serviços, com foco na gestão estratégica da empresa. Assim, é possível melhorar a eficiência operacional e a Satisfação do Cliente."
   },
   "Request": {
-    "quote": "Solicitar Cotação",
-    "service": "Solicitar um Serviço",
+    "quote": "Pedir Cotação",
+    "service": "Agendar Serviço",
     "service_content": "A prestação de serviços de manutenção de alta qualidade (quer preventiva ou correctiva) está enraizada na nossa cultura. As nossas oficinas são modernas e têm capacidade para lidar com grandes volumes de veículos. Qualquer que seja a manutenção, fique descansado que efectuaremos com eficácia. Somos factuais e competentes em tudo o que fazemos. É assim que fazemos negócios e interagimos uns com os outros.",
     "other": "Solicitar Outras Marcas",
-    "test_drive": "Solicitar um Test Drive",
+    "test_drive": "Agendar Test Drive",
     "peaces_accessories": "Solicitar Peças e Acessórios",
     "peaces_content": "A Motorcare preocupa-se com a máxima satisfação do Cliente, por isso, trabalha com peças genuínas, isto é, certificadas pelo fabricante (OEM), daí o certificado ISO9001 emitido pela Bureau Veritas. Para além de peças, também dispomos de todo o tipo de acessórios para viaturas.",
     "client": "Tipo de Cliente",
@@ -124,8 +124,8 @@
   "PreFooter": {
     "quote": "Pedir Cotação",
     "test_drive": "Agendar Test Drive",
-    "service": "Requisitar Serviço",
-    "parts_accessories": "Requisitar Peças",
+    "service": "Agendar Serviço",
+    "parts_accessories": "Comprar Peças e Acessórios",
     "complains": "Sugestões e Reclamações"
   },
   "Whistleblowing": {
