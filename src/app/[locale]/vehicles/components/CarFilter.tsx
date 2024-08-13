@@ -20,8 +20,6 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
 
   const handleForm = async (cars: any) => {
     filteredData = carsData.filter((car: IUsedCar) => {
-      console.log(car.brand.toLowerCase().includes(cars.carBrand.toLowerCase()));
-
       if (!cars.carBrand.includes("Select") && !car.brand.toLowerCase().includes(cars.carBrand.toLowerCase())) {
         return false
       }
@@ -47,7 +45,7 @@ const CarFilters = ({ carsData, onFilter }: FilterType) => {
           <CustomDropdown
             className="py-2"
             id="car-brand"
-            options={[{ options: [t("brand"), 'Nissan', 'NIUI', 'Ford'] }]}
+            options={[{ options: [t("brand"), 'Nissan'] }]}
             register={register}
             name='carBrand'
           />
