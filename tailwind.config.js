@@ -11,9 +11,9 @@ module.exports = {
         sans: ['var(--font-nissan)'],
       },
       colors: {
-        primary: '#355c7d',
-        secundary: '#5d5151',
-        ancent: '#002257',
+        primary: '#5d5151',
+        secundary: '#5c0000',
+        ancent: '#443b3b',
         'light-text': '#2B415A',
       },
       backgroundImage: {
