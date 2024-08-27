@@ -1,6 +1,5 @@
 'use client'
 import { SendService } from '@/actions/SendService';
-import { SubmitForm } from '@/actions/SubmitForm';
 import { CustomForm } from '@/components/CustomForm';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -39,19 +38,6 @@ const ServicesForm = () => {
     }, {
       position: 'top-center',
     })
-
-
-    const submitDrive = SubmitForm(data)
-
-    toast.promise(submitDrive, {
-      loading: 'Processando o formulário...',
-      success: 'O formulário foi enviado com sucesso',
-      error: 'ocorreu Algum erro Enviando formulário'
-    }, {
-      position: 'top-center',
-    })
-
-
   }
 
   const [selectedOption, setSelectedOption] = useState('')

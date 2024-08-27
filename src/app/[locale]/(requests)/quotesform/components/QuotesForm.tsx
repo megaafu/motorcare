@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import toast, { Toaster } from 'react-hot-toast';
 
 const BrandsForm = () => {
   const schema = z.object({
@@ -25,7 +26,16 @@ const BrandsForm = () => {
     resolver: zodResolver(schema)
   })
   const handleForm = async (data: BrandsFormProps) => {
-    await SendQuotes(data)
+    const sendQuotes = SendQuotes(data)
+
+    toast.promise(sendQuotes, {
+      loading: 'processando o formulário...',
+      success: 'O Email foi enviado com sucesso',
+      error: 'ocorreu Algum erro Enviando Email'
+    }, {
+      position: 'top-center',
+    })
+
   }
   const [selectedOption, setSelectedOption] = useState('')
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -35,81 +45,84 @@ const BrandsForm = () => {
   const t = useTranslations("Request")
 
   return (
-    <form onSubmit={handleSubmit(handleForm)} method='POST'>
-      <CustomForm.DropDown
-        onChange={handleSelectChange}
-        label={t('client')}
-        id='client'
-        options={[{ options: [t('individual'), t('company')] }]}
-        register={register}
-        name='client'
-        required
-      />
-      <CustomForm.Root>
-        <CustomForm.FormField
-          id="name"
-          label={t("name")}
+    <>
+      <Toaster />
+      <form onSubmit={handleSubmit(handleForm)} method='POST'>
+        <CustomForm.DropDown
+          onChange={handleSelectChange}
+          label={t('client')}
+          id='client'
+          options={[{ options: [t('individual'), t('company')] }]}
           register={register}
-          name='name'
+          name='client'
           required
         />
-        <CustomForm.FormField
-          id="phone"
-          label={t("phone")}
-          register={register}
-          name='phone'
-          required
-        />
-        {selectedOption === t('company') && (
+        <CustomForm.Root>
           <CustomForm.FormField
-            id="person_phone"
-            label={t("person_phone")}
+            id="name"
+            label={t("name")}
             register={register}
-            name='person_phone'
+            name='name'
             required
           />
-        )}
-        <CustomForm.FormField
-          id="email"
-          label={t("email")}
-          register={register}
-          name='email'
-          required
-        />
-        <CustomForm.DropDown
-          id="province"
-          label={t("province")}
-          options={[{ options: ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Nampula', 'Niassa', 'Cabo Delgado'] }]}
-          register={register}
-          name='province'
-          required
-        />
-        <CustomForm.DropDown
-          label={t("vehicle")}
-          id="vehicle"
-          options={[
-            {
-              title: t("nissan"),
-              options: ["Almera", "Magnite", "Qashqai", "X-Trail", "Navara", "Terra", "Patrol", "Urvan", "NP200", "Outra"]
-            },
-            {
-              title: t("renault"),
-              options: ["Série D", "Série C", "Série K"]
-            },
-            {
-              title: t("electrics"),
-              options: ["Leaf", "NIU",]
-            },
-          ]}
-          register={register}
-          name='vehicle'
-          required
-        />
-        <div className="mt-2 flex w-ful lg:justify-end">
-          <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
-        </div>
-      </CustomForm.Root>
-    </form>
+          <CustomForm.FormField
+            id="phone"
+            label={t("phone")}
+            register={register}
+            name='phone'
+            required
+          />
+          {selectedOption === t('company') && (
+            <CustomForm.FormField
+              id="person_phone"
+              label={t("person_phone")}
+              register={register}
+              name='person_phone'
+              required
+            />
+          )}
+          <CustomForm.FormField
+            id="email"
+            label={t("email")}
+            register={register}
+            name='email'
+            required
+          />
+          <CustomForm.DropDown
+            id="province"
+            label={t("province")}
+            options={[{ options: ['Maputo', 'Gaza', 'Inhambane', 'Sofala', 'Manica', 'Tete', 'Nampula', 'Niassa', 'Cabo Delgado'] }]}
+            register={register}
+            name='province'
+            required
+          />
+          <CustomForm.DropDown
+            label={t("vehicle")}
+            id="vehicle"
+            options={[
+              {
+                title: t("nissan"),
+                options: ["Almera", "Magnite", "Qashqai", "X-Trail", "Navara", "Terra", "Patrol", "Urvan", "NP200", "Outra"]
+              },
+              {
+                title: t("renault"),
+                options: ["Série D", "Série C", "Série K"]
+              },
+              {
+                title: t("electrics"),
+                options: ["Leaf", "NIU",]
+              },
+            ]}
+            register={register}
+            name='vehicle'
+            required
+          />
+          <div className="mt-2 flex w-ful lg:justify-end">
+            <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
+          </div>
+        </CustomForm.Root>
+      </form>
+    </>
   )
 }
 export default BrandsForm

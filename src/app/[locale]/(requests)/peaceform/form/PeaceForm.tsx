@@ -39,15 +39,6 @@ const PeacesForm = () => {
     }, {
       position: 'top-center',
     })
-
-    const submitForm = SubmitForm(data)
-    toast.promise(submitForm, {
-      loading: 'Processando o formulário...',
-      success: 'O formulário foi enviado com sucesso',
-      error: 'ocorreu Algum erro Enviando formulário'
-    }, {
-      position: 'top-center',
-    })
   }
   const [selectedOption, setSelectedOption] = useState('')
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
