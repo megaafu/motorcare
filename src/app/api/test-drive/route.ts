@@ -26,9 +26,9 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Sugestões e Reclamações',
+    subject: 'Agendar Test-Drive',
     text: `
-        Tipo de Client: ${client}
+        Tipo de Cliente: ${client}
         Nome: ${name}
         Email: ${email}
         Contacto:${phone}

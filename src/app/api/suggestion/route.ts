@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     to: process.env.MY_EMAIL,
     subject: `${option}`,
     text: `
-        Tipo de Client: ${client}
+        Tipo de Cliente: ${client}
         Nome: ${name}
         Email: ${email}
         Contacto:${phone}

@@ -24,9 +24,9 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: '[Motorcare] Marcação de Serviço Outras Marcas',
+    subject: 'Pedir Cotação',
     text: `
-        Tipo de Client: ${client}
+        Tipo de Cliente: ${client}
         Nome: ${name}
         Email: ${email}
         Contacto:${phone}
