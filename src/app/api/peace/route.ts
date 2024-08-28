@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     email,
     plate,
     delegation,
-    service_categories,
+    description,
     mileage,
     vin,
     client
@@ -27,19 +27,21 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: ' Marcação de Serviço de Peças',
-    text: `
-        Tipo de Cliente: ${client}
-        Nome: ${name}
-        Email: ${email}
-        Contacto:${phone}
-        Pessoa de Contacto:${person_phone}
-        Quilometragem: ${mileage}
-        Delegação: ${delegation}
-        Matrícula: ${plate}
-        Descrição da Peça Necessária:${service_categories}
-        Número de VIN: ${vin}
-      `,
+    subject: 'Marcação de Serviço de Peças',
+    text: [
+      `Tipo de Cliente: ${client}`,
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      `Contacto: ${phone}`,
+      person_phone !== undefined ? `Pessoa de Contacto: ${person_phone}` : null,
+      `Quilometragem: ${mileage}`,
+      `Delegação: ${delegation}`,
+      `Matrícula: ${plate}`,
+      `Descrição da Peça Necessária: ${description}`,
+      `Número de VIN: ${vin}`
+    ]
+      .filter(Boolean) // Remove any null or undefined values
+      .join('\n'), // Join all lines with a newline character
   };
 
   const sendMailPromise = () =>

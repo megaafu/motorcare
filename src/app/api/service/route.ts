@@ -25,25 +25,38 @@ export async function POST(request: NextRequest) {
     },
   });
 
+  const formatedDate = (date: Date) => {
+    if (!date) return ''
+
+    const formatedDate = new Date(date)
+    formatedDate.toLocaleDateString('pt-Pt', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+  }
+
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: ' Agendar de Serviço',
-    text: `
-        Tipo de Cliente: ${client}
-        Nome: ${name}
-        Email: ${email}
-        Contacto:${phone}
-        Pessoa de Contacto:${person_phone}
-        Quilometragem: ${mileage}
-        Delegacao: ${delegation}
-        Matrícula: ${plate}
-        Serviço Pretendido:${service_categories}
-        Data que Pretendida: ${date}
-        Número de VIN: ${vin}
-
-      `,
+    subject: 'Agendar de Serviço',
+    text: [
+      `Tipo de Cliente: ${client}`,
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      `Contacto: ${phone}`,
+      person_phone !== undefined ? `Pessoa de Contacto: ${person_phone}` : null,
+      `Quilometragem: ${mileage}`,
+      `Delegação: ${delegation}`,
+      `Matrícula: ${plate}`,
+      `Serviço Pretendido: ${service_categories}`,
+      `Data Pretendida: ${formatedDate(date)}`,
+      `Número de VIN: ${vin}`
+    ]
+      .filter(Boolean) // Remove any null or undefined values
+      .join('\n'), // Join all lines with a newline character
   };
+
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {

@@ -22,23 +22,35 @@ export async function POST(request: NextRequest) {
       pass: process.env.MY_PASSWORD,
     },
   });
+  const formatedDate = (date: Date) => {
+    if (!date) return ''
 
+    const formatedDate = new Date(date)
+    formatedDate.toLocaleDateString('pt-Pt', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+  }
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
     subject: 'Agendar Test-Drive',
-    text: `
-        Tipo de Cliente: ${client}
-        Nome: ${name}
-        Email: ${email}
-        Contacto:${phone}
-        Pessoa de Contacto:${person_phone}
-        Numero da Carta de Conducao: ${drive_number}
-        Modelo pretendido: ${car_model}
-        Onde pretende fazer o test-drive: ${location}
-        Data de Validade da Carta de Condução: ${drive_date}
-      `,
+    text: [
+      `Tipo de Cliente: ${client}`,
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      `Contacto: ${phone}`,
+      person_phone ? `Pessoa de Contacto: ${person_phone}` : null,
+      `Numero da Carta de Conducao: ${drive_number}`,
+      `Modelo pretendido: ${car_model}`,
+      `Onde pretende fazer o test-drive: ${location}`,
+      `Data de Validade da Carta de Condução: ${formatedDate(drive_date)}`
+    ]
+      .filter(Boolean) // Removes any null or undefined values
+      .join('\n'), // Joins all lines with a newline character
   };
+
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {

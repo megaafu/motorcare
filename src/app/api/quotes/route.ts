@@ -25,15 +25,17 @@ export async function POST(request: NextRequest) {
     from: email,
     to: process.env.MY_EMAIL,
     subject: 'Pedir Cotação',
-    text: `
-        Tipo de Cliente: ${client}
-        Nome: ${name}
-        Email: ${email}
-        Contacto:${phone}
-        Pessoa de Contacto:${person_phone}
-        Província: ${province}
-        Veículo pretendido: ${vehicle}
-      `,
+    text: [
+      `Tipo de Cliente: ${client}`,
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      `Contacto: ${phone}`,
+      person_phone !== undefined ? `Pessoa de Contacto: ${person_phone}` : null,
+      `Província: ${province}`,
+      `Veículo pretendido: ${vehicle}`
+    ]
+      .filter(Boolean) // Remove any null or undefined values
+      .join('\n'), // Join all lines with a newline character
   };
 
   const sendMailPromise = () =>
