@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       `Matrícula: ${plate}`,
       `Serviço Pretendido: ${service_categories}`,
       `Data Pretendida: ${formatedDate(date)}`,
-      `Número de VIN: ${vin}`
+      `Número de Quadro/Chassi: ${vin}`
     ]
       .filter(Boolean) // Remove any null or undefined values
       .join('\n'), // Join all lines with a newline character

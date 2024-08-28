@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         primary: '#5d5151',
-        secundary: '#5c0000',
+        secundary: '#F8B067',
         ancent: '#443b3b',
         'light-text': '#2B415A',
       },

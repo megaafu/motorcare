@@ -1,0 +1,35 @@
+import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
+
+interface FilePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string
+  register?: UseFormRegister<any>
+  name?: string
+  required?: boolean
+}
+
+const CustomFilePicker: React.FC<FilePickerProps> = ({
+  id,
+  label,
+  name,
+  register,
+  required,
+  ...props
+}) => {
+  return (
+    <div className="pb-4">
+      <label className="text-sm  mb-2 block text-light-text " htmlFor={id}>
+        {`${label} ${required ? '*' : ''}`}
+      </label>
+      <input
+        className="w-full appearance-none rounded border border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
+        type="file"
+        id={id}
+        {...register?.(name || '')}
+        {...props}
+      />
+    </div>
+  )
+}
+
+export default CustomFilePicker

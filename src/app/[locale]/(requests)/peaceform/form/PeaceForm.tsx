@@ -1,6 +1,5 @@
 'use client'
 import { SendPeace } from '@/actions/SendPeace';
-import { SubmitForm } from '@/actions/SubmitForm';
 import { CustomForm } from '@/components/CustomForm';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +15,7 @@ const PeacesForm = () => {
     name: z.string(),
     phone: z.string(),
     person_phone: z.string().optional(),
-    email: z.string(),
+    email: z.string().email(),
     plate: z.string(),
     delegation: z.string(),
     mileage: z.string(),
