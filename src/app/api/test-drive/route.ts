@@ -1,3 +1,4 @@
+import formatedDate from '@/lib/util/formateDate';
 import { NextResponse, type NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
@@ -22,16 +23,6 @@ export async function POST(request: NextRequest) {
       pass: process.env.MY_PASSWORD,
     },
   });
-  const formatedDate = (date: Date) => {
-    if (!date) return ''
-
-    const formatedDate = new Date(date)
-    formatedDate.toLocaleDateString('pt-Pt', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    })
-  }
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
