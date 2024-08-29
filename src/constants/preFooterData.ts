@@ -1,4 +1,4 @@
-import { Accessorie, Car, Coins, Service, Suggestion } from '@/components/icons/Icons'
+import { Accessorie, Car, Coins, Service, TradeIn } from '@/components/icons/Icons'
 import { ElementType } from 'react'
 
 interface items {
@@ -29,8 +29,8 @@ export const links: items[] = [
     icon: Accessorie,
   },
   {
-    link: '/sugestionform',
-    label: 'complains',
-    icon: Suggestion,
+    link: '/tradeinform',
+    label: 'trade_in',
+    icon: TradeIn,
   },
 ]

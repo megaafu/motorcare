@@ -76,7 +76,15 @@
     "delegation": "Delegation",
     "location": "Where you want to do the test-drive?",
     "province": "Province",
+    "car_year": "Year of Manufacture",
+    "car_damage": "Has the vehicle been in any kind of accident?",
+    "yes": "Yes",
+    "no": "No",
+    "avaliation": "Location where you want the evaluation",
+    "avaliation_date": "Date when you want to perform the physical evaluation",
+    "dealership": "Dealership where it was acquired",
     "mileage": "Mileage",
+    "mileage_now": "Current Mileage",
     "vin": "VIN Number",
     "car_model": "Car Model",
     "vehicle": "vehicle pretended",
@@ -110,7 +118,8 @@
     "legal_terms": "Legal Terms",
     "terms": "Terms and Condition",
     "privacy": "Privacy",
-    "iso": "ISO"
+    "iso": "ISO",
+    "sugestionform": "Suggestions and Complains"
   },
   "Header": {
     "home": "Home",
@@ -127,7 +136,8 @@
     "test_drive": "Book a Test-Drive",
     "service": "Book a Service",
     "parts_accessories": "Buy Parts and Accessories",
-    "complains": "Suggestions and Complains"
+    "complains": "Suggestions and Complains",
+    "trade_in": "Trade-In Service"
   },
   "Whistleblowing": {
     "whistleblowing": "Whistleblowing",

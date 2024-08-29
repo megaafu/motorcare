@@ -76,7 +76,15 @@
     "delegation": "Delegação",
     "location": "Onde pretende fazer o test-drive?",
     "province": "Província",
+    "car_year": "Ano de Fabrico",
+    "car_damage": "A viatura sofreu algum tipo de Acidente?",
+    "yes": "Sim",
+    "no": "Não",
+    "avaliation": "Local onde pretende fazer a avaliação",
+    "avaliation_date": "Data em que pretende fazer a avaliação física",
+    "dealership": "Concessionária onde adquiriu",
     "mileage": "Quilometragem",
+    "mileage_now": "Quilometragem Actual",
     "vin": "Número de Quadro/Chassi",
     "car_model": "Modelo pretendido",
     "vehicle": "Veiculo pretendido",
@@ -110,7 +118,8 @@
     "legal_terms": "Termos Legais",
     "terms": "Termos e Condições",
     "privacy": "Privacidade",
-    "iso": "ISO"
+    "iso": "ISO",
+    "sugestionform": "Sugestões e Reclamações"
   },
   "Header": {
     "home": "Página Inicial",
@@ -127,7 +136,8 @@
     "test_drive": "Agendar Test Drive",
     "service": "Agendar Serviço",
     "parts_accessories": "Comprar Peças e Acessórios",
-    "complains": "Sugestões e Reclamações"
+    "complains": "Sugestões e Reclamações",
+    "trade_in": "Retoma de Viaturas"
   },
   "Whistleblowing": {
     "whistleblowing": "Portal de denúncias",

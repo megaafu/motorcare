@@ -31,7 +31,20 @@ const Footer = () => {
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/about`} replace={true}>{t(link)}</Link>
+                      <Link href={`${locale}/${link}`} replace={true}>{t(link)}</Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+            <div className="">
+              <h4 className="text-xl font-bold text-white">{t('legal_terms')}</h4>
+              <ul className="text-ligth mt-8 text-gray-300 ">
+                {terms.map((term, index) => {
+                  return (
+                    <li key={index} className="mt-2 hover:text-secundary">
+                      <Link href={`${locale}/about`} replace={true}>{t(term)}</Link>
+
                     </li>
                   )
                 })}
@@ -56,19 +69,7 @@ const Footer = () => {
                   <Instagram />
                 </a>
               </div>
-            </div>
-            <div className="">
-              <h4 className="text-xl font-bold text-white">{t('legal_terms')}</h4>
-              <ul className="text-ligth mt-8 text-gray-300 ">
-                {terms.map((term, index) => {
-                  return (
-                    <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/about`} replace={true}>{t(term)}</Link>
 
-                    </li>
-                  )
-                })}
-              </ul>
             </div>
             <div className=" flex w-full justify-center gap-2 text-white sm:hidden  ">
               <a
