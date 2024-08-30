@@ -8,6 +8,8 @@ import { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import toast, { Toaster } from 'react-hot-toast'
+import useNovos from '@/hooks/use-novos';
+import { INewCar } from '@/model/newCar';
 
 const TestDriveForm = () => {
   const schema = z.object({
@@ -45,6 +47,15 @@ const TestDriveForm = () => {
     setSelectedOption(selectedValue)
   }
   const t = useTranslations("Request")
+  const { data } = useNovos()
+
+  const handleNissan = (data: INewCar[] | undefined, filter: string): string[] => {
+    if (data === undefined) return []
+    return data
+      .filter((car) => car.type === filter)
+      .map((item) => item.model)
+  }
+
 
   return (
     <>
@@ -119,8 +130,21 @@ const TestDriveForm = () => {
           <CustomForm.DropDown
             id="car_model"
             label={t('car_model')}
-            options={[{ options: ['Almera', 'Magnite', 'Qashqai', 'X-Trail', 'Navara', 'Terra', 'Patrol', 'Leaf (Eléctrico)', 'Outro',] }
-            ]} register={register}
+            options={[
+              {
+                title: t("nissan"),
+                options: handleNissan(data, "Vehicles")
+              },
+              {
+                title: t("renault"),
+                options: handleNissan(data, "Trucks")
+              },
+              {
+                title: t("electrics"),
+                options: handleNissan(data, "Electrics")
+              },
+            ]}
+            register={register}
             name='car_model'
             required
           />

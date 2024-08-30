@@ -5,10 +5,12 @@ import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
 import { getTranslator } from 'next-intl/server'
 import TradeInForm from './components/TradeInForm'
+import formatTextWithLineBreaks from '@/lib/util/formatTextWithInnerHTML'
 
 
 export default async function Requests({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslator(locale, 'Request')
+
   return (
     <>
       <div className="h-[340px] w-full bg-request-hero bg-cover bg-no-repeat"></div>
@@ -19,7 +21,9 @@ export default async function Requests({ params: { locale } }: { params: { local
           </Title.Root>
           <Row className='lg:grid-cols-2'>
             <TradeInForm />
-            <Paragraph> </Paragraph>
+            <Paragraph dangerouslySetInnerHTML={{ __html: formatTextWithLineBreaks(t('trade_info')) }}>
+
+            </Paragraph>
           </Row>
         </PagePadding>
       </Container>

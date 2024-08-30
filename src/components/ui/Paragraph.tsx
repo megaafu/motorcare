@@ -1,13 +1,15 @@
 import { cn } from '@/lib/util/util'
-import React, { ReactNode } from 'react'
+import React, { ComponentProps, ReactNode } from 'react'
 
-interface ParagraphProps {
+type ParagraphProps = ComponentProps<'p'> & {
   className?: string
   children: ReactNode
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
-  return <p className={cn('text-justify text-sm', className)}>{children}</p>
+
+
+const Paragraph: React.FC<ParagraphProps> = ({ children, className, ...ParagraphProps }) => {
+  return <p className={cn('text-justify text-sm', className)} {...ParagraphProps}>{children}</p>
 }
 
 export default Paragraph

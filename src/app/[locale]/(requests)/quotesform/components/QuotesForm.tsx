@@ -5,10 +5,12 @@ import { CustomForm } from '@/components/CustomForm'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import toast, { Toaster } from 'react-hot-toast';
+import useNovos from '@/hooks/use-novos'
+import { INewCar } from '@/model/newCar'
 
 const BrandsForm = () => {
   const schema = z.object({
@@ -43,6 +45,16 @@ const BrandsForm = () => {
     setSelectedOption(selectedValue)
   }
   const t = useTranslations("Request")
+
+
+  const { data } = useNovos()
+
+  const handleNissan = (data: INewCar[] | undefined, filter: string): string[] => {
+    if (data === undefined) return []
+    return data
+      .filter((car) => car.type === filter)
+      .map((item) => item.model)
+  }
 
   return (
     <>
@@ -102,15 +114,15 @@ const BrandsForm = () => {
             options={[
               {
                 title: t("nissan"),
-                options: ["Almera", "Magnite", "Qashqai", "X-Trail", "Navara", "Terra", "Patrol", "Urvan", "NP200", "Outra"]
+                options: handleNissan(data, "Vehicles")
               },
               {
                 title: t("renault"),
-                options: ["Série D", "Série C", "Série K"]
+                options: handleNissan(data, "Trucks")
               },
               {
                 title: t("electrics"),
-                options: ["Leaf", "NIU",]
+                options: handleNissan(data, "Electrics")
               },
             ]}
             register={register}

@@ -100,7 +100,6 @@ const ServicesForm = () => {
             id="delegation"
             options={[
               {
-
                 options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba']
               }
             ]}

@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import toast, { Toaster } from 'react-hot-toast'
 import { SendTradeIn } from '@/actions/SendTraIn';
+import useNovos from '@/hooks/use-novos';
+import { INewCar } from '@/model/newCar';
 
 const TradeInForm = () => {
   const schema = z.object({
@@ -48,6 +50,16 @@ const TradeInForm = () => {
     setSelectedOption(selectedValue)
   }
   const t = useTranslations("Request")
+
+  const { data } = useNovos()
+
+  const handleNissan = (data: INewCar[] | undefined, filter: string): string[] => {
+    if (data === undefined) return []
+    return data
+      .filter((car) => car.type === filter)
+      .map((item) => item.model)
+  }
+
 
   return (
     <>
@@ -99,8 +111,22 @@ const TradeInForm = () => {
           <CustomForm.DropDown
             id="car_model"
             label={t('car_model')}
-            options={[{ options: ['Almera', 'Magnite', 'Qashqai', 'X-Trail', 'Navara', 'Terra', 'Patrol', 'Leaf (Eléctrico)', 'Outro',] }
-            ]} register={register}
+            defaultValue='Selecione o Modelo'
+            options={[
+              {
+                title: t("nissan"),
+                options: handleNissan(data, "Vehicles")
+              },
+              {
+                title: t("renault"),
+                options: handleNissan(data, "Trucks")
+              },
+              {
+                title: t("electrics"),
+                options: handleNissan(data, "Electrics")
+              },
+            ]}
+            register={register}
             name='car_model'
           />
           <CustomForm.DatePicker
@@ -110,10 +136,10 @@ const TradeInForm = () => {
             name='car_year'
           />
 
-          <CustomForm.DropDown
+          <CustomForm.FormField
             label={t("dealership")}
             id="dealership"
-            options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
+            placeholder=''
             register={register}
             name='dealership'
           />
@@ -144,6 +170,7 @@ const TradeInForm = () => {
           <CustomForm.DropDown
             label={t("avaliation")}
             id="avaliation"
+            defaultValue='Selecione o local'
             options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
             register={register}
             name='avaliation'

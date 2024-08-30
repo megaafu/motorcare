@@ -91,6 +91,7 @@
     "service_description": "Description of Required service",
     "category": "Category",
     "trade_in": "Trade-In Form",
+    "trade_info": "Motorcare offers a trade-in/vehicle return service for any brand. Vehicles that have been purchased from a dealership in Mozambique and meet the following requirements are accepted:\n- Less than 5 years old;\n- Have less than 100,000 km.\nEach vehicle is individually assessed, and specific cases can be analyzed depending on the situation. If you want to know the value of your vehicle or start the trade-in process, please fill out the assessment form below.",
     "drive_number": "Driver License Number",
     "drive_date": "Expired Date of Driver License",
     "pretended_date": "pretended Date",
