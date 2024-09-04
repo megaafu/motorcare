@@ -66,6 +66,9 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
             </optgroup>
           ) : (
             <>
+              <option value="" disabled hidden>
+                {defaultValue || 'Selecione opção'}
+              </option>
               {option.options.map((optionDropDown, index) => {
                 return (
                   <option key={index} value={optionDropDown}>
