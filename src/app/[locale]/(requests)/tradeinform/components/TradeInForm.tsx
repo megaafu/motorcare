@@ -118,12 +118,8 @@ const TradeInForm = () => {
                 options: handleNissan(data, "Vehicles")
               },
               {
-                title: t("renault"),
-                options: handleNissan(data, "Trucks")
-              },
-              {
                 title: t("electrics"),
-                options: handleNissan(data, "Electrics")
+                options: ["Ariya"],
               },
             ]}
             register={register}
