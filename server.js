@@ -24,7 +24,7 @@ app.prepare().then(() => {
     } catch (err) {
       console.error('Error occurred handling.', req.url, err)
       res.statusCode = 500
-      res.end('internal server error.code ')
+      res.end('internal server error.code.')
     }
   })
     .once('error', (err) => {
