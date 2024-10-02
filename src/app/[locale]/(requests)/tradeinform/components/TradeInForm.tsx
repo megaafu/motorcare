@@ -111,7 +111,6 @@ const TradeInForm = () => {
           <CustomForm.DropDown
             id="car_model"
             label={t('car_model')}
-            defaultValue='Selecione o Modelo'
             options={[
               {
                 title: t("nissan"),
