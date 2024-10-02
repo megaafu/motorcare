@@ -11,6 +11,7 @@ interface options {
 interface CustomDropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string
   id: string
+  defaultValue?: string
   options: options[]
   className?: string
   register?: UseFormRegister<any>
@@ -25,6 +26,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   className,
   register,
   name,
+  defaultValue,
   required,
   ...props
 
@@ -40,6 +42,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
       <select
         id={id}
+        defaultValue={defaultValue ?? ''}
         className={twMerge(
           'form-select text-sm mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-light-text focus:border-primary focus:outline-none',
           className,
@@ -48,7 +51,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         {...props}
       >
         <option value="" disabled hidden>
-          {'Selecione uma opção'}
+          {defaultValue || 'Selecione uma opção'}
         </option>
         {options.map((option) => {
           return option.title != null ? (
