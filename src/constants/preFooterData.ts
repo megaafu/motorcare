@@ -9,26 +9,26 @@ interface items {
 
 export const links: items[] = [
   {
-    link: '/quotesform',
-    label: 'quote',
-    icon: Coins,
+    link: '/serviceform',
+    label: 'service',
+    icon: Service,
   },
   {
     link: '/testdriveform',
     label: 'test_drive',
     icon: Car,
   },
-  {
-    link: '/serviceform',
-    label: 'service',
-    icon: Service,
-  },
-  {
+{
     link: '/peaceform',
     label: 'parts_accessories',
     icon: Accessorie,
   },
-  {
+     {
+    link: '/quotesform',
+    label: 'quote',
+    icon: Coins,
+  },
+ {
     link: '/tradeinform',
     label: 'trade_in',
     icon: TradeIn,

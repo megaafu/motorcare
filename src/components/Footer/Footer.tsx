@@ -12,7 +12,7 @@ const Footer = () => {
   const locale = useLocale()
 
   return (
-    <div className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat">
+    <footer id="footer" className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat">
       <Container>
         <PagePadding>
           <div className="flex flex-wrap justify-between gap-x-8 gap-y-4 lg:flex-nowrap">
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
         </PagePadding>
       </Container>
-    </div>
+    </footer>
   )
 }
 
