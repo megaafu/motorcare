@@ -2,13 +2,13 @@
 import { INav } from '@/constants/headerData'
 import classNames from 'classnames'
 import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import DropDown from './DropDown'
+import Link from 'next/link'
+
 interface MenuProps {
   menu: INav[]
-
 }
 
 const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
@@ -46,7 +46,6 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
                     )}
                   </div>
                 </Link>}
-
             </li>
           )
         })}

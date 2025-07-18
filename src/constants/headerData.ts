@@ -1,62 +1,100 @@
 export interface IMenu {
-  label: string
-  url: string
+  label: string;
+  url: string;
+}
+
+export interface IMenuWithSub {
+  label: string;
+  url?: string;
+  dropdown?: IMenu[];
 }
 export interface INav {
-  menu: IMenu
-  dropdown?: IMenu[]
+  menu: IMenu;
+  dropdown?: IMenuWithSub[];
 }
 
 export const menu: INav[] = [
   {
     menu: {
-      label: 'home',
-      url: '/home',
-    }
-
+      label: "menu",
+      url: "#",
+    },
+    dropdown: [
+      {
+        label: "cars",
+        url: "#brands",
+        dropdown: [
+          {
+            label: "nissan",
+            url: "https://www.nissan.co.mz/",
+          },
+          {
+            label: "renault",
+            url: "/about?brand=Renault Trucks",
+          },
+                  ],
+      },
+      {
+        label: "tires",
+        url: "#brands",
+        dropdown: [
+          {
+            label: "general",
+            url: "/about?brand=General Tire",
+          },
+          {
+            label: "continental",
+            url: "/about?brand=Continental",
+          },
+          {
+            label: "maxxis",
+            url: "/about?brand=Maxxis Tyres",
+          },
+        ],
+      },
+    ],
   },
   {
     menu: {
-      label: 'about',
-      url: '/about',
-    }
-
-  },
-  {
-    menu: {
-      label: 'vehicles',
-      url: '/vehicles',
-    }
-
+      label: "vehicles",
+      url: "/vehicles",
+    },
   },
 
   {
     menu: {
-      label: 'after_sales',
-      url: '#',
+      label: "after_sales",
+      url: "#",
     },
     dropdown: [
       {
         label: "service",
-        url: "/serviceform"
+        url: "/serviceform",
       },
       {
         label: "parts_accessories",
-        url: "/peaceform"
+        url: "/peaceform",
       },
-    ]
+    ],
   },
 
   {
     menu: {
-      label: 'find_dealer',
-      url: '/dealer',
-    }
+      label: "find_dealer",
+      url: "/dealer",
+    },
   },
   {
     menu: {
-      label: 'whistleblowing',
-      url: '/whistleblowing',
-    }
+      label: "about",
+      url: "/about",
+    },
   },
-]
+
+  {
+    menu: {
+      label: "whistleblowing",
+      url: "/whistleblowing",
+    },
+  },
+];
