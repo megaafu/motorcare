@@ -139,10 +139,6 @@ const TestDriveForm = () => {
                 title: t("renault"),
                 options: handleNissan(data, "Trucks")
               },
-              {
-                title: t("electrics"),
-                options: handleNissan(data, "Electrics")
-              },
             ]}
             register={register}
             name='car_model'

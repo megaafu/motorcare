@@ -16,7 +16,6 @@ export default async function Home({
     <main>
       <BannerCarousel />
       <Container>
-        <NavNewCars />
         <NavFindCars />
       </Container>
       <div className="w-full bg-informative bg-cover bg-center bg-no-repeat">

@@ -120,10 +120,6 @@ const BrandsForm = () => {
                 title: t("renault"),
                 options: handleNissan(data, "Trucks")
               },
-              {
-                title: t("electrics"),
-                options: handleNissan(data, "Electrics")
-              },
             ]}
             register={register}
             name='vehicle'

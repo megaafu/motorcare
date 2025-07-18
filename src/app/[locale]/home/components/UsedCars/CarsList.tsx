@@ -12,12 +12,12 @@ const CarsList = () => {
       {isLoading ? <CarsSkeletion /> : data ? (
         <>
           <Row className="hidden gap-5 lg:grid lg:grid-cols-4">
-            {data.slice(0).reverse().slice(0, 4).map((car, index) => {
+            {data.slice(0).reverse().slice(0, 8).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}
           </Row>
           <LateralScroll className="lg:hidden">
-            {data.slice(0).reverse().slice(0, 4).map((car, index) => {
+            {data.slice(0).reverse().slice(0, 8).map((car, index) => {
               return <CardCarousel key={index} car={car} />
             })}
           </LateralScroll>
