@@ -4,14 +4,14 @@ import Mapp from "./components/Mapper"
 
 const Motorcare = () => {
   return (
-    <Container className="mt-[12vh]">
-        <PagePadding>
-                <Mapp
-                name="Maputo"
-                image="https://makerkit.dev/assets/images/posts/nextjs13-tutorial.webp"
-            />
-        </PagePadding>
-      
+    <Container className="max-w-screen-2xl mt-[12vh]">
+      <PagePadding>
+        <Mapp
+          name="Maputo"
+          image="https://makerkit.dev/assets/images/posts/nextjs13-tutorial.webp"
+        />
+      </PagePadding>
+
     </Container>
   )
 }
