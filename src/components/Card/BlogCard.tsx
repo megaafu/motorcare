@@ -9,7 +9,6 @@ import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation';
 import ImageCarousel from './ImageCarousel'
 import { useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 interface BlogCardProps {

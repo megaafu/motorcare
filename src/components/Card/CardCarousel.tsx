@@ -9,6 +9,7 @@ import CardRoot from './CardRoot'
 import CardSub from './CardSub'
 import CardTitle from './CardTitle'
 import ImageCarousel from './ImageCarousel'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface CardCarouselProps {
   className?: string
@@ -31,10 +32,13 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
       return (oldAutoPlay = !oldAutoPlay)
     })
   }
+
+  const router = useRouter()
+  const pathName = usePathname()
   const images: string[] = JSON.parse(car.car_image)
   return (
-    <motion.div onHoverStart={handleAutoPlay} onHoverEnd={handleAutoPlay}>
-      <CardRoot className={className}>
+    <motion.div className='cursor-pointer' onHoverStart={handleAutoPlay} onHoverEnd={handleAutoPlay} onClick={() => router.push(`vehicles/${car.id}`)}>
+      <CardRoot className={className}  >
         <ImageCarousel
           images={images}
           autoPlay={autoPlay}

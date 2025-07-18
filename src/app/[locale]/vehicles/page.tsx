@@ -38,7 +38,6 @@ export default function UsedCars() {
           <Title.Root>
             <Title.Label label={t('vehicles')} />
           </Title.Root>
-          <CarFilter carsData={carsData} onFilter={handleFilter} />
         </PagePadding>
         <CarList carsData={filteredCarsData}
           isLoading={isLoading} />
