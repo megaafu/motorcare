@@ -65,15 +65,60 @@ const nextConfig = {
         destination: "/en/blogs/:path",
         permanent: true,
       },
-    ]
+      {
+        source: "/pt/vehicles/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+
+      {
+        source: "/en/vehicles/pt/:path",
+        destination: "/pt/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/vehicles/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/vehicles/en/:path",
+        destination: "/en/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/vehicles/pt/vehicles/:path",
+        destination: "/pt/vehicles/:path",
+        permanent: true,
+      },
+
+      {
+        source: "/en/vehicles/pt/vehicles/:path",
+        destination: "/pt/vehicles/:path",
+        permanent: true,
+      },
+      {
+        source: "/en/vehicles/en/vehicles/:path",
+        destination: "/en/vehicles/:path",
+        permanent: true,
+      },
+      {
+        source: "/pt/vehicles/en/vehicles/:path",
+        destination: "/en/vehicles/:path",
+        permanent: true,
+      },
+ 
+    ];
   },
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['http://localhost', 'https://api.champier.co.mz'],
+    domains: [
+      "http://localhost",
+      "https://api.champier.co.mz",
+      "api.champier.co.mz",
+    ],
   },
-}
-const withNextIntl = require('next-intl/plugin')(
-  './i18n.ts'
-)
-module.exports = withNextIntl(nextConfig)
+};
+const withNextIntl = require("next-intl/plugin")("./i18n.ts");
+module.exports = withNextIntl(nextConfig);
