@@ -11,7 +11,7 @@ interface IAcordings {
 const Mission: IAcordingItem = {
   id: 1,
   title: 'mission',
-  description: ['mission_description1','mission_description2']
+  description: ['mission_description']
 }
 
 const Vision: IAcordingItem = {

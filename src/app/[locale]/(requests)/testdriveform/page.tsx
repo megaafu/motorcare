@@ -6,9 +6,9 @@ import Row from '@/components/ui/Row'
 import { getTranslator } from 'next-intl/server'
 import TestDriveForm from './components/TestDriveForm'
 
-export interface IAppProps {}
+export interface IAppProps { }
 
-export default async function Requests({params:{locale}}:{params:{locale:string}})  {
+export default async function Requests({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslator(locale, 'Request')
   return (
     <>
@@ -20,7 +20,7 @@ export default async function Requests({params:{locale}}:{params:{locale:string}
           </Title.Root>
           <Row className='lg:grid-cols-2'>
             <TestDriveForm />
-            <Paragraph> </Paragraph>
+            <Paragraph> {t('test_drive_content')}</Paragraph>
           </Row>
         </PagePadding>
       </Container>
