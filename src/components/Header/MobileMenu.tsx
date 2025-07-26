@@ -37,7 +37,7 @@ const MobileMenu = ({ menu }: MenuProps) => {
               {dropdown ?
                 <DropDown label={menu.label} dropdown={dropdown} />
                 :
-                <Link href={`${locale}${menu.url}`} onClick={handleMenuToggle}>
+                <Link href={`${menu.url}`} onClick={handleMenuToggle}>
                   {t(menu.label)}
                 </Link>
               }

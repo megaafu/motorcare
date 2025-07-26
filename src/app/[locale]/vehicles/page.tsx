@@ -7,7 +7,6 @@ import useVehicles from '@/hooks/use-vehicles'
 import { IUsedCar } from '@/model/usedCar'
 import { useTranslations } from 'next-intl'
 import { useEffect, useMemo, useState } from 'react'
-import CarFilter from './components/CarFilter'
 import CarList from './components/CarList'
 
 

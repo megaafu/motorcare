@@ -38,7 +38,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
               {dropdown ?
                 <DropDown label={menu.label} dropdown={dropdown} />
                 :
-                <Link href={`${locale}${menu.url}`} replace={true}>
+                <Link href={`${menu.url}`} replace={true}>
                   <div className={menuItemClasses}>
                     <span className="mr-4 cursor-pointer">{t(menu.label)}</span>
                     {isActive && (

@@ -1,36 +1,46 @@
-'use client'
+'use client';
+
+import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 
-const languageOptions = [{ label: 'Pt', link: 'pt' }, { label: 'En', link: 'en' }]
+const languageOptions = [
+  { label: 'Pt', link: 'pt' },
+  { label: 'En', link: 'en' }
+];
 
 const LanguageSwitcher = () => {
-  const pathName = usePathname()
-  const locale = useLocale()
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
+
   const handleChangeLanguage = (newLocale: string) => {
-    window.location.href = `${newLocale}${pathName.replace("/" + locale, "")}`
-  }
+    const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}`), '') || '/';
+    router.push(pathWithoutLocale, { locale: newLocale });
+  };
+
   return (
-    <div>
-      <div className="flex gap-2 ">
-        <div className="flex justify-evenly gap-5 border-light-text">
-          {languageOptions.map((option) => (
-            <button
-              onClick={() => handleChangeLanguage(option.link)}
-              key={option.link}
-              className="flex gap-2 justify-center self-center text-sm text-light-text hover:text-primary"
-            >
-              <Image width={20} height={18} src={`/icons/${option.link}.png`} alt='' />
-              {option.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
+    <div className="flex gap-5">
+      {languageOptions.map((option) => (
+        <button
+          key={option.link}
+          onClick={() => handleChangeLanguage(option.link)}
+          className={`flex items-center gap-1 text-sm ${locale === option.link ? 'text-primary font-bold' : 'text-light-text'
+            } hover:text-primary`}
+          aria-label={`Switch to ${option.label}`}
+        >
+          <Image
+            width={20}
+            height={18}
+            src={`/icons/${option.link}.png`}
+            alt={`${option.label} flag`}
+          />
+          {option.label}
+        </button>
+      ))}
     </div>
-  )
-}
+  );
+};
 
+export default LanguageSwitcher;
 
-export default LanguageSwitcher

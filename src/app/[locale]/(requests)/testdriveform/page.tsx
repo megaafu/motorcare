@@ -3,13 +3,13 @@ import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import TestDriveForm from './components/TestDriveForm'
 
 export interface IAppProps { }
 
 export default async function Requests({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslator(locale, 'Request')
+  const t = await getTranslations('Request')
   return (
     <>
       <div className="h-[340px] w-full bg-request-hero bg-cover bg-no-repeat"></div>

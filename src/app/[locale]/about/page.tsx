@@ -5,7 +5,7 @@ import PagePadding from '@/components/ui/PagePadding'
 import Paragraph from '@/components/ui/Paragraph'
 import Row from '@/components/ui/Row'
 import { AboutMenu, HistoryMenu, IsoMenu } from '@/constants/menuData'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import NavBrands from './components/NavBrands'
 import CustomAccording from './components/ui/According'
@@ -16,7 +16,7 @@ export default async function About({
   params: { locale }
 }: { params: { locale: string } }) {
 
-  const t = await getTranslator(locale, 'About')
+  const t = await getTranslations('About')
   return (
     <main>
       {/* Hero section */}

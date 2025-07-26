@@ -1,17 +1,15 @@
 import Subscribe from '@/components/Subscribe'
 import Container from '@/components/ui/Container'
 import PagePadding from '@/components/ui/PagePadding'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import NavBlogs from './components/Blog/NavBlogs'
 import NavNewCars from './components/NewCars/NavNewCars'
 import NavFindCars from './components/UsedCars/NavFindCars'
 import BannerCarousel from './components/Banner/BannerCarousel'
 
-export default async function Home({
-  params: { locale }
-}: { params: { locale: string } }) {
+export default async function Home() {
 
-  const t = await getTranslator(locale, 'Home')
+  const t = await getTranslations('Home')
   return (
     <main>
       <BannerCarousel />

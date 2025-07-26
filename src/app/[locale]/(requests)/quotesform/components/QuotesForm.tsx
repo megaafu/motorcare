@@ -5,7 +5,7 @@ import { CustomForm } from '@/components/CustomForm'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import toast, { Toaster } from 'react-hot-toast';
