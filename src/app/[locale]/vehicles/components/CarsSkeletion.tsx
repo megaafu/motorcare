@@ -8,8 +8,8 @@ const CarsSkeletion = () => {
   return (
     <PagePadding>
       <Row className="grid-col-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {items.map((index) => (
-          <CarousellCardSkeletion key={index} className="mx-auto w-[92vw] lg:w-auto" />
+        {items.map((_, i) => (
+          <CarousellCardSkeletion key={`card-${i}`} className="mx-auto w-[92vw] lg:w-auto" />
         ))}
       </Row>
     </PagePadding>

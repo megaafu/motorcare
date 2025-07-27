@@ -139,6 +139,7 @@ const Mapp = () => {
       {/* MAP */}
       <div className="h-full flex-1">
         <MapContainer
+          key={`${location.lat}-${location.lng}`} 
           center={[-25.9686, 32.5804]}
           style={{ height: "100%", width: "100%" }}
           zoom={6}

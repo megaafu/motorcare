@@ -35,7 +35,7 @@ const BlogList = () => {
                 return <BlogCard key={post.id} blog={post} />;
               })}
           </LateralScroll>
-          <SecundaryButton href={`${locale}/blogs`} label={t("view_more")} />
+          <SecundaryButton href={`/blogs`} label={t("view_more")} />
         </>
       ) : null}
     </>
