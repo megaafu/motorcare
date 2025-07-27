@@ -8,18 +8,20 @@ export default function NotFound() {
   const handleButtonClick = () => {
     window.location.href = "/";
   };
+
   return (
-    <div className="flex h-screen flex-col justify-center self-center ">
-      <div className=" bg-slate-100 py-10">
+    <div className="flex h-screen flex-col justify-center self-center">
+      <div className="bg-slate-100 py-10">
         <Container>
-          <div className=" grid gap-4 lg:grid-cols-2">
-            <div className="flex flex-col justify-center gap-4 self-center">
+          <div className="relative grid gap-4 lg:grid-cols-2">
+            {/* Main content */}
+            <div className="z-10 flex flex-col justify-center gap-4 self-center">
               <h2 className="text-5xl">
                 Oops! The page you are looking for could not be found.
               </h2>
               <Paragraph className="mr-24 text-light-text">
-                The page you are looking for is not available in the website
-                please click here to go back home
+                The page you are looking for is not available on the website.
+                Please click here to go back home.
               </Paragraph>
               <div className="mt-4 flex justify-start">
                 <PrimaryButton onClick={handleButtonClick}>
@@ -27,7 +29,9 @@ export default function NotFound() {
                 </PrimaryButton>
               </div>
             </div>
-            <div className="absolute justify-center gap-4 self-center lg:flex">
+
+            {/* 404 Background */}
+            <div className="pointer-events-none absolute right-10 top-1/2 -translate-y-1/2 lg:flex">
               <h2 className="text-[300px] text-light-text opacity-5 lg:opacity-10">
                 404
               </h2>
