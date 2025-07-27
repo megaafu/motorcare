@@ -1,19 +1,19 @@
-'use client'
-import { Refresh } from '@/components/icons/Icons'
-import Container from '@/components/ui/Container'
-import PrimaryButton from '@/components/ui/PrimaryButton'
-import { useEffect } from 'react'
+"use client";
+import { Refresh } from "@/components/icons/Icons";
+import Container from "@/components/ui/Container";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import { useEffect } from "react";
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
 
   return (
     <div className="flex h-screen flex-col justify-center self-center ">
@@ -41,5 +41,5 @@ export default function Error({
         </Container>
       </div>
     </div>
-  )
+  );
 }

@@ -1,15 +1,15 @@
-'use client'
-import { CustomForm } from '@/components/CustomForm';
-import PrimaryButton from '@/components/ui/PrimaryButton';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { ChangeEvent, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import toast, { Toaster } from 'react-hot-toast'
-import { SendTradeIn } from '@/actions/SendTraIn';
-import useNovos from '@/hooks/use-novos';
-import { INewCar } from '@/model/newCar';
+"use client";
+import { CustomForm } from "@/components/CustomForm";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { ChangeEvent, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import toast, { Toaster } from "react-hot-toast";
+import { SendTradeIn } from "@/actions/SendTraIn";
+import useNovos from "@/hooks/use-novos";
+import { INewCar } from "@/model/newCar";
 
 const TradeInForm = () => {
   const schema = z.object({
@@ -24,61 +24,67 @@ const TradeInForm = () => {
     mileage_now: z.string(),
     car_damage: z.string(),
     avaliation: z.string(),
-    client: z.string()
-  })
-  type TradeInProps = z.infer<typeof schema>
+    client: z.string(),
+  });
+  type TradeInProps = z.infer<typeof schema>;
 
   const { register, handleSubmit, control } = useForm<TradeInProps>({
-    resolver: zodResolver(schema)
-  })
+    resolver: zodResolver(schema),
+  });
   const handleForm = async (data: TradeInProps) => {
-    const sendTestDrive = SendTradeIn(data);
-
-    toast.promise(sendTestDrive, {
-      loading: 'processando o formulário...',
-      success: 'O Email foi enviado com sucesso',
-      error: 'ocorreu Algum erro Enviando Email'
-    }, {
-      position: 'top-center',
-    })
-
+  try {
+    const result = await toast.promise(
+      SendTradeIn(data),
+      {
+        loading: "processando o formulário...",
+        success: "O Email foi enviado com sucesso",
+        error: (err: Error) => err.message || "ocorreu algum erro enviando email",
+      },
+      {
+        position: "top-center",
+      }
+    );
+    return result;
+  } catch (error) {
+    console.error("Form submission error:", error);
   }
+};
 
-  const [selectedOption, setSelectedOption] = useState('')
+  const [selectedOption, setSelectedOption] = useState("");
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
-    setSelectedOption(selectedValue)
-  }
-  const t = useTranslations("Request")
+    setSelectedOption(selectedValue);
+  };
+  const t = useTranslations("Request");
 
-  const { data } = useNovos()
+  const { data } = useNovos();
 
-  const handleNissan = (data: INewCar[] | undefined, filter: string): string[] => {
-    if (data === undefined) return []
-    return data
-      .filter((car) => car.type === filter)
-      .map((item) => item.model)
-  }
-
+  const handleNissan = (
+    data: INewCar[] | undefined,
+    filter: string
+  ): string[] => {
+    if (data === undefined) return [];
+    return data.filter((car) => car.type === filter).map((item) => item.model);
+  };
 
   return (
     <>
       <Toaster />
-      <form onSubmit={handleSubmit(handleForm)} method='POST'>
+      <form onSubmit={handleSubmit(handleForm)} method="POST">
         <CustomForm.Root>
           <CustomForm.DropDown
             onChange={handleSelectChange}
-            label={t('client')}
-            id='client'
-            options={[{ options: [t('individual'), t('company')] }]}
+            label={t("client")}
+            id="client"
+            options={[{ options: [t("individual"), t("company")] }]}
             register={register}
-            name='client'
+            name="client"
           />
           <CustomForm.FormField
             id="name"
             label={t("name")}
             register={register}
-            name='name'
+            name="name"
             required
           />
           <CustomForm.FormField
@@ -86,16 +92,16 @@ const TradeInForm = () => {
             label={t("phone")}
             placeholder=""
             register={register}
-            name='phone'
+            name="phone"
             required
           />
-          {selectedOption === t('company') && (
+          {selectedOption === t("company") && (
             <CustomForm.FormField
               id="person_phone"
               label={t("person_phone")}
               placeholder=""
               register={register}
-              name='person_phone'
+              name="person_phone"
               required
             />
           )}
@@ -104,17 +110,17 @@ const TradeInForm = () => {
             label={t("email")}
             placeholder=""
             register={register}
-            name='email'
+            name="email"
             required
           />
 
           <CustomForm.DropDown
             id="car_model"
-            label={t('car_model')}
+            label={t("car_model")}
             options={[
               {
                 title: t("nissan"),
-                options: handleNissan(data, "Vehicles")
+                options: handleNissan(data, "Vehicles"),
               },
               {
                 title: t("electrics"),
@@ -122,61 +128,68 @@ const TradeInForm = () => {
               },
             ]}
             register={register}
-            name='car_model'
+            name="car_model"
           />
           <CustomForm.DatePicker
-            id='car_year'
+            id="car_year"
             label={t("car_year")}
             control={control}
-            name='car_year'
+            name="car_year"
           />
 
           <CustomForm.FormField
             label={t("dealership")}
             id="dealership"
-            placeholder=''
+            placeholder=""
             register={register}
-            name='dealership'
+            name="dealership"
           />
           <CustomForm.FormField
             id="mileage_now"
-            label={t('mileage_now')}
+            label={t("mileage_now")}
             placeholder=""
             register={register}
-            name='mileage_now'
+            name="mileage_now"
           />
 
           <CustomForm.DropDown
             id="car_damge"
-            label={t('car_damage')}
-            options={[{ options: [t('yes'), t('no')] }
-            ]} register={register}
-            name='car_damage'
+            label={t("car_damage")}
+            options={[{ options: [t("yes"), t("no")] }]}
+            register={register}
+            name="car_damage"
           />
 
           <CustomForm.DatePicker
-            id='avaliation_date'
+            id="avaliation_date"
             label={t("avaliation_date")}
             control={control}
-            name='avaliation_date'
+            name="avaliation_date"
             required
           />
 
           <CustomForm.DropDown
             label={t("avaliation")}
             id="avaliation"
-            defaultValue='Selecione o local'
-            options={[{ options: ['Maputo', 'Beira', 'Moatize', 'Nampula', 'Pemba'] }]}
+            defaultValue="Selecione o local"
+            options={[
+              { options: ["Maputo", "Beira", "Moatize", "Nampula", "Pemba"] },
+            ]}
             register={register}
-            name='avaliation'
+            name="avaliation"
           />
 
-          <div className="mt-2 flex w-ful lg:justify-end">
-            <PrimaryButton type="submit" className='w-full justify-center lg:w-auto'>{t('submit')}</PrimaryButton>
+          <div className="w-ful mt-2 flex lg:justify-end">
+            <PrimaryButton
+              type="submit"
+              className="w-full justify-center lg:w-auto"
+            >
+              {t("submit")}
+            </PrimaryButton>
           </div>
         </CustomForm.Root>
       </form>
     </>
-  )
-}
-export default TradeInForm
+  );
+};
+export default TradeInForm;

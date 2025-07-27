@@ -1,12 +1,12 @@
-import { BASEURL } from '@/lib/util/util'
-import axios from 'axios'
+import { BASEURL } from "@/lib/util/util";
+import axios from "axios";
 
-const baseUrl = BASEURL + 'api/v1'
+const baseUrl = BASEURL + "api/v1";
 const api = axios.create({
   baseURL: baseUrl,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
-})
+});
 
-export default api
+export default api;

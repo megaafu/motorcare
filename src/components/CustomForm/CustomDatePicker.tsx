@@ -1,18 +1,19 @@
-import React from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { Control, Controller, DeepMap, FieldError } from 'react-hook-form';
-import { Calendar } from '../icons/Icons';
+import React from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Control, Controller } from "react-hook-form";
+import { Calendar } from "../icons/Icons";
 
 interface CustomDatePickerProps {
-  id: string
-  label?: string
-  name: string
-  value?: Date | null
-  control: Control<any>
-  rules?: any
-  errors?: DeepMap<any, FieldError>
-  required?: boolean
+  id: string;
+  label?: string;
+  name: string;
+  value?: Date | null;
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  control: Control<any>;
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  rules?: any;
+  required?: boolean;
 }
 
 const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
@@ -23,14 +24,13 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   control,
   rules,
   required,
-  errors,
 }) => {
   const selectedDate = value || null;
 
   return (
     <div className="w-full pb-4">
-      <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-        {`${label} ${required ? '*' : ''}`}
+      <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+        {`${label} ${required ? "*" : ""}`}
       </label>
       <Controller
         name={name}
@@ -38,7 +38,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         defaultValue={selectedDate}
         rules={rules}
         render={({ field }) => (
-          <section className='relative w-full '>
+          <section className="relative w-full ">
             <DatePicker
               id={id}
               selected={field.value}
@@ -46,10 +46,10 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                 field.onChange(date);
               }}
               dateFormat="dd/MM/yyyy"
-              className="rounded border w-full border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
-              wrapperClassName='w-full'
+              className="w-full rounded border border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
+              wrapperClassName="w-full"
             />
-            <span className='absolute right-4 bottom-4'>
+            <span className="absolute bottom-4 right-4">
               <Calendar />
             </span>
           </section>

@@ -1,7 +1,7 @@
-import formatedDate from '@/lib/util/formateDate';
-import { NextResponse, type NextRequest } from 'next/server';
-import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
+import formatedDate from "@/lib/util/formateDate";
+import { NextResponse, type NextRequest } from "next/server";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 
 export async function POST(request: NextRequest) {
   const {
@@ -13,11 +13,11 @@ export async function POST(request: NextRequest) {
     location,
     car_model,
     drive_date,
-    client
+    client,
   } = await request.json();
 
   const transport = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Agendar Test-Drive',
+    subject: "Agendar Test-Drive",
     text: [
       `Tipo de Cliente: ${client}`,
       `Nome: ${name}`,
@@ -36,18 +36,17 @@ export async function POST(request: NextRequest) {
       `Numero da Carta de Conducao: ${drive_number}`,
       `Modelo pretendido: ${car_model}`,
       `Onde pretende fazer o test-drive: ${location}`,
-      `Data de Validade da Carta de Condução: ${formatedDate(drive_date)}`
+      `Data de Validade da Carta de Condução: ${formatedDate(drive_date)}`,
     ]
       .filter(Boolean) // Removes any null or undefined values
-      .join('\n'), // Joins all lines with a newline character
+      .join("\n"), // Joins all lines with a newline character
   };
-
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
-          resolve('Email Enviado');
+          resolve("Email Enviado");
         } else {
           reject(err.message);
         }
@@ -56,7 +55,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
-    return NextResponse.json({ message: 'Email Enviado' });
+    return NextResponse.json({ message: "Email Enviado" });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });
   }

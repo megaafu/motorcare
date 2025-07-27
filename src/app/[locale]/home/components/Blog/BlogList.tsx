@@ -1,35 +1,45 @@
-"use client"
-import BlogCard from '@/components/Card/BlogCard'
-import LateralScroll from '@/components/ui/LateralScoll'
-import Row from '@/components/ui/Row'
-import SecundaryButton from '@/components/ui/SecundaryButton'
-import useBlogs from '@/hooks/use-blogs'
-import { useLocale, useTranslations } from 'next-intl'
-import BlogSkeletion from './BlogSkeletion'
+"use client";
+import BlogCard from "@/components/Card/BlogCard";
+import LateralScroll from "@/components/ui/LateralScoll";
+import Row from "@/components/ui/Row";
+import SecundaryButton from "@/components/ui/SecundaryButton";
+import useBlogs from "@/hooks/use-blogs";
+import { useLocale, useTranslations } from "next-intl";
+import BlogSkeletion from "./BlogSkeletion";
 
 const BlogList = () => {
-  const { data, isLoading } = useBlogs()
-  const t = useTranslations("Home")
-  const locale = useLocale()
+  const { data, isLoading } = useBlogs();
+  const t = useTranslations("Home");
+  const locale = useLocale();
   return (
     <>
-      {isLoading ? <BlogSkeletion /> : data ? (
+      {isLoading ? (
+        <BlogSkeletion />
+      ) : data ? (
         <>
           <Row className="grid-col-1 hidden gap-5 lg:grid lg:grid-cols-3">
-            {data.slice(0).reverse().slice(0, 3).map((post) => {
-              return <BlogCard key={post.id} blog={post} />
-            })}
+            {data
+              .slice(0)
+              .reverse()
+              .slice(0, 3)
+              .map((post) => {
+                return <BlogCard key={post.id} blog={post} />;
+              })}
           </Row>
           <LateralScroll className="lg:hidden">
-            {data.slice(0).reverse().slice(0, 3).map((post) => {
-              return <BlogCard key={post.id} blog={post} />
-            })}
+            {data
+              .slice(0)
+              .reverse()
+              .slice(0, 3)
+              .map((post) => {
+                return <BlogCard key={post.id} blog={post} />;
+              })}
           </LateralScroll>
-          <SecundaryButton href={`${locale}/blogs`} label={t('view_more')} />
+          <SecundaryButton href={`${locale}/blogs`} label={t("view_more")} />
         </>
       ) : null}
     </>
-  )
-}
+  );
+};
 
-export default BlogList
+export default BlogList;

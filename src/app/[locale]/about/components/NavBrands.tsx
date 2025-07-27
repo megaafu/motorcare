@@ -1,44 +1,46 @@
-'use client'
+"use client";
 
-import { Title } from '@/components/Title'
-import TitleNavItem from '@/components/Title/TitleNavItem'
-import LateralScroll from '@/components/ui/LateralScoll'
-import PagePadding from '@/components/ui/PagePadding'
-import Paragraph from '@/components/ui/Paragraph'
-import Row from '@/components/ui/Row'
-import { BrandsMenu } from '@/constants/menuData'
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { AllBrands } from '../constants/brands'
-import { useSearchParams } from 'next/navigation'
+import { Title } from "@/components/Title";
+import TitleNavItem from "@/components/Title/TitleNavItem";
+import LateralScroll from "@/components/ui/LateralScoll";
+import PagePadding from "@/components/ui/PagePadding";
+import Paragraph from "@/components/ui/Paragraph";
+import Row from "@/components/ui/Row";
+import { BrandsMenu } from "@/constants/menuData";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { AllBrands } from "../constants/brands";
+import { useSearchParams } from "next/navigation";
 
 const NavBrands = () => {
-  const [selectedIndex, setIndex] = useState(0)
-  const t = useTranslations('About')
+  const [selectedIndex, setIndex] = useState(0);
+  const t = useTranslations("About");
 
-  const searchParams = useSearchParams()
-  const brandParam = searchParams.get('brand')
-  const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, '')
+  const searchParams = useSearchParams();
+  const brandParam = searchParams.get("brand");
+  const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, "");
 
   useEffect(() => {
     if (brandParam) {
       const foundIndex = AllBrands.brands.findIndex(
-        (item) => normalize(item.brand.toLowerCase()) == normalize(brandParam.toLowerCase())
-      )
+        (item) =>
+          normalize(item.brand.toLowerCase()) ==
+          normalize(brandParam.toLowerCase())
+      );
       if (foundIndex !== -1) {
-        setIndex(foundIndex)
-        const target = document.getElementById('brands')
-        target?.scrollIntoView({ behavior: 'smooth' })
+        setIndex(foundIndex);
+        const target = document.getElementById("brands");
+        target?.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [brandParam])
+  }, [brandParam]);
 
   const handleIndex = (index: number) => {
-    setIndex(index)
-    const target = document.getElementById('brands')
-    target?.scrollIntoView({ behavior: 'smooth' })
-  }
+    setIndex(index);
+    const target = document.getElementById("brands");
+    target?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <PagePadding>
@@ -77,8 +79,7 @@ const NavBrands = () => {
         </Row>
       </div>
     </PagePadding>
-  )
-}
+  );
+};
 
-export default NavBrands
-
+export default NavBrands;

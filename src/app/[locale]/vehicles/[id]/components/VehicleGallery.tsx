@@ -1,59 +1,62 @@
-"use client"
+"use client";
 
-import { useState, useMemo, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
-import { IUsedCar } from '@/model/usedCar'
-import { useTranslations } from 'next-intl'
-import { BASEURL } from '@/lib/util/util'
-import Slider from 'react-slick'
+import { useState, useMemo, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { IUsedCar } from "@/model/usedCar";
+import { BASEURL } from "@/lib/util/util";
+import Slider from "react-slick";
 
 interface VehicleGalleryProps {
-  vehicle: IUsedCar
+  vehicle: IUsedCar;
 }
 
 export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
-  const t = useTranslations('Vehicles')
-
 
   const images = useMemo(() => {
     try {
-      const parsedImages: string[] = JSON.parse(vehicle.car_image)
+      const parsedImages: string[] = JSON.parse(vehicle.car_image);
 
       return parsedImages.map((imagePath, index) => {
-
-        const fullImageUrl = `${BASEURL}${imagePath}`
+        const fullImageUrl = `${BASEURL}${imagePath}`;
 
         return {
           id: index + 1,
           src: fullImageUrl,
           alt: `${vehicle.brand} ${vehicle.model} - Image ${index + 1}`,
-          label: `Image ${index + 1}`
-        }
-      })
+          label: `Image ${index + 1}`,
+        };
+      });
     } catch (error) {
-      console.error('Error parsing car_image JSON:', error)
+      console.error("Error parsing car_image JSON:", error);
 
-      let fallbackSrc = vehicle.car_image
+      let fallbackSrc = vehicle.car_image;
 
-      if (!fallbackSrc.startsWith('http://') && !fallbackSrc.startsWith('https://')) {
-        const cleanPath = fallbackSrc.startsWith('/') ? fallbackSrc.slice(1) : fallbackSrc
-        fallbackSrc = `${BASEURL}${cleanPath}`
+      if (
+        !fallbackSrc.startsWith("http://") &&
+        !fallbackSrc.startsWith("https://")
+      ) {
+        const cleanPath = fallbackSrc.startsWith("/")
+          ? fallbackSrc.slice(1)
+          : fallbackSrc;
+        fallbackSrc = `${BASEURL}${cleanPath}`;
       }
 
-      return [{
-        id: 1,
-        src: fallbackSrc,
-        alt: `${vehicle.brand} ${vehicle.model}`,
-        label: 'Main Image'
-      }]
+      return [
+        {
+          id: 1,
+          src: fallbackSrc,
+          alt: `${vehicle.brand} ${vehicle.model}`,
+          label: "Main Image",
+        },
+      ];
     }
-  }, [vehicle.car_image, vehicle.brand, vehicle.model])
+  }, [vehicle.car_image, vehicle.brand, vehicle.model]);
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const sliderRef = useRef<Slider>(null)
+  const sliderRef = useRef<Slider>(null);
   const sliderSettings = {
     dots: true,
     infinite: images.length > 1,
@@ -62,12 +65,13 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (current: number, next: number) => setSelectedImageIndex(next),
-    customPaging: (i: number) => (
-      <div className="w-3 h-3 bg-gray-300 rounded-full hover:bg-blue-500 transition-colors duration-200" />
+    beforeChange: (current: number, next: number) =>
+      setSelectedImageIndex(next),
+    customPaging: () => (
+      <div className="h-3 w-3 rounded-full bg-gray-300 transition-colors duration-200 hover:bg-blue-500" />
     ),
     dotsClass: "slick-dots !bottom-4",
-  }
+  };
 
   const thumbnailSliderSettings = {
     dots: false,
@@ -81,16 +85,16 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
         breakpoint: 768,
         settings: {
           slidesToShow: Math.min(4, images.length),
-        }
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: Math.min(3, images.length),
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  };
 
   return (
     <div className="space-y-6">
@@ -106,24 +110,23 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
               <div
                 className="aspect-video cursor-pointer"
                 onClick={() => {
-                  setSelectedImageIndex(0)
-                  setIsModalOpen(true)
+                  setSelectedImageIndex(0);
+                  setIsModalOpen(true);
                 }}
               >
                 <Image
                   src={images[0].src}
                   alt={images[0].alt}
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                   quality={100}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-all duration-300 hover:bg-opacity-10">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                  >
-                  </motion.div>
+                  ></motion.div>
                 </div>
               </div>
             </div>
@@ -134,24 +137,23 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
                   <div
                     className="aspect-video cursor-pointer"
                     onClick={() => {
-                      setSelectedImageIndex(index)
-                      setIsModalOpen(true)
+                      setSelectedImageIndex(index);
+                      setIsModalOpen(true);
                     }}
                   >
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
                       fill
                       quality={100}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-all duration-300 hover:bg-opacity-10">
                       <motion.div
                         initial={{ opacity: 0 }}
                         whileHover={{ opacity: 1 }}
-                      >
-                      </motion.div>
+                      ></motion.div>
                     </div>
                   </div>
                 </div>
@@ -173,13 +175,14 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
               <div key={image.id} className="px-2">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className={`relative aspect-square rounded-xl overflow-hidden cursor-pointer border-4 transition-all duration-300 ${selectedImageIndex === index
-                    ? 'border-primary'
-                    : 'border-transparent hover:border-gray-300'
-                    }`}
+                  className={`relative aspect-square cursor-pointer overflow-hidden rounded-xl border-4 transition-all duration-300 ${
+                    selectedImageIndex === index
+                      ? "border-primary"
+                      : "border-transparent hover:border-gray-300"
+                  }`}
                   onClick={() => {
-                    setSelectedImageIndex(index)
-                    sliderRef.current?.slickGoTo(index)
+                    setSelectedImageIndex(index);
+                    sliderRef.current?.slickGoTo(index);
                   }}
                 >
                   <Image
@@ -195,8 +198,7 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
             ))}
           </Slider>
         </motion.div>
-      )
-      }
+      )}
 
       <AnimatePresence>
         {isModalOpen && (
@@ -204,7 +206,7 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-95 p-4"
             onClick={() => setIsModalOpen(false)}
           >
             <motion.div
@@ -212,7 +214,7 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-6xl max-h-full w-full"
+              className="relative max-h-full w-full max-w-6xl"
               onClick={(e) => e.stopPropagation()}
             >
               {images.length === 1 ? (
@@ -222,7 +224,7 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
                     alt={images[0].alt}
                     width={1200}
                     height={800}
-                    className="object-contain rounded-lg mx-auto"
+                    className="mx-auto rounded-lg object-contain"
                     quality={100}
                     sizes="90vw"
                   />
@@ -232,9 +234,10 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
                   {...{
                     ...sliderSettings,
                     initialSlide: selectedImageIndex,
-                    beforeChange: (current: number, next: number) => setSelectedImageIndex(next),
-                    customPaging: (i: number) => (
-                      <div className="w-2 h-2 bg-white bg-opacity-50 rounded-full hover:bg-opacity-100 transition-all duration-200" />
+                    beforeChange: (current: number, next: number) =>
+                      setSelectedImageIndex(next),
+                    customPaging: () => (
+                      <div className="h-2 w-2 rounded-full bg-white bg-opacity-50 transition-all duration-200 hover:bg-opacity-100" />
                     ),
                     dotsClass: "slick-dots !bottom-6",
                   }}
@@ -246,7 +249,7 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
                         alt={image.alt}
                         width={1200}
                         height={800}
-                        className="object-contain rounded-lg mx-auto"
+                        className="mx-auto rounded-lg object-contain"
                         quality={100}
                         sizes="90vw"
                       />
@@ -258,10 +261,10 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
               {/* Close Button */}
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 z-10"
+                className="absolute right-4 top-4 z-10 rounded-full bg-black bg-opacity-50 p-3 text-white transition-all duration-200 hover:bg-opacity-70"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -278,6 +281,6 @@ export default function VehicleGallery({ vehicle }: VehicleGalleryProps) {
           </motion.div>
         )}
       </AnimatePresence>
-    </div >
-  )
+    </div>
+  );
 }

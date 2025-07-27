@@ -6,8 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
 * {
   scrollbar-width: none;
   scrollbar-color: transparent;
@@ -15,9 +13,6 @@ html {
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: none; 
-  height: none; 
+  width: none;
+  height: none;
 }
-
-
-

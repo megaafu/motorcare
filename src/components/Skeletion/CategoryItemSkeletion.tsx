@@ -1,11 +1,10 @@
-
 const CategoryItemSkeletion = () => {
-  return (    
-    <div className='flex flex-col gap-8 animate-pulse'>
-        <div className=' aspect-[4/3] w-full h-[160px] bg-slate-500 rounded'></div>
-        <div className=' h-6 w-[40%] bg-slate-500 rounded-xl'></div>
+  return (
+    <div className="flex animate-pulse flex-col gap-8">
+      <div className=" aspect-[4/3] h-[160px] w-full rounded bg-slate-500"></div>
+      <div className=" h-6 w-[40%] rounded-xl bg-slate-500"></div>
     </div>
-  )
-}
+  );
+};
 
-export default CategoryItemSkeletion
+export default CategoryItemSkeletion;

@@ -1,18 +1,17 @@
-import { menu } from '@/constants/headerData'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import Container from '../ui/Container'
-import LanguageSwitcher from '../ui/LanguageSwitcher'
-import MenuHeaderItem from './MenuHeaderItem'
-import MobileMenu from './MobileMenu'
+import { menu } from "@/constants/headerData";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import Container from "../ui/Container";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
+import MenuHeaderItem from "./MenuHeaderItem";
+import MobileMenu from "./MobileMenu";
 
 const Header: React.FC = () => {
-
   return (
     <header className="fixed left-0 top-0 z-[1200] w-full shadow-2xl md:top-8 lg:absolute">
       <nav className="border-gray-200 bg-white">
-        <Container className='max-w-screen-2xl'>
+        <Container className="max-w-screen-2xl">
           <div className="flex flex-wrap items-center justify-between md:py-4">
             <Link href="/">
               <div className="flex items-center">
@@ -25,20 +24,20 @@ const Header: React.FC = () => {
                 />
               </div>
             </Link>
-            <div className="hidden items-center lg:flex md:order-2">
+            <div className="hidden items-center md:order-2 lg:flex">
               <LanguageSwitcher />
             </div>
-            <div className="hidden w-full items-center justify-between md:order-1 lg:flex md:w-auto">
+            <div className="hidden w-full items-center justify-between md:order-1 md:w-auto lg:flex">
               <MenuHeaderItem menu={menu} />
             </div>
-            <div className="flex w-auto lg:hidden md:order-1">
+            <div className="flex w-auto md:order-1 lg:hidden">
               <MobileMenu menu={menu} />
             </div>
           </div>
         </Container>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

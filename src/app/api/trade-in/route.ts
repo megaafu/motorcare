@@ -1,7 +1,7 @@
-import formatedDate from '@/lib/util/formateDate';
-import { NextResponse, type NextRequest } from 'next/server';
-import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
+import formatedDate from "@/lib/util/formateDate";
+import { NextResponse, type NextRequest } from "next/server";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 
 export async function POST(request: NextRequest) {
   const {
@@ -16,11 +16,11 @@ export async function POST(request: NextRequest) {
     mileage_now,
     avaliation,
     car_damage,
-    client
+    client,
   } = await request.json();
 
   const transport = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Serviço de Trade-In',
+    subject: "Serviço de Trade-In",
     text: [
       `Tipo de Cliente: ${client}`,
       `Nome: ${name}`,
@@ -39,20 +39,22 @@ export async function POST(request: NextRequest) {
       `Modelo do Carro: ${car_model}`,
       `Ano de Fabrico: ${formatedDate(car_year)}`,
       `Concessionária onde adquiriu: ${dealership}`,
-      `Data que pretende fazer a avaliação física: ${formatedDate(avaliation_date)}`,
+      `Data que pretende fazer a avaliação física: ${formatedDate(
+        avaliation_date
+      )}`,
       `Quilometragem Atual: ${mileage_now}`,
       `Local onde pretende fazer a avaliação: ${avaliation}`,
       `A viatura sofreu algum tipo de acidente? ${car_damage}`,
     ]
       .filter(Boolean) // Removes the null value from person_phone if it is null
-      .join('\n'), // Joins all lines with a newline character
+      .join("\n"), // Joins all lines with a newline character
   };
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
-          resolve('Email Enviado');
+          resolve("Email Enviado");
         } else {
           reject(err.message);
         }
@@ -61,7 +63,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
-    return NextResponse.json({ message: 'Email Enviado' });
+    return NextResponse.json({ message: "Email Enviado" });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });
   }

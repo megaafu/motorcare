@@ -1,9 +1,22 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
 
-export async function SendSuggestion(data: any) {
+interface SuggestionData {
+  email: string;
+  name: string;
+  phone: string;
+  client: string;
+  option: string;
+  suggestions: string;
+}
+
+export async function SendSuggestion(data: SuggestionData): Promise<string | unknown> {
   try {
-    await axios.post(`/api/suggestion`, data).then((response: AxiosResponse) => (response.data['message']))
-  } catch (error) {
-    return error
+    const response: AxiosResponse<{ message: string }> = await axios.post("/api/suggestion", data);
+    return response.data.message;
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data?.message || error.message);
+    }
+    throw new Error("Unknown error occurred");
   }
 }

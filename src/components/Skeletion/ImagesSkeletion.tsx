@@ -1,8 +1,7 @@
-
 const ImagesSkeletion = () => {
   return (
-    <div className="max-w-xs aspect-[4/3] bg-slate-400 animate-pulse"></div>
-  )
-}
+    <div className="aspect-[4/3] max-w-xs animate-pulse bg-slate-400"></div>
+  );
+};
 
-export default ImagesSkeletion
+export default ImagesSkeletion;

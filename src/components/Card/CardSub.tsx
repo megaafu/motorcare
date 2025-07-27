@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 const CardSub = ({ children }: { children: ReactNode }) => {
-  return <div className="mt-4 flex  justify-between">{children}</div>
-}
+  return <div className="mt-4 flex  justify-between">{children}</div>;
+};
 
-export default CardSub
+export default CardSub;

@@ -1,4 +1,4 @@
-import Container from '@/components/ui/Container'
+import Container from "@/components/ui/Container";
 
 const Hero = () => {
   return (
@@ -18,6 +18,6 @@ const Hero = () => {
         </div>
       </Container>
     </div>
-  )
-}
-export default Hero
+  );
+};
+export default Hero;

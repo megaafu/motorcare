@@ -1,25 +1,27 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { UseFormRegister } from 'react-hook-form'
-import { twMerge } from 'tailwind-merge'
+import React from "react";
+import { UseFormRegister, FieldValues, Path } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 
-interface options {
-  title?: string
-  options: string[]
-}
-interface CustomDropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  label?: string
-  id: string
-  defaultValue?: string
-  options: options[]
-  className?: string
-  register?: UseFormRegister<any>
-  name?: string;
-  required?: boolean
+interface OptionsGroup {
+  title?: string;
+  options: string[];
 }
 
-const CustomDropdown: React.FC<CustomDropdownProps> = ({
+interface CustomDropdownProps<T extends FieldValues>
+  extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  label?: string;
+  id: string;
+  defaultValue?: string;
+  options: OptionsGroup[];
+  className?: string;
+  register?: UseFormRegister<T>;
+  name?: Path<T>;
+  required?: boolean;
+}
+
+const CustomDropdown = <T extends FieldValues>({
   label,
   id,
   options,
@@ -29,56 +31,50 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   defaultValue,
   required,
   ...props
-
-}) => {
-
+}: CustomDropdownProps<T>) => {
   return (
     <div className="w-full">
       {label != null && (
-        <label className="text-sm mb-2 block text-light-text" htmlFor={id}>
-          {`${label} ${required ? '*' : ''}`}
+        <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+          {`${label} ${required ? "*" : ""}`}
         </label>
       )}
 
       <select
         id={id}
-        defaultValue={defaultValue ?? ''}
+        defaultValue={defaultValue ?? ""}
         className={twMerge(
-          'form-select text-sm mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-light-text focus:border-primary focus:outline-none',
-          className,
+          "form-select mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-sm text-light-text focus:border-primary focus:outline-none",
+          className
         )}
-        {...register?.(name || '')}
+        {...(register && name ? register(name) : {})}
         {...props}
       >
         <option value="" disabled hidden>
-          {defaultValue || 'Selecione uma opção'}
+          {defaultValue || "Selecione uma opção"}
         </option>
-        {options.map((option) => {
-          return option.title != null ? (
-            <optgroup label={option.title} >
-              {option.options.map((optionDropDown, index) => {
-                return (
-                  <option key={index} value={optionDropDown}>
-                    {optionDropDown}
-                  </option>
-                )
-              })}
+        {options.map((optionGroup, groupIndex) =>
+          optionGroup.title != null ? (
+            <optgroup key={`group-${groupIndex}`} label={optionGroup.title}>
+              {optionGroup.options.map((optionValue, optionIndex) => (
+                <option key={`option-${groupIndex}-${optionIndex}`} value={optionValue}>
+                  {optionValue}
+                </option>
+              ))}
             </optgroup>
           ) : (
-            <>
-              {option.options.map((optionDropDown, index) => {
-                return (
-                  <option key={index} value={optionDropDown}>
-                    {optionDropDown}
-                  </option>
-                )
-              })}
-            </>
+            <React.Fragment key={`group-${groupIndex}`}>
+              {optionGroup.options.map((optionValue, optionIndex) => (
+                <option key={`option-${groupIndex}-${optionIndex}`} value={optionValue}>
+                  {optionValue}
+                </option>
+              ))}
+            </React.Fragment>
           )
-        })}
+        )}
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default CustomDropdown
+export default CustomDropdown;

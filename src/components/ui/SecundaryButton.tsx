@@ -1,11 +1,10 @@
-import { cn } from '@/lib/util/util';
-import Link from 'next/link';
-import { ArrowFoword } from '../icons/Icons';
+import { cn } from "@/lib/util/util";
+import Link from "next/link";
+import { ArrowFoword } from "../icons/Icons";
 interface SecundaryButtonPropos {
-  className?: string
-  label: string
-  href?: string
-
+  className?: string;
+  label: string;
+  href?: string;
 }
 const SecundaryButton = ({
   label,
@@ -18,8 +17,8 @@ const SecundaryButton = ({
       <Link
         href={href ? href : ""}
         className={cn(
-          'alig-center group flex  underline underline-offset-8 text-primary/60 hover:text-secundary',
-          className,
+          "alig-center group flex  text-primary/60 underline underline-offset-8 hover:text-secundary",
+          className
         )}
         {...props}
       >
@@ -27,7 +26,7 @@ const SecundaryButton = ({
         <ArrowFoword />
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default SecundaryButton
+export default SecundaryButton;

@@ -1,27 +1,27 @@
-'use client'
-import { cn } from '@/lib/util/util'
-import React, { useRef, useState } from 'react'
+"use client";
+import { cn } from "@/lib/util/util";
+import React, { useRef, useState } from "react";
 
 interface VerticalScrollProps {
-  className?: string
-  children: React.ReactNode
+  className?: string;
+  children: React.ReactNode;
 }
 
 const VerticalScroll: React.FC<VerticalScrollProps> = ({
   className,
   children,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [scrollOffset, setScrollOffset] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollOffset, setScrollOffset] = useState(0);
 
   const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
-    const { scrollTop } = event.currentTarget
-    setScrollOffset(scrollTop)
-  }
+    const { scrollTop } = event.currentTarget;
+    setScrollOffset(scrollTop);
+  };
 
   return (
     <div
-      className={cn('relative w-full h-full overflow-hidden', className)}
+      className={cn("relative h-full w-full overflow-hidden", className)}
       onScroll={handleScroll}
       ref={containerRef}
     >
@@ -32,7 +32,7 @@ const VerticalScroll: React.FC<VerticalScrollProps> = ({
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VerticalScroll
+export default VerticalScroll;

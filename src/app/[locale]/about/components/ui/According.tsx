@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { AllAcording } from '../../constants/acordings';
-import Icon from './Icon';
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { AllAcording } from "../../constants/acordings";
+import Icon from "./Icon";
 
 const CustomAccordion = () => {
   const [open, setOpen] = useState<number | null>(null);
@@ -12,17 +12,18 @@ const CustomAccordion = () => {
     setOpen((prevOpen) => (prevOpen === id ? null : id));
   };
 
-  const t = useTranslations('About')
+  const t = useTranslations("About");
   return (
     <div>
       {AllAcording.acordings.map((acording) => (
         <div
           key={acording.id}
-          className={`mb-4 bg-sky-100 px-8 py-5 transition-all duration-300 ${open === acording.id ? 'max-h-50' : 'max-h-20'
-            } overflow-hidden`}
+          className={`mb-4 bg-sky-100 px-8 py-5 transition-all duration-300 ${
+            open === acording.id ? "max-h-50" : "max-h-20"
+          } overflow-hidden`}
         >
           <div
-            className="flex items-center justify-between cursor-pointer"
+            className="flex cursor-pointer items-center justify-between"
             onClick={() => handleOpen(acording.id)}
           >
             <div className="text-bold text-lg text-black">
@@ -32,8 +33,10 @@ const CustomAccordion = () => {
           </div>
           {open === acording.id && (
             <div className="py-4 text-sm text-light-text">
-              <ul className='pl-4 list-disc flex flex-col gap-2'>
-                {acording.description.map((description) => (<li>{t(description)}</li>))}
+              <ul className="flex list-disc flex-col gap-2 pl-4">
+                {acording.description.map((description, index) => (
+                  <li key={index}>{t(description)}</li>
+                ))}
               </ul>
             </div>
           )}
@@ -43,4 +46,3 @@ const CustomAccordion = () => {
   );
 };
 export default CustomAccordion;
-

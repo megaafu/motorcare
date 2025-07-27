@@ -1,7 +1,7 @@
-import formatedDate from '@/lib/util/formateDate';
-import { NextResponse, type NextRequest } from 'next/server';
-import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
+import formatedDate from "@/lib/util/formateDate";
+import { NextResponse, type NextRequest } from "next/server";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 
 export async function POST(request: NextRequest) {
   const {
@@ -15,11 +15,11 @@ export async function POST(request: NextRequest) {
     mileage,
     date,
     vin,
-    client
+    client,
   } = await request.json();
 
   const transport = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Agendar de Serviço',
+    subject: "Agendar de Serviço",
     text: [
       `Tipo de Cliente: ${client}`,
       `Nome: ${name}`,
@@ -41,18 +41,17 @@ export async function POST(request: NextRequest) {
       `Matrícula: ${plate}`,
       `Serviço Pretendido: ${service_categories}`,
       `Data Pretendida: ${formatedDate(date)}`,
-      `Número de Quadro/Chassi: ${vin}`
+      `Número de Quadro/Chassi: ${vin}`,
     ]
       .filter(Boolean) // Remove any null or undefined values
-      .join('\n'), // Join all lines with a newline character
+      .join("\n"), // Join all lines with a newline character
   };
-
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
-          resolve('Email Enviado');
+          resolve("Email Enviado");
         } else {
           reject(err.message);
         }
@@ -61,7 +60,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
-    return NextResponse.json({ message: 'Email Enviado' });
+    return NextResponse.json({ message: "Email Enviado" });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });
   }

@@ -1,8 +1,8 @@
-"use client"
-import { useTranslations } from "next-intl"
+"use client";
+import { useTranslations } from "next-intl";
 
 const Subscribe = () => {
-  const t = useTranslations("Home")
+  const t = useTranslations("Home");
   return (
     <form action="#">
       <div className="flex space-y-0 md:w-[560px]">
@@ -20,14 +20,14 @@ const Subscribe = () => {
           </div>
           <input
             className="focus:ring-primary-500 focus:border-primary-500 w-full  rounded-none rounded-l-lg border-gray-300 bg-gray-50 p-3 pl-10 text-sm text-light-text"
-            placeholder={t('email')}
+            placeholder={t("email")}
             type="email"
             id="email"
             name="email" // Add name attribute for better form handling
             required // Add required attribute for HTML5 form validation
           />
           <label htmlFor="email" className="sr-only">
-            {t('email')}
+            {t("email")}
           </label>
         </div>
         <div>
@@ -35,12 +35,12 @@ const Subscribe = () => {
             type="submit"
             className="hover:bg-accent cursor-pointer rounded-none rounded-r-lg bg-primary px-5 py-3 text-center text-sm text-white"
           >
-            {t('sub')}
+            {t("sub")}
           </button>
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default Subscribe
+export default Subscribe;

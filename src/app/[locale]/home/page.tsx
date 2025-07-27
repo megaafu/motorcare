@@ -1,15 +1,13 @@
-import Subscribe from '@/components/Subscribe'
-import Container from '@/components/ui/Container'
-import PagePadding from '@/components/ui/PagePadding'
-import { getTranslations } from 'next-intl/server'
-import NavBlogs from './components/Blog/NavBlogs'
-import NavNewCars from './components/NewCars/NavNewCars'
-import NavFindCars from './components/UsedCars/NavFindCars'
-import BannerCarousel from './components/Banner/BannerCarousel'
+import Subscribe from "@/components/Subscribe";
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import { getTranslations } from "next-intl/server";
+import NavBlogs from "./components/Blog/NavBlogs";
+import NavFindCars from "./components/UsedCars/NavFindCars";
+import BannerCarousel from "./components/Banner/BannerCarousel";
 
 export default async function Home() {
-
-  const t = await getTranslations('Home')
+  const t = await getTranslations("Home");
   return (
     <main>
       <BannerCarousel />
@@ -21,10 +19,8 @@ export default async function Home() {
           <Container>
             <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:justify-between">
               <div className="flex w-full flex-col">
-                <span className="text-sm text-gray-300">{t('subscribe')}</span>
-                <span className=" text-xl text-white">
-                  {t('informative')}
-                </span>
+                <span className="text-sm text-gray-300">{t("subscribe")}</span>
+                <span className=" text-xl text-white">{t("informative")}</span>
               </div>
               <Subscribe />
             </div>
@@ -35,5 +31,5 @@ export default async function Home() {
         <NavBlogs />
       </Container>
     </main>
-  )
+  );
 }

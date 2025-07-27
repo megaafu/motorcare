@@ -1,13 +1,19 @@
-import { mapFormData } from '@/lib/util/formDataMapper';
-import { BASEURL } from '@/lib/util/util';
-import axios from 'axios';
+import { mapFormData } from "@/lib/util/formDataMapper";
+import { BASEURL } from "@/lib/util/util";
+import axios, { AxiosResponse } from "axios";
 
-export async function SubmitForm(data: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function SubmitForm(data: any): Promise<any> {
   try {
-    const mappedData: any = mapFormData(data);
-    await axios.post(`${BASEURL}api/v1/statistics`, mappedData).then((Response) => Response.data)
+    const mappedData = mapFormData(data);
 
+    const response: AxiosResponse = await axios.post(
+      `${BASEURL}api/v1/statistics`,
+      mappedData
+    );
+
+    return response.data;
   } catch (error) {
-    return error
+    return error;
   }
 }

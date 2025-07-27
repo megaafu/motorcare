@@ -1,24 +1,23 @@
-"use client"
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import Container from '@/components/ui/Container'
-import PagePadding from '@/components/ui/PagePadding'
-import { useTranslations } from 'next-intl'
+import { motion } from "framer-motion";
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import { useTranslations } from "next-intl";
 
 export default function NotFound() {
-  const t = useTranslations('Vehicles')
+  const t = useTranslations("Vehicles");
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Container>
         <PagePadding>
-          <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="flex min-h-[60vh] items-center justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="max-w-md w-full text-center"
+              className="w-full max-w-md text-center"
             >
               {/* Error Icon */}
               <motion.div
@@ -27,9 +26,9 @@ export default function NotFound() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mb-8"
               >
-                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-red-100">
                   <svg
-                    className="w-10 h-10 text-red-600"
+                    className="h-10 w-10 text-red-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -49,9 +48,9 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-3xl font-bold text-gray-900 mb-4"
+                className="mb-4 text-3xl font-bold text-gray-900"
               >
-                {t('vehicleNotFound')}
+                {t("vehicleNotFound")}
               </motion.h1>
 
               {/* Error Message */}
@@ -59,9 +58,9 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-gray-600 mb-8 leading-relaxed"
+                className="mb-8 leading-relaxed text-gray-600"
               >
-                {t('vehicleNotFoundMessage')}
+                {t("vehicleNotFoundMessage")}
               </motion.p>
 
               {/* Action Buttons */}
@@ -75,9 +74,9 @@ export default function NotFound() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => window.location.reload()}
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-200"
+                  className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-blue-700"
                 >
-                  {t('tryAgain')}
+                  {t("tryAgain")}
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -85,5 +84,5 @@ export default function NotFound() {
         </PagePadding>
       </Container>
     </main>
-  )
+  );
 }

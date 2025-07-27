@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import Container from '@/components/ui/Container'
-import Paragraph from '@/components/ui/Paragraph'
-import PrimaryButton from '@/components/ui/PrimaryButton'
+import Container from "@/components/ui/Container";
+import Paragraph from "@/components/ui/Paragraph";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 export default function NotFound() {
   const handleButtonClick = () => {
-    window.location.href = '/'
-  }
+    window.location.href = "/";
+  };
   return (
     <div className="flex h-screen flex-col justify-center self-center ">
       <div className=" bg-slate-100 py-10">
@@ -36,5 +36,5 @@ export default function NotFound() {
         </Container>
       </div>
     </div>
-  )
+  );
 }

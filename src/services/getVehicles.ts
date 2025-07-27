@@ -1,11 +1,10 @@
-
-import { IUsedCar } from '@/model/usedCar'
-import api from './api'
+import { IUsedCar } from "@/model/usedCar";
+import api from "./api";
 
 async function getVehicles(locale: string): Promise<IUsedCar[]> {
-  const response = await api(`/vehicles/${locale}`)
-  const data = await response.data
-  return data.data as IUsedCar[]
+  const response = await api(`/vehicles/${locale}`);
+  const data = await response.data;
+  return data.data as IUsedCar[];
 }
 
-export default getVehicles
+export default getVehicles;

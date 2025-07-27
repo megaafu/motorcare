@@ -1,12 +1,12 @@
-"use client"
-import { useTranslations } from 'next-intl'
-import { Activities } from '../../constants/timeline'
+"use client";
+import { useTranslations } from "next-intl";
+import { Activities } from "../../constants/timeline";
 
 const CustomTimeLine = () => {
-  const t = useTranslations("About")
+  const t = useTranslations("About");
   return (
     <div className="mx-auto ">
-      <ul className="hidden border-b-2 border-t-2 gap-8 py-4 md:grid md:grid-cols-3 lg:grid-cols-6">
+      <ul className="hidden gap-8 border-b-2 border-t-2 py-4 md:grid md:grid-cols-3 lg:grid-cols-6">
         {Activities.activities.map((event, index) => (
           <li key={index} className="flex  space-x-4">
             <div className="ml-4">
@@ -67,7 +67,7 @@ const CustomTimeLine = () => {
         <p className="mt-4 text-lg text-light-text">No activities available.</p>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CustomTimeLine
+export default CustomTimeLine;

@@ -1,25 +1,23 @@
-'use client'
+"use client";
 
-import { Title } from '@/components/Title'
-import PagePadding from '@/components/ui/PagePadding'
-import SecundaryButton from '@/components/ui/SecundaryButton'
-import { FindCarsMenu } from '@/constants/menuData'
-import { useLocale, useTranslations } from 'next-intl'
-import CarsList from './CarsList'
-import Link from 'next/link'
+import { Title } from "@/components/Title";
+import PagePadding from "@/components/ui/PagePadding";
+import SecundaryButton from "@/components/ui/SecundaryButton";
+import { FindCarsMenu } from "@/constants/menuData";
+import { useTranslations } from "next-intl";
+import CarsList from "./CarsList";
 
 const NavFindCars = () => {
-  const t = useTranslations("Home")
-  const locale = useLocale()
+  const t = useTranslations("Home");
   return (
     <PagePadding>
       <Title.Root>
         <Title.Label label={t(FindCarsMenu.label)} />
       </Title.Root>
       <CarsList />
-      <SecundaryButton href={`${locale}/vehicles`} label={t('view_more')} />
+      <SecundaryButton href={`/vehicles`} label={t("view_more")} />
     </PagePadding>
-  )
-}
+  );
+};
 
-export default NavFindCars
+export default NavFindCars;

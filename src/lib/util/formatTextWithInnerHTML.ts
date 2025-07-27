@@ -1,7 +1,5 @@
 const formatTextWithLineBreaks = (text: string): string => {
-  return text.replace(/\n/g, '<br/>')
-}
+  return text.replace(/\n/g, "<br/>");
+};
 
-export default formatTextWithLineBreaks
-
-
+export default formatTextWithLineBreaks;

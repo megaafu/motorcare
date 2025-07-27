@@ -1,5 +1,5 @@
-import Subscribe from '@/components/Subscribe'
-import PagePadding from '@/components/ui/PagePadding'
+import Subscribe from "@/components/Subscribe";
+import PagePadding from "@/components/ui/PagePadding";
 
 const InformativeReport = () => {
   return (
@@ -16,7 +16,7 @@ const InformativeReport = () => {
         </div>
       </PagePadding>
     </div>
-  )
-}
+  );
+};
 
-export default InformativeReport
+export default InformativeReport;

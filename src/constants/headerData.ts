@@ -32,7 +32,7 @@ export const menu: INav[] = [
             label: "renault",
             url: "/about?brand=Renault Trucks",
           },
-                  ],
+        ],
       },
       {
         label: "tires",

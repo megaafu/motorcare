@@ -1,19 +1,15 @@
-import Container from "@/components/ui/Container"
-import PagePadding from "@/components/ui/PagePadding"
-import Mapp from "./components/Mapper"
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import Mapp from "./components/Mapper";
 
 const Motorcare = () => {
   return (
-    <Container className="max-w-screen-2xl mt-[12vh]">
+    <Container className="mt-[12vh] max-w-screen-2xl">
       <PagePadding>
-        <Mapp
-          name="Maputo"
-          image="https://makerkit.dev/assets/images/posts/nextjs13-tutorial.webp"
-        />
+        <Mapp/>
       </PagePadding>
-
     </Container>
-  )
-}
+  );
+};
 
-export default Motorcare
+export default Motorcare;

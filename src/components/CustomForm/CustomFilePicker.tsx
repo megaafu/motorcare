@@ -1,35 +1,38 @@
-import React from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import React from "react";
+import { UseFormRegister, FieldValues, Path } from "react-hook-form";
 
-interface FilePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  register?: UseFormRegister<any>
-  name?: string
-  required?: boolean
+interface FilePickerProps<T extends FieldValues> extends React.InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  label?: string;
+  register?: UseFormRegister<T>;
+  name?: Path<T>;
+  required?: boolean;
 }
 
-const CustomFilePicker: React.FC<FilePickerProps> = ({
+const CustomFilePicker = <T extends FieldValues>({
   id,
   label,
   name,
   register,
   required,
   ...props
-}) => {
+}: FilePickerProps<T>) => {
   return (
     <div className="pb-4">
-      <label className="text-sm  mb-2 block text-light-text " htmlFor={id}>
-        {`${label} ${required ? '*' : ''}`}
-      </label>
+      {label && (
+        <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+          {label} {required ? "*" : ""}
+        </label>
+      )}
       <input
         className="w-full appearance-none rounded border border-black px-3 py-4 leading-tight text-light-text shadow focus:outline-none"
         type="file"
         id={id}
-        {...register?.(name || '')}
+        {...(register && name ? register(name) : {})}
         {...props}
       />
     </div>
-  )
-}
+  );
+};
 
-export default CustomFilePicker
+export default CustomFilePicker;

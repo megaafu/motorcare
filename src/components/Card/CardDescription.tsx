@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 const CardDescription = ({ children }: { children: ReactNode }) => {
-  return <div className="mt-2 flex  justify-between">{children}</div>
-}
+  return <div className="mt-2 flex  justify-between">{children}</div>;
+};
 
-export default CardDescription
+export default CardDescription;

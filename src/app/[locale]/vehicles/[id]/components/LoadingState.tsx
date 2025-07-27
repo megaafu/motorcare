@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from 'framer-motion'
-import Container from '@/components/ui/Container'
-import PagePadding from '@/components/ui/PagePadding'
-import { useTranslations } from 'next-intl'
+import { motion } from "framer-motion";
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import { useTranslations } from "next-intl";
 
 export default function LoadingState() {
-  const t = useTranslations('Vehicles')
+  const t = useTranslations("Vehicles");
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Container>
         <PagePadding>
-          <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="flex min-h-[60vh] items-center justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -32,7 +32,7 @@ export default function LoadingState() {
                 className="mb-8"
               >
                 <svg
-                  className="w-16 h-16 mx-auto text-blue-600"
+                  className="mx-auto h-16 w-16 text-blue-600"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -45,9 +45,9 @@ export default function LoadingState() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-2xl font-bold text-gray-900 mb-4"
+                className="mb-4 text-2xl font-bold text-gray-900"
               >
-                {t('loadingVehicleDetails')}
+                {t("loadingVehicleDetails")}
               </motion.h2>
 
               {/* Spinner */}
@@ -57,7 +57,7 @@ export default function LoadingState() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex justify-center"
               >
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
               </motion.div>
 
               {/* Loading Message */}
@@ -65,15 +65,14 @@ export default function LoadingState() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-gray-600 mt-4"
+                className="mt-4 text-gray-600"
               >
-                {t('loadingMessage')}
+                {t("loadingMessage")}
               </motion.p>
             </motion.div>
           </div>
         </PagePadding>
       </Container>
     </main>
-  )
+  );
 }
-

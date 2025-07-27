@@ -1,50 +1,47 @@
-"use client"
+"use client";
 
-import { Title } from '@/components/Title'
-import Container from '@/components/ui/Container'
-import PagePadding from '@/components/ui/PagePadding'
-import useVehicles from '@/hooks/use-vehicles'
-import { IUsedCar } from '@/model/usedCar'
-import { useTranslations } from 'next-intl'
-import { useParams } from 'next/navigation'
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import VehicleSpecs from './components/VehicleSpecs'
-import VehicleGallery from './components/VehicleGallery'
-import LoadingState from './components/LoadingState'
-import NotFound from './components/NotFound'
-import { BASEURL } from '@/lib/util/util'
+import { Title } from "@/components/Title";
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import useVehicles from "@/hooks/use-vehicles";
+import { IUsedCar } from "@/model/usedCar";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { useMemo } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import VehicleSpecs from "./components/VehicleSpecs";
+import VehicleGallery from "./components/VehicleGallery";
+import LoadingState from "./components/LoadingState";
+import NotFound from "./components/NotFound";
+import { BASEURL } from "@/lib/util/util";
 
 export default function VehicleDetailsPage() {
-  const t = useTranslations('Vehicles')
-  const params = useParams()
-  const vehicleId = params.id as string
+  const t = useTranslations("Vehicles");
+  const params = useParams();
+  const vehicleId = params.id as string;
 
   function currencyFormat(num: number) {
-    return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + " MZN"
+    return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " MZN";
   }
 
-
-  const { data, isLoading } = useVehicles()
+  const { data, isLoading } = useVehicles();
 
   const vehicle = useMemo(() => {
-    if (!data || !vehicleId) return null
-    return data.find((car: IUsedCar) => car.id == vehicleId)
-  }, [data, vehicleId])
-
+    if (!data || !vehicleId) return null;
+    return data.find((car: IUsedCar) => car.id == vehicleId);
+  }, [data, vehicleId]);
 
   if (isLoading) {
-    return <LoadingState />
+    return <LoadingState />;
   }
 
   if (!vehicle) {
-    return <NotFound />
+    return <NotFound />;
   }
 
-  const images: string[] = JSON.parse(vehicle.car_image)
+  const images: string[] = JSON.parse(vehicle.car_image);
   return (
-
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -54,7 +51,7 @@ export default function VehicleDetailsPage() {
       >
         <Container>
           <PagePadding>
-            <div className="grid grid-cols-1 mt-20 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-8">
+            <div className="mt-20 grid grid-cols-1 items-center gap-8 py-8 lg:grid-cols-2 lg:gap-12">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -67,12 +64,14 @@ export default function VehicleDetailsPage() {
                     src={`${BASEURL}${images[0]}`}
                     alt={`${vehicle.brand} ${vehicle.model}`}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
                     priority
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 rounded-full shadow-lg">
-                  <span className="font-bold text-lg">{currencyFormat(Number(vehicle.price))}</span>
+                <div className="absolute -bottom-4 -right-4 rounded-full bg-primary px-6 py-3 text-white shadow-lg">
+                  <span className="text-lg font-bold">
+                    {currencyFormat(Number(vehicle.price))}
+                  </span>
                 </div>
               </motion.div>
 
@@ -86,31 +85,31 @@ export default function VehicleDetailsPage() {
                   <Title.Root>
                     <Title.Label label={`${vehicle.brand} ${vehicle.model}`} />
                   </Title.Root>
-                  <p className="text-xl text-gray-600 mb-4 mt-2">
+                  <p className="mb-4 mt-2 text-xl text-gray-600">
                     {vehicle.year_model} • {vehicle.type}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
                       {vehicle.fuel}
                     </span>
-                    <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-800">
                       {vehicle.transmission}
                     </span>
-                    <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">
+                    <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800">
                       {vehicle.color}
                     </span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-gray-50 p-4 rounded-xl">
-                    <p className="text-sm text-gray-600">{t('mileage')}</p>
+                  <div className="rounded-xl bg-gray-50 p-4">
+                    <p className="text-sm text-gray-600">{t("mileage")}</p>
                     <p className="text-2xl font-bold text-gray-900">
                       {vehicle.mileage.toLocaleString()} km
                     </p>
                   </div>
-                  <div className="bg-gray-50 p-4 rounded-xl">
-                    <p className="text-sm text-gray-600">{t('licensePlate')}</p>
+                  <div className="rounded-xl bg-gray-50 p-4">
+                    <p className="text-sm text-gray-600">{t("licensePlate")}</p>
                     <p className="text-2xl font-bold text-gray-900">
                       {vehicle.license_plate}
                     </p>
@@ -130,8 +129,8 @@ export default function VehicleDetailsPage() {
       >
         <Container>
           <PagePadding>
-            <Title.Root >
-              <Title.Label label={t('specifications')} />
+            <Title.Root>
+              <Title.Label label={t("specifications")} />
             </Title.Root>
             <VehicleSpecs vehicle={vehicle} />
           </PagePadding>
@@ -142,17 +141,17 @@ export default function VehicleDetailsPage() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="py-16 bg-white"
+        className="bg-white py-16"
       >
         <Container>
           <PagePadding>
-            <Title.Root >
-              <Title.Label label={t('gallery')} />
+            <Title.Root>
+              <Title.Label label={t("gallery")} />
             </Title.Root>
             <VehicleGallery vehicle={vehicle} />
           </PagePadding>
         </Container>
       </motion.section>
     </main>
-  )
+  );
 }

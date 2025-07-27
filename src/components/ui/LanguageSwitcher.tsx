@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter } from '@/i18n/navigation';
-import { useLocale } from 'next-intl';
-import Image from 'next/image';
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import Image from "next/image";
 
 const languageOptions = [
-  { label: 'Pt', link: 'pt' },
-  { label: 'En', link: 'en' }
+  { label: "Pt", link: "pt" },
+  { label: "En", link: "en" },
 ];
 
 const LanguageSwitcher = () => {
@@ -15,7 +15,8 @@ const LanguageSwitcher = () => {
   const locale = useLocale();
 
   const handleChangeLanguage = (newLocale: string) => {
-    const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}`), '') || '/';
+    const pathWithoutLocale =
+      pathname.replace(new RegExp(`^/${locale}`), "") || "/";
     router.push(pathWithoutLocale, { locale: newLocale });
   };
 
@@ -25,8 +26,11 @@ const LanguageSwitcher = () => {
         <button
           key={option.link}
           onClick={() => handleChangeLanguage(option.link)}
-          className={`flex items-center gap-1 text-sm ${locale === option.link ? 'text-primary font-bold' : 'text-light-text'
-            } hover:text-primary`}
+          className={`flex items-center gap-1 text-sm ${
+            locale === option.link
+              ? "font-bold text-primary"
+              : "text-light-text"
+          } hover:text-primary`}
           aria-label={`Switch to ${option.label}`}
         >
           <Image
@@ -43,4 +47,3 @@ const LanguageSwitcher = () => {
 };
 
 export default LanguageSwitcher;
-

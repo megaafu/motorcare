@@ -1,20 +1,13 @@
-'use client'
+"use client";
 
-import { Title } from '@/components/Title'
-import TitleNavItem from '@/components/Title/TitleNavItem'
-import PagePadding from '@/components/ui/PagePadding'
-import { BlogMenu } from '@/constants/menuData'
-import { useTranslations } from 'next-intl'
-import { useState } from 'react'
-import BlogList from './BlogList'
+import { Title } from "@/components/Title";
+import PagePadding from "@/components/ui/PagePadding";
+import { BlogMenu } from "@/constants/menuData";
+import { useTranslations } from "next-intl";
+import BlogList from "./BlogList";
 
 const NavBlogs = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const handleNavItemClick = (index: number) => {
-    setActiveIndex(index)
-  }
-  const t = useTranslations("Home")
+  const t = useTranslations("Home");
   return (
     <PagePadding>
       <Title.Root>
@@ -22,7 +15,7 @@ const NavBlogs = () => {
       </Title.Root>
       <BlogList />
     </PagePadding>
-  )
-}
+  );
+};
 
-export default NavBlogs
+export default NavBlogs;

@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 interface CustomFormProps {
-  children: ReactNode
+  children: ReactNode;
 }
 const CustomFormRoot = ({ children }: CustomFormProps) => {
-  return <div>{children}</div>
-}
+  return <div>{children}</div>;
+};
 
-export default CustomFormRoot
+export default CustomFormRoot;

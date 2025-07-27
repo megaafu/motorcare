@@ -1,22 +1,18 @@
+import { Title } from "@/components/Title";
+import Container from "@/components/ui/Container";
+import PagePadding from "@/components/ui/PagePadding";
+import Paragraph from "@/components/ui/Paragraph";
+import Row from "@/components/ui/Row";
+import { AboutMenu, HistoryMenu, IsoMenu } from "@/constants/menuData";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import NavBrands from "./components/NavBrands";
+import CustomAccording from "./components/ui/According";
+import CustomTimeLine from "./components/ui/CustomTimeLine";
+import { History, Holding, Iso } from "./constants/data";
 
-import { Title } from '@/components/Title'
-import Container from '@/components/ui/Container'
-import PagePadding from '@/components/ui/PagePadding'
-import Paragraph from '@/components/ui/Paragraph'
-import Row from '@/components/ui/Row'
-import { AboutMenu, HistoryMenu, IsoMenu } from '@/constants/menuData'
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
-import NavBrands from './components/NavBrands'
-import CustomAccording from './components/ui/According'
-import CustomTimeLine from './components/ui/CustomTimeLine'
-import { History, Holding, Iso } from './constants/data'
-
-export default async function About({
-  params: { locale }
-}: { params: { locale: string } }) {
-
-  const t = await getTranslations('About')
+export default async function About() {
+  const t = await getTranslations("About");
   return (
     <main>
       {/* Hero section */}
@@ -87,7 +83,7 @@ export default async function About({
               <Title.Label label={t(HistoryMenu.label)} />
             </Title.Root>
             <Paragraph>{t(History.info)}</Paragraph>
-            <div className='h-10'></div>
+            <div className="h-10"></div>
             <CustomTimeLine />
           </div>
         </PagePadding>
@@ -114,5 +110,5 @@ export default async function About({
         </PagePadding>
       </Container>
     </main>
-  )
+  );
 }

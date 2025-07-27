@@ -1,20 +1,13 @@
-import { NextResponse, type NextRequest } from 'next/server';
-import nodemailer from 'nodemailer';
-import Mail from 'nodemailer/lib/mailer';
+import { NextResponse, type NextRequest } from "next/server";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 
 export async function POST(request: NextRequest) {
-  const {
-    name,
-    phone,
-    person_phone,
-    email,
-    province,
-    vehicle,
-    client
-  } = await request.json();
+  const { name, phone, person_phone, email, province, vehicle, client } =
+    await request.json();
 
   const transport = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,
@@ -24,7 +17,7 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: email,
     to: process.env.MY_EMAIL,
-    subject: 'Pedir Cotação',
+    subject: "Pedir Cotação",
     text: [
       `Tipo de Cliente: ${client}`,
       `Nome: ${name}`,
@@ -32,17 +25,17 @@ export async function POST(request: NextRequest) {
       `Contacto: ${phone}`,
       person_phone !== undefined ? `Pessoa de Contacto: ${person_phone}` : null,
       `Província: ${province}`,
-      `Veículo pretendido: ${vehicle}`
+      `Veículo pretendido: ${vehicle}`,
     ]
       .filter(Boolean) // Remove any null or undefined values
-      .join('\n'), // Join all lines with a newline character
+      .join("\n"), // Join all lines with a newline character
   };
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
-          resolve('Email Enviado');
+          resolve("Email Enviado");
         } else {
           reject(err.message);
         }
@@ -51,7 +44,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
-    return NextResponse.json({ message: 'Email Enviado Com Sucesso' });
+    return NextResponse.json({ message: "Email Enviado Com Sucesso" });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });
   }

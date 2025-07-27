@@ -1,18 +1,21 @@
-"use client"
-import { links, terms } from '@/constants/footerData';
-import { useLocale, useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Facebook, Instagram, Linkedin } from '../icons/Icons';
-import Container from '../ui/Container';
-import PagePadding from '../ui/PagePadding';
+"use client";
+import { links, terms } from "@/constants/footerData";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin } from "../icons/Icons";
+import Container from "../ui/Container";
+import PagePadding from "../ui/PagePadding";
 
 const Footer = () => {
-  const t = useTranslations('Footer')
-  const locale = useLocale()
+  const t = useTranslations("Footer");
+  const locale = useLocale();
 
   return (
-    <footer id="footer" className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat">
+    <footer
+      id="footer"
+      className=" static bottom-0 left-0 right-0 w-full bg-footer bg-cover bg-center bg-no-repeat"
+    >
       <Container>
         <PagePadding>
           <div className="flex flex-wrap justify-between gap-x-8 gap-y-4 lg:flex-nowrap">
@@ -26,27 +29,32 @@ const Footer = () => {
               />
             </div>
             <div className="">
-              <h4 className="text-xl font-bold text-white">{t('links')}</h4>
+              <h4 className="text-xl font-bold text-white">{t("links")}</h4>
               <ul className="text-ligth mt-8 text-gray-300 ">
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/${link}`} replace={true}>{t(link)}</Link>
+                      <Link href={`${locale}/${link}`} replace={true}>
+                        {t(link)}
+                      </Link>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
             <div className="">
-              <h4 className="text-xl font-bold text-white">{t('legal_terms')}</h4>
+              <h4 className="text-xl font-bold text-white">
+                {t("legal_terms")}
+              </h4>
               <ul className="text-ligth mt-8 text-gray-300 ">
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/about`} replace={true}>{t(term)}</Link>
-
+                      <Link href={`${locale}/about`} replace={true}>
+                        {t(term)}
+                      </Link>
                     </li>
-                  )
+                  );
                 })}
               </ul>
               <div className="hidden w-full gap-4 pt-4 text-white lg:flex ">
@@ -69,7 +77,6 @@ const Footer = () => {
                   <Instagram />
                 </a>
               </div>
-
             </div>
             <div className=" flex w-full justify-center gap-2 text-white sm:hidden  ">
               <a
@@ -95,7 +102,7 @@ const Footer = () => {
         </PagePadding>
       </Container>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
