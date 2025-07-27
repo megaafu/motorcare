@@ -25,7 +25,7 @@
     "download": "Download Brochure",
     "read_more": "Read More"
   },
-"About": {
+  "About": {
     "about": "About Us",
     "about_info": "Motorcare has been providing automotive services to businesses in Mozambique since 1996.\nAs an authorized distributor of premium brands, Motorcare delivers excellent automotive solutions, including genuine parts and accessories, as well as specialized maintenance and repair services, complemented by a full range of fleet management solutions.\nMotorcare's national presence extends to the cities of Maputo, Beira, Nampula, Pemba, and Moatize.\nMotorcare aims to grow its business profitably and responsibly, promoting social and environmental goals aligned with international standards and certifications.",
     "mission": "Mission",
@@ -55,7 +55,7 @@
     "2023": "Restructuring of Maputo, Beira, and Nampula branches.",
     "certification": "ISO Certification",
     "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company’s strategic management. This enables improved operational efficiency and Customer Satisfaction."
-  },  
+  },
   "Request": {
     "quote": "Request a Quote",
     "service": "Book a Service",
@@ -111,7 +111,7 @@
     "renault": "Renault Trucks",
     "electrics": "Electric Vehicles"
   },
-    "Footer": {
+  "Footer": {
     "links": "Useful Links",
     "about": "About Us",
     "history": "Our History",
@@ -179,5 +179,6 @@
     "exteriorInterior": "Exterior and Interior",
     "vehicleInformation": "Vehicle Information",
     "specifications": "Specifications",
-    "gallery": "Gallery"  }
+    "gallery": "Gallery"
+  }
 }

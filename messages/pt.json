@@ -55,8 +55,8 @@
     "2023": "Reestruturação das delegações de Maputo, Beira e Nampula.",
     "certification": "Certificação ISO",
     "certification_info": "A Motorcare fornece serviços e produtos respeitando padrões internacionais de saúde, segurança, meio ambiente e qualidade. Por isso, possui um Sistema de Gestão Integrado baseado em três normas internacionais: ISO 45001 (Saúde e Segurança), ISO 14001 (Meio Ambiente) e ISO 9001 (Qualidade), que são auditadas anualmente internamente, bem como externamente por uma entidade internacional. A certificação ISO 14001 é uma norma internacional que permite às empresas demonstrar o seu compromisso com a proteção ambiental através da gestão dos riscos ambientais associados à sua atividade. A certificação ISO 9001 visa assegurar uma maior qualidade na entrega de produtos ou serviços, com foco na gestão estratégica da empresa. Assim, é possível melhorar a eficiência operacional e a Satisfação do Cliente."
-  },  
-"Request": {
+  },
+  "Request": {
     "quote": "Solicitar Cotação",
     "service": "Agendar Serviço",
     "service_content": "Na Motorcare, a prestação de serviços de manutenção, seja preventiva ou correctiva, é uma prioridade. As nossas oficinas modernas estão preparadas para atender grandes volumes de veículos com eficácia e qualidade.\nPode contar connosco para um service competente e transparente — é assim que fazemos negócios e cuidamos dos nossos clientes.\nAgende o seu serviço connosco e garanta o melhor cuidado para a sua viatura.",
@@ -110,7 +110,7 @@
     "nissan": "Veículos Nissan",
     "renault": "Renault Trucks",
     "electrics": "Elétricos"
-  }, 
+  },
   "Footer": {
     "links": "Links Úteis",
     "about": "Sobre Nós",
