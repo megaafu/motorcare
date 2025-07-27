@@ -4,13 +4,12 @@ import LateralScroll from "@/components/ui/LateralScoll";
 import Row from "@/components/ui/Row";
 import SecundaryButton from "@/components/ui/SecundaryButton";
 import useBlogs from "@/hooks/use-blogs";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import BlogSkeletion from "./BlogSkeletion";
 
 const BlogList = () => {
   const { data, isLoading } = useBlogs();
   const t = useTranslations("Home");
-  const locale = useLocale();
   return (
     <>
       {isLoading ? (

@@ -120,7 +120,7 @@ const Mapp = () => {
           }}
         >
           {markers.map((loc, index) => (
-            <Accordion.Item key={index} value={loc.name}>
+            <Accordion.Item key={`${loc.name}${index}`} value={loc.name}>
               <Accordion.Control>{loc.name.toUpperCase()}</Accordion.Control>
               <Accordion.Panel className="space-y-1 bg-slate-200 pt-2">
                 <p>
@@ -152,7 +152,7 @@ const Mapp = () => {
 
           {markers.map((marker, index) => (
             <Marker
-              key={index}
+              key={`${marker.name}${index}`}
               position={[marker.lat, marker.lng]}
               icon={customIcon}
             >

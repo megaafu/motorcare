@@ -1,18 +1,32 @@
+"use client"
+
 import { Title } from "@/components/Title";
 import Container from "@/components/ui/Container";
 import PagePadding from "@/components/ui/PagePadding";
 import Paragraph from "@/components/ui/Paragraph";
 import Row from "@/components/ui/Row";
 import { AboutMenu, HistoryMenu, IsoMenu } from "@/constants/menuData";
-import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import NavBrands from "./components/NavBrands";
-import CustomAccording from "./components/ui/According";
-import CustomTimeLine from "./components/ui/CustomTimeLine";
 import { History, Holding, Iso } from "./constants/data";
+import dynamic from "next/dynamic";
+import { useTranslations } from "next-intl";
 
-export default async function About() {
-  const t = await getTranslations("About");
+const CustomAccording = dynamic(() => import("./components/ui/According"), {
+  ssr: false,
+});
+
+const CustomTimeLine = dynamic(() => import("./components/ui/CustomTimeLine"), {
+  ssr: false,
+});
+
+const NavBrands = dynamic(() => import("./components/NavBrands"), {
+  ssr: false,
+});
+
+
+export default  function About() {
+  try{
+ const t =  useTranslations("About");
   return (
     <main>
       {/* Hero section */}
@@ -111,4 +125,8 @@ export default async function About() {
       </Container>
     </main>
   );
+  }catch (error) {
+    console.error("Error in About page:", error);
+    throw error; // rethrow so the build fails, but with clear info
+  }
 }
