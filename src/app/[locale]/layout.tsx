@@ -4,9 +4,9 @@ import Prefooter from "@/components/PreFooter/PreFooter";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { setRequestLocale } from "next-intl/server";
 import localFont from "next/font/local";
 import Provider from "@/lib/util/provider";
+import 'leaflet/dist/leaflet.css';
 import '../globals.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "slick-carousel/slick/slick.css"
@@ -41,13 +41,12 @@ interface RootLayoutProps {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: RootLayoutProps) {
+   const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-
-  setRequestLocale(locale);
 
   let messages;
   try {
@@ -76,6 +75,6 @@ export default async function RootLayout({
     
   );
 }
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

@@ -123,6 +123,8 @@
     "sugestionform": "Suggestions..."
   },
   "Header": {
+    "openMenu":"Open Menu",
+    "closeMenu":"Close Menu",
     "home": "Home",
     "about": "About Us",
     "vehicles": "Used Vehicles",
@@ -180,5 +182,11 @@
     "vehicleInformation": "Vehicle Information",
     "specifications": "Specifications",
     "gallery": "Gallery"
+  }, 
+  "Error":{
+    "title": "Oops! Something went wrong.",
+    "errorCode": "Error Code: 404",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home"
   }
 }

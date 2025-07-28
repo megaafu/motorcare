@@ -17,12 +17,12 @@ export const menu: INav[] = [
   {
     menu: {
       label: "menu",
-      url: "#",
+      url: "",
     },
     dropdown: [
       {
         label: "cars",
-        url: "#brands",
+        url: "",
         dropdown: [
           {
             label: "nissan",
@@ -36,7 +36,7 @@ export const menu: INav[] = [
       },
       {
         label: "tires",
-        url: "#brands",
+        url: "",
         dropdown: [
           {
             label: "general",
@@ -64,7 +64,7 @@ export const menu: INav[] = [
   {
     menu: {
       label: "after_sales",
-      url: "#",
+      url: "",
     },
     dropdown: [
       {

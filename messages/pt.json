@@ -123,6 +123,8 @@
     "sugestionform": "Sugestões e Reclamações"
   },
   "Header": {
+    "openMenu":"Abrir Menu",
+    "closeMenu":"Fechar Menu",
     "home": "Página Inicial",
     "about": "Sobre Nós",
     "vehicles": "Usados",
@@ -180,5 +182,11 @@
     "vehicleInformation": "Informações do Veículo",
     "specifications": "Especificações",
     "gallery": "Galeria"
+  }, 
+  "Error":{
+  "title": "Ops! Algo deu errado.",
+  "errorCode": "Código do Erro: 404",
+  "tryAgain": "Tentar novamente",
+  "goHome": "Ir para a Página Inicial"
   }
 }
