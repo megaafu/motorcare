@@ -16,7 +16,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   return (
     <button
       className={cn(
-        "font-regular hover:bg-accent inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-sm text-white",
+        "font-regular hover:bg-accent inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white",
         className
       )}
       {...props}

@@ -12,7 +12,7 @@ const Paragraph: React.FC<ParagraphProps> = ({
   ...ParagraphProps
 }) => {
   return (
-    <p className={cn("text-justify text-sm", className)} {...ParagraphProps}>
+    <p className={cn("text-justify ", className)} {...ParagraphProps}>
       {children}
     </p>
   );

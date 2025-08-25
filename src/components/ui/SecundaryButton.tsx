@@ -22,7 +22,7 @@ const SecundaryButton = ({
         )}
         {...props}
       >
-        <p className="text-sm ">{label}</p>
+        <p className="">{label}</p>
         <ArrowFoword />
       </Link>
     </div>

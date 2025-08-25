@@ -89,13 +89,13 @@ export default function VehicleDetailsPage() {
                     {vehicle.year_model} • {vehicle.type}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
+                    <span className="rounded-full bg-blue-100 px-4 py-2 font-medium text-blue-800">
                       {vehicle.fuel}
                     </span>
-                    <span className="rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-800">
+                    <span className="rounded-full bg-green-100 px-4 py-2 font-medium text-green-800">
                       {vehicle.transmission}
                     </span>
-                    <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800">
+                    <span className="rounded-full bg-purple-100 px-4 py-2 font-medium text-purple-800">
                       {vehicle.color}
                     </span>
                   </div>
@@ -103,13 +103,13 @@ export default function VehicleDetailsPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-xl bg-gray-50 p-4">
-                    <p className="text-sm text-gray-600">{t("mileage")}</p>
+                    <p className="text-gray-600">{t("mileage")}</p>
                     <p className="text-2xl font-bold text-gray-900">
                       {vehicle.mileage.toLocaleString()} km
                     </p>
                   </div>
                   <div className="rounded-xl bg-gray-50 p-4">
-                    <p className="text-sm text-gray-600">{t("licensePlate")}</p>
+                    <p className="text-gray-600">{t("licensePlate")}</p>
                     <p className="text-2xl font-bold text-gray-900">
                       {vehicle.license_plate}
                     </p>

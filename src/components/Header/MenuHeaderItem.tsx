@@ -19,7 +19,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
 
   return (
     <>
-      <ul className="relative mt-4 flex flex-col rounded-lg border border-gray-100 p-4 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
+      <ul className="relative mt-4 flex items-center py-4 md:mt-0 gap-6">
         {menu.slice(0, menu.length - 1).map(({ menu, dropdown }) => {
           const isActive = pathName === "/" + locale + menu.url;
           const menuItemClasses = classNames(
@@ -29,7 +29,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
               "text-light-text after:text-light-text hover:text-primary":
                 !isActive,
             },
-            "transition duration-300 ease-in-out text-sm"
+            "transition duration-300 ease-in-out "
           );
 
           return (
@@ -53,7 +53,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
       <Link
         href={`${locale}${menu[menu.length - 1].menu.url}`}
         replace={true}
-        className="bg-primary px-5 py-3 text-white"
+        className="bg-primary px-5 py-2 text-white rounded-full"
       >
         {t(menu[menu.length - 1].menu.label)}
       </Link>

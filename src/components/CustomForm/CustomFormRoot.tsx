@@ -3,7 +3,7 @@ interface CustomFormProps {
   children: ReactNode;
 }
 const CustomFormRoot = ({ children }: CustomFormProps) => {
-  return <div>{children}</div>;
+  return <div className="space-y-5">{children}</div>;
 };
 
 export default CustomFormRoot;

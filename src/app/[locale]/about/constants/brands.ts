@@ -21,38 +21,31 @@ const Renault: IBrand = {
   info: "renault",
   img: "/images/renault.png",
 };
-const NIU: IBrand = {
-  id: 2,
-  brand: "NIU",
-  info: "niu",
-  img: "/images/niu.png",
-};
-
 const Continental: IBrand = {
-  id: 3,
+  id: 2,
   brand: "Continental",
   info: "continental",
   img: "/images/continental.png",
 };
 const GeneralTyre: IBrand = {
-  id: 4,
+  id: 3,
   brand: "General Tire",
   info: "general",
   img: "/images/generaltire.png",
 };
 const MaxxisTyre: IBrand = {
-  id: 5,
+  id: 4,
   brand: "Maxxis Tyres",
   info: "maxxis",
   img: "/images/maxxis.png",
 };
 
 const CstTyre: IBrand = {
-  id: 6,
+  id: 5,
   brand: "CST Tyres",
   info: "cst",
   img: "/images/cst.png",
 };
 export const AllBrands: IBrands = {
-  brands: [Nissan, Renault, NIU, Continental, GeneralTyre, MaxxisTyre, CstTyre],
+  brands: [Nissan, Renault, Continental, GeneralTyre, MaxxisTyre, CstTyre],
 };

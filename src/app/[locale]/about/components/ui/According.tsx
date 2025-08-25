@@ -1,48 +1,37 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { Card, Text, SimpleGrid } from "@mantine/core";
 import { AllAcording } from "../../constants/acordings";
-import Icon from "./Icon";
+import Row from "@/components/ui/Row";
 
-const CustomAccordion = () => {
-  const [open, setOpen] = useState<number | null>(null);
-
-  const handleOpen = (id: number) => {
-    setOpen((prevOpen) => (prevOpen === id ? null : id));
-  };
-
+const CustomCards = () => {
   const t = useTranslations("About");
+
   return (
-    <div>
+    <Row className="md:grid-cols-3">
       {AllAcording.acordings.map((acording) => (
-        <div
+        <Card
           key={acording.id}
-          className={`mb-4 bg-sky-100 px-8 py-5 transition-all duration-300 ${
-            open === acording.id ? "max-h-50" : "max-h-20"
-          } overflow-hidden`}
+          shadow="sm"
+          padding="lg"
+          radius="md"
+          withBorder
+          className="transition-transform hover:scale-[1.02] hover:shadow-lg"
         >
-          <div
-            className="flex cursor-pointer items-center justify-between"
-            onClick={() => handleOpen(acording.id)}
-          >
-            <div className="text-bold text-lg text-black">
-              {t(acording.title)}
-            </div>
-            <Icon id={0} open={open === acording.id} />
-          </div>
-          {open === acording.id && (
-            <div className="py-4 text-sm text-light-text">
-              <ul className="flex list-disc flex-col gap-2 pl-4">
-                {acording.description.map((description, index) => (
-                  <li key={index}>{t(description)}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+          <Text fw={700} size="lg" mb="sm">
+            {t(acording.title)}
+          </Text>
+
+          <ul className="list-disc pl-5 space-y-1 text-gray-600">
+            {acording.description.map((description, index) => (
+              <li key={index}>{t(description)}</li>
+            ))}
+          </ul>
+        </Card>
       ))}
-    </div>
+    </Row>
   );
 };
-export default CustomAccordion;
+
+export default CustomCards;

@@ -35,7 +35,7 @@ const CustomDropdown = <T extends FieldValues>({
   return (
     <div className="w-full">
       {label != null && (
-        <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+        <label className="mb-2 block text-light-text" htmlFor={id}>
           {`${label} ${required ? "*" : ""}`}
         </label>
       )}
@@ -44,7 +44,7 @@ const CustomDropdown = <T extends FieldValues>({
         id={id}
         defaultValue={defaultValue ?? ""}
         className={twMerge(
-          "form-select mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-sm text-light-text focus:border-primary focus:outline-none",
+          "form-select mb-2 block w-full rounded border border-black bg-white px-4 py-4 text-light-text focus:border-primary focus:outline-none",
           className
         )}
         {...(register && name ? register(name) : {})}

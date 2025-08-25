@@ -120,12 +120,14 @@
     "terms": "Terms and Conditions",
     "privacy": "Privacy",
     "iso": "ISO",
-    "sugestionform": "Suggestions..."
+    "sugestionform": "Suggestions and Complains",
+    "description": "Motorcare Mozambique is a leading car dealership, part of the KJAER GROUP, providing premium automotive solutions, maintenance, and green mobility in Uganda since 1996."
   },
   "Header": {
-    "openMenu":"Open Menu",
-    "closeMenu":"Close Menu",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu",
     "home": "Home",
+    "carrear": "Carrear",
     "about": "About Us",
     "vehicles": "Used Vehicles",
     "after_sales": "After Sales",
@@ -160,9 +162,25 @@
     "find_dealer": "Find Dealer",
     "address": "Dealer Address",
     "search": "Search",
+    "submit": "Submit",
+    "closed": "Closed",
+    "working_hour": "Working Hours",
+    "mon-fri": "Mon - Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "name": "Name",
     "phone": "Phone",
     "email": "Email",
-    "physical": "Physical Address"
+    "doc": "Document",
+    "province": "Province",
+    "department": "Department",
+    "physical": "Physical Address",
+    "marketing": "Sales & Marketing",
+    "accountant": "Accounting & Finance",
+    "officine": "Workshop",
+    "others": "Others",
+    "carrear": "Career",
+    "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we’ll reach out to accelerate toward the future together."
   },
   "Vehicles": {
     "vehicles": "All Used Vehicles",
@@ -171,10 +189,12 @@
     "year": "Year of Manufacture",
     "transmission": "Transmission Type",
     "cylinders": "Number of Cylinders",
+    "color": "Car color",
     "seats": "Number of Seats",
     "fuel": "Fuel Type",
     "mileage": "Vehicle Mileage",
     "doors": "Number of Doors",
+    "loadingVehicleDetails": "Loading Vehicle Details",
     "vehicleType": "Vehicle Type",
     "licensePlate": "License Plate",
     "enginePerformance": "Engine Performance",
@@ -182,8 +202,8 @@
     "vehicleInformation": "Vehicle Information",
     "specifications": "Specifications",
     "gallery": "Gallery"
-  }, 
-  "Error":{
+  },
+  "Error": {
     "title": "Oops! Something went wrong.",
     "errorCode": "Error Code: 404",
     "tryAgain": "Try Again",

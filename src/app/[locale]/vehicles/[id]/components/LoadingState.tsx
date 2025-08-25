@@ -59,16 +59,6 @@ export default function LoadingState() {
               >
                 <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
               </motion.div>
-
-              {/* Loading Message */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-4 text-gray-600"
-              >
-                {t("loadingMessage")}
-              </motion.p>
             </motion.div>
           </div>
         </PagePadding>

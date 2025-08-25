@@ -15,9 +15,8 @@ export default function VehicleSpecs({ vehicle }: VehicleSpecsProps) {
     {
       category: t("enginePerformance"),
       items: [
-        { label: t("fuelType"), value: vehicle.fuel },
+        { label: t("fuel"), value: vehicle.fuel },
         { label: t("transmission"), value: vehicle.transmission },
-        { label: t("cylinders"), value: vehicle.cylinder },
         {
           label: t("mileage"),
           value: `${vehicle.mileage.toLocaleString()} km`,
@@ -30,7 +29,6 @@ export default function VehicleSpecs({ vehicle }: VehicleSpecsProps) {
         { label: t("color"), value: vehicle.color },
         { label: t("doors"), value: vehicle.doors.toString() },
         { label: t("seats"), value: vehicle.seats.toString() },
-        { label: t("vehicleType"), value: vehicle.type },
       ],
     },
     {
@@ -39,7 +37,6 @@ export default function VehicleSpecs({ vehicle }: VehicleSpecsProps) {
         { label: t("brand"), value: vehicle.brand },
         { label: t("model"), value: vehicle.model },
         { label: t("year"), value: vehicle.year_model.toString() },
-        { label: t("licensePlate"), value: vehicle.license_plate },
       ],
     },
   ];

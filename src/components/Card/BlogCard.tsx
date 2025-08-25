@@ -35,7 +35,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <div className="w-[80vw] px-4  py-6 md:w-[40vw] lg:w-auto">
           <CardTitle>{blog.title}</CardTitle>
           <CardDescription>
-            <p className="text-md line-clamp-1 text-gray-700 lg:text-sm">
+            <p className="text-md line-clamp-1 text-gray-700 ">
               {blog.subtitle}
             </p>
           </CardDescription>

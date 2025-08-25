@@ -10,7 +10,7 @@ const Mapp = dynamic(() => import("./components/Mapper"), {
 
 const Motorcare = () => {
   return (
-    <Container className="mt-[12vh] max-w-screen-2xl">
+    <Container className="mt-[12vh]">
       <PagePadding>
         <Mapp />
       </PagePadding>

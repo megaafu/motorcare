@@ -20,7 +20,7 @@ function CustomTextArea<TFieldValues extends FieldValues>({
 }: TextAreaProps<TFieldValues>) {
   return (
     <div className="pb-8">
-      <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+      <label className="mb-2 block text-light-text" htmlFor={id}>
         {`${label}${required ? " *" : ""}`}
       </label>
       <textarea

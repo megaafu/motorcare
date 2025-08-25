@@ -36,7 +36,7 @@ const CarDetails: FC<CarDetailsProps> = (props) => {
         {/* DETAILS */}
         <div className="mt-8">
           <h2 className="mb-2 text-xl font-semibold">Detalhes</h2>
-          <div className="grid grid-cols-2 gap-y-2 text-sm text-gray-700">
+          <div className="grid grid-cols-2 gap-y-2 text-gray-700">
             <span>Modelo: {props.car.brand}</span>
             <span>Ano: {props.car.year_model}</span>
             <span>Cor: {props.car.color}</span>
@@ -53,13 +53,13 @@ const CarDetails: FC<CarDetailsProps> = (props) => {
 
       {/* RIGHT SECTION */}
       <div className="space-y-4 lg:col-span-5">
-        <div className="text-sm text-gray-500">
+        <div className="text-gray-500">
           Ref: {props.car.id} / Lote Nº: 0
         </div>
         <h1 className="text-2xl font-bold">
           {props.car.brand} - Ano {props.car.year_model}
         </h1>
-        <div className="w-fit rounded bg-black px-4 py-2 text-sm text-white">
+        <div className="w-fit rounded bg-black px-4 py-2 text-white">
           Termina em 24d 4h 15m 36s
         </div>
 
@@ -68,7 +68,7 @@ const CarDetails: FC<CarDetailsProps> = (props) => {
         </button>
 
         <div>
-          <label className="mb-1 block text-sm">Licitação Automática</label>
+          <label className="mb-1 block ">Licitação Automática</label>
           <input
             type="number"
             className="w-full rounded border px-3 py-2"
@@ -81,7 +81,7 @@ const CarDetails: FC<CarDetailsProps> = (props) => {
 
         {/* PAYMENT */}
         <div>
-          <p className="mb-2 text-sm font-semibold">Métodos de pagamento</p>
+          <p className="mb-2 font-semibold">Métodos de pagamento</p>
           <div className="flex items-center gap-3">
             <Image src="/icons/visa.svg" alt="Visa" width={40} height={24} />
             <Image

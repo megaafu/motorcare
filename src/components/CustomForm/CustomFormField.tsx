@@ -20,7 +20,7 @@ const CustomFormField = <T extends FieldValues>({
   return (
     <div className="pb-4">
       {label && (
-        <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+        <label className="mb-2 block text-light-text" htmlFor={id}>
           {label} {required ? "*" : ""}
         </label>
       )}

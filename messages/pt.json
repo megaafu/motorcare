@@ -120,12 +120,14 @@
     "terms": "Termos e Condições",
     "privacy": "Privacidade",
     "iso": "ISO",
-    "sugestionform": "Sugestões e Reclamações"
+    "sugestionform": "Sugestões e Reclamações",
+    "description": "A Motorcare Moçambique é uma concessionária líder de automóveis, parte do KJAER GROUP, que oferece soluções automotivas premium, manutenção e mobilidade sustentável em Uganda desde 1996."
   },
   "Header": {
-    "openMenu":"Abrir Menu",
-    "closeMenu":"Fechar Menu",
+    "openMenu": "Abrir Menu",
+    "closeMenu": "Fechar Menu",
     "home": "Página Inicial",
+    "carrear": "Carreira",
     "about": "Sobre Nós",
     "vehicles": "Usados",
     "after_sales": "Pós-Venda",
@@ -160,9 +162,25 @@
     "find_dealer": "Encontrar Concessionária",
     "address": "Endereço da Concessionária",
     "search": "Pesquisar",
+    "submit": "Submeter",
+    "closed": "Fechado",
+    "working_hour": "Horario de Trabalho",
+    "mon-fri": "Seg - Sex",
+    "sat": "Sab",
+    "sun": "Dom",
+    "name": "Nome",
     "phone": "Telefone",
     "email": "E-mail",
-    "physical": "Endereço Físico"
+    "doc": "Documento",
+    "province": "Provincia",
+    "department": "Area",
+    "physical": "Endereço Físico",
+    "marketing": "Comercial e Marketing",
+    "accountant": "Contabilidade & Finanças",
+    "officine": "Oficina",
+    "others": "Outros",
+    "carrear": "Carreira",
+    "carrear_info": "Na Motorcare, acreditamos que cada talento traz consigo novas ideias, energia e paixão para crescer connosco.Registe-se através do formulário e partilha o seu percurso connosco. Guardaremos o seu currículo com cuidado e, quando surgir a oportunidade certa, iremos ao seu encontro para juntos acelerarmos rumo ao futuro."
   },
   "Vehicles": {
     "vehicles": "Todos os Veículos Usados",
@@ -171,6 +189,7 @@
     "year": "Ano de Fabrico",
     "transmission": "Tipo de Transmissão",
     "cylinders": "Número de Cilindros",
+    "color": "Cor do Carro",
     "seats": "Número de Lugares",
     "fuel": "Tipo de Combustível",
     "mileage": "Quilometragem do Veículo",
@@ -178,15 +197,16 @@
     "vehicleType": "Tipo de Veículo",
     "licensePlate": "Matrícula",
     "enginePerformance": "Desempenho do Motor",
+    "loadingVehicleDetails": "A carregar detalhes do veículo",
     "exteriorInterior": "Exterior e Interior",
     "vehicleInformation": "Informações do Veículo",
     "specifications": "Especificações",
     "gallery": "Galeria"
-  }, 
-  "Error":{
-  "title": "Ops! Algo deu errado.",
-  "errorCode": "Código do Erro: 404",
-  "tryAgain": "Tentar novamente",
-  "goHome": "Ir para a Página Inicial"
+  },
+  "Error": {
+    "title": "Ops! Algo deu errado.",
+    "errorCode": "Código do Erro: 404",
+    "tryAgain": "Tentar novamente",
+    "goHome": "Ir para a Página Inicial"
   }
 }

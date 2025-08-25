@@ -1,8 +1,7 @@
 "use client";
 
-import { Accordion, Button, Card, Text } from "@mantine/core";
+import { Accordion, Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import Autocomplete from "react-google-autocomplete";
@@ -16,8 +15,8 @@ interface PlaceCordinate {
 }
 
 const MOZ_BOUNDS: [[number, number], [number, number]] = [
-  [-27.0, 29.0], // SW
-  [-10.0, 41.5], // NE
+  [-26.9, 30.2], // Southwest
+  [-10.3, 41.5], // Northeast
 ];
 
 const Mapp = () => {
@@ -38,6 +37,7 @@ const Mapp = () => {
       phone: "21 35 08 00",
       description: "Sede: Maputo",
       address: "Rua Kanwalanga N.141",
+      workingHour: { "mon-fri": "7:30 - 16:30", "sat": t("closed"), "sun": t("closed") }
     },
     {
       name: "Beira",
@@ -46,6 +46,7 @@ const Mapp = () => {
       phone: "23 32 65 03",
       description: "Delegação da Beira",
       address: "Av. Samora Machel, n.3024, Beira",
+      workingHour: { "mon-fri": "7:30 - 16:30", "sat": "7:30 - 11:30", "sun": t("closed") }
     },
     {
       name: "Moatize",
@@ -54,6 +55,7 @@ const Mapp = () => {
       phone: "25 24 22 20",
       description: "Delegação de Moatize",
       address: "E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete",
+      workingHour: { "mon-fri": "7:30 - 16:30", "sat": "7:30 - 11:30", "sun": t("closed") }
     },
     {
       name: "Nampula",
@@ -62,6 +64,7 @@ const Mapp = () => {
       phone: "26 21 72 51",
       description: "Delegação da Nampula",
       address: "Rua da França, Parcela 3, Bairro da Carrupeia",
+      workingHour: { "mon-fri": "7:30 - 16:30", "sat": "7:30 - 11:30", "sun": t("closed") }
     },
     {
       name: "Pemba",
@@ -70,6 +73,7 @@ const Mapp = () => {
       phone: "27 22 07 71",
       description: "Delegação de Pemba",
       address: "E.N.106 Bairro do Alto Giongone",
+      workingHour: { "mon-fri": "7:30 - 16:30", "sat": "7:30 - 11:30", "sun": t("closed") }
     },
   ];
 
@@ -81,23 +85,24 @@ const Mapp = () => {
       <div class="p-2">
         <p class="font-bold">${dealer.description}</p>
         <p>${dealer.address}</p>
-        <p>Phone: ${dealer.phone}</p>
-        <p>Email: info@mz.motorcare.com</p>
+        <p>${t("phone")}: ${dealer.phone}</p>
+        <p>${t("email")}: info@mz.motorcare.com</p>
       </div>
     `,
   }));
 
   return (
-    <div className="mb-[10vh] flex lg:h-[calc(100vh-240px)] gap-5 flex-col lg:flex-row">
+    <div className="mb-5 flex lg:h-[calc(100lvh-80px)] overflow-y-scroll gap-5 flex-col lg:flex-row">
+      {/* Sidebar */}
       <div
-        className="w-full order-2 sm:order-1  bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
+        className="w-full order-2 sm:order-1 bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
         onWheel={(e) => e.stopPropagation()}
       >
         <p className="mb-4 text-xl font-bold lg:text-2xl">{t("find_dealer")}</p>
 
         <form method="post" className="mb-6 space-y-4">
           <Autocomplete
-            className="w-full border px-2 py-3 text-sm lg:py-4"
+            className="w-full border px-2 py-3 lg:py-4"
             placeholder={t("address")}
             apiKey={GOOGLE_MAPS_API_KEY}
             onPlaceSelected={(place) => {
@@ -116,39 +121,38 @@ const Mapp = () => {
         </form>
 
         <Accordion
-          multiple
+          multiple={false}
           variant="separated"
-          className="space-y-2 lg:space-y-4"
+          className="space-y-4 lg:space-y-6 "
           chevron={<IconPlus size="1rem" />}
           styles={{
-            chevron: {
-              "&[data-rotate]": { transform: "rotate(45deg)" },
-            },
+            chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
           }}
         >
           {markers.map((loc, index) => (
             <Accordion.Item key={`${loc.name}${index}`} value={loc.name}>
               <Accordion.Control>{loc.name.toUpperCase()}</Accordion.Control>
-              <Accordion.Panel className="space-y-1 bg-slate-200 pt-2 text-sm">
-                <p>
-                  {t("phone")}: {loc.phone}
-                </p>
+              <Accordion.Panel className="space-y-2 bg-slate-200 pt-2 ">
+                <p>{t("phone")}: {loc.phone}</p>
                 <p>{t("email")}: info@mz.motorcare.com</p>
-                <p>
-                  {t("physical")}: {loc.address}
-                </p>
+                <p>{t("physical")}: {loc.address}</p>
+                <p>{t("working_hour")}:</p>
+                <p className="ml-2">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
+                <p className="ml-2">{t("sat")}: {loc.workingHour["sat"]}</p>
+                <p className="ml-2">{t("sun")}: {loc.workingHour["sun"]}</p>
               </Accordion.Panel>
             </Accordion.Item>
           ))}
         </Accordion>
       </div>
 
-      {/* MAP */}
+      {/* Map */}
       <div className="h-full order-1 sm:order-2 flex-1">
         <MapWrapper
           center={[location.lat, location.lng]}
           zoom={5}
           markers={mapMarkers}
+          bounds={MOZ_BOUNDS}
           className="border border-gray-200"
         />
       </div>
@@ -157,3 +161,4 @@ const Mapp = () => {
 };
 
 export default Mapp;
+

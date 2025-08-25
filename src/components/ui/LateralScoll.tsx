@@ -1,25 +1,18 @@
 "use client";
 import { cn } from "@/lib/util/util";
-import React, { useRef, useState } from "react";
+import React from "react";
 
 interface LateralScrollProps {
   className?: string;
   children: React.ReactNode;
 }
 
-const LateralScroll: React.FC<LateralScrollProps> = ({
-  className,
-  children,
-}) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollOffset] = useState(0);
-
+const LateralScroll: React.FC<LateralScrollProps> = ({ className, children }) => {
   return (
-    <div className={cn("relative w-full overflow-hidden", className)}>
+    <div className={cn("relative w-full", className)}>
       <div
-        className="flex gap-4 overflow-x-auto"
-        ref={containerRef}
-        style={{ transform: `translateX(-${scrollOffset}px)` }}
+        className="max-w-[100lvw] flex gap-2 md:gap-5 overflow-x-auto "
+
       >
         {children}
       </div>
@@ -28,3 +21,4 @@ const LateralScroll: React.FC<LateralScrollProps> = ({
 };
 
 export default LateralScroll;
+

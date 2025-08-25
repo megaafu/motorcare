@@ -19,7 +19,7 @@ const DropDown = ({ label, dropdown }: DropDownProps) => {
 
   return (
     <div
-      className="group relative text-sm text-light-text"
+      className="group relative text-light-text"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -48,7 +48,7 @@ const DropDown = ({ label, dropdown }: DropDownProps) => {
                 <li key={item.label}>
                   <Link
                     href={`${locale}${item.url}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}
                   </Link>
@@ -99,14 +99,14 @@ const SubDropdown = ({ label, dropdown }: SubDropdownProps) => {
                     target="_blank"
                     rel="noreferrer"
                     href={`${item.url}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}
                   </a>
                 ) : (
                   <Link
                     href={`${locale}${item.url}`}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}
                   </Link>

@@ -1,6 +1,6 @@
 "use client";
 import { links, terms } from "@/constants/footerData";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "../icons/Icons";
@@ -9,7 +9,6 @@ import PagePadding from "../ui/PagePadding";
 
 const Footer = () => {
   const t = useTranslations("Footer");
-  const locale = useLocale();
 
   return (
     <footer
@@ -19,14 +18,15 @@ const Footer = () => {
       <Container>
         <PagePadding>
           <div className="flex flex-wrap justify-between gap-x-8 gap-y-4 lg:flex-nowrap">
-            <div className="hidden  md:flex lg:place-self-center">
+            <div className="hidden md:flex flex-col text-white gap-y-6 max-w-lg">
               <Image
                 width="1080"
                 height="1080"
                 src="/images/footer-logo.png"
                 alt="MotorCare"
-                className=" h-20 w-auto"
+                className=" h-20 max-w-sm"
               />
+              <p>{t("description")}</p>
             </div>
             <div className="">
               <h4 className="text-xl font-bold text-white">{t("links")}</h4>
@@ -34,7 +34,7 @@ const Footer = () => {
                 {links.map((link, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/${link}`} replace={true}>
+                      <Link href={link} replace={true}>
                         {t(link)}
                       </Link>
                     </li>
@@ -50,7 +50,7 @@ const Footer = () => {
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={`${locale}/about`} replace={true}>
+                      <Link href="/about" replace={true}>
                         {t(term)}
                       </Link>
                     </li>

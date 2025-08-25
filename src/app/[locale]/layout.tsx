@@ -15,17 +15,23 @@ import "slick-carousel/slick/slick-theme.css"
 const nissan = localFont({
   src: [
     {
-      path: "../../../public/fonts/Nissan Font/Nissan Brand Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../../public/fonts/Nissan Font/Nissan Brand Light.otf",
+      path: "../../../public/fonts/klavika/klavika-light.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../../../public/fonts/Nissan Font/Nissan Brand Bold.otf",
+      path: "../../../public/fonts/klavika/klavika-regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../../public/fonts/klavika/klavika-medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+
+    {
+      path: "../../../public/fonts/klavika/klavika-bold.otf",
       weight: "600",
       style: "normal",
     },
@@ -43,7 +49,7 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-   const { locale } = params;
+  const { locale } = params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -64,15 +70,15 @@ export default async function RootLayout({
             locale={locale}
             messages={messages}
           >
-          <Header />
-          <main>{children}</main>
-          <Prefooter />
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  </Provider>
-    
+            <Header />
+            <main>{children}</main>
+            <Prefooter />
+            <Footer />
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </Provider>
+
   );
 }
 export async function generateStaticParams() {

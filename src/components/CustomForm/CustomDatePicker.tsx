@@ -9,9 +9,9 @@ interface CustomDatePickerProps {
   label?: string;
   name: string;
   value?: Date | null;
-   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
-   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   rules?: any;
   required?: boolean;
 }
@@ -29,7 +29,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
 
   return (
     <div className="w-full pb-4">
-      <label className="mb-2 block text-sm text-light-text" htmlFor={id}>
+      <label className="mb-2 block text-light-text" htmlFor={id}>
         {`${label} ${required ? "*" : ""}`}
       </label>
       <Controller

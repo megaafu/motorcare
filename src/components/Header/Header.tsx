@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <nav className="border-gray-200 bg-white">
         <Container className="max-w-screen-2xl">
           <div className="flex flex-wrap items-center justify-between md:py-4">
-            <Link href="/">
+            <Link href="/home">
               <div className="flex items-center">
                 <Image
                   width={1475}

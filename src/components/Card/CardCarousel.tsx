@@ -45,14 +45,14 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
         <ImageCarousel
           images={images}
           autoPlay={autoPlay}
-          interval={3000}
-          transitionTime={1500}
+          interval={2000}
+          transitionTime={500}
         />
         <div className="px-4 py-6">
           <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
           <CardDescription>
-            <p className="text-sm text-gray-700 ">{car.year_model}</p>
-            <p className="text-sm diagonal-fractions text-red-500">
+            <p className="text-gray-700 ">{car.year_model}</p>
+            <p className="diagonal-fractions text-red-500">
               {currencyFormat(Number(car.price))}
             </p>
           </CardDescription>
@@ -60,17 +60,17 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
           <CardSub>
             <div className="flex gap-1 ">
               <Image width={18} height={18} src="/icons/gas.svg" alt="" />
-              <p className="text-xs  font-bold text-light-text">{car.fuel}</p>
+              <p className="text-sm  font-bold text-light-text">{car.fuel}</p>
             </div>
             <div className="flex gap-1 ">
               <Image width={18} height={18} src="/icons/gearshift.svg" alt="" />
-              <p className="text-xs  font-bold text-light-text">
+              <p className="text-sm  font-bold text-light-text">
                 {car.transmission}
               </p>
             </div>
             <div className="flex gap-1">
               <Image width={18} height={18} src="/icons/speed.svg" alt="" />
-              <p className="text-xs  font-bold text-light-text">
+              <p className="text-sm  font-bold text-light-text">
                 {mileageFormat(Number(car.mileage))}
               </p>
             </div>

@@ -24,8 +24,7 @@ export default function UsedCars() {
 
   return (
     <main>
-      <div className="h-[240px] w-full bg-cars-hero bg-cover bg-center bg-no-repeat"></div>
-      <Container>
+      <Container className="mt-28">
         <PagePadding>
           <Title.Root>
             <Title.Label label={t("vehicles")} />

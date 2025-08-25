@@ -60,6 +60,12 @@ export const menu: INav[] = [
       url: "/vehicles",
     },
   },
+  {
+    menu: {
+      label: "carrear",
+      url: "/carrear",
+    },
+  },
 
   {
     menu: {
