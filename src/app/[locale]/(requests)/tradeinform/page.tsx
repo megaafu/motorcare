@@ -13,7 +13,7 @@ export default async function Requests() {
   return (
     <>
       <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
-        <h4 className="text-white text-4xl">{t("trade_in")}</h4>
+        <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("trade_in")}</h4>
       </div>
       <Container>
         <PagePadding>

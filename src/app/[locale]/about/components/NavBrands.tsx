@@ -62,7 +62,7 @@ const NavBrands = () => {
         </Title.Root>
         <Row className="lg:grid-cols-2">
           <div>
-            <h4 className="text-bold pb-4 text-2xl text-sky-700">
+            <h4 className="text-bold pb-4 text-2xl text-secundary">
               {AllBrands.brands[selectedIndex].brand}
             </h4>
             <Paragraph>{t(AllBrands.brands[selectedIndex].info)}</Paragraph>

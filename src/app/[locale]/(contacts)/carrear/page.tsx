@@ -10,7 +10,9 @@ export default async function Requests() {
   const t = await getTranslations("Contacts");
   return (
     <>
-      <div className="h-[340px] w-full bg-request-hero bg-cover bg-no-repeat"></div>
+      <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+        <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("carrear")}</h4>
+      </div>
       <Container>
         <PagePadding>
           <Title.Root>

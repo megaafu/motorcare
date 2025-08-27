@@ -31,7 +31,7 @@ export default function About() {
       <main>
         {/* Hero section */}
         <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
-          <h4 className="text-white text-4xl">{t("about")}</h4>
+          <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("about")}</h4>
         </div>
 
         <Container>
@@ -56,14 +56,6 @@ export default function About() {
             </Row>
           </PagePadding>
 
-          {/* According Section */}
-          <PagePadding>
-            <CustomAccording />
-          </PagePadding>
-
-          {/* NavBrands Section */}
-          <NavBrands />
-
           {/* History Section */}
           <PagePadding>
             <div id="Our History" className="flex flex-col">
@@ -75,14 +67,33 @@ export default function About() {
             </div>
           </PagePadding>
 
+          {/* According Section */}
+          <PagePadding>
+            <div id="Our History" className="flex flex-col">
+              <Title.Root>
+                <Title.Label label={t("core_values")} />
+              </Title.Root>
+              <div className="h-10"></div>
+              <CustomAccording />
+            </div>
+          </PagePadding>
+
+          {/* NavBrands Section */}
+          <NavBrands />
+
           {/* Iso Section */}
           <PagePadding>
             <Title.Root>
               <Title.Label label={t(IsoMenu.label)} />
             </Title.Root>
             <Row className="lg:grid-cols-2">
-              <div>
+              <div className="flex flex-col justify-evenly">
                 <Paragraph>{t(Iso.info)}</Paragraph>
+                <a href="/files/policy.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-secundary"
+                >Download</a>
               </div>
               <div className="flex w-full items-center justify-center">
                 <Image

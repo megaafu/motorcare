@@ -52,7 +52,7 @@ const Footer = () => {
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      {term == "politics" ? <a href="/files/policy.pdf"
+                      {term == "policy" ? <a href="/files/policy.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
