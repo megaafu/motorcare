@@ -112,7 +112,7 @@ const Mapp = () => {
   });
 
   const [filteredMarkers, setFilteredMarkers] = useState<Dealer[]>(allMarkers);
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePlaceSelected = (place: any) => {
     if (!place.geometry) return;
 

@@ -68,7 +68,7 @@ const MapWrapper = ({
       map.remove();
       mapRef.current = null;
     };
-  }, [bounds, markers]);
+  }, [bounds, markers, center, zoom]);
 
   useEffect(() => {
     if (mapRef.current) {
