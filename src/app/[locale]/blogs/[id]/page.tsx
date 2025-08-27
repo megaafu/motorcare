@@ -11,7 +11,9 @@ function Blog() {
 
   return (
     <>
-      <div className="h-[440px] w-full bg-hero bg-cover bg-no-repeat"></div>
+      <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+        <h4 className="text-white text-4xl">Blogs</h4>
+      </div>
       <Container>
         <PagePadding>
           <DetailBlog id={Number(blogId)} />

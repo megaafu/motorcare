@@ -112,11 +112,16 @@
     "electrics": "Elétricos"
   },
   "Footer": {
+    "closed": "Fechado",
+    "working_hour": "Horario de Trabalho",
+    "mon-fri": "Seg - Sex",
+    "sat": "Sab",
+    "sun": "Dom",
     "links": "Links Úteis",
     "about": "Sobre Nós",
     "history": "Nossa História",
     "brands": "Nossas Marcas",
-    "legal_terms": "Termos Legais",
+    "policy": "Termos da Política",
     "terms": "Termos e Condições",
     "privacy": "Privacidade",
     "iso": "ISO",

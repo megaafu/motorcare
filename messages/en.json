@@ -7,7 +7,7 @@
     "Vehicles": "Vehicles",
     "Trucks": "Trucks",
     "Electrics": "Electric",
-    "find_cars": "Used Vehicles",
+    "find_cars": "Pre-owned Vehicles",
     "blog": "Blog",
     "all": "All",
     "trending": "Trending",
@@ -112,16 +112,21 @@
     "electrics": "Electric Vehicles"
   },
   "Footer": {
+    "closed": "Closed",
+    "working_hour": "Working Hours",
+    "mon-fri": "Mon - Fri",
+    "sat": "Sat",
+    "sun": "Sun",
     "links": "Useful Links",
     "about": "About Us",
     "history": "Our History",
     "brands": "Our Brands",
-    "legal_terms": "Legal Terms",
+    "policy": "Policy terms",
     "terms": "Terms and Conditions",
     "privacy": "Privacy",
     "iso": "ISO",
     "sugestionform": "Suggestions and Complains",
-    "description": "Motorcare Mozambique is a leading car dealership, part of the KJAER GROUP, providing premium automotive solutions, maintenance, and green mobility in Uganda since 1996."
+    "description": "Motorcare is a leading car dealership, part of the KJAER GROUP, providing premium automotive solutions, maintenance, and green mobility in Mozambique since 1996."
   },
   "Header": {
     "openMenu": "Open Menu",
@@ -129,7 +134,7 @@
     "home": "Home",
     "carrear": "Carrear",
     "about": "About Us",
-    "vehicles": "Used Vehicles",
+    "vehicles": "Pre-owned Vehicles",
     "after_sales": "After Sales",
     "find_dealer": "Find Dealer",
     "parts_accessories": "Request Parts",
@@ -179,7 +184,7 @@
     "accountant": "Accounting & Finance",
     "officine": "Workshop",
     "others": "Others",
-    "carrear": "Career",
+    "carrear": "Carrear",
     "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we’ll reach out to accelerate toward the future together."
   },
   "Vehicles": {

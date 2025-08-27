@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Card, Text, SimpleGrid } from "@mantine/core";
+import { Card, Text, } from "@mantine/core";
 import { AllAcording } from "../../constants/acordings";
 import Row from "@/components/ui/Row";
 
@@ -17,8 +17,9 @@ const CustomCards = () => {
           padding="lg"
           radius="md"
           withBorder
-          className="transition-transform hover:scale-[1.02] hover:shadow-lg"
+          className="transition-transform hover:scale-[1.02] hover:shadow-lg px-5 py-3 bg-primary/10"
         >
+          {<acording.icon />}
           <Text fw={700} size="lg" mb="sm">
             {t(acording.title)}
           </Text>

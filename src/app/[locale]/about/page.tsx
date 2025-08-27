@@ -7,7 +7,7 @@ import Paragraph from "@/components/ui/Paragraph";
 import Row from "@/components/ui/Row";
 import { AboutMenu, HistoryMenu, IsoMenu } from "@/constants/menuData";
 import Image from "next/image";
-import { History, Holding, Iso } from "./constants/data";
+import { Holding, Iso } from "./constants/data";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
@@ -30,7 +30,9 @@ export default function About() {
     return (
       <main>
         {/* Hero section */}
-        <div className="h-[65vh] w-full bg-about-hero bg-cover bg-center bg-no-repeat"></div>
+        <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+          <h4 className="text-white text-4xl">{t("about")}</h4>
+        </div>
 
         <Container>
           {/* Holding Info */}

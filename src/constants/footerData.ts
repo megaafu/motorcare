@@ -1,2 +1,2 @@
-export const links = ["about", "sugestionform"];
-export const terms = ["terms", "privacy", "iso"];
+export const links = ["mon-fri", "sat", "sun"];
+export const terms = ["about", "sugestionform", "policy"];

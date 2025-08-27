@@ -10,7 +10,9 @@ export default async function Requests() {
   const t = await getTranslations("Request");
   return (
     <>
-      <div className="h-[340px] w-full bg-request-hero bg-cover bg-no-repeat"></div>
+      <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+        <h4 className="text-white text-4xl">{t("suggestions")}</h4>
+      </div>
       <Container>
         <PagePadding>
           <Title.Root>

@@ -10,12 +10,20 @@ const CustomTimeLine = () => {
 
   return (
     <div className="max-w-2xl py-6">
-      <Timeline active={Activities.activities.length} bulletSize={32} lineWidth={3}>
+      <Timeline
+        color="#5d5151"
+        active={0}
+        bulletSize={32}
+        lineWidth={3}
+      >
         {Activities.activities.map((event, index) => (
           <Timeline.Item
             key={index}
             bullet={
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+              <div
+                className="flex h-8 w-8 items-center justify-center rounded-full"
+                style={{ backgroundColor: "#5d5151", color: "#fff" }}
+              >
                 <svg
                   aria-hidden="true"
                   className="h-4 w-4"
@@ -31,7 +39,7 @@ const CustomTimeLine = () => {
               </div>
             }
             title={
-              <Text size="sm" c="dimmed">
+              <Text size="sm" style={{ color: "#5d5151" }}>
                 {event.date}
               </Text>
             }
@@ -47,8 +55,16 @@ const CustomTimeLine = () => {
                 shadow="md"
                 radius="md"
                 className="transition-transform hover:scale-[1.02] hover:shadow-lg"
+                style={{
+                  borderColor: "#5d5151",
+                }}
               >
-                <Title size="sm" order={4} mb="xs">
+                <Title
+                  size="sm"
+                  order={4}
+                  mb="xs"
+                  style={{ color: "#5d5151" }}
+                >
                   {t(event.event)}
                 </Title>
               </Card>
@@ -58,7 +74,7 @@ const CustomTimeLine = () => {
       </Timeline>
 
       {Activities.activities.length === 0 && (
-        <Text c="dimmed" mt="lg" ta="center">
+        <Text style={{ color: "#5d5151" }} mt="lg" ta="center">
           No activities available.
         </Text>
       )}

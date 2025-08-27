@@ -3,7 +3,7 @@ import { links, terms } from "@/constants/footerData";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin } from "../icons/Icons";
+import { ClockIcon, Facebook, Instagram, Linkedin } from "../icons/Icons";
 import Container from "../ui/Container";
 import PagePadding from "../ui/PagePadding";
 
@@ -24,19 +24,21 @@ const Footer = () => {
                 height="1080"
                 src="/images/footer-logo.png"
                 alt="MotorCare"
-                className=" h-20 max-w-sm"
+                className=" h-16 w-auto object-contain object-left"
               />
               <p>{t("description")}</p>
             </div>
             <div className="">
-              <h4 className="text-xl font-bold text-white">{t("links")}</h4>
+              <h4 className="text-xl font-bold text-white">{t("working_hour")}</h4>
               <ul className="text-ligth mt-8 text-gray-300 ">
                 {links.map((link, index) => {
                   return (
-                    <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href={link} replace={true}>
-                        {t(link)}
-                      </Link>
+                    <li key={index} className="mt-2 ">
+                      <span className="flex gap-2 items-center">
+                        <ClockIcon />
+                        {`${t(link)}: `}
+                        {link == "mon-fri" ? "7:30 - 16:30" : t("closed")}
+                      </span>
                     </li>
                   );
                 })}
@@ -44,15 +46,22 @@ const Footer = () => {
             </div>
             <div className="">
               <h4 className="text-xl font-bold text-white">
-                {t("legal_terms")}
+                {t("links")}
               </h4>
               <ul className="text-ligth mt-8 text-gray-300 ">
                 {terms.map((term, index) => {
                   return (
                     <li key={index} className="mt-2 hover:text-secundary">
-                      <Link href="/about" replace={true}>
+                      {term == "politics" ? <a href="/files/policy.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {t(term)}
-                      </Link>
+                      </a> :
+                        <Link href={`/${term}`} replace={true}>
+                          {t(term)}
+                        </Link>
+                      }
                     </li>
                   );
                 })}
@@ -101,7 +110,7 @@ const Footer = () => {
           </div>
         </PagePadding>
       </Container>
-    </footer>
+    </footer >
   );
 };
 
