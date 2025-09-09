@@ -23,9 +23,8 @@ const MobileDropdown = ({ label, dropdown }: MobileDropdownProps) => {
       >
         {t(label)}
         <ArrowDown
-          className={`h-3 w-3 transform transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`h-3 w-3 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -62,7 +61,6 @@ interface MobileSubDropdownProps {
 const MobileSubDropdown = ({ label, dropdown }: MobileSubDropdownProps) => {
   const [isSubOpen, setIsSubOpen] = useState(false);
   const t = useTranslations("Header");
-  const locale = useLocale();
 
   return (
     <div>
@@ -72,9 +70,8 @@ const MobileSubDropdown = ({ label, dropdown }: MobileSubDropdownProps) => {
       >
         {t(label)}
         <ArrowDown
-          className={`h-3 w-3 transform transition-transform duration-300 ${
-            isSubOpen ? "rotate-180" : ""
-          }`}
+          className={`h-3 w-3 transform transition-transform duration-300 ${isSubOpen ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -83,7 +80,7 @@ const MobileSubDropdown = ({ label, dropdown }: MobileSubDropdownProps) => {
           {dropdown.map((item) => (
             <Link
               key={item.label}
-              href={`${locale}${item.url}`}
+              href={item.url}
               className="block py-1 text-md text-gray-700 hover:underline"
             >
               {t(item.label)}

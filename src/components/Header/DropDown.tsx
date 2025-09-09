@@ -15,7 +15,6 @@ interface DropDownProps {
 const DropDown = ({ label, dropdown }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Header");
-  const locale = useLocale();
 
   return (
     <div
@@ -47,7 +46,7 @@ const DropDown = ({ label, dropdown }: DropDownProps) => {
               ) : (
                 <li key={item.label}>
                   <Link
-                    href={`${locale}${item.url}`}
+                    href={item.url!}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}
@@ -98,14 +97,14 @@ const SubDropdown = ({ label, dropdown }: SubDropdownProps) => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href={`${item.url}`}
+                    href={item.url}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}
                   </a>
                 ) : (
                   <Link
-                    href={`${locale}${item.url}`}
+                    href={item.url}
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     {t(item.label)}

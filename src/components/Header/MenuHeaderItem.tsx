@@ -51,7 +51,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
         })}
       </ul>
       <Link
-        href={`${locale}${menu[menu.length - 1].menu.url}`}
+        href={`${menu[menu.length - 1].menu.url}`}
         replace={true}
         className="bg-primary px-5 py-2 text-white rounded-full"
       >

@@ -5,8 +5,8 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const languageOptions = [
-  { label: "Pt", link: "pt" },
-  { label: "En", link: "en" },
+  { label: "Pt", value: "pt", flag: "/icons/pt.png" },
+  { label: "En", value: "en", flag: "/icons/en.png" },
 ];
 
 const LanguageSwitcher = () => {
@@ -15,8 +15,8 @@ const LanguageSwitcher = () => {
   const locale = useLocale();
 
   const handleChangeLanguage = (newLocale: string) => {
-    const pathWithoutLocale =
-      pathname.replace(new RegExp(`^/${locale}`), "") || "/";
+    // Remove current locale from pathname
+    const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
     router.push(pathWithoutLocale, { locale: newLocale });
   };
 
@@ -24,20 +24,21 @@ const LanguageSwitcher = () => {
     <div className="flex gap-5">
       {languageOptions.map((option) => (
         <button
-          key={option.link}
-          onClick={() => handleChangeLanguage(option.link)}
-          className={`flex items-center gap-1 text-sm ${
-            locale === option.link
-              ? "font-bold text-primary"
-              : "text-light-text"
-          } hover:text-primary`}
-          aria-label={`Switch to ${option.label}`}
+          key={option.value}
+          onClick={() => handleChangeLanguage(option.value)}
+          className={`flex items-center gap-1 text-sm ${locale === option.value
+            ? "font-bold text-primary"
+            : "text-light-text"
+            } hover:text-primary transition-colors`}
+          aria-label={`Change language to ${option.label}`}
+          aria-pressed={locale === option.value}
         >
           <Image
             width={20}
             height={18}
-            src={`/icons/${option.link}.png`}
+            src={option.flag}
             alt={`${option.label} flag`}
+            className="object-contain"
           />
           {option.label}
         </button>
