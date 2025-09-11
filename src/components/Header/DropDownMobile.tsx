@@ -1,7 +1,7 @@
 "use client";
 
 import { IMenu, IMenuWithSub } from "@/constants/headerData";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations, } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowDown } from "../icons/Icons";

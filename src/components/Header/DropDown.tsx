@@ -1,7 +1,7 @@
 "use client";
 
 import { IMenu, IMenuWithSub } from "@/constants/headerData";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { ArrowDown } from "../icons/Icons";
 import { motion, AnimatePresence } from "framer-motion";
@@ -69,7 +69,6 @@ interface SubDropdownProps {
 const SubDropdown = ({ label, dropdown }: SubDropdownProps) => {
   const [isSubOpen, setIsSubOpen] = useState(false);
   const t = useTranslations("Header");
-  const locale = useLocale();
 
   return (
     <li

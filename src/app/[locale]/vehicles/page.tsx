@@ -1,8 +1,6 @@
 "use client";
 
-import { Title } from "@/components/Title";
 import Container from "@/components/ui/Container";
-import PagePadding from "@/components/ui/PagePadding";
 import useVehicles from "@/hooks/use-vehicles";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
