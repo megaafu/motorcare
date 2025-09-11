@@ -58,17 +58,17 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
           </CardDescription>
           <hr className="border-1 border-[#272424]" />
           <CardSub>
-            <div className="flex gap-1 ">
+            <div className="flex gap-2 ">
               <Image width={18} height={18} src="/icons/gas.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">{car.fuel}</p>
             </div>
-            <div className="flex gap-1 ">
+            <div className="flex gap-2 ">
               <Image width={18} height={18} src="/icons/gearshift.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">
                 {car.transmission}
               </p>
             </div>
-            <div className="flex gap-1">
+            <div className="flex gap-2">
               <Image width={18} height={18} src="/icons/speed.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">
                 {mileageFormat(Number(car.mileage))}

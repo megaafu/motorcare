@@ -41,7 +41,7 @@ const CarList = ({ carsData, isLoading }: CustomPageProps) => {
         <CarsSkeletion key={Math.random()} />
       ) : carsData ? (
         <>
-          <Row className="grid-col-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <Row className="grid-col-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleResults
               .slice(0)
               .reverse()

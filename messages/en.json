@@ -1,5 +1,8 @@
 {
   "Home": {
+    "title": "Move to Green with Motorcare",
+    "content": "It's our ambition to be a green company and move people to green transportation solutions.\n\nOne of our standout initiatives is the introduction of fully electric vehicles across all our brands. In a market where electric vehicles are still emerging, we've been pioneers in bringing this environmentally friendly option through our move to green campaign, reducing the carbon footprint of our offerings.",
+    "button": "Learn About our green initiative",
     "hero-text": "COMMITTED TO MANUFACTURING EXCELLENCE",
     "hero-sub": "Manufacturing with Excellence",
     "presented_vehicles": "Featured Vehicles",
@@ -27,6 +30,7 @@
   },
   "About": {
     "about": "About Us",
+    "info": "Pioneering automotive solutions in Mozambique since 1996",
     "core_values": "What Drives Us",
     "about_info": "Motorcare has been providing automotive services to businesses in Mozambique since 1996.\nAs an authorized distributor of premium brands, Motorcare delivers excellent automotive solutions, including genuine parts and accessories, as well as specialized maintenance and repair services, complemented by a full range of fleet management solutions.\nMotorcare's national presence extends to the cities of Maputo, Beira, Nampula, Pemba, and Moatize.\nMotorcare aims to grow its business profitably and responsibly, promoting social and environmental goals aligned with international standards and certifications.",
     "mission": "Mission",
@@ -61,9 +65,17 @@
     "2023": "Modernization Era",
     "2023-info": "Restructuring and upgrading of Maputo, Beira, and Nampula branches.",
     "certification": "ISO Certification",
-    "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company’s strategic management. This enables improved operational efficiency and Customer Satisfaction."
+    "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company’s strategic management. This enables improved operational efficiency and Customer Satisfaction.",
+    "gallery1": "Early Adventures - 1960s",
+    "gallery2": "Rally Heritage - 1970s",
+    "gallery3": "First Showroom - 1980s",
+    "gallery4": "Modern Excellence - 2020s",
+    "role1": "Commercial & Marketing Director",
+    "role2": "Interim Finance Director",
+    "role3": "Managing Director"
   },
   "Request": {
+    "info": "Pioneering automotive solutions in Mozambique since 1996",
     "quote": "Request a Quote",
     "service": "Book a Service",
     "service_content": "At Motorcare, providing maintenance services — whether preventive or corrective — is a top priority. Our modern workshops are equipped to handle large volumes of vehicles efficiently and with quality.\nYou can count on us for competent and transparent service — that’s how we do business and take care of our customers.\nBook your service with us and ensure the best care for your vehicle.",
@@ -166,11 +178,13 @@
     "trade_in": "Trade-in Vehicles"
   },
   "Whistleblowing": {
+    "info": "Pioneering automotive solutions in Mozambique since 1996",
     "whistleblowing": "Whistleblowing Portal",
     "description": "KJAER GROUP is committed to conducting business with integrity and doing what is right for our customers, colleagues, and society. We encourage everyone who has serious concerns that they wish to report to use our Whistleblowing System, where they can report confidentially and anonymously, if they wish.",
     "report": "Report Here"
   },
   "Contacts": {
+    "info": "Pioneering automotive solutions in Mozambique since 1996",
     "find_dealer": "Find Dealer",
     "address": "Dealer Address",
     "search": "Search",
@@ -195,6 +209,7 @@
     "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we’ll reach out to accelerate toward the future together."
   },
   "Vehicles": {
+    "info": "Pioneering automotive solutions in Mozambique since 1996",
     "vehicles": "All Used Vehicles",
     "brand": "Vehicle Brand",
     "model": "Vehicle Model",

@@ -25,7 +25,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
           const menuItemClasses = classNames(
             "group",
             {
-              "text-primary after:text-primary": isActive,
+              "text-secundary after:text-secundary": isActive,
               "text-light-text after:text-light-text hover:text-primary":
                 !isActive,
             },
@@ -40,9 +40,6 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
                 <Link href={`${menu.url}`} replace={true}>
                   <div className={menuItemClasses}>
                     <span className="mr-4 cursor-pointer">{t(menu.label)}</span>
-                    {isActive && (
-                      <span className="mt-1 block h-0.5 w-3/4 bg-primary" />
-                    )}
                   </div>
                 </Link>
               )}

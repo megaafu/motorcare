@@ -12,7 +12,7 @@ const CarsList = () => {
         <CarsSkeletion />
       ) : data ? (
         <>
-          <Row className="hidden gap-5 lg:grid lg:grid-cols-4">
+          <Row className="hidden gap-5 lg:grid lg:grid-cols-3 xl:grid-cols-4">
             {data
               .slice(0)
               .reverse()

@@ -1,21 +1,16 @@
 "use client";
 
 import { links } from "@/constants/preFooterData";
-import useFooterVisible from "@/hooks/use-footer-visible";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Container from "../ui/Container";
 
 const Prefooter = () => {
   const t = useTranslations("PreFooter");
-  const footerVisible = useFooterVisible();
 
   return (
     <div
-      className={`
-        ${footerVisible ? "relative" : "fixed bottom-0"}
-        z-50 w-full bg-primary transition-all duration-500
-      `}
+      className="z-50 w-full bg-primary transition-all duration-500"
     >
       <Container>
         <ul className="flex content-center justify-between gap-2 whitespace-nowrap py-4 md:grid-cols-3">

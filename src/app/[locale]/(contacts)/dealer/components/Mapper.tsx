@@ -211,9 +211,9 @@ const Mapp = () => {
                 <p>{t("email")}: info@mz.motorcare.com</p>
                 <p>{t("physical")}: {loc.address}</p>
                 <p>{t("working_hour")}:</p>
-                <p className="ml-2">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
-                <p className="ml-2">{t("sat")}: {loc.workingHour["sat"]}</p>
-                <p className="ml-2">{t("sun")}: {loc.workingHour["sun"]}</p>
+                <p >{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
+                <p >{t("sat")}: {loc.workingHour["sat"]}</p>
+                <p >{t("sun")}: {loc.workingHour["sun"]}</p>
               </Accordion.Panel>
             </Accordion.Item>
           ))}

@@ -1,5 +1,8 @@
 {
   "Home": {
+    "title": "Mude para o Verde com a Motorcare",
+    "content": "Temos a ambição de ser uma empresa ecológica e levar as pessoas a adotar soluções de transporte sustentáveis. Uma das nossas iniciativas mais destacadas é a introdução de viaturas 100% elétricas em todas as nossas marcas. Num mercado onde os veículos elétricos ainda estão a dar os primeiros passos, fomos pioneiros ao disponibilizar esta opção amiga do ambiente através da nossa campanha 'Mude para o Verde', reduzindo a pegada de carbono das nossas soluções.",
+    "button": "Conheça a nossa iniciativa verde",
     "hero-text": "COMPROMETIDO COM A EXCELÊNCIA DE FABRICAÇÃO",
     "hero-sub": "Fabricando com Excelência",
     "presented_vehicles": "Veículos Apresentados",
@@ -27,6 +30,7 @@
   },
   "About": {
     "about": "Sobre Nós",
+    "info": "Pioneirando soluções automotivas em Moçambique desde 1996",
     "core_values": "O que nos impulsiona",
     "about_info": "A Motorcare presta serviços automóveis a empresas em Moçambique desde 1996.\nComo distribuidor autorizado de marcas premium, a Motorcare oferece soluções automóveis de excelência, incluindo peças e acessórios, bem como serviços de manutenção e reparação especializados, complementados por uma gama completa de soluções de gestão de frotas.\nA presença da Motorcare a nível nacional estende-se às cidades de Maputo, Beira, Nampula, Pemba e Moatize.\nA Motorcare tem como objectivo desenvolver o seu negócio de forma lucrativa e responsável, promovendo metas sociais e ambientais, alinhadas com normas e certificações internacionais.",
     "mission": "Missão",
@@ -61,9 +65,17 @@
     "2023": "Era da Modernização",
     "2023-info": "Reestruturação e modernização das filiais de Maputo, Beira e Nampula.",
     "certification": "Certificação ISO",
-    "certification_info": "A Motorcare fornece serviços e produtos respeitando padrões internacionais de saúde, segurança, meio ambiente e qualidade. Por isso, possui um Sistema de Gestão Integrado baseado em três normas internacionais: ISO 45001 (Saúde e Segurança), ISO 14001 (Meio Ambiente) e ISO 9001 (Qualidade), que são auditadas anualmente internamente, bem como externamente por uma entidade internacional. A certificação ISO 14001 é uma norma internacional que permite às empresas demonstrar o seu compromisso com a proteção ambiental através da gestão dos riscos ambientais associados à sua atividade. A certificação ISO 9001 visa assegurar uma maior qualidade na entrega de produtos ou serviços, com foco na gestão estratégica da empresa. Assim, é possível melhorar a eficiência operacional e a Satisfação do Cliente."
+    "certification_info": "A Motorcare fornece serviços e produtos respeitando padrões internacionais de saúde, segurança, meio ambiente e qualidade. Por isso, possui um Sistema de Gestão Integrado baseado em três normas internacionais: ISO 45001 (Saúde e Segurança), ISO 14001 (Meio Ambiente) e ISO 9001 (Qualidade), que são auditadas anualmente internamente, bem como externamente por uma entidade internacional. A certificação ISO 14001 é uma norma internacional que permite às empresas demonstrar o seu compromisso com a proteção ambiental através da gestão dos riscos ambientais associados à sua atividade. A certificação ISO 9001 visa assegurar uma maior qualidade na entrega de produtos ou serviços, com foco na gestão estratégica da empresa. Assim, é possível melhorar a eficiência operacional e a Satisfação do Cliente.",
+    "gallery1": "Primeiras Aventuras - Anos 60",
+    "gallery2": "Património em Ralis - Anos 70",
+    "gallery3": "Primeira Sala de Exposições - Anos 80",
+    "gallery4": "Excelência Moderna - Anos 20",
+    "role1": "Diretora Comercial e de Marketing",
+    "role2": "Diretor Financeiro Interino",
+    "role3": "Diretor Geral"
   },
   "Request": {
+    "info": "Pioneirando soluções automotivas em Moçambique desde 1996",
     "quote": "Solicitar Cotação",
     "service": "Agendar Serviço",
     "service_content": "Na Motorcare, a prestação de serviços de manutenção, seja preventiva ou correctiva, é uma prioridade. As nossas oficinas modernas estão preparadas para atender grandes volumes de veículos com eficácia e qualidade.\nPode contar connosco para um service competente e transparente — é assim que fazemos negócios e cuidamos dos nossos clientes.\nAgende o seu serviço connosco e garanta o melhor cuidado para a sua viatura.",
@@ -141,7 +153,7 @@
     "home": "Página Inicial",
     "carrear": "Carreira",
     "about": "Sobre Nós",
-    "vehicles": "Usados",
+    "vehicles": "Veículos Recondicionados",
     "after_sales": "Pós-Venda",
     "find_dealer": "Encontrar Concessionária",
     "parts_accessories": "Requisitar Peças",
@@ -166,11 +178,13 @@
     "trade_in": "Retoma de Veículos"
   },
   "Whistleblowing": {
+    "info": "Pioneirando soluções automotivas em Moçambique desde 1996",
     "whistleblowing": "Portal de Denúncias",
     "description": "O KJAER GROUP está comprometido em conduzir negócios com integridade e fazer o que é certo para nossos clientes, colegas e a sociedade. Encorajamos todos aqueles que têm preocupações sérias que desejam denunciar a fazerem uso do nosso Sistema de Denúncia, onde podem relatar de forma confidencial e anônima, se assim o desejarem.",
     "report": "Reportar Aqui"
   },
   "Contacts": {
+    "info": "Pioneirando soluções automotivas em Moçambique desde 1996",
     "find_dealer": "Encontrar Concessionária",
     "address": "Endereço da Concessionária",
     "search": "Pesquisar",
@@ -195,6 +209,7 @@
     "carrear_info": "Na Motorcare, acreditamos que cada talento traz consigo novas ideias, energia e paixão para crescer connosco.Registe-se através do formulário e partilha o seu percurso connosco. Guardaremos o seu currículo com cuidado e, quando surgir a oportunidade certa, iremos ao seu encontro para juntos acelerarmos rumo ao futuro."
   },
   "Vehicles": {
+    "info": "Pioneirando soluções automotivas em Moçambique desde 1996",
     "vehicles": "Todos os Veículos Usados",
     "brand": "Marca do Veículo",
     "model": "Modelo do Veículo",

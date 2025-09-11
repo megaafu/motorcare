@@ -5,6 +5,8 @@ import { getTranslations } from "next-intl/server";
 import NavBlogs from "./components/Blog/NavBlogs";
 import NavFindCars from "./components/UsedCars/NavFindCars";
 import BannerCarousel from "./components/Banner/BannerCarousel";
+import BrandsCarousel from "./components/BrandCarousel";
+import GreenInitiative from "./components/GreenInitiative";
 
 export default async function Home() {
   const t = await getTranslations("Home");
@@ -14,7 +16,7 @@ export default async function Home() {
       <Container>
         <NavFindCars />
       </Container>
-      <div className="w-full bg-informative bg-cover bg-center bg-no-repeat">
+      <div className="w-full bg-informative bg-cover bg-center mb-12 bg-no-repeat">
         <PagePadding>
           <Container>
             <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap lg:justify-between">
@@ -27,9 +29,11 @@ export default async function Home() {
           </Container>
         </PagePadding>
       </div>
+      <GreenInitiative />
       <Container>
         <NavBlogs />
       </Container>
+      <BrandsCarousel />
     </main>
   );
 }

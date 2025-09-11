@@ -11,8 +11,9 @@ export default async function Requests() {
   return (
     <>
 
-      <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+      <div className="h-[30lvh] w-full bg-[#303136] flex flex-col gap-5 justify-center items-center">
         <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("test_drive")}</h4>
+        <p className="text-white ">{t("info")}</p>
       </div>
       <Container>
         <PagePadding>

@@ -10,6 +10,9 @@ import Image from "next/image";
 import { Holding, Iso } from "./constants/data";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
+import TeamMemberCard from "./components/ui/TeamMemberCard";
+import { team } from "./constants/team";
+import HeritageGallery from "./components/ui/HeritageGallery";
 
 const CustomAccording = dynamic(() => import("./components/ui/According"), {
   ssr: false,
@@ -30,8 +33,9 @@ export default function About() {
     return (
       <main>
         {/* Hero section */}
-        <div className="h-[30lvh] w-full bg-[#303136] flex flex-col justify-center items-center">
+        <div className="h-[30lvh] w-full bg-[#303136] flex flex-col gap-5 justify-center items-center">
           <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("about")}</h4>
+          <p className="text-white ">{t("info")}</p>
         </div>
 
         <Container>
@@ -40,20 +44,8 @@ export default function About() {
             <Title.Root>
               <Title.Label label={t(AboutMenu.label)} />
             </Title.Root>
-            <Row className="lg:grid-cols-2">
-              <div>
-                <Paragraph>{t(Holding.info)}</Paragraph>
-              </div>
-              <div className="hidden w-full items-center justify-center lg:flex">
-                <Image
-                  width={1000}
-                  height={1000}
-                  className="h-full w-full rounded-2xl"
-                  src="/images/about.JPG"
-                  alt="img"
-                />
-              </div>
-            </Row>
+            <Paragraph>{t(Holding.info)}</Paragraph>
+            <HeritageGallery />
           </PagePadding>
 
           {/* History Section */}
@@ -75,6 +67,22 @@ export default function About() {
               </Title.Root>
               <div className="h-10"></div>
               <CustomAccording />
+            </div>
+          </PagePadding>
+
+          <PagePadding>
+            <Title.Root >
+              <Title.Label label=" Meet Our Team" />
+            </Title.Root>
+            <div className="flex flex-wrap gap-6 px-4">
+              {team.map((member) => (
+                <TeamMemberCard
+                  key={member.name}
+                  name={member.name}
+                  role={member.role}
+                  photo={member.photo}
+                />
+              ))}
             </div>
           </PagePadding>
 
