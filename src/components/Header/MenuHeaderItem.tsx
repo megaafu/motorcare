@@ -13,13 +13,12 @@ interface MenuProps {
 
 const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
   const pathName = usePathname();
-
   const t = useTranslations("Header");
   const locale = useLocale();
 
   return (
-    <>
-      <ul className="relative mt-4 flex items-center py-4 md:mt-0 gap-6">
+    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+      <ul className="flex flex-col md:flex-row items-center py-2 md:py-0 gap-4 md:gap-6">
         {menu.slice(0, menu.length - 1).map(({ menu, dropdown }) => {
           const isActive = pathName === "/" + locale + menu.url;
           const menuItemClasses = classNames(
@@ -29,7 +28,7 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
               "text-light-text after:text-light-text hover:text-primary":
                 !isActive,
             },
-            "transition duration-300 ease-in-out "
+            "transition duration-300 ease-in-out"
           );
 
           return (
@@ -39,7 +38,9 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
               ) : (
                 <Link href={`${menu.url}`} replace={true}>
                   <div className={menuItemClasses}>
-                    <span className="mr-4 cursor-pointer">{t(menu.label)}</span>
+                    <span className="cursor-pointer whitespace-nowrap">
+                      {t(menu.label)}
+                    </span>
                   </div>
                 </Link>
               )}
@@ -50,11 +51,11 @@ const MenuHeaderItem: React.FC<MenuProps> = ({ menu }) => {
       <Link
         href={`${menu[menu.length - 1].menu.url}`}
         replace={true}
-        className="bg-primary px-5 py-2 text-white rounded-full"
+        className="bg-primary px-4 py-2 text-white rounded-full whitespace-nowrap text-sm md:text-base"
       >
         {t(menu[menu.length - 1].menu.label)}
       </Link>
-    </>
+    </div>
   );
 };
 

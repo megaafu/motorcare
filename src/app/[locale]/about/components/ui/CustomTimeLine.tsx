@@ -9,24 +9,25 @@ const CustomTimeLine = () => {
   const t = useTranslations("About");
 
   return (
-    <div className="max-w-2xl py-6">
+    <div className="w-full max-w-4xl mx-auto py-4 md:py-6 px-4">
       <Timeline
         color="#F8B067"
         active={0}
-        bulletSize={32}
-        lineWidth={3}
+        bulletSize={28}
+        lineWidth={2}
+        className="w-full"
       >
         {Activities.activities.map((event, index) => (
           <Timeline.Item
             key={index}
             bullet={
               <div
-                className="flex h-8 w-8 items-center justify-center rounded-full"
+                className="flex h-7 w-7 items-center justify-center rounded-full"
                 style={{ backgroundColor: "#F8B067", color: "#fff" }}
               >
                 <svg
                   aria-hidden="true"
-                  className="h-4 w-4"
+                  className="h-3 w-3"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -39,7 +40,7 @@ const CustomTimeLine = () => {
               </div>
             }
             title={
-              <Text size="sm" style={{ color: "#355C7D" }}>
+              <Text size="xs" style={{ color: "#355C7D" }} className="font-medium">
                 {event.date}
               </Text>
             }
@@ -48,15 +49,16 @@ const CustomTimeLine = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
             >
               <Card
                 withBorder
-                shadow="md"
+                shadow="sm"
                 radius="md"
-                className="transition-transform hover:scale-[1.02] hover:shadow-lg"
+                className="transition-transform hover:scale-[1.01] hover:shadow-md p-3 md:p-4"
                 style={{
                   borderColor: "#F8B067",
+                  borderWidth: "1px",
                 }}
               >
                 <Title
@@ -64,10 +66,13 @@ const CustomTimeLine = () => {
                   order={4}
                   mb="xs"
                   style={{ color: "#355C7D" }}
+                  className="text-sm md:text-base font-semibold"
                 >
                   {t(event.event)}
                 </Title>
-                <Text>{t(event.info)}</Text>
+                <Text size="sm" className="text-xs md:text-sm">
+                  {t(event.info)}
+                </Text>
               </Card>
             </motion.div>
           </Timeline.Item>
@@ -75,7 +80,7 @@ const CustomTimeLine = () => {
       </Timeline>
 
       {Activities.activities.length === 0 && (
-        <Text style={{ color: "#F8B067" }} mt="lg" ta="center">
+        <Text style={{ color: "#F8B067" }} mt="lg" ta="center" size="sm">
           No activities available.
         </Text>
       )}
@@ -84,4 +89,3 @@ const CustomTimeLine = () => {
 };
 
 export default CustomTimeLine;
-

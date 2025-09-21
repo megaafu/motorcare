@@ -31,50 +31,53 @@ export default function About() {
   try {
     const t = useTranslations("About");
     return (
-      <main>
+      <main className="pt-16"> {/* Added padding to account for fixed header */}
         {/* Hero section */}
-        <div className="h-[30lvh] w-full bg-[#303136] flex flex-col gap-5 justify-center items-center">
-          <h4 className="mt-12 md:mt-20 text-white text-4xl">{t("about")}</h4>
-          <p className="text-white ">{t("info")}</p>
+        <div className="h-[30vh] min-h-[250px] w-full bg-[#303136] flex flex-col gap-4 justify-center items-center text-center px-4">
+          <h4 className="text-white text-3xl md:text-4xl font-medium">{t("about")}</h4>
+          <p className="text-white text-sm md:text-base max-w-2xl">{t("info")}</p>
         </div>
 
         <Container>
           {/* Holding Info */}
-          <PagePadding>
+          <PagePadding className="py-6 md:py-8">
             <Title.Root>
               <Title.Label label={t(AboutMenu.label)} />
             </Title.Root>
-            <Paragraph>{t(Holding.info)}</Paragraph>
-            <HeritageGallery />
+            <Paragraph className="mt-4">{t(Holding.info)}</Paragraph>
+            <div className="mt-6">
+              <HeritageGallery />
+            </div>
           </PagePadding>
 
           {/* History Section */}
-          <PagePadding>
+          <PagePadding className="py-6 md:py-8">
             <div id="Our History" className="flex flex-col">
               <Title.Root>
                 <Title.Label label={t(HistoryMenu.label)} />
               </Title.Root>
-              <div className="h-10"></div>
+              <div className="h-6 md:h-10"></div>
               <CustomTimeLine />
             </div>
           </PagePadding>
 
           {/* According Section */}
-          <PagePadding>
+          <PagePadding className="py-6 md:py-8">
             <div id="Our History" className="flex flex-col">
               <Title.Root>
                 <Title.Label label={t("core_values")} />
               </Title.Root>
-              <div className="h-10"></div>
+              <div className="h-6 md:h-10"></div>
               <CustomAccording />
             </div>
           </PagePadding>
 
-          <PagePadding>
-            <Title.Root >
-              <Title.Label label=" Meet Our Team" />
+          {/* Team Section */}
+          <PagePadding className="py-6 md:py-8">
+            <Title.Root>
+              <Title.Label label={t("team")} />
             </Title.Root>
-            <div className="flex flex-wrap gap-6 px-4">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-2 md:px-4">
               {team.map((member) => (
                 <TeamMemberCard
                   key={member.name}
@@ -87,29 +90,35 @@ export default function About() {
           </PagePadding>
 
           {/* NavBrands Section */}
-          <NavBrands />
+          <div className="py-6 md:py-8">
+            <NavBrands />
+          </div>
 
           {/* Iso Section */}
-          <PagePadding>
+          <PagePadding className="py-6 md:py-8">
             <Title.Root>
               <Title.Label label={t(IsoMenu.label)} />
             </Title.Root>
-            <Row className="lg:grid-cols-2">
-              <div className="flex flex-col justify-evenly">
+            <Row className="mt-6 flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8">
+              <div className="flex flex-col justify-center gap-4">
                 <Paragraph>{t(Iso.info)}</Paragraph>
-                <a href="/files/policy.pdf"
+                <a 
+                  href="/files/policy.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-secundary"
-                >Download</a>
+                  className="underline hover:text-secundary text-sm md:text-base inline-block mt-2"
+                >
+                  Download
+                </a>
               </div>
               <div className="flex w-full items-center justify-center">
                 <Image
-                  width={1000}
-                  height={1000}
-                  className=" h-fit bg-cover"
+                  width={500}
+                  height={500}
+                  className="h-auto w-full max-w-md object-contain p-4 md:p-11"
                   src="/images/iso.jpg"
-                  alt="img"
+                  alt="ISO certification"
+                  priority={false}
                 />
               </div>
             </Row>
@@ -119,6 +128,6 @@ export default function About() {
     );
   } catch (error) {
     console.error("Error in About page:", error);
-    throw error; // rethrow so the build fails, but with clear info
+    throw error;
   }
 }

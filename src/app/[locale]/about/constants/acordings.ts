@@ -20,14 +20,14 @@ const Mission: IAcordingItem = {
   id: 1,
   title: "mission",
   icon: MissionIcon,
-  description: ["mission_description"],
+  description: ["mission_description1", "mission_description2",],
 };
 
 const Vision: IAcordingItem = {
   id: 2,
   title: "vision",
   icon: VisionIcon,
-  description: ["vision_description"],
+  description: ["vision_description",],
 };
 
 const Values: IAcordingItem = {

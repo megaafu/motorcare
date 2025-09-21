@@ -5,9 +5,9 @@ interface Team {
 }
 export const team: Team[] = [
   {
-    name: "Rehana Ishakgi ",
-    role: "role1",
-    photo: "/images/rehana.jpg",
+    name: "Ivan Buzi",
+    role: "role3",
+    photo: "/images/ivan.png",
   },
   {
     name: "Joaquim Nhantumbo",
@@ -15,8 +15,8 @@ export const team: Team[] = [
     photo: "/images/joaquim.jpg",
   },
   {
-    name: "Ivan Buzi",
-    role: "role3",
-    photo: "/images/ivan.png",
+    name: "Rehana Ishakgi ",
+    role: "role1",
+    photo: "/images/rehana.jpg",
   },
 ];

@@ -11,8 +11,8 @@ const Header: React.FC = () => {
   return (
     <header className="fixed left-0 top-0 z-[1200] w-full shadow-2xl lg:absolute">
       <nav className="border-gray-200 bg-white">
-        <Container className="container">
-          <div className="flex flex-wrap items-center justify-between md:py-4">
+        <div className="w-full mx-auto px-5 md:p7 lg:px-10 xl:container">
+          <div className="flex flex-wrap items-center justify-between py-3 md:py-4">
             <Link href="/home">
               <div className="flex items-center">
                 <Image
@@ -20,21 +20,24 @@ const Header: React.FC = () => {
                   height={381}
                   src="/images/logo.png"
                   alt="MotorCare"
-                  className=" h-10 w-auto "
+                  className="h-8 w-auto xl:h-10 flex-grow"
+                  priority
                 />
               </div>
             </Link>
-            <div className="hidden items-center md:order-2 lg:flex">
-              <LanguageSwitcher />
+            <div className="flexd items-center md:order-2">
+              <div className="hidden lg:block">
+                <LanguageSwitcher />
+              </div>
+              <div className="ml-4 lg:hidden">
+                <MobileMenu menu={menu} />
+              </div>
             </div>
-            <div className="hidden w-full items-center justify-between md:order-1 md:w-auto lg:flex">
+            <div className="hidden w-full md:order-1 md:block md:w-auto lg:flex lg:items-center lg:justify-between">
               <MenuHeaderItem menu={menu} />
             </div>
-            <div className="flex w-auto md:order-1 lg:hidden">
-              <MobileMenu menu={menu} />
-            </div>
           </div>
-        </Container>
+        </div>
       </nav>
     </header>
   );
