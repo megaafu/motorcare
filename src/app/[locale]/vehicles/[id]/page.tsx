@@ -108,12 +108,6 @@ export default function VehicleDetailsPage() {
                       {vehicle.mileage.toLocaleString()} km
                     </p>
                   </div>
-                  <div className="rounded-xl bg-gray-50 p-4">
-                    <p className="text-gray-600">{t("licensePlate")}</p>
-                    <p className="text-2xl font-bold text-gray-900">
-                      {vehicle.license_plate}
-                    </p>
-                  </div>
                 </div>
               </motion.div>
             </div>

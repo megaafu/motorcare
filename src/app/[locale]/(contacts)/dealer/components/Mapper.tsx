@@ -2,13 +2,13 @@
 
 import { Accordion } from "@mantine/core";
 import { IconPlus, IconSearch } from "@tabler/icons-react";
-import "leaflet/dist/leaflet.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Autocomplete from "react-google-autocomplete";
 import { useTranslations } from "next-intl";
+import { LoadScript } from "@react-google-maps/api";
 import MapWrapper from "./MapWrapper";
 
-interface PlaceCordinate {
+interface PlaceCoordinate {
   name: string | undefined;
   lat: number;
   lng: number;
@@ -28,14 +28,24 @@ interface Dealer {
   };
 }
 
-const MOZ_BOUNDS: [[number, number], [number, number]] = [
-  [-26.9, 30.2],
-  [-10.3, 41.5],
-];
+interface MapMarker {
+  position: { lat: number; lng: number };
+  iconUrl: string;
+  iconSize: { width: number; height: number };
+  popupContent: string;
+}
 
 const Mapp = () => {
   const t = useTranslations("Contacts");
   const GOOGLE_MAPS_API_KEY = "AIzaSyAD-sDFj__5UcpWyxXU-VuxgqFK3XtVwC8";
+
+  // Mozambique bounds for Google Maps
+  const MOZ_BOUNDS = {
+    north: -10.3,
+    east: 41.5,
+    south: -26.9,
+    west: 30.2,
+  };
 
   const allMarkers: Dealer[] = [
     {
@@ -105,18 +115,26 @@ const Mapp = () => {
     },
   ];
 
-  const [location, setLocation] = useState<PlaceCordinate>({
+  const [location, setLocation] = useState<PlaceCoordinate>({
     lat: -25.964677970962004,
     lng: 32.56043422890941,
     name: "Maputo",
   });
 
   const [filteredMarkers, setFilteredMarkers] = useState<Dealer[]>(allMarkers);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handlePlaceSelected = (place: any) => {
-    if (!place.geometry) return;
+  const [isGoogleMapsLoaded, setIsGoogleMapsLoaded] = useState(false);
 
-    const searchPlace: PlaceCordinate = {
+  useEffect(() => {
+    // Check if Google Maps API is already loaded
+    if (typeof window !== 'undefined' && window.google && window.google.maps) {
+      setIsGoogleMapsLoaded(true);
+    }
+  }, []);
+
+  const handlePlaceSelected = (place: google.maps.places.PlaceResult) => {
+    if (!place.geometry || !place.geometry.location) return;
+
+    const searchPlace: PlaceCoordinate = {
       name: place.formatted_address,
       lat: place.geometry.location.lat(),
       lng: place.geometry.location.lng(),
@@ -156,83 +174,116 @@ const Mapp = () => {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   };
 
-  const mapMarkers = filteredMarkers.map((dealer) => ({
-    position: [dealer.lat, dealer.lng] as [number, number],
+  const handleMarkerClick = (marker: MapMarker) => {
+    console.log("Marker clicked:", marker);
+  };
+
+  const mapMarkers: MapMarker[] = filteredMarkers.map((dealer) => ({
+    position: { lat: dealer.lat, lng: dealer.lng },
     iconUrl: "/images/location.svg",
-    iconSize: [28, 28] as [number, number],
+    iconSize: { width: 28, height: 28 },
     popupContent: `
       <div class="p-2">
-        <p class="font-bold">${dealer.description}</p>
-        <p>${dealer.address}</p>
-        <p>${t("phone")}: ${dealer.phone}</p>
-        <p>${t("email")}: info@mz.motorcare.com</p>
+        <p class="font-bold text-sm">${dealer.description}</p>
+        <p class="text-xs">${dealer.address}</p>
+        <p class="text-xs">${t("phone")}: ${dealer.phone}</p>
+        <p class="text-xs">${t("email")}: info@mz.motorcare.com</p>
       </div>
     `,
   }));
 
   return (
-    <div className="mb-5 flex lg:h-[calc(100lvh-80px)] overflow-y-scroll gap-5 flex-col lg:flex-row">
-      {/* Sidebar */}
-      <div
-        className="w-full order-2 sm:order-1 bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
-        onWheel={(e) => e.stopPropagation()}
-      >
-        <p className="mb-4 text-xl font-bold lg:text-2xl">
-          {t("find_dealer")}
-        </p>
-
-        <form className="mb-6 space-y-4">
-          <div className="relative">
-            <Autocomplete
-              className="w-full border px-10 py-3 lg:py-4 pl-10"
-              placeholder={t("address")}
-              apiKey={GOOGLE_MAPS_API_KEY}
-              onPlaceSelected={handlePlaceSelected}
-            />
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-              <IconSearch size={20} />
-            </div>
-          </div>
-        </form>
-        <Accordion
-          multiple={false}
-          variant="separated"
-          className="space-y-4 lg:space-y-6"
-          chevron={<IconPlus size="1rem" />}
-          styles={{
-            chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
-          }}
+    <LoadScript
+      googleMapsApiKey={GOOGLE_MAPS_API_KEY}
+      libraries={["places"]}
+      onLoad={() => setIsGoogleMapsLoaded(true)}
+    >
+      <div className="mb-5 flex lg:h-[calc(100lvh-80px)] overflow-y-scroll gap-5 flex-col lg:flex-row">
+        {/* Sidebar */}
+        <div
+          className="w-full order-2 sm:order-1 bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
+          onWheel={(e) => e.stopPropagation()}
         >
-          {filteredMarkers.map((loc, index) => (
-            <Accordion.Item key={`${loc.name}${index}`} value={loc.name}>
-              <Accordion.Control>{loc.name.toUpperCase()}</Accordion.Control>
-              <Accordion.Panel className="space-y-2 bg-slate-200 pt-2 ">
-                <p>{t("phone")}: {loc.phone}</p>
-                <p>{t("email")}: info@mz.motorcare.com</p>
-                <p>{t("physical")}: {loc.address}</p>
-                <p>{t("working_hour")}:</p>
-                <p >{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
-                <p >{t("sat")}: {loc.workingHour["sat"]}</p>
-                <p >{t("sun")}: {loc.workingHour["sun"]}</p>
-              </Accordion.Panel>
-            </Accordion.Item>
-          ))}
-        </Accordion>
-      </div>
+          <p className="mb-4 text-xl font-bold lg:text-2xl">
+            {t("find_dealer")}
+          </p>
 
-      {/* Map */}
-      <div className="h-full order-1 sm:order-2 flex-1">
-        <MapWrapper
-          center={[location.lat, location.lng]}
-          zoom={5}
-          markers={mapMarkers}
-          bounds={MOZ_BOUNDS}
-          className="border border-gray-200"
-        />
+          <form className="mb-6 space-y-4">
+            <div className="relative">
+              <Autocomplete
+                className="w-full border px-10 py-3 lg:py-4 pl-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={t("address")}
+                apiKey={undefined}
+                onPlaceSelected={handlePlaceSelected}
+                options={{
+                  types: ["address"],
+                  componentRestrictions: { country: "mz" },
+                }}
+              />
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <IconSearch size={20} />
+              </div>
+            </div>
+          </form>
+          
+
+
+          <Accordion
+            multiple={false}
+            variant="separated"
+            className="space-y-4 lg:space-y-6"
+            chevron={<IconPlus size="1rem" />}
+            styles={{
+              chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
+            }}
+          >
+            {filteredMarkers.map((loc, index) => (
+              <Accordion.Item key={`${loc.name}${index}`} value={loc.name}>
+                <Accordion.Control>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">{loc.name.toUpperCase()}</span>
+                    <span className="text-xs text-gray-500">
+                      {getDistance(location.lat, location.lng, loc.lat, loc.lng).toFixed(0)}km
+                    </span>
+                  </div>
+                </Accordion.Control>
+                <Accordion.Panel className="space-y-2 bg-slate-100 p-4 rounded-b-md">
+                  <p className="font-semibold">{loc.description}</p>
+                  <p className="text-sm">{loc.address}</p>
+                  <p className="text-sm">{t("phone")}: {loc.phone}</p>
+                  <p className="text-sm">{t("email")}: info@mz.motorcare.com</p>
+                  <div className="mt-3 pt-2 border-t border-gray-200">
+                    <p className="text-sm font-medium">{t("working_hour")}:</p>
+                    <p className="text-sm">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
+                    <p className="text-sm">{t("sat")}: {loc.workingHour["sat"]}</p>
+                    <p className="text-sm">{t("sun")}: {loc.workingHour["sun"]}</p>
+                  </div>
+                </Accordion.Panel>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+
+          {filteredMarkers.length === 0 && (
+            <div className="text-center py-8 text-gray-500">
+              <p>{t("no_dealers_nearby")}</p>
+              <p className="text-sm mt-2">{t("showing_all_dealers")}</p>
+            </div>
+          )}
+        </div>
+
+        {/* Map */}
+        <div className="h-full order-1 sm:order-2 flex-1">
+          <MapWrapper
+            center={{ lat: location.lat, lng: location.lng }}
+            zoom={filteredMarkers.length === 1 ? 16 : 6}
+            markers={mapMarkers}
+            bounds={MOZ_BOUNDS}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
       </div>
-    </div>
+    </LoadScript>
   );
 };
 
 export default Mapp;
-
