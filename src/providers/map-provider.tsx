@@ -1,25 +1,54 @@
+// components/GoogleMapsProvider.tsx
 'use client';
 
-// Import necessary modules and functions from external libraries and our own project
-import { Libraries, useJsApiLoader } from '@react-google-maps/api';
-import { ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 
-// Define a list of libraries to load from the Google Maps API
-const libraries = ['places', 'drawing', 'geometry'];
+declare global {
+  interface Window {
+    googleMapsLoaded: boolean;
+    googleMapsCallback?: () => void;
+  }
+}
 
-// Define a function component called MapProvider that takes a children prop
-export function MapProvider({ children }: { children: ReactNode }) {
+export default function GoogleMapsProvider({ children }: { children: React.ReactNode }) {
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load the Google Maps JavaScript API asynchronously
-  const { isLoaded: scriptLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API as string,
-    libraries: libraries as Libraries,
-  });
+  useEffect(() => {
+    // Check if already loaded
+    if (window.google && window.google.maps) {
+      setIsLoaded(true);
+      return;
+    }
 
-  if(loadError) return <p>Encountered error while loading google maps</p>
+    // Check if already loading
+    if (window.googleMapsLoaded) {
+      return;
+    }
 
-  if(!scriptLoaded) return <p>Map Script is loading ...</p>
+    const loadGoogleMaps = () => {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-sDFj__5UcpWyxXU-VuxgqFK3XtVwC8&libraries=places&callback=googleMapsCallback`;
+      script.async = true;
+      script.defer = true;
 
-  // Return the children prop wrapped by this MapProvider component
-  return children;
+      window.googleMapsCallback = () => {
+        setIsLoaded(true);
+        window.googleMapsLoaded = true;
+      };
+
+      document.head.appendChild(script);
+    };
+
+    loadGoogleMaps();
+  }, []);
+
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-lg">Loading map...</div>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
 }

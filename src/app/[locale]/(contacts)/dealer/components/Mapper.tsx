@@ -5,7 +5,6 @@ import { IconPlus, IconSearch } from "@tabler/icons-react";
 import { useState, useEffect } from "react";
 import Autocomplete from "react-google-autocomplete";
 import { useTranslations } from "next-intl";
-import { LoadScript } from "@react-google-maps/api";
 import MapWrapper from "./MapWrapper";
 
 interface PlaceCoordinate {
@@ -123,12 +122,35 @@ const Mapp = () => {
 
   const [filteredMarkers, setFilteredMarkers] = useState<Dealer[]>(allMarkers);
   const [isGoogleMapsLoaded, setIsGoogleMapsLoaded] = useState(false);
+  const [closestDealer, setClosestDealer] = useState<Dealer | null>(null);
 
   useEffect(() => {
-    // Check if Google Maps API is already loaded
-    if (typeof window !== 'undefined' && window.google && window.google.maps) {
-      setIsGoogleMapsLoaded(true);
-    }
+    const checkGoogleMaps = () => {
+      if (typeof window !== 'undefined' && window.google && window.google.maps) {
+        setIsGoogleMapsLoaded(true);
+        return true;
+      }
+      return false;
+    };
+
+    // Check immediately
+    if (checkGoogleMaps()) return;
+
+    // If not loaded, check every 100ms for up to 5 seconds
+    const interval = setInterval(() => {
+      if (checkGoogleMaps()) {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   const handlePlaceSelected = (place: google.maps.places.PlaceResult) => {
@@ -142,18 +164,34 @@ const Mapp = () => {
 
     setLocation(searchPlace);
 
-    // Filter markers based on proximity (within ~300km radius)
-    const filtered = allMarkers.filter((marker) => {
+    // Find the closest dealer
+    let closest: Dealer | null = null;
+    let minDistance = Infinity;
+
+    allMarkers.forEach((dealer) => {
       const distance = getDistance(
         searchPlace.lat,
         searchPlace.lng,
-        marker.lat,
-        marker.lng
+        dealer.lat,
+        dealer.lng
       );
-      return distance <= 300; // kilometers
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = dealer;
+      }
     });
 
-    setFilteredMarkers(filtered.length > 0 ? filtered : allMarkers);
+    setClosestDealer(closest);
+
+    // Show all dealers but highlight the closest one by sorting
+    const sortedMarkers = [...allMarkers].sort((a, b) => {
+      const distanceA = getDistance(searchPlace.lat, searchPlace.lng, a.lat, a.lng);
+      const distanceB = getDistance(searchPlace.lat, searchPlace.lng, b.lat, b.lng);
+      return distanceA - distanceB;
+    });
+
+    setFilteredMarkers(sortedMarkers);
   };
 
   // Haversine Formula for distance in kilometers
@@ -180,109 +218,125 @@ const Mapp = () => {
 
   const mapMarkers: MapMarker[] = filteredMarkers.map((dealer) => ({
     position: { lat: dealer.lat, lng: dealer.lng },
-    iconUrl: "/images/location.svg",
-    iconSize: { width: 28, height: 28 },
+    iconUrl: dealer === closestDealer ? "/images/location-active.svg" : "/images/location.svg",
+    iconSize: { width: dealer === closestDealer ? 35 : 28, height: dealer === closestDealer ? 35 : 28 },
     popupContent: `
       <div class="p-2">
-        <p class="font-bold text-sm">${dealer.description}</p>
+        <p class="font-bold text-sm">${dealer.description} ${dealer === closestDealer ? '<span class="text-green-600">(Closest)</span>' : ''}</p>
         <p class="text-xs">${dealer.address}</p>
         <p class="text-xs">${t("phone")}: ${dealer.phone}</p>
         <p class="text-xs">${t("email")}: info@mz.motorcare.com</p>
+        <p class="text-xs text-green-600">Distance: ${getDistance(location.lat, location.lng, dealer.lat, dealer.lng).toFixed(1)}km</p>
       </div>
     `,
   }));
 
-  return (
-    <LoadScript
-      googleMapsApiKey={GOOGLE_MAPS_API_KEY}
-      libraries={["places"]}
-      onLoad={() => setIsGoogleMapsLoaded(true)}
-    >
-      <div className="mb-5 flex lg:h-[calc(100lvh-80px)] overflow-y-scroll gap-5 flex-col lg:flex-row">
-        {/* Sidebar */}
-        <div
-          className="w-full order-2 sm:order-1 bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
-          onWheel={(e) => e.stopPropagation()}
-        >
-          <p className="mb-4 text-xl font-bold lg:text-2xl">
-            {t("find_dealer")}
-          </p>
-
-          <form className="mb-6 space-y-4">
-            <div className="relative">
-              <Autocomplete
-                className="w-full border px-10 py-3 lg:py-4 pl-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("address")}
-                apiKey={undefined}
-                onPlaceSelected={handlePlaceSelected}
-                options={{
-                  types: ["address"],
-                  componentRestrictions: { country: "mz" },
-                }}
-              />
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <IconSearch size={20} />
-              </div>
-            </div>
-          </form>
-          
-
-
-          <Accordion
-            multiple={false}
-            variant="separated"
-            className="space-y-4 lg:space-y-6"
-            chevron={<IconPlus size="1rem" />}
-            styles={{
-              chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
-            }}
-          >
-            {filteredMarkers.map((loc, index) => (
-              <Accordion.Item key={`${loc.name}${index}`} value={loc.name}>
-                <Accordion.Control>
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium">{loc.name.toUpperCase()}</span>
-                    <span className="text-xs text-gray-500">
-                      {getDistance(location.lat, location.lng, loc.lat, loc.lng).toFixed(0)}km
-                    </span>
-                  </div>
-                </Accordion.Control>
-                <Accordion.Panel className="space-y-2 bg-slate-100 p-4 rounded-b-md">
-                  <p className="font-semibold">{loc.description}</p>
-                  <p className="text-sm">{loc.address}</p>
-                  <p className="text-sm">{t("phone")}: {loc.phone}</p>
-                  <p className="text-sm">{t("email")}: info@mz.motorcare.com</p>
-                  <div className="mt-3 pt-2 border-t border-gray-200">
-                    <p className="text-sm font-medium">{t("working_hour")}:</p>
-                    <p className="text-sm">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
-                    <p className="text-sm">{t("sat")}: {loc.workingHour["sat"]}</p>
-                    <p className="text-sm">{t("sun")}: {loc.workingHour["sun"]}</p>
-                  </div>
-                </Accordion.Panel>
-              </Accordion.Item>
-            ))}
-          </Accordion>
-
-          {filteredMarkers.length === 0 && (
-            <div className="text-center py-8 text-gray-500">
-              <p>{t("no_dealers_nearby")}</p>
-              <p className="text-sm mt-2">{t("showing_all_dealers")}</p>
-            </div>
-          )}
-        </div>
-
-        {/* Map */}
-        <div className="h-full order-1 sm:order-2 flex-1">
-          <MapWrapper
-            center={{ lat: location.lat, lng: location.lng }}
-            zoom={filteredMarkers.length === 1 ? 16 : 6}
-            markers={mapMarkers}
-            bounds={MOZ_BOUNDS}
-            className="border border-gray-200 rounded-lg"
-          />
-        </div>
+  if (!isGoogleMapsLoaded) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-lg">Loading map...</div>
       </div>
-    </LoadScript>
+    );
+  }
+
+  return (
+    <div className="mb-5 flex lg:h-[calc(100lvh-80px)] overflow-y-scroll gap-5 flex-col lg:flex-row">
+      {/* Sidebar */}
+      <div
+        className="w-full order-2 sm:order-1 bg-white p-4 shadow-md lg:h-full lg:w-[400px] lg:min-w-[300px] lg:max-w-[500px] lg:p-8"
+        onWheel={(e) => e.stopPropagation()}
+      >
+        <p className="mb-4 text-xl font-bold lg:text-2xl">
+          {t("find_dealer")}
+        </p>
+
+        <form className="mb-6 space-y-4">
+          <div className="relative">
+            <Autocomplete
+              className="w-full border px-10 py-3 lg:py-4 pl-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder={t("address")}
+              apiKey={GOOGLE_MAPS_API_KEY}
+              onPlaceSelected={handlePlaceSelected}
+              options={{
+                types: ["geocode", "establishment"],
+                componentRestrictions: { country: "mz" },
+                bounds: MOZ_BOUNDS,
+                strictBounds: true,
+              }}
+            />
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <IconSearch size={20} />
+            </div>
+          </div>
+        </form>
+
+        {closestDealer && (
+          <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+            <p className="font-bold text-green-800 text-sm mb-2">
+              {t("closest_dealer")}:
+            </p>
+            <p className="font-semibold text-green-700">{closestDealer.description}</p>
+            <p className="text-xs text-green-600">{closestDealer.address}</p>
+            <p className="text-xs text-green-600">
+              Distance: {getDistance(location.lat, location.lng, closestDealer.lat, closestDealer.lng).toFixed(1)}km
+            </p>
+          </div>
+        )}
+
+        <Accordion
+          multiple={false}
+          variant="separated"
+          className="space-y-4 lg:space-y-6"
+          chevron={<IconPlus size="1rem" />}
+          styles={{
+            chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
+          }}
+        >
+          {filteredMarkers.map((loc, index) => (
+            <Accordion.Item
+              key={`${loc.name}${index}`}
+              value={loc.name}
+              className={loc === closestDealer ? "border-2 border-green-500" : ""}
+            >
+              <Accordion.Control>
+                <div className="flex items-center justify-between">
+                  <span className="font-medium">
+                    {loc.name.toUpperCase()}
+                    {loc === closestDealer && <span className="ml-2 text-green-600 text-xs">(Closest)</span>}
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    {getDistance(location.lat, location.lng, loc.lat, loc.lng).toFixed(1)}km
+                  </span>
+                </div>
+              </Accordion.Control>
+              <Accordion.Panel className="space-y-2 bg-slate-100 p-4 rounded-b-md">
+                <p className="font-semibold">{loc.description}</p>
+                <p className="text-sm">{loc.address}</p>
+                <p className="text-sm">{t("phone")}: {loc.phone}</p>
+                <p className="text-sm">{t("email")}: info@mz.motorcare.com</p>
+                <div className="mt-3 pt-2 border-t border-gray-200">
+                  <p className="text-sm font-medium">{t("working_hour")}:</p>
+                  <p className="text-sm">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
+                  <p className="text-sm">{t("sat")}: {loc.workingHour["sat"]}</p>
+                  <p className="text-sm">{t("sun")}: {loc.workingHour["sun"]}</p>
+                </div>
+              </Accordion.Panel>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </div>
+
+      {/* Map */}
+      <div className="h-full order-1 sm:order-2 flex-1">
+        <MapWrapper
+          center={{ lat: location.lat, lng: location.lng }}
+          zoom={filteredMarkers.length === 1 ? 16 : 6}
+          markers={mapMarkers}
+          bounds={MOZ_BOUNDS}
+          className="border border-gray-200 rounded-lg"
+        />
+      </div>
+    </div>
   );
 };
 

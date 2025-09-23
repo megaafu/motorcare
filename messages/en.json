@@ -29,6 +29,7 @@
     "read_more": "Read More"
   },
   "About": {
+    "iso": "HSEQ Policy",
     "about": "About Us",
     "info": "At the forefront of automotive solutions in Mozambique since 1996",
     "core_values": "What drives us",
@@ -65,7 +66,7 @@
     "2014-info": "Launch of new facilities in Moatize and Pemba.",
     "2023": "Modernization Era",
     "2023-info": "Restructuring and upgrading of Maputo, Beira, and Nampula branches.",
-    "certification": "ISO Certification",
+    "certification": "HSEQ Policy and ISO Certification ",
     "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company’s strategic management. This enables improved operational efficiency and Customer Satisfaction.",
     "gallery1": "Early Adventures - 1960s",
     "gallery2": "Rally Heritage - 1970s",
@@ -148,7 +149,7 @@
     "maputo": "Except Maputo",
     "iso": "ISO",
     "sugestionform": "Suggestions and Complains",
-    "description": "Motorcare is a leading car dealership, part of the KJAER GROUP, providing premium automotive solutions, maintenance, and green mobility in Mozambique since 1996."
+    "description": "Motorcare is a leading vehicle dealership, part of the KJAER GROUP, providing premium automotive solutions, maintenance, and green mobility in Mozambique since 1996."
   },
   "Header": {
     "openMenu": "Open Menu",
@@ -158,11 +159,11 @@
     "about": "About Us",
     "vehicles": "Pre-owned Vehicles",
     "after_sales": "After Sales",
-    "find_dealer": "Find Dealer",
+    "find_dealer": "Find Branch",
     "parts_accessories": "Request Parts",
     "service": "Request Service",
     "menu": "Brands",
-    "cars": "Viaturas",
+    "cars": "Vehicles",
     "nissan": "Nissan",
     "renault": "Renault Trucks",
     "trucks": "Trucks",
@@ -188,8 +189,8 @@
   },
   "Contacts": {
     "info": "Pioneering automotive solutions in Mozambique since 1996",
-    "find_dealer": "Find Dealer",
-    "address": "Dealer Address",
+    "find_dealer": "Find Branch",
+    "address": "Branch Address",
     "search": "Search",
     "submit": "Submit",
     "closed": "Closed",
@@ -208,6 +209,7 @@
     "accountant": "Accounting & Finance",
     "officine": "Workshop",
     "others": "Others",
+    "closest_dealer": "Closest Branch",
     "carrear": "Career",
     "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we’ll reach out to accelerate toward the future together."
   },
@@ -222,7 +224,7 @@
     "year": "Year of Manufacture",
     "transmission": "Transmission Type",
     "cylinders": "Number of Cylinders",
-    "color": "Car color",
+    "color": "Vehicle color",
     "seats": "Number of Seats",
     "fuel": "Fuel Type",
     "mileage": "Vehicle Mileage",

@@ -16,6 +16,10 @@ export default async function Home() {
       <Container>
         <NavFindCars />
       </Container>
+      <GreenInitiative />
+      <Container>
+        <NavBlogs />
+      </Container>
       <div className="w-full bg-informative bg-cover bg-center mb-12 bg-no-repeat">
         <PagePadding>
           <Container>
@@ -29,10 +33,7 @@ export default async function Home() {
           </Container>
         </PagePadding>
       </div>
-      <GreenInitiative />
-      <Container>
-        <NavBlogs />
-      </Container>
+
       <BrandsCarousel />
     </main>
   );

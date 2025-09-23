@@ -102,13 +102,13 @@ export default function About() {
             <Row className="mt-6 flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8">
               <div className="flex flex-col justify-center gap-4">
                 <Paragraph>{t(Iso.info)}</Paragraph>
-                <a 
+                <a
                   href="/files/policy.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-secundary text-sm md:text-base inline-block mt-2"
                 >
-                  Download
+                  {t("iso")}
                 </a>
               </div>
               <div className="flex w-full items-center justify-center">
