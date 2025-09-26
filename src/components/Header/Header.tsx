@@ -2,7 +2,6 @@ import { menu } from "@/constants/headerData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Container from "../ui/Container";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 import MenuHeaderItem from "./MenuHeaderItem";
 import MobileMenu from "./MobileMenu";

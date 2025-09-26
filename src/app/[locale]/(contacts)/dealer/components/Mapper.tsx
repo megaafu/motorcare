@@ -212,9 +212,6 @@ const Mapp = () => {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   };
 
-  const handleMarkerClick = (marker: MapMarker) => {
-    console.log("Marker clicked:", marker);
-  };
 
   const mapMarkers: MapMarker[] = filteredMarkers.map((dealer) => ({
     position: { lat: dealer.lat, lng: dealer.lng },

@@ -171,7 +171,7 @@ export default function MapWrapper({
     position: { lat: number; lng: number };
   } | null>(null);
 
-  const handleMarkerClick = useCallback((marker: MarkerData, index: number) => {
+  const handleMarkerClick = useCallback((marker: MarkerData) => {
     if (marker.popupContent) {
       setInfoWindow({
         isOpen: true,
@@ -273,7 +273,7 @@ export default function MapWrapper({
           <Marker
             key={index}
             position={marker.position}
-            onClick={() => handleMarkerClick(marker, index)}
+            onClick={() => handleMarkerClick(marker)}
             icon={
               marker.iconUrl
                 ? {

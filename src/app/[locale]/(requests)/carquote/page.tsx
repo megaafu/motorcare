@@ -6,6 +6,7 @@ import Row from "@/components/ui/Row";
 import { getTranslations } from "next-intl/server";
 import QuoteForm from "./components/QuotesForm";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function Requests({ searchParams }: { searchParams: any }) {
   const t = await getTranslations("Request");
 
