@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import TeamMemberCard from "./components/ui/TeamMemberCard";
 import { team } from "./constants/team";
 import HeritageGallery from "./components/ui/HeritageGallery";
+import SlideShowGallery from "./components/ui/SlideShowGallery";
 
 const CustomAccording = dynamic(() => import("./components/ui/According"), {
   ssr: false,
@@ -56,8 +57,20 @@ export default function About() {
               <Title.Root>
                 <Title.Label label={t(HistoryMenu.label)} />
               </Title.Root>
+
               <div className="h-6 md:h-10"></div>
-              <CustomTimeLine />
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+                {/* Timeline on the left */}
+                <div className="w-full">
+                  <CustomTimeLine />
+                </div>
+
+                {/* Slideshow on the right */}
+                <div className="w-full">
+                  <SlideShowGallery />
+                </div>
+              </div>
             </div>
           </PagePadding>
 
