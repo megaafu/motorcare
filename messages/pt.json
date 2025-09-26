@@ -33,7 +33,7 @@
     "about": "Sobre Nós",
     "info": "Na vanguarda de soluções automotivas em Moçambique desde 1996",
     "core_values": "O que nos move",
-    "about_info": "A Motorcare presta serviços automóveis a empresas em Moçambique desde 1996.\nComo distribuidor autorizado de marcas premium, a Motorcare oferece soluções automóveis de excelência, incluindo peças e acessórios, bem como serviços de manutenção e reparação especializados, complementados por uma gama completa de soluções de gestão de frotas.\nA presença da Motorcare a nível nacional estende-se às cidades de Maputo, Beira, Nampula, Pemba e Moatize.\nA Motorcare tem como objectivo desenvolver o seu negócio de forma lucrativa e responsável, promovendo metas sociais e ambientais, alinhadas com normas e certificações internacionais.",
+    "about_info": "A Motorcare presta serviços automóveis a empresas em Moçambique desde 1996. Como distribuidor autorizado de marcas premium, oferece soluções automóveis de excelência, incluindo peças e acessórios, serviços de manutenção e reparação especializados, oficinas multimarcas e serviços de bate-chapa e pintura. A empresa complementa estas soluções com uma gama completa de serviços de gestão de frotas.\nA presença da Motorcare a nível nacional abrange as cidades de Maputo, Beira, Nampula, Pemba e Moatize. O seu objetivo é desenvolver o negócio de forma responsável e lucrativa promovendo metas sociais e ambientais em conformidade com normas e certificações internacionais.",
     "mission": "Missão",
     "mission_description1": "Criar um ambiente de alto desempenho, onde o contributo dos colaboradores, clientes e parceiros de negócio seja valorizado e respeitado.",
     "mission_description2": "Desenvolver um portefólio de marcas e serviços inovadores que supere a concorrência e ofereça o maior valor possível na forma como trabalhamos.",
@@ -143,13 +143,13 @@
     "about": "Sobre Nós",
     "history": "Nossa História",
     "brands": "Nossas Marcas",
-    "policy": "Termos da Política",
+    "policy": "Política de HSEQ",
     "terms": "Termos e Condições",
     "privacy": "Privacidade",
     "iso": "ISO",
     "maputo": "Excepto Maputo",
     "sugestionform": "Sugestões e Reclamações",
-    "description": "A Motorcare Moçambique é uma concessionária líder de automóveis, parte do KJAER GROUP, que oferece soluções automotivas premium, manutenção e mobilidade sustentável em Moçambique desde 1996."
+    "description": "A Motorcare Moçambique, parte do KJAER GROUP, é uma concessionária de automóveis que oferece soluções automotivas premium, serviços de manutenção e opções de mobilidade sustentável em Moçambique desde 1996."
   },
   "Header": {
     "openMenu": "Abrir Menu",
@@ -229,6 +229,7 @@
     "fuel": "Tipo de Combustível",
     "mileage": "Quilometragem do Veículo",
     "doors": "Número de Portas",
+    "request-cote":"Request a Cote",
     "vehicleType": "Tipo de Veículo",
     "licensePlate": "Matrícula",
     "enginePerformance": "Desempenho do Motor",

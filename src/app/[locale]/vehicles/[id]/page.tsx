@@ -15,6 +15,7 @@ import VehicleGallery from "./components/VehicleGallery";
 import LoadingState from "./components/LoadingState";
 import NotFound from "./components/NotFound";
 import { BASEURL } from "@/lib/util/util";
+import Link from "next/link";
 
 export default function VehicleDetailsPage() {
   const t = useTranslations("Vehicles");
@@ -98,6 +99,7 @@ export default function VehicleDetailsPage() {
                     <span className="rounded-full bg-purple-100 px-4 py-2 font-medium text-purple-800">
                       {vehicle.color}
                     </span>
+
                   </div>
                 </div>
 
@@ -109,6 +111,21 @@ export default function VehicleDetailsPage() {
                     </p>
                   </div>
                 </div>
+                <Link
+                  href={{
+                    pathname: "/carquote",
+                    query: {
+                      id: vehicle.id,
+                      brand: vehicle.brand,
+                      model: vehicle.model,
+                      year: vehicle.year_model,
+                      price: vehicle.price,
+                    },
+                  }}
+                  className="inline-block rounded-xl bg-primary px-6 py-3 font-medium text-white shadow-md hover:bg-primary/90 transition"
+                >
+                  {t("request-cote")}
+                </Link>
               </motion.div>
             </div>
           </PagePadding>

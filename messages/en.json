@@ -229,6 +229,7 @@
     "fuel": "Fuel Type",
     "mileage": "Vehicle Mileage",
     "doors": "Number of Doors",
+    "request-cote":"Request Cote",
     "loadingVehicleDetails": "Loading Vehicle Details",
     "vehicleType": "Vehicle Type",
     "licensePlate": "License Plate",
