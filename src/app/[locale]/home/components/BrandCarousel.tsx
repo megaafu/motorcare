@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AllBrands } from "../../about/constants/brands";
+import Link from "next/link";
 
 export default function BrandsCarousel() {
   return (
@@ -14,14 +15,18 @@ export default function BrandsCarousel() {
               key={index}
               className="flex-shrink-0 w-60 h-60 flex items-center justify-center p-4"
             >
-              <div className="relative w-full bg-gray-100 h-full shadow-lg rounded-md">
+              <Link
+                href={brand.id == 0 ? "https://www.nissan.co.mz/" : brand.url}
+                className="relative w-full bg-gray-100 h-full shadow-lg rounded-md"
+                target={brand.id == 0 ? "_blank" : "_self"}
+              >
                 <Image
                   src={brand.img}
                   alt={brand.brand}
                   fill
                   className="object-contain"
                 />
-              </div>
+              </Link>
             </div>
           ))}
         </div>
