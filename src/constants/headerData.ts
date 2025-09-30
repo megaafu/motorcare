@@ -30,7 +30,7 @@ export const menu: INav[] = [
           },
           {
             label: "renault",
-            url: "/about?brand=Renault Trucks",
+            url: "/brands?brand=Renault Trucks",
           },
         ],
       },
@@ -40,15 +40,15 @@ export const menu: INav[] = [
         dropdown: [
           {
             label: "general",
-            url: "/about?brand=General Tire",
+            url: "/brands?brand=General Tire",
           },
           {
             label: "continental",
-            url: "/about?brand=Continental",
+            url: "/brands?brand=Continental",
           },
           {
             label: "maxxis",
-            url: "/about?brand=Maxxis Tyres",
+            url: "/brands?brand=Maxxis Tyres",
           },
         ],
       },

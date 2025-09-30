@@ -102,11 +102,6 @@ export default function About() {
             </div>
           </PagePadding>
 
-          {/* NavBrands Section */}
-          <div className="py-6 md:py-8">
-            <NavBrands />
-          </div>
-
           {/* Iso Section */}
           <PagePadding className="py-6 md:py-8">
             <Title.Root>
