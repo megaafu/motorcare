@@ -7,6 +7,7 @@ import { Leaf } from "lucide-react"; // optional icon
 import Container from "@/components/ui/Container";
 import Row from "@/components/ui/Row";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function GreenInitiative() {
 
@@ -45,9 +46,7 @@ export default function GreenInitiative() {
           </p>
 
           {/* CTA Button */}
-          <a href="/files/movetogreen.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link href="/green"
           >
             <Button
               leftIcon={<Leaf size={18} />}
@@ -55,7 +54,7 @@ export default function GreenInitiative() {
             >
               {t("button")}
             </Button>
-          </a>
+          </Link>
         </motion.div>
       </Row>
     </Container >
