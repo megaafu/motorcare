@@ -23,9 +23,6 @@ const CustomTimeLine = dynamic(() => import("./components/ui/CustomTimeLine"), {
   ssr: false,
 });
 
-const NavBrands = dynamic(() => import("./components/NavBrands"), {
-  ssr: false,
-});
 
 
 export default function About() {

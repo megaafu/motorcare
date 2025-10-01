@@ -10,9 +10,9 @@ export const team: Team[] = [
     photo: "/images/ivan.png",
   },
   {
-    name: "Joaquim Nhantumbo",
+    name: "Martins Massingue",
     role: "role2",
-    photo: "/images/joaquim.jpg",
+    photo: "/images/martins.jpeg",
   },
   {
     name: "Rehana Ishakgi ",
