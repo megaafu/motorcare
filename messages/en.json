@@ -28,10 +28,89 @@
     "download": "Download Brochure",
     "read_more": "Read More"
   },
+  "Green": {
+    "heroTitle": "Transform the Automotive Future with Sustainability",
+    "heroDescription": "Join MotorCare's Green movement and discover how sustainable innovation is revolutionizing the automotive industry \u2014 every electric kilometer is a victory against climate change.",
+    "introTitle": "The <span>Green</span> Movement by <span>MotorCare</span>",
+    "introDescription": "We lead the sustainable transformation in the automotive industry through innovation, clean technology, and environmental responsibility.",
+    "features": {
+      "cleanEnergy": {
+        "title": "Clean Energy",
+        "description": "Commitment to renewable and self-sufficient energy sources."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Cutting-edge technologies to transform mobility."
+      },
+      "globalImpact": {
+        "title": "Global Impact",
+        "description": "Pioneering stations and projects in Africa and beyond."
+      }
+    },
+    "visionTitle": "A <span>Carbon Neutral</span> World",
+    "visionDescription": "Since 2003, KJAER GROUP has been a pioneer in sustainability. MOVE to Green is the evolution of this commitment, focused on creating an ecosystem of green mobility and energy consumption.",
+    "featuresGrid": {
+      "organizations": {
+        "title": "Organizations",
+        "description": "The transformation lies in consuming more renewable energy and focusing on our own carbon footprint, such as solar energy and changing work habits."
+      },
+      "mobility": {
+        "title": "Mobility",
+        "description": "Transforming vehicle fleets from fossil fuel to hybrid and/or electric, including e-scooters and EVs (electric vehicles)."
+      }
+    },
+    "chargingTitle": "Smart Charging for an Electric Future",
+    "chargingDescription": "The transition to EVs requires a robust charging infrastructure. MOVE to Green is building this network, with AC and DC charging stations and innovative projects like the solar carport.",
+    "techFeatures": {
+      "dcCharging": {
+        "title": "DC Charging",
+        "description": "25 kWh fast charging stations installed in Maputo and Kampala, with ChadeMo and CCS2 plugs."
+      },
+      "solarCarport": {
+        "title": "Solar Carport",
+        "description": "Innovative project in partnership with G-Sol Energy for 100% green and self-sufficient charging through solar energy."
+      },
+      "firstStation": {
+        "title": "First Station",
+        "description": "We inaugurated the first EV charging station in Maputo, Mozambique, pioneering in the African market."
+      }
+    },
+    "ctaTitle": "Join the Green Movement",
+    "ctaDescription": "We are building a legacy of sustainability and innovation. Your participation is essential to accelerate the transition to a carbon neutral world. Get in touch and discover how you can contribute.",
+    "resources": {
+      "title": "MOVE to Green Resources",
+      "description": "Read the volumes of our Move to Green report and learn about the initiatives shaping the sustainable future of mobility.",
+      "volumes": {
+        "vol1": {
+          "title": "MOVE to Green VOL. 1",
+          "description": "Introduction to the movement and first initiatives"
+        },
+        "vol2": {
+          "title": "MOVE to Green VOL. 2",
+          "description": "First electric vehicles and success cases"
+        },
+        "vol3": {
+          "title": "MOVE to Green VOL. 3",
+          "description": "Expansion and charging infrastructure"
+        },
+        "vol4": {
+          "title": "Move to Green Update Vol. 4",
+          "description": "Complete report of the MOVE to Green movement"
+        }
+      },
+      "downloadPdf": "Download PDF",
+      "comingSoon": "Coming Soon"
+    },
+    "images": {
+      "heroAlt": "Car",
+      "featureAlt": "Car feature",
+      "bannerAlt": "Green Movement"
+    }
+  },
   "About": {
     "iso": "HSEQ Policy",
     "about": "About Us",
-    "contact":"Contact Us",
+    "contact": "Contact Us",
     "info": "At the forefront of automotive solutions in Mozambique since 1996",
     "core_values": "What drives us",
     "about_info": "Motorcare has been providing automotive services to businesses in Mozambique since 1996.\nAs an authorized distributor of premium brands, Motorcare delivers excellent automotive solutions, including genuine parts and accessories, as well as specialized maintenance and repair services, complemented by a full range of fleet management solutions.\nMotorcare's national presence extends to the cities of Maputo, Beira, Nampula, Pemba, and Moatize.\nMotorcare aims to grow its business profitably and responsibly, promoting social and environmental goals aligned with international standards and certifications.",
@@ -77,6 +156,46 @@
     "role1": "Commercial & Marketing Director",
     "role2": "Interim Finance Director",
     "role3": "Managing Director"
+  },
+  "BrandDetail": {
+    "notFoundTitle": "Brand Not Found",
+    "notFoundDescription": "The brand you're looking for doesn't exist.",
+    "backToBrands": "Back to Brands",
+    "back": "Back",
+    "galleryTitle": "Gallery",
+    "aboutTitle": "About {brand}",
+    "aboutDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "contactTitle": "Interested in {brand} Products?",
+    "contactDescription": "Get in touch with our experts to learn more about {brand} products.",
+    "quickQuoteForm": "Quick Quote Form"
+  },
+  "Renault": {
+    "heroTitle": "Renault Trucks: Since 1894",
+    "heroDescription": "Productivity tools provider with over a century of innovative know-how in French trucks.",
+    "exploreModels": "Explore Models",
+    "requestQuote": "Request Quote",
+    "aboutTitle": "About <span>Renault Trucks</span>",
+    "aboutDescription": "Based on the legacy of over a century of innovative know-how in French trucks, Renault Trucks provides transport professionals with the tools they need to run their businesses more efficiently.",
+    "since1894": "Since 1894",
+    "since1894Description": "Over a century of innovative know-how in French trucks",
+    "countries": "100+ Countries",
+    "countriesDescription": "Present in over 100 countries with 1400 service points",
+    "frenchManufacturing": "French Manufacturing",
+    "frenchManufacturingDescription": "Design and assembly carried out in France",
+    "productivityProvider": "Productivity Tools Provider",
+    "productivityProviderDescription": "Renault Trucks offers commercial vehicle users a wide range of innovative services and vehicles (from 3.1T to 120T) adapted to a broad spectrum of transport activities: distribution, construction, heavy construction and long distance.",
+    "reliablePartner": "A Robust and Reliable Partner",
+    "reliablePartnerDescription": "Renault trucks are robust, reliable and fuel-efficient, allowing them to offer greater productivity and lower operating costs.",
+    "volvoGroup": "A Key Role in the Volvo Group",
+    "volvoGroupDescription": "Renault Trucks is part of the VOLVO Group, one of the world's largest truck manufacturers, benefiting from the group's global synergy and expertise.",
+    "vehiclesTitle": "Our <span>Vehicles</span>",
+    "vehiclesSubtitle": "Discover our range of Renault commercial vehicles",
+    "viewDetails": "View Details",
+    "brandLabel": "Brand:",
+    "galleryTitle": "<span>Renault</span> Gallery",
+    "gallerySubtitle": "Explore the world of Renault through our visual journey",
+    "loadingVehicles": "Loading Renault vehicles...",
+    "errorLoading": "Error loading vehicles. Please try again later."
   },
   "Request": {
     "info": "Pioneering automotive solutions in Mozambique since 1996",
@@ -230,7 +349,7 @@
     "fuel": "Fuel Type",
     "mileage": "Vehicle Mileage",
     "doors": "Number of Doors",
-    "request-cote":" Request a Quote:",
+    "request-cote": " Request a Quote:",
     "loadingVehicleDetails": "Loading Vehicle Details",
     "vehicleType": "Vehicle Type",
     "licensePlate": "License Plate",

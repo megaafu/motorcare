@@ -28,10 +28,89 @@
     "download": "Baixar Brochura",
     "read_more": "Ler Mais"
   },
+  "Green": {
+    "heroTitle": "Transforme o Futuro Automotivo com Sustentabilidade",
+    "heroDescription": "Junte-se ao movimento Green da MotorCare e descubra como a inovação sustentável está revolucionando a indústria automotiva — cada quilômetro elétrico é uma vitória contra as mudanças climáticas.",
+    "introTitle": "O Movimento <span>Green</span> da <span>MotorCare</span>",
+    "introDescription": "Lideramos a transformação sustentável na indústria automotiva através de inovação, tecnologia limpa e responsabilidade ambiental.",
+    "features": {
+      "cleanEnergy": {
+        "title": "Energia Limpa",
+        "description": "Compromisso com fontes renováveis e autossuficientes."
+      },
+      "innovation": {
+        "title": "Inovação",
+        "description": "Tecnologias de ponta para transformar mobilidade."
+      },
+      "globalImpact": {
+        "title": "Impacto Global",
+        "description": "Estações e projetos pioneiros na África e além."
+      }
+    },
+    "visionTitle": "Um Mundo <span>Neutro</span> em Carbono",
+    "visionDescription": "Desde 2003, o KJAER GROUP tem sido pioneiro em sustentabilidade. O MOVE to Green é a evolução desse compromisso, focado em criar um ecossistema de mobilidade e consumo de energia verde.",
+    "featuresGrid": {
+      "organizations": {
+        "title": "Organizações",
+        "description": "A transformação está no consumo de energia mais renovável e foco na própria pegada de carbono, como energia solar e mudança de hábitos de trabalho."
+      },
+      "mobility": {
+        "title": "Mobilidade",
+        "description": "Transformando frotas de veículos de combustível fóssil para híbridos e/ou elétricos, incluindo e-scooters e EVs (veículos elétricos)."
+      }
+    },
+    "chargingTitle": "Carregamento Inteligente para um Futuro Elétrico",
+    "chargingDescription": "A transição para EVs exige uma infraestrutura de carregamento robusta. O MOVE to Green está construindo essa rede, com estações de carregamento AC e DC e projetos inovadores como o carport solar.",
+    "techFeatures": {
+      "dcCharging": {
+        "title": "Carregamento DC",
+        "description": "Estações de carregamento rápido de 25 kWh instaladas em Maputo e Kampala, com plugs ChadeMo e CCS2."
+      },
+      "solarCarport": {
+        "title": "Carport Solar",
+        "description": "Projeto inovador em parceria com G-Sol Energy para carregamento 100% verde e autossuficiente através de energia solar."
+      },
+      "firstStation": {
+        "title": "Primeira Estação",
+        "description": "Inauguramos a primeira estação de carregamento de EV em Maputo, Moçambique, pioneira no mercado africano."
+      }
+    },
+    "ctaTitle": "Faça Parte do Movimento Verde",
+    "ctaDescription": "Estamos construindo um legado de sustentabilidade e inovação. Sua participação é fundamental para acelerarmos a transição para um mundo neutro em carbono. Entre em contato e descubra como você pode contribuir.",
+    "resources": {
+      "title": "Recursos MOVE to Green",
+      "description": "Leia os volumes do nosso relatório Move to Green e conheça as iniciativas que estão moldando o futuro sustentável da mobilidade.",
+      "volumes": {
+        "vol1": {
+          "title": "MOVE to Green VOL. 1",
+          "description": "Introdução ao movimento e primeiras iniciativas"
+        },
+        "vol2": {
+          "title": "MOVE to Green VOL. 2",
+          "description": "Primeiros veículos elétricos e casos de sucesso"
+        },
+        "vol3": {
+          "title": "MOVE to Green VOL. 3",
+          "description": "Expansão e infraestrutura de carregamento"
+        },
+        "vol4": {
+          "title": "Move to Green Update Vol. 4",
+          "description": "Relatório completo do movimento MOVE to Green"
+        }
+      },
+      "downloadPdf": "Baixar PDF",
+      "comingSoon": "Em breve"
+    },
+    "images": {
+      "heroAlt": "Car",
+      "featureAlt": "Car feature",
+      "bannerAlt": "Green Movement"
+    }
+  },
   "About": {
     "iso": "Políticas de HSEQ",
     "about": "Sobre Nós",
-    "contact":"Entrar em contacto",
+    "contact": "Entrar em contacto",
     "info": "Na vanguarda de soluções automotivas em Moçambique desde 1996",
     "core_values": "O que nos move",
     "about_info": "A Motorcare presta serviços automóveis a empresas em Moçambique desde 1996. Como distribuidor autorizado de marcas premium, oferece soluções automóveis de excelência, incluindo peças e acessórios, serviços de manutenção e reparação especializados, oficinas multimarcas e serviços de bate-chapa e pintura. A empresa complementa estas soluções com uma gama completa de serviços de gestão de frotas.\nA presença da Motorcare a nível nacional abrange as cidades de Maputo, Beira, Nampula, Pemba e Moatize. O seu objetivo é desenvolver o negócio de forma responsável e lucrativa promovendo metas sociais e ambientais em conformidade com normas e certificações internacionais.",
@@ -77,6 +156,46 @@
     "role1": "Diretora Comercial e de Marketing",
     "role2": "Diretor Financeiro Interino",
     "role3": "Administrador"
+  },
+  "BrandDetail": {
+    "notFoundTitle": "Marca Não Encontrada",
+    "notFoundDescription": "A marca que você está procurando não existe.",
+    "backToBrands": "Voltar para Marcas",
+    "back": "Voltar",
+    "galleryTitle": "Galeria",
+    "aboutTitle": "Sobre {brand}",
+    "aboutDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "contactTitle": "Interessado em Produtos {brand}?",
+    "contactDescription": "Entre em contato com nossos especialistas para saber mais sobre os produtos {brand}.",
+    "quickQuoteForm": "Pedir Cotação"
+  },
+  "Renault": {
+    "heroTitle": "Renault Trucks: Desde 1894",
+    "heroDescription": "Fornecedor de ferramentas de produtividade com mais de um século de know-how inovador em camiões franceses.",
+    "exploreModels": "Explorar Modelos",
+    "requestQuote": "Solicitar Orçamento",
+    "aboutTitle": "Sobre a <span>Renault Trucks</span>",
+    "aboutDescription": "Com base no legado de mais de um século de know-how inovador em camiões franceses, a Renault Trucks fornece aos profissionais de transporte as ferramentas de que precisam para conduzir os seus negócios com maior eficiência.",
+    "since1894": "Desde 1894",
+    "since1894Description": "Mais de um século de know-how inovador em camiões franceses",
+    "countries": "100+ Países",
+    "countriesDescription": "Presente em mais de 100 países com 1400 pontos de atendimento",
+    "frenchManufacturing": "Fabricação Francesa",
+    "frenchManufacturingDescription": "Conceção e montagem realizadas em França",
+    "productivityProvider": "Fornecedor de Ferramentas de Produtividade",
+    "productivityProviderDescription": "A Renault Trucks oferece aos utilizadores de viaturas comerciais uma grande variedade de serviços e viaturas inovadoras (de 3.1T a 120T) adaptados a uma ampla gama de atividade de transporte: distribuição, construção, construção pesada e longa distância.",
+    "reliablePartner": "Um Parceiro Robusto e Confiável",
+    "reliablePartnerDescription": "Os camiões Renault são robustos, confiáveis e de baixo consumo de combustível, o que lhes permite oferecer maior produtividade e menores custos operacionais.",
+    "volvoGroup": "Um Papel Fundamental no Grupo Volvo",
+    "volvoGroupDescription": "A Renault Trucks faz parte do Grupo VOLVO, um dos maiores fabricantes mundiais de camiões, beneficiando da sinergia e expertise global do grupo.",
+    "vehiclesTitle": "Nossos <span>Veículos</span>",
+    "vehiclesSubtitle": "Descubra a nossa gama de viaturas comerciais Renault",
+    "viewDetails": "Ver Detalhes",
+    "brandLabel": "Marca:",
+    "galleryTitle": "Galeria <span>Renault</span>",
+    "gallerySubtitle": "Explore o mundo da Renault através da nossa jornada visual",
+    "loadingVehicles": "Carregando viaturas Renault...",
+    "errorLoading": "Erro ao carregar viaturas. Por favor, tente novamente mais tarde."
   },
   "Request": {
     "info": "Na vanguarda de soluções automotivas em Moçambique desde 1996",
@@ -230,7 +349,7 @@
     "fuel": "Tipo de Combustível",
     "mileage": "Quilometragem do Veículo",
     "doors": "Número de Portas",
-    "request-cote":"Solicitar um orçamento",
+    "request-cote": "Solicitar um orçamento",
     "vehicleType": "Tipo de Veículo",
     "licensePlate": "Matrícula",
     "enginePerformance": "Desempenho do Motor",
