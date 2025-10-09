@@ -1,15 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Button, Title, Text } from "@mantine/core";
+import {  Title, Text } from "@mantine/core";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { AllBrands } from "../about/constants/brands";
 import Container from "@/components/ui/Container";
 import PagePadding from "@/components/ui/PagePadding";
 
 export default function BrandsPage() {
     const t = useTranslations("About");
+    const router = useRouter();
+
+    const handleBrandClick = (brandId: string, brandName: string) => {
+        // Special handling for Nissan - open in new tab
+        if (brandName.toLowerCase() == "nissan") {
+            window.open("https://www.nissan.co.mz/", "_blank");
+            return;
+        }
+        
+        // Special handling for Renault - navigate to /renault
+        if (brandName.toLowerCase() == "renault") {
+            router.push("/renault");
+            return;
+        }
+        
+        // Default behavior for other brands
+        router.push(`/brands/${brandId}`);
+    };
 
     return (
         <main className="pt-16">
@@ -22,43 +40,44 @@ export default function BrandsPage() {
             {/* List of brands */}
             <Container>
                 <PagePadding>
-                    <div className="grid grid-cols-2 gap-10 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         {AllBrands.brands.map((brand) => (
                             <div
                                 key={brand.id}
-                                className="flex flex-col sm:flex-row items-start gap-6 border-b border-gray-200 pb-8"
+                                onClick={() => handleBrandClick(brand.id.toString(), brand.info)}
+                                className="flex flex-col sm:flex-row items-start gap-6 border border-gray-200 pb-8 hover:bg-gray-50 p-6 rounded-xl transition-all duration-500 cursor-pointer hover:shadow-lg group hover:-translate-y-2"
                             >
                                 {/* Logo */}
-                                <div className="w-52 h-52 relative shrink-0">
+                                <div className="w-40 h-40 relative shrink-0 mx-auto sm:mx-0">
                                     <Image
                                         src={brand.img}
                                         alt={brand.brand}
                                         fill
-                                        className="object-contain"
+                                        className="object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
                                     />
                                 </div>
 
-                                {/* Vertical Divider */}
-                                <div className="w-[1.5px] bg-primary  self-stretch"></div>
+                                {/* Vertical Divider - Hidden on mobile */}
+                                <div className="hidden sm:block w-[1.5px] bg-gray-300 self-stretch group-hover:bg-primary transition-colors duration-500"></div>
 
                                 {/* Content */}
-                                <div className="flex-1">
-                                    <Title order={4} className="mb-2">
+                                <div className="flex-1 text-center sm:text-left">
+                                    <Title order={4} className="mb-3 group-hover:text-primary transition-colors duration-300">
                                         {brand.brand}
                                     </Title>
-                                    <Text className="text-gray-600 items-center">{t(`${brand.info}`)}</Text>
+                                    <Text className="text-gray-600 leading-relaxed">{t(`${brand.info}`)}</Text>
+                                    
+                                    {/* Click hint */}
+                                    <div className="mt-4">
+                                        <Text className="text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-2">
+                                            {brand.brand.toLowerCase() === "nissan" 
+                                                ? "Visit website ↗" 
+                                                : "Click to learn more →"}
+                                        </Text>
+                                    </div>
                                 </div>
                             </div>
                         ))}
-                    </div>
-
-                    {/* Global contact button */}
-                    <div className="flex justify-center mt-12">
-                        <Link href="/peaceform">
-                            <Button color="blue" radius="md" size="md">
-                                {t("contact")}
-                            </Button>
-                        </Link>
                     </div>
                 </PagePadding>
             </Container>

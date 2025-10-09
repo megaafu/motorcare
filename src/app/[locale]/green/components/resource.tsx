@@ -5,35 +5,38 @@ import Link from "next/link";
 import { Button, Title, Text } from "@mantine/core";
 import Container from "@/components/ui/Container";
 import PagePadding from "@/components/ui/PagePadding";
+import { useTranslations } from "next-intl";
 
 const resources = [
   {
-    title: "MOVE to Green VOL. 1",
-    description: "Introdução ao movimento e primeiras iniciativas",
+    titleKey: "resources.volumes.vol1.title",
+    descriptionKey: "resources.volumes.vol1.description",
     file: "/files/vol1.pdf",
     available: true,
   },
   {
-    title: "MOVE to Green VOL. 2",
-    description: "Primeiros veículos elétricos e casos de sucesso",
+    titleKey: "resources.volumes.vol2.title",
+    descriptionKey: "resources.volumes.vol2.description",
     file: "/files/vol2.pdf",
     available: true,
   },
   {
-    title: "MOVE to Green VOL. 3",
-    description: "Expansão e infraestrutura de carregamento",
+    titleKey: "resources.volumes.vol3.title",
+    descriptionKey: "resources.volumes.vol3.description",
     file: "/files/vol3.pdf",
     available: true,
   },
   {
-    title: "Documento Principal",
-    description: "Relatório completo do movimento MOVE to Green",
+    titleKey: "resources.volumes.vol4.title",
+    descriptionKey: "resources.volumes.vol4.description",
     file: "/files/movetogreen.pdf",
     available: true,
   },
 ];
 
 export default function ResourcesSection() {
+  const t = useTranslations("Green");
+
   return (
     <section className="relative w-full bg-gradient-to-b from-white to-gray-50 pt-16 pb-24">
       <Container>
@@ -44,17 +47,11 @@ export default function ResourcesSection() {
               order={1}
               className="text-3xl md:text-4xl font-extrabold text-teal-600"
             >
-              Recursos MOVE to Green
+              {t("resources.title")}
               <br />
-              <span className="text-gray-800">
-                Aprofunde Seu Conhecimento
-              </span>
             </Title>
             <Text className="text-sm md:text-base max-w-4xl text-gray-600">
-              Explore os volumes do nosso relatório{" "}
-              <span className="font-semibold">MOVE to Green</span> e conheça
-              as iniciativas que estão moldando o futuro sustentável da
-              mobilidade.
+              {t("resources.description")}
             </Text>
           </div>
 
@@ -70,10 +67,10 @@ export default function ResourcesSection() {
                     order={4}
                     className="text-teal-600 font-bold text-lg mb-2"
                   >
-                    {resource.title}
+                    {t(resource.titleKey)}
                   </Title>
                   <Text className="text-gray-600 text-sm leading-relaxed">
-                    {resource.description}
+                    {t(resource.descriptionKey)}
                   </Text>
                 </div>
 
@@ -91,7 +88,7 @@ export default function ResourcesSection() {
                       className="w-full flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg transition"
                     >
                       <Download className="w-4 h-4" />
-                      Baixar PDF
+                      {t("resources.downloadPdf")}
                     </Button>
                   </Link>
                 ) : (
@@ -102,7 +99,7 @@ export default function ResourcesSection() {
                     size="md"
                     className="w-full mt-6 opacity-70"
                   >
-                    Em breve
+                    {t("resources.comingSoon")}
                   </Button>
                 )}
               </div>

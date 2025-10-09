@@ -6,30 +6,31 @@ import ResourcesSection from "./components/resource";
 import Container from "@/components/ui/Container";
 import PagePadding from "@/components/ui/PagePadding";
 import { Car, LeafyGreen, ZapIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function GreenPage() {
+  const t = useTranslations("Green");
+
   return (
     <main className="flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[75vh] md:h-[80vh]">
+      <section className="relative w-full h-[60vh] md:h-[100vh]">
         <Image
-          src="/images/Img.png"
-          alt="Car"
+          src="/images/nissan-hero.jpg"
+          alt={t("images.heroAlt")}
           fill
           priority
-          className="object-cover"
+          className="object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end py-10 px-6 md:px-12">
           <Title
             order={1}
             className="text-white text-3xl sm:text-5xl font-extrabold max-w-4xl drop-shadow-lg"
           >
-            Transforme o Futuro Automotivo com Sustentabilidade
+            {t("heroTitle")}
           </Title>
           <Text className="text-white/90 mt-4 max-w-3xl text-sm sm:text-lg leading-relaxed">
-            Junte-se ao movimento Green da MotorCare e descubra como a inovação
-            sustentável está revolucionando a indústria automotiva — cada
-            quilômetro elétrico é uma vitória contra as mudanças climáticas.
+            {t("heroDescription")}
           </Text>
         </div>
       </section>
@@ -39,12 +40,12 @@ export default function GreenPage() {
         <PagePadding>
           <div className="text-center space-y-4">
             <Title order={2} className="text-2xl sm:text-3xl font-bold">
-              O Movimento <span className="text-teal-600">Green</span> da{" "}
-              <span className="text-teal-600">MotorCare</span>
+              {t.rich("introTitle", {
+                span: (chunks) => <span className="text-teal-600">{chunks}</span>
+              })}
             </Title>
             <Text className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base">
-              Lideramos a transformação sustentável na indústria automotiva
-              através de inovação, tecnologia limpa e responsabilidade ambiental.
+              {t("introDescription")}
             </Text>
           </div>
         </PagePadding>
@@ -55,35 +56,34 @@ export default function GreenPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center my-12">
             <div>
               <LeafyGreen className="mx-auto text-teal-600 h-10 w-10" />
-              <h3 className="font-semibold mt-2">Energia Limpa</h3>
-              <p className="text-gray-600 text-sm">Compromisso com fontes renováveis e autossuficientes.</p>
+              <h3 className="font-semibold mt-2">{t("features.cleanEnergy.title")}</h3>
+              <p className="text-gray-600 text-sm">{t("features.cleanEnergy.description")}</p>
             </div>
             <div>
               <ZapIcon className="mx-auto text-teal-600 h-10 w-10" />
-              <h3 className="font-semibold mt-2">Inovação</h3>
-              <p className="text-gray-600 text-sm">Tecnologias de ponta para transformar mobilidade.</p>
+              <h3 className="font-semibold mt-2">{t("features.innovation.title")}</h3>
+              <p className="text-gray-600 text-sm">{t("features.innovation.description")}</p>
             </div>
             <div>
               <Car className="mx-auto text-teal-600 h-10 w-10" />
-              <h3 className="font-semibold mt-2">Impacto Global</h3>
-              <p className="text-gray-600 text-sm">Estações e projetos pioneiros na África e além.</p>
+              <h3 className="font-semibold mt-2">{t("features.globalImpact.title")}</h3>
+              <p className="text-gray-600 text-sm">{t("features.globalImpact.description")}</p>
             </div>
           </div>
         </PagePadding>
       </Container>
-
 
       {/* 3. Vision Section */}
       <Container>
         <PagePadding>
           <div className="text-center space-y-4">
             <Title order={2} className="text-2xl sm:text-3xl font-bold">
-              Um Mundo <span className="text-teal-600">Neutro</span> em Carbono
+              {t.rich("visionTitle", {
+                span: (chunks) => <span className="text-teal-600">{chunks}</span>
+              })}
             </Title>
             <Text className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base">
-              Desde 2003, o KJAER GROUP tem sido pioneiro em sustentabilidade. O
-              MOVE to Green é a evolução desse compromisso, focado em criar um
-              ecossistema de mobilidade e consumo de energia verde.
+              {t("visionDescription")}
             </Text>
           </div>
         </PagePadding>
@@ -95,12 +95,12 @@ export default function GreenPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "Organizações",
-                text: "A transformação está no consumo de energia mais renovável e foco na própria pegada de carbono, como energia solar e mudança de hábitos de trabalho.",
+                title: t("featuresGrid.organizations.title"),
+                text: t("featuresGrid.organizations.description"),
               },
               {
-                title: "Mobilidade",
-                text: "Transformando frotas de veículos de combustível fóssil para híbridos e/ou elétricos, incluindo e-scooters e EVs (veículos elétricos).",
+                title: t("featuresGrid.mobility.title"),
+                text: t("featuresGrid.mobility.description"),
               },
             ].map((item, idx) => (
               <div
@@ -108,7 +108,7 @@ export default function GreenPage() {
                 className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
                 <Image
-                  src="/images/car-feature.png"
+                  src="/images/nissan-img.jpg"
                   alt={item.title}
                   width={600}
                   height={400}
@@ -133,12 +133,11 @@ export default function GreenPage() {
         <PagePadding>
           <div className="w-full">
             <Image
-              src="/images/bg-green.png"
-              alt="Green Movement"
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-full h-auto rounded-lg shadow-lg"
+              src="/images/nissan-banner.jpg"
+              alt={t("images.bannerAlt")}
+              width={1536}
+              height={864}
+              className="w-full h-[440px] rounded-lg shadow-lg object-cover"
             />
           </div>
         </PagePadding>
@@ -150,15 +149,12 @@ export default function GreenPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <div className="md:col-span-1">
               <Title order={4} className="text-2xl sm:text-3xl font-bold">
-                Carregamento Inteligente para um Futuro Elétrico
+                {t("chargingTitle")}
               </Title>
             </div>
             <div className="md:col-span-2">
               <Text className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                A transição para EVs exige uma infraestrutura de carregamento
-                robusta. O MOVE to Green está construindo essa rede, com
-                estações de carregamento AC e DC e projetos inovadores como o
-                carport solar.
+                {t("chargingDescription")}
               </Text>
             </div>
           </div>
@@ -172,18 +168,18 @@ export default function GreenPage() {
             {[
               {
                 icon: <ZapIcon className="text-teal-600" />,
-                title: "Carregamento DC",
-                text: "Estações de carregamento rápido de 25 kWh instaladas em Maputo e Kampala, com plugs ChadeMo e CCS2.",
+                title: t("techFeatures.dcCharging.title"),
+                text: t("techFeatures.dcCharging.description"),
               },
               {
                 icon: <LeafyGreen className="text-teal-600" />,
-                title: "Carport Solar",
-                text: "Projeto inovador em parceria com G-Sol Energy para carregamento 100% verde e autossuficiente através de energia solar.",
+                title: t("techFeatures.solarCarport.title"),
+                text: t("techFeatures.solarCarport.description"),
               },
               {
                 icon: <Car className="text-teal-600" />,
-                title: "Primeira Estação",
-                text: "Inauguramos a primeira estação de carregamento de EV em Maputo, Moçambique, pioneira no mercado africano.",
+                title: t("techFeatures.firstStation.title"),
+                text: t("techFeatures.firstStation.description"),
               },
             ].map((item, idx) => (
               <div key={idx}>
@@ -206,13 +202,10 @@ export default function GreenPage() {
           <PagePadding>
             <div className="text-center space-y-4">
               <Title order={2} className="text-2xl sm:text-3xl font-bold">
-                Faça Parte do Movimento Verde
+                {t("ctaTitle")}
               </Title>
               <Text className="max-w-3xl mx-auto text-white/90 text-sm sm:text-base">
-                Estamos construindo um legado de sustentabilidade e inovação.
-                Sua participação é fundamental para acelerarmos a transição para
-                um mundo neutro em carbono. Entre em contato e descubra como
-                você pode contribuir.
+                {t("ctaDescription")}
               </Text>
             </div>
           </PagePadding>
