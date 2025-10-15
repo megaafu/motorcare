@@ -12,6 +12,7 @@ import { AllBrands } from "../../about/constants/brands";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BrandsCarousel from "../../home/components/BrandCarousel";
+import BrandsHeader from "@/components/BrandsHeader/BrandsHeader";
 
 export default function BrandDetailPage() {
   const params = useParams();
@@ -48,73 +49,75 @@ export default function BrandDetailPage() {
   return (
     <main className="pt-16 bg-gray-50">
       {/* ===== Header ===== */}
-      <div className="h-[30vh] min-h-[250px] w-full bg-[#303136] flex flex-col justify-center items-center text-center px-4 relative">
-        <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
-          {brand.brand}
-        </h1>
-      </div>
+      <BrandsHeader logo={brand.img} className="bg-white"/>
+      
+      {/* ===== Gallery Slideshow ===== */}
+      <section className="w-full">
+        <div className="w-full">
+          <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            showIndicators={true}
+            interval={5000}
+            transitionTime={1000}
+            className="carousel-container"
+          >
+            {["/maxxis/img-1.jpg", "/maxxis/img-2.jpeg", "/maxxis/img-3.jpeg", "/maxxis/img-4.jpeg", "/maxxis/img-5.jpg"].map((src, idx) => (
+              <div 
+                key={idx} 
+                className="relative overflow-hidden"
+                style={{ 
+                  height: 'clamp(440px, 40vh, 500px)', 
+                  minHeight: '440px',
+                  maxHeight: '500px'
+                }}
+              >
+                <Image 
+                  src={src} 
+                  alt={`Gallery ${idx + 1}`} 
+                  fill 
+                  className="object-cover object-center" 
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 70vw"
+                  priority={idx === 0}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      </section>
 
       <Container>
         <PagePadding>
-          {/* ===== Gallery Slideshow ===== */}
-          <section className="py-12">
-            <Title order={2} className="text-center mb-8">
-              {tDetail("galleryTitle")}
-            </Title>
-
-            <div className="max-w-4xl mx-auto">
-              <Carousel
-                autoPlay
-                infiniteLoop
-                showThumbs={false}
-                showStatus={false}
-                showIndicators={true}
-                interval={5000}
-                transitionTime={1000}
-              >
-                {[1, 2, 3].map((item) => (
-                  <div
-                    key={item}
-                    className="relative aspect-video rounded-xl overflow-hidden"
-                  >
-                    <Image
-                      src={brand.img}
-                      alt={`${brand.brand} - Image ${item}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-          </section>
-
           {/* ===== About Section ===== */}
-          <section className="py-12 border-t border-gray-200 text-center">
-            <Title order={2} className="mb-6">
+          <section className="py-8 md:py-12 border-t border-gray-200 text-center space-y-5">
+            <Title 
+              order={2} 
+              className="mb-4 md:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+            >
               {tDetail("aboutTitle", { brand: brand.brand })}
             </Title>
-            <div className="max-w-3xl mx-auto">
-              <Text className="text-gray-700 text-lg leading-relaxed">
+            <div className="container mx-auto px-4 sm:px-6">
+              <Text className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 {t(`${brand.info}`)} {tDetail("aboutDescription")}
               </Text>
             </div>
-          </section>
-
-          {/* ===== Contact Section ===== */}
-          <section className="py-12 border-t border-gray-200 text-center">
-            <Title order={2} className="mb-4">
-              {tDetail("contactTitle", { brand: brand.brand })}
-            </Title>
-            <Text className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              {tDetail("contactDescription", { brand: brand.brand })}
-            </Text>
-
-            <Link href="/peaceform" passHref>
-              <Button size="lg" color="blue" variant="filled" radius="xl">
+            <div className="h-4 md:h-5" />
+            <Link href="/peaceform" passHref className="block w-full px-4 sm:px-6">
+              <Button 
+                size="lg" 
+                variant="filled" 
+                radius="md" 
+                className="w-full bg-primary hover:bg-[#3c332f] text-white font-semibold px-4 sm:px-8 md:px-16 py-3 md:py-4 uppercase tracking-widest text-sm sm:text-base"
+              >
                 {tDetail("quickQuoteForm")}
               </Button>
             </Link>
+          </section>
+
+          {/* ===== Contact Section ===== */}
+          <section className="container mx-auto py-8 md:py-12 border-t border-gray-200 text-center">
             <BrandsCarousel />
           </section>
         </PagePadding>

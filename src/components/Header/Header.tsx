@@ -8,7 +8,7 @@ import MobileMenu from "./MobileMenu";
 
 const Header: React.FC = () => {
   return (
-    <header className="fixed left-0 top-0 z-[1200] w-full shadow-2xl lg:absolute">
+    <header className="fixed left-0 top-0 z-[1200] w-full border-b-2 lg:absolute">
       <nav className="border-gray-200 bg-white">
         <div className="w-full mx-auto px-5 md:p7 lg:px-10 xl:container">
           <div className="flex flex-wrap items-center justify-between py-3 md:py-4">
