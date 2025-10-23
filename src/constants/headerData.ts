@@ -30,7 +30,7 @@ export const menu: INav[] = [
           },
           {
             label: "renault",
-            url: "/renault",
+            url: "/brands/1/renault",
           },
         ],
       },

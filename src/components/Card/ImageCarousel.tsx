@@ -18,38 +18,44 @@ const ImageCarousel = ({
   className,
 }: ImageCarouselProps) => {
   return (
-    <Carousel
-      autoPlay={autoPlay}
-      showThumbs={false}
-      showStatus={false}
-      infiniteLoop={true}
-      dynamicHeight={false}
-      showIndicators={true}
-      showArrows={false}
-      stopOnHover={false}
-      swipeable={true}
-      emulateTouch={true}
-      interval={interval}
-      transitionTime={transitionTime}
-    >
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className=" aspect-[4/3] w-full"
-          style={{ background: "#ccc" }}
-        >
-          <Image
-            loader={() => `${BASEURL}${image}`}
-            width={4080}
-            height={3072}
-            quality={100}
-            src={`${BASEURL}${image}`}
-            alt={`Image ${index}`}
-            className={cn("h-full w-full rounded-t-lg bg-cover", className)}
-          />
-        </div>
-      ))}
-    </Carousel>
+    <div className="w-full"> {/* Removed max-w-4xl mx-auto to fill card width */}
+      <Carousel
+        autoPlay={autoPlay}
+        showThumbs={false}
+        showStatus={false}
+        infiniteLoop={true}
+        dynamicHeight={false}
+        showIndicators={true}
+        showArrows={false}
+        stopOnHover={false}
+        swipeable={true}
+        emulateTouch={true}
+        interval={interval}
+        transitionTime={transitionTime}
+        className="w-full h-full" // Ensure carousel fills container
+      >
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="relative aspect-[4/3] w-full h-full" // Ensure full height
+          >
+            <Image
+              loader={() => `${BASEURL}${image}`}
+              fill // Use fill instead of width/height to cover entire container
+              quality={85}
+              src={`${BASEURL}${image}`}
+              alt={`Image ${index + 1}`}
+              className={cn(
+                "object-cover", // object-cover ensures image fills container while maintaining aspect ratio
+                className
+              )}
+              priority={index === 0}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw" // Always take full width
+            />
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 

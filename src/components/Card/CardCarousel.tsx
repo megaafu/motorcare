@@ -26,55 +26,93 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ className, car }) => {
   }
 
   const [autoPlay, setAutoPlay] = useState(false);
-  const handleAutoPlay = () => {
-    setAutoPlay((oldAutoPlay: boolean) => {
-      return (oldAutoPlay = !oldAutoPlay);
-    });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleAutoPlay = (hoverState: boolean) => {
+    setAutoPlay(hoverState);
+    setIsHovered(hoverState);
   };
 
   const router = useRouter();
   const images: string[] = JSON.parse(car.car_image);
+
   return (
     <motion.div
-      className="cursor-pointer"
-      onHoverStart={handleAutoPlay}
-      onHoverEnd={handleAutoPlay}
+      className="cursor-pointer group"
+      onHoverStart={() => handleAutoPlay(true)}
+      onHoverEnd={() => handleAutoPlay(false)}
       onClick={() => router.push(`vehicles/${car.id}`)}
+      whileHover={{ 
+        y: -4,
+        transition: { duration: 0.2 }
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.3 }}
     >
-      <CardRoot className={className}>
-        <ImageCarousel
-          images={images}
-          autoPlay={autoPlay}
-          interval={2000}
-          transitionTime={500}
-        />
-        <div className="px-4 py-6">
-          <CardTitle>{`${car.brand} ${car.model}`}</CardTitle>
-          <CardDescription>
-            <p className="text-gray-700 ">{car.year_model}</p>
-            <p className="diagonal-fractions text-red-500">
-              {currencyFormat(Number(car.price))}
-            </p>
-          </CardDescription>
-          <hr className="border-1 border-[#272424]" />
-          <CardSub>
+      <CardRoot className={`overflow-hidden ${className}`}>
+        {/* Image Section with Overlay on Hover */}
+        <div className="relative">
+          <ImageCarousel
+            images={images}
+            autoPlay={autoPlay}
+            interval={2000}
+            transitionTime={500}
+          />
+          
+          {/* Hover Overlay */}
+          <motion.div 
+            className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"
+            initial={false}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+          />
+    
+        </div>
+
+        {/* Content Section */}
+        <div className="px-4 py-6 space-y-4">
+          {/* Title and Year */}
+          <div className="space-y-2">
+            <CardTitle>
+              {`${car.brand} ${car.model}`}
+            </CardTitle>
+            <CardDescription>
+              <p className="text-gray-600 font-medium">{car.year_model}</p>
+              <motion.p 
+                className="diagonal-fractions text-red-500 font-bold text-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                {currencyFormat(Number(car.price))}
+              </motion.p>
+            </CardDescription>
+          </div>
+
+          <hr className="border-gray-200" />
+
+          {/* Specifications */}
+            <CardSub>
             <div className="flex gap-2 ">
-              <Image width={18} height={18} src="/icons/gas.svg" alt="" />
+              <Image width={16} height={16} src="/icons/gas.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">{car.fuel}</p>
             </div>
             <div className="flex gap-2 ">
-              <Image width={18} height={18} src="/icons/gearshift.svg" alt="" />
+              <Image width={16} height={16} src="/icons/gearshift.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">
                 {car.transmission}
               </p>
             </div>
             <div className="flex gap-2">
-              <Image width={18} height={18} src="/icons/speed.svg" alt="" />
+              <Image width={16} height={16} src="/icons/speed.svg" alt="" />
               <p className="text-sm  font-bold text-light-text">
-                {mileageFormat(Number(car.mileage))}
+                {mileageFormat(Number(car.mileage))} km
               </p>
             </div>
           </CardSub>
+
+          {/* Spacer between specifications and button */}
+          <div className="pt-4"></div>
         </div>
       </CardRoot>
     </motion.div>

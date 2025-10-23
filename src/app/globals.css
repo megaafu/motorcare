@@ -16,12 +16,47 @@ html {
   width: none;
   height: none;
 }
+
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
   display: flex;
   animation: marquee 20s linear infinite;
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.carousel .slide {
+  background: transparent !important;
+}
+
+.carousel .control-dots {
+  bottom: 20px;
+  padding: 0 16px;
+}
+
+@media (max-width: 640px) {
+  .carousel .control-dots {
+    bottom: 12px;
+  }
+}
+
+/* Ensure carousel respects container */
+.carousel-root {
+  width: 100%;
+}
+
+.carousel .slider-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
 }

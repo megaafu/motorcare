@@ -167,35 +167,325 @@
     "aboutDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "contactTitle": "Interessado em Produtos {brand}?",
     "contactDescription": "Entre em contato com nossos especialistas para saber mais sobre os produtos {brand}.",
-    "quickQuoteForm": "Pedir Cotação"
+    "quickQuoteForm": "Pedir Cotação",
+    "navigation": {
+      "home": "Pagina Inicial",
+      "title": "Navegação",
+      "tires": "Pneus",
+      "technologies": "Tecnologias",
+      "about": "Sobre",
+      "why-us": "Porquê {brand}",
+      "gallery": "Galeria",
+      "models": "Modelos"
+    },
+    "tires": {
+      "title": "Pneus {brand}",
+      "subtitle": "Descubra nossa gama completa de pneus",
+      "category": "Categoria",
+      "categories": {
+        "carro": "Carro",
+        "suv": "SUV",
+        "van": "VAN"
+      },
+      "viewDetails": "Ver Detalhes",
+      "noTires": "Nenhum pneu disponível para esta marca"
+    },
+    "technologies": {
+      "title": "Tecnologias {brand}",
+      "subtitle": "Inovação e tecnologia de ponta",
+      "readMore": "Ler Mais",
+      "readLess": "Ler Menos",
+      "noTechnologies": "Nenhuma tecnologia disponível para esta marca"
+    },
+    "infos": {
+      "title": "Informações {brand}",
+      "subtitle": "Saiba mais sobre nossa marca",
+      "noInfos": "Nenhuma informação adicional disponível"
+    },
+    "gallery": {
+      "title": "Galeria {brand}",
+      "subtitle": "Explore o mundo da {brand}",
+      "noImages": "Nenhuma imagem disponível na galeria"
+    }
+  },
+  "Continental": {
+    "technologies": {
+      "tireReplacement": {
+        "title": "Preciso substituir meus pneus?",
+        "name": "O consumidor desempenha um papel importante na manutenção de pneus",
+        "description": "Os pneus devem ser substituídos por várias razões, incluindo o desgaste do piso até a profundidade mínima ou dano (furos, cortes, impactos, protuberâncias, insuflação, sobrecarga, etc.).Por estas razões, os pneus, incluindo peças de reposição devem ser inspecionados rotineiramente, ou seja, pelo menos uma vez por mês. A inspecção regular torna-se particularmente importante quanto mais tempo um pneu é mantido em uso. Se houver suspeita de danos nos pneus, a Continental recomenda que o consumidor tenha o pneu verificado por um profissional. Os consumidores devem usar esta consulta para determinar se os pneus podem continuar em uso. Recomenda-se que os pneus sobressalentes sejam inspecionados ao mesmo tempo. Esta inspeção de rotina deve ocorrer se a viatura estiver ou não equipado com um sistema de monitoramento da pressão dos pneus (TPMS). Os consumidores são fortemente encorajados a estar conscientes da condição visual dos seus pneus. Além disso, eles devem estar alertas para qualquer alteração no desempenho dinâmico, como aumento da perda de ar, ruído ou vibração. Tais mudanças podem ser um indicador de que um ou mais dos pneus devem ser removidos imediatamente de uso para evitar a incapacidade do pneu."
+      },
+      "tireCare": {
+        "title": "Cuidados a ter com os pneus",
+        "name": "Principais requisitos",
+        "description": "Há uma série de considerações que devemos ter em conta ao comprar pneus, mas vamos começar com algumas considerações importantes.O primeiro é o tamanho do pneu? Bem, isso pode ser encontrado nas informações da lateral do pneu e será algo como 205/55 R16. A próxima consideração importante vem logo após o tamanho e é a 'descrição do serviço' do pneu. Na verdade, são duas informações que são as classificações de carga e velocidade do pneu. Estes também podem ser encontrados nas informações da lateral do pneu e consistem em um número e uma carta que se relacionam às tabelas da indústria, o que significa que há consistência em todas as marcas de pneus. Agora sabemos o tamanho e a descrição do serviço que precisamos agora para ver outras considerações"
+      },
+      "tireMaintenance": {
+        "title": "Cuidados a ter com os pneus",
+        "name": "Porque é importante fazer manutenção dos pneus?",
+        "description": "O consumidor desempenha um papel importante na manutenção de pneus. Os pneus podem ter que ser substituídos por várias razões, incluindo o desgaste do piso até a profundidade mínima, ou dano (furos, cortes, impactos, rachaduras, protuberâncias, insuflação, sobrecarga, etc.). Por estas razões, os pneus, incluindo peças de reposição, devem ser inspecionados rotineiramente, ou seja, pelo menos uma vez por mês. A inspecção regular torna-se particularmente importante quanto mais tempo um pneu é mantido em uso. Se houver suspeita de danos nos pneus, a Continental recomenda que o consumidor tenha o pneu verificado por um profissional. Os consumidores devem usar esta consulta para determinar se os pneus podem continuar em serviço. Recomenda-se que os pneus sobressalentes sejam inspecionados ao mesmo tempo. Esta inspeção de rotina deve ocorrer se o veículo estiver ou não equipado com um sistema de monitoramento da pressão dos pneus (TPMS). Os consumidores são fortemente encorajados a estar conscientes da condição visual dos seus pneus. Além disso, eles devem estar alertas para qualquer alteração no desempenho dinâmico, como aumento da perda de ar, ruído ou vibração. Tais mudanças podem ser um indicador de que um ou mais dos pneus devem ser removidos imediatamente para evitar uma deficiência nos pneus"
+      }
+    },
+    "infos": {
+      "bestInBraking": {
+        "headline": "Melhor em travagem. Melhor em know-how",
+        "title": "Curiosidade é o nosso principal motivador.",
+        "description": "Continental entende a estrada do mundo – e como travar nelas. todos dias, colocamos nossa paixão e experiência no desenvolvimento das nossas inovações. fabricando apenas com materiais de alta qualidade, estamos estabelecendo padrões com cada novo produto. Como? aplicando o conhecimento das nossas inovações a cada novo design: Nossos pneus de alto desempenho nos dão uma visão profunda como desenvolver uma experiência de direção mais segura para o uso diário. A tecnologia usada no Conti.eContact ajudarão os carros comuns a serem mais eficientes no futuro. O princípio ContiSeal saiu dos papéis para ser imparável nas ruas. Alguns exemplos de porque a Continental é uma das melhores em Travagem. Apenas uma razão para isso: Nós nunca paramos de explorar."
+      },
+      "whyContinental": {
+        "headline": "Porquê Continental",
+        "title": "Nós nos esforçamos por nada menos que excelência.",
+        "description": "Desde da sua fundação em 1871, a Continental trabalha com um objectivo: Trazer segurança para estradas sem comprometer o conforto e prazer de conduzir. desde o primeiro pneu com padrões de piso no mundo para o visionário Conti.eContact e nossas inovações em segurança automotiva – há mais de 140 anos, estamos constantemente desenvolvendo nossas experiências em mobilidade,transporte e processamento.E enquanto lê isso mais de 200.000 funcionários altamente qualificados em 53 Países estão trabalhando para esse objectivo"
+      },
+      "germanTechnology": {
+        "headline": "Tecnologia Alemã",
+        "title": "Aprender do passado, Alcançar para o futuro",
+        "description": "A engenharia e precisão alemã e legendária, como os inventores do primeiro pneu com padrão de piso no mundo, continental busca provar este espírito inventivo com cada novo produto. Nosso centro de experiência em engenharia pode ser encontrado em Hanover, Alemanha. O centro de pesquisas com a sua enorme pista de corrida de testes e renome internacional, o Contidrom reúne a experiência de mais de 1000 cientistas, engenheiros e designers dedicados na Europa e Estados Unidos . e cada novo teste segue um simples propósito: deixar a condução mais segura, tudo isso e claro de acordo com os mais altos padrões alemães – por mais de 140 anos e contando."
+      },
+      "testedForSafety": {
+        "headline": "Testado para sua Segurança",
+        "title": "Definiçao de padrões em padrões.",
+        "description": "Antes de qualquer Inovação Continental vai a produção é testada intensivamente. os métodos de teste estabelecidos garantem a adequação diária. Continental usa e desenvolve mais tecnologia de mediação de testes avançados para fornecer produtos maturos e otimizados. Nós Testamos para sua segurança- em todo mundo. Ao longo do ano mostramos repetidamente que não há limites para nossos testes de pneus, em nossos locais de testes em Estados Unidos, Nova Zelândia, Suécia,Espanha e último e não menos importante em nossa pista interna perto Hanover, o Contidrom – Que também é uma trilha de referência procurada por especialistas independentes. Cada um dos nossos pneus de inverno e verão de todo o mundo é testado sob todo tipo de condições climáticas e de superfície da estrada. Não precisamos dizer que tudo isso acontece com os mais modernos métodos de testes e Tecnologia de mediação."
+      },
+      "automotiveExperience": {
+        "headline": "Experiência Automotiva",
+        "title": "Olhando para frente e mais longe",
+        "description": "Desde 1995, a Continental já desenvolveu tecnologias importantes para segurança e melhor conforto na condução. Agora cabe a nós moldar o futuro do automóvel. A Continental Automotive Group é um dos fornecedores líder mundial de automóveis, com mais de 87,000 funcionários em mais de 170 localidades. Todos eles funcionam em uma configuração única desde pneus até sistemas de segurança avançado com uma visão em comum: Tornar a mobilidade segura, sustentável e interconectada. a medida que os carros ficam mais inteligentes, nossas três Chassi & segurança, Trem de força e interior trabalham em conjunto para usar esses dados para uma melhor experiência de condução. Desde segurança ativa e passiva, gerenciamento de dados e combustível até o olho do motorista, Continental cobre todo o processo da condução do carroe talvez um dia deixá lo conduzir sozinho"
+      },
+      "originalEquipment": {
+        "headline": "Equipamento Original",
+        "title": "Acredite em nos. como os especialistas fazem..",
+        "description": "começar com a mais alta qualidade. Os fabricantes de automóveis só usam pneus premium, que atendem os mais altos padrões de qualidade. Garantimos que os pneus Continental atendam todos esses padrões. Da Velocidade máxima para travagem em asfalto molhado ou seco, manobrabilidade, confronto e nível de ruído bem como quilometragem : Nossos engenheiros realizam mais de 100 testes diferentes, para garantir que um pneu OE se adapte ao veiculo – nao importa se é um carro desportivo ou uma van. como resultado, Continental e uma das principais fornecedoras de equipamento para fabricantes de automóveis em todo mundo; Quase um terço dos veículos na Europa saem da fábrica com pneus Continental. isso nos torna a primeira escolha da europa entre as montadoras iniciais- e muito orgulhosos também. Se os principais fabricantes de carro confiam na Continental você também pode."
+      },
+      "independentTests": {
+        "headline": "Testes Independentes de Pneus",
+        "title": "Aprovado em Todo Mundo",
+        "description": "Ao desenvolver nossos pneus Premium, nós consideramos cada aspecto de segurança e desempenho. O Resultado: classificações máxima para os pneus Continental – em todo mundo. Continental não apenas afirma produzir pneus de classes mundiais com o mais alto padrão qualidade. Também podemos provar isso: Nossos pneus premiados são testados regularmente por revistas internacionais. Desde 2007 , os produtos Continental receberam as recomendações mais altas em quase 80% de todos os testes. Além disso, a empresa foi eleita a melhor marca de pneus por revistas de automóveis de renome como AutoBild e Auto Zeitung e recebeu os melhores testes de 50 anos no automobilismo. E nosso desenvolvimento constante de pneus vai manter essa tradição."
+      }
+    }
+  },
+  "GeneralTire": {
+    "infos": {
+      "goAnywhere": {
+        "title": "É possível andar em Qualquer lugar",
+        "description": "100 Anos de Aventuras Quer que seja conduzindo em estradas pavimentadas ou navegando em territórios desconhecidos no deserto. Você pode ir a qualquer lugar com a General Tire. Com mais de 100 anos de experiência na indústria de pneus e como parte da Continental- como líder fabricante de pneus sediada em Alemanha – General Tire Oferece produtos nos quais você pode confiar."
+      },
+      "tires": {
+        "title": "Pneus de passageiros e van",
+        "description": "Para suas aventuras diárias General Tires e seu parceiro robusto e confiável em todas as condições , desde férias em família ou um jogo de futebol das Crianças ou conduzindo para o trabalho. General Tire oferece Produtos que você pode confiar para cada pequena aventura do seu dia a dia."
+      },
+      "fourByFour": {
+        "title": "Pneus 4x4",
+        "description": "seu especialista 4x4 Quer que seja conduzindo em estradas pavimentadas ou navegando em territórios desconhecidos. General Tire oferece pneus para SUV e 4x4 robustos e duráveis para cada aplicação."
+      }
+    }
   },
   "Renault": {
-    "heroTitle": "Renault Trucks: Desde 1894",
-    "heroDescription": "Fornecedor de ferramentas de produtividade com mais de um século de know-how inovador em camiões franceses.",
+    "heroTitle": "Renault Trucks",
+    "heroDescription": "Fornecedor de ferramentas de produtividade com mais de um século de know-how francês inovador em camiões.",
     "exploreModels": "Explorar Modelos",
-    "requestQuote": "Solicitar Orçamento",
-    "aboutTitle": "Sobre a <span>Renault Trucks</span>",
-    "aboutDescription": "Com base no legado de mais de um século de know-how inovador em camiões franceses, a Renault Trucks fornece aos profissionais de transporte as ferramentas de que precisam para conduzir os seus negócios com maior eficiência.",
-    "since1894": "Desde 1894",
-    "since1894Description": "Mais de um século de know-how inovador em camiões franceses",
-    "countries": "100+ Países",
-    "countriesDescription": "Presente em mais de 100 países com 1400 pontos de atendimento",
-    "frenchManufacturing": "Fabricação Francesa",
-    "frenchManufacturingDescription": "Conceção e montagem realizadas em França",
-    "productivityProvider": "Fornecedor de Ferramentas de Produtividade",
-    "productivityProviderDescription": "A Renault Trucks oferece aos utilizadores de viaturas comerciais uma grande variedade de serviços e viaturas inovadoras (de 3.1T a 120T) adaptados a uma ampla gama de atividade de transporte: distribuição, construção, construção pesada e longa distância.",
-    "reliablePartner": "Um Parceiro Robusto e Confiável",
-    "reliablePartnerDescription": "Os camiões Renault são robustos, confiáveis e de baixo consumo de combustível, o que lhes permite oferecer maior produtividade e menores custos operacionais.",
-    "volvoGroup": "Um Papel Fundamental no Grupo Volvo",
-    "volvoGroupDescription": "A Renault Trucks faz parte do Grupo VOLVO, um dos maiores fabricantes mundiais de camiões, beneficiando da sinergia e expertise global do grupo.",
-    "vehiclesTitle": "Nossos <span>Veículos</span>",
-    "vehiclesSubtitle": "Descubra a nossa gama de viaturas comerciais Renault",
-    "viewDetails": "Ver Detalhes",
-    "brandLabel": "Marca:",
-    "galleryTitle": "Galeria <span>Renault</span>",
+    "vehiclesTitle": "Nossos Veículos",
+    "vehiclesSubtitle": "Descubra nossa gama de veículos comerciais Renault",
+    "galleryTitle": "Galeria Renault",
+    "business":"A SOLUÇÃO PARA O SEU NEGÓCIO",
     "gallerySubtitle": "Explore o mundo da Renault através da nossa jornada visual",
-    "loadingVehicles": "Carregando viaturas Renault...",
-    "errorLoading": "Erro ao carregar viaturas. Por favor, tente novamente mais tarde."
+    "aboutTitle": "Sobre a Renault",
+    "aboutSubtitle": "Conheça o nosso compromisso com a excelência e serviço de qualidade",
+    "loadingVehicles": "A carregar veículos Renault...",
+    "errorLoading": "Erro ao carregar veículos. Por favor, tente novamente mais tarde.",
+    "catalogs": {
+      "serieK": {
+        "heavyConstruction": "Brochura de Construção Pesada"
+      },
+      "serieC": {
+        "construction": "Brochura de Construção",
+        "longHaul": "Brochura de Longo Curso"
+      },
+      "serieD": {
+        "distribution": "Brochura de Distribuição"
+      }
+    },
+    "infos": {
+      "since1894": {
+        "title": "Desde 1894",
+        "description": "Baseado no legado de mais de um século de know-how francês inovador em camiões, a Renault Trucks fornece aos profissionais de transporte as ferramentas de que necessitam para gerir os seus negócios com mais eficiência."
+      },
+      "productivityProvider": {
+        "title": "Fornecedor de ferramentas de produtividade",
+        "subtitle": "A Renault Trucks oferece aos utilizadores de veículos comerciais uma grande variedade de serviços e veículos inovadores (de 3.1T a 120T) adaptados a uma ampla gama de atividades de transporte: distribuição, construção, obras públicas e longa distância.\nOs camiões Renault são robustos, fiáveis e económicos em combustível, permitindo oferecer maior produtividade e menores custos operacionais."
+      },
+      "reliablePartner": {
+        "title": "Um parceiro robusto e fiável",
+        "description": "Presente em mais de 100 países, a Renault Trucks constrói e mantém relações próximas com os clientes através de uma rede de concessionárias com mais de 1400 pontos de serviço. A conceção e montagem dos veículos Renault, bem como a produção da maioria dos componentes, são realizadas em França."
+      },
+      "volvoGroup": {
+        "headline": "Um papel fundamental no grupo Volvo",
+        "title": "Parte do Grupo Volvo",
+        "description": "A Renault Trucks faz parte do Grupo VOLVO, um dos maiores fabricantes mundiais de camiões."
+      }
+    },
+    "seriesTitle": "Série Renault {series}",
+    "models": "MODELOS",
+    "engines": "MOTORES",
+    "gvw": "GVW",
+    "gcw": "GCW",
+    "cabins": "CABINES",
+    "distributionCatalog": "Catálogo de Veículos de Distribuição",
+    "constructionCatalog": "Catálogo de Veículos de Construção",
+    "downloadCatalog": "Descarregar Catálogo (PDF)",
+    "tabs": {
+      "robustness": {
+        "label": "ROBUSTEZ",
+        "title": "FORTE EM ROBUSTEZ",
+        "subtitleK": "CAMIÕES RESISTENTES PARA APLICAÇÕES DESAFIADORAS",
+        "subtitleC": "CAMIÕES RESISTENTES PARA UTILIDADES DESAFIADORAS",
+        "subtitleD": "CAMIÃO ROBUSTO PARA DESAFIOS URBANOS",
+        "descriptionK": "A nova oferta de construção da Renault Trucks foi concebida utilizando componentes, unidades e soluções resistentes e rigorosamente testados.",
+        "descriptionC": "A nova Renault Trucks foi concebida com componentes, unidades e soluções robustas e rigorosamente testadas.",
+        "descriptionD": "Os chassis da série D foram testados em condições de carga extremas para máxima fiabilidade e durabilidade.",
+        "features": {
+          "semiEllipticParabolicSuspension": "SUSPENSÃO SEMI-ELÍPTICA OU PARABÓLICA",
+          "semiEllipticParabolicSuspensionDesc": "26 t parabólica 3 folhas, 32 t semi-elíptica 11 folhas, 32 t parabólica 4 folhas.",
+          "cabWidthReduced": "LARGURA DA CABINA REDUZIDA NA FRENTE",
+          "cabWidthReducedDesc": "para maior maniobrabilidade.",
+          "steelCorners": "CANTOS EM AÇO",
+          "steelCornersDesc": "com para-choques de polímero.",
+          "mechanicalAirSuspension": "SUSPENSÃO TRASEIRA MECÂNICA OU PNEUMÁTICA",
+          "mechanicalAirSuspensionDesc": "21 t parabólica 3 folhas, 26 t parabólica 3 folhas, 21 t 2×2, almofadas de ar.",
+          "threePartBumper": "PARA-CHOQUES DE TRÊS PARTES",
+          "threePartBumperDesc": "para reduzir custos de manutenção.",
+          "chassisAirSuspension": "SUSPENSÃO PNEUMÁTICA TRASEIRA DO CHASSI",
+          "chassisAirSuspensionDesc": "oferecendo maior estabilidade e melhor proteção para a mercadoria.",
+          "chassisSideMembers": "LONGARINAS DO CHASSI",
+          "chassisSideMembersDesc": "feitas de aço de alta elasticidade.",
+          "reducedCabWidth": "LARGURA DA CABINA REDUZIDA",
+          "reducedCabWidthDesc": "para negociar ruas muito estreitas.",
+          "reducedTurningCircle": "RAIO DE VIragem REDUZIDO",
+          "reducedTurningCircleDesc": "para manobras mais fáceis",
+          "steelBumper": "PARA-CHOQUES TOTALMENTE EM AÇO",
+          "steelBumperDesc": "Em três partes para reduzir custos de manutenção.",
+          "steelBumperDescC": "Em três partes para reduzir custos de manutenção e aumentar o ângulo de aproximação.",
+          "steelBumperDescD": "Cabina D equipada com 2.1m com grelhas de proteção dos faróis para maior resistência a impactos.",
+          "polycarbonateLights": "PROTEÇÃO DE FARÓIS EM POLICARBONATO E GRELHAS DE PROTEÇÃO ÓTICA",
+          "polycarbonateLightsDesc": "Como padrão, proporcionando maior resistência a impactos.",
+          "reinforcedMembers": "LONGARINAS REFORÇADAS",
+          "reinforcedMembersDesc": "Para garantir a resistência mecânica dos chassis.",
+          "opticProtection": "GRUPOS ÓTICOS EM POLICARBONATO E GRELHAS DE PROTEÇÃO DE FARÓIS",
+          "opticProtectionDesc": "Instalados como padrão, proporcionando maior resistência a impactos.",
+          "steelSides": "LATERAIS EM AÇO",
+          "steelSidesDesc": "Com para-choques de polímero.",
+          "shockAbsorber": "AMORTECEDOR DE TRÊS PARTES",
+          "shockAbsorberDesc": "Para custos de manutenção reduzidos.",
+          "airSuspension": "CHASSI COM SUSPENSÃO PNEUMÁTICA TRASEIRA",
+          "airSuspensionDesc": "Oferecendo maior estabilidade e melhor proteção para as mercadorias."
+        }
+      },
+      "profitability": {
+        "label": "RENTABILIDADE",
+        "title": "EXCELENTES CAPACIDADES TÉCNICAS",
+        "subtitleK": "E POSSIBILIDADES DE CARROÇARIA",
+        "subtitleC": "E POSSIBILIDADES DE CARROÇARIA",
+        "subtitleD": "PRONTO PARA QUALQUER ATIVIDADE",
+        "descriptionK": "A série K está equipada com um chassis concebido para suportar as cargas mais pesadas, o que ajuda a reduzir o número de viagens.",
+        "descriptionC": "Tanques e jantes de alumínio, travões de disco, eixo tandem de tração única com redução: otimizando o peso em vazio.",
+        "descriptionD": "Vários dispositivos mecânicos e elétricos facilitam a montagem da carroçaria e permitem a instalação de todo o equipamento necessário.",
+        "features": {
+          "bracketsFixed": "SUPORTES FIXOS NAS LONGARINAS",
+          "bracketsFixedDesc": "para simplificar as operações de montagem da carroçaria.",
+          "rearOverhangCustom": "BALANÇO TRASEIRO",
+          "rearOverhangCustomDesc": "pode ser personalizado em secções de 50 mm para evitar cortar as longarinas.",
+          "powerTakeOff": "TOMADA DE FORÇA",
+          "powerTakeOffDesc": "na caixa de velocidades ou motor para operar equipamento do carroceiro em movimento ou parado.",
+          "renaultK8x4": "RENAULT TRUCKS K 8X4",
+          "renaultK8x4Desc": "com escape vertical.",
+          "renaultK6x6": "RENAULT TRUCKS K 6X6",
+          "renaultK6x6Desc": "com fixações para carroceiro e tomada de força.",
+          "optidriverGearbox": "CAIXA DE VELOCIDADES OPTIDRIVER",
+          "optidriverGearboxDesc": "Dedicada a aplicações desafiantes em 4×4, 6×6 e até 120t. Transmissão Automatizada Optidriver com modo todo-o-terreno como padrão",
+          "dxiEngines": "MOTORES DXI 11 E DXI 13",
+          "dxiEnginesDesc": "De 330 cv a 500 cv.",
+          "doubleReductionAxle": "EIXO TANDEM DE DUPLA REDUÇÃO",
+          "doubleReductionAxleDesc": "Mais potência de tração em terrenos desafiantes.",
+          "offRoadMode": "O MODO TODO-O-TERRENO MODIFICA A ESTRATÉGIA DE MUDANÇA DA CAIXA DE VELOCIDADES",
+          "offRoadModeDesc": "tornando-a adequada para condução em obras.",
+          "powerMode": "O MODO POTÊNCIA PERMITE AOS CONDUTORES",
+          "powerModeDesc": "superar dificuldades temporárias",
+          "aluminumTank": "DEPÓSITO DE COMBUSTÍVEL EM ALUMÍNIO",
+          "aluminumTankDesc": "para uma poupança de peso de até 50%.",
+          "renaultC8x4": "RENAULT TRUCKS C 8X4",
+          "renaultC8x4Desc": "para uma poupança de peso de até 50%.",
+          "renaultC6x4": "REBOQUE RENAULT TRUCKS C 6X4",
+          "renaultC6x4Desc": "100 t PTAC com provisões para montagem de grua.",
+          "platesBrackets": "PLACAS E SUPORTES NAS LONGARINAS",
+          "platesBracketsDesc": "para simplificar as operações de montagem da carroçaria.",
+          "extensivePowerTakeoffs": "UMA AMPLA OFERTA DE TOMADAS DE FORÇA",
+          "extensivePowerTakeoffsDesc": "para garantir que o equipamento opera em condições ótimas.",
+          "renaultDCab": "CABINA RENAULT TRUCKS D 2.1 M",
+          "renaultDCabDesc": "com carroçaria frigorífica.",
+          "renaultDCabVan": "CABINA RENAULT TRUCKS D 2.1 M",
+          "renaultDCabVanDesc": "com carroçaria de furgão e defletor de tejadilho para reduzir o consumo de combustível.",
+          "dxi5dxi7Engines": "MOTORES DXI 5 E DXI 7",
+          "dxi5dxi7EnginesDesc": "De 190 cv a 320 cv. Binário até 1.200 NM para melhor resposta do motor no Motor DXI 7",
+          "steelTank": "DEPÓSITO DE COMBUSTÍVEL EM AÇO",
+          "steelTankDesc": "para maior robustez, com capacidade de até 630 l de diesel.",
+          "aluminumTankLight": "DEPÓSITO DE ALUMÍNIO",
+          "aluminumTankLightDesc": "reduzindo o peso em 50% comparado com um depósito de aço.",
+          "fixedSupports": "SUPORTES FIXOS NAS LONGARINAS",
+          "fixedSupportsDesc": "Para simplificar o processo de carroçaria.",
+          "rearTrack": "VIA TRASEIRA",
+          "rearTrackDesc": "Pode ser personalizada em secções de 50mm para evitar cortar as longarinas.",
+          "powerTakeoffs": "AMPLA GAMA DE TOMADAS DE FORÇA",
+          "powerTakeoffsDesc": "Para garantir que o equipamento opera em condições ótimas.",
+          "engines": "MOTORES DXI 5 E DXI 7",
+          "enginesDesc": "De 190 cv a 320 cv. Binário até 1200 NM para melhor desenvolvimento do motor."
+        }
+      },
+      "comfort": {
+        "label": "CONFORTO",
+        "title": "A FERRAMENTA DE TRABALHO PERFEITA",
+        "subtitleK": "PARA MÁXIMA PRODUTIVIDADE",
+        "subtitleD": "PARA PRODUTIVIDADE URBANA",
+        "descriptionK": "Um ambiente de trabalho espaçoso, conforto de condução e fácil acesso à cabina e carroçaria facilitam o trabalho diário do motorista.",
+        "descriptionD": "Um ambiente de trabalho espaçoso, conforto de condução e fácil acesso à cabina e carroçaria facilitam o trabalho diário do motorista.",
+        "features": {
+          "easyCabAccess": "ACESSO FÁCIL À CABINA",
+          "easyCabAccessDesc": "com 2 degraus em toda a gama.",
+          "wraparoundDashboard": "TABLIER CIRCUNDANTE",
+          "wraparoundDashboardDesc": "com todos os controlos úteis ao alcance fácil, permitindo aos condutores concentrarem-se nas suas tarefas.",
+          "comfortableSeats": "ASSENTOS CONFORTAVEIS",
+          "comfortableSeatsDesc": "suspensos e aquecidos, oferecendo suporte lateral e lombar ajustável.",
+          "pneumaticSteering": "VOLANTE PNEUMÁTICO",
+          "pneumaticSteeringDesc": "bidimensional.",
+          "colorDisplay": "ECÃ A CORES 7\" E VOLANTE MULTIFUNÇÕES",
+          "colorDisplayDesc": "para controlar o telefone, o regulador/limitador de velocidade e navegar pelos menus.",
+          "increasedCabVolume": "VOLUME DA CABINA AUMENTADO",
+          "increasedCabVolumeDesc": "com vários espaços de armazenamento. Interior da cabina concebido com materiais resistentes e capas de assentos fáceis de limpar.",
+          "drumBrakes": "TRAVÕES DE TAMBOR",
+          "drumBrakesDesc": "para aplicações exigentes. Travões de disco disponíveis como opção.",
+          "optibrake": "OPTIBRAKE + : 414 KW de potência de travagem",
+          "optibrakeDesc": "Com motor DXi 13",
+          "hillStartAid": "ASSISTENTE DE ARRANQUE EM RAMPA",
+          "hillStartAidDesc": "para arranques mais fáceis em colinas. Os travões são mantidos para evitar que o camião recue.",
+          "screenSteering": "ECÃ 7\" E VOLANTE MULTIFUNÇÕES",
+          "screenSteeringDesc": "Para gestão de telefone, controlo de cruzeiro e navegação pelos menus.",
+          "cabVolume": "VOLUME DA CABINA AUMENTADO",
+          "cabVolumeDesc": "Com vários espaços de armazenamento. Interior da cabina concebido com materiais resistentes.",
+          "technologyPanel": "PAINEL DE TECNOLOGIA AVANÇADA",
+          "technologyPanelDesc": "Com todos os controlos úteis facilmente acessíveis, permitindo aos condutores manterem-se concentrados.",
+          "comfortSeats": "ASSENTOS CONFORTAVEIS",
+          "comfortSeatsDesc": "Suspensos e aquecidos, oferecendo suporte lateral e lombar ajustável."
+        }
+      },
+      "solutions": {
+        "title": "SOLUÇÕES",
+        "subtitleC": "SOLUÇÕES ABRANGENTES PARA SÉRIE C",
+        "subtitleD": "SOLUÇÕES ABRANGENTES PARA SÉRIE D",
+        "subtitleT": "SOLUÇÕES ABRANGENTES PARA SÉRIE T",
+        "descriptionC": "Descubra a nossa gama completa de soluções adaptadas para aplicações da Série C.",
+        "descriptionD": "Explore as nossas soluções abrangentes concebidas para os requisitos da Série D.",
+        "descriptionT": "Encontre as soluções perfeitas para as suas necessidades de transporte da Série T."
+      }
+    }
   },
   "Request": {
     "info": "Na vanguarda de soluções automotivas em Moçambique desde 1996",

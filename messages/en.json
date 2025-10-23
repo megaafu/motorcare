@@ -120,7 +120,7 @@
     "vision": "Vision",
     "vision_description": "Provide pioneering automotive solutions in emerging economies.",
     "values": "Values",
-    "values_description1": "Professionalism: \nWe act with rigor and competence in everything we do — this is how we conduct our business and interact with each other.",
+    "values_description1": "Professionalism: \nWe act with rigor and competence in everything we do \u2014 this is how we conduct our business and interact with each other.",
     "values_description2": "Respect: \nMutual respect between colleagues, partners, customers, and all stakeholders is a fundamental principle for us.",
     "values_description3": "Honesty: \nWe handle all business matters with maximum transparency. We are trustworthy and honor our promises and commitments.",
     "values_description4": "Dedication: \nWe believe that the success of our customers and partners is essential to our own success.",
@@ -147,7 +147,7 @@
     "2023": "Modernization Era",
     "2023-info": "Restructuring and upgrading of Maputo, Beira, and Nampula branches.",
     "certification": "HSEQ Policy and ISO Certification ",
-    "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company’s strategic management. This enables improved operational efficiency and Customer Satisfaction.",
+    "certification_info": "Motorcare provides services and products in accordance with international standards for health, safety, environment, and quality. Therefore, it has an Integrated Management System based on three international standards: ISO 45001 (Health & Safety), ISO 14001 (Environment), and ISO 9001 (Quality), which are audited annually both internally and externally by an international body. ISO 14001 is an international standard that allows companies to demonstrate their commitment to environmental protection by managing the environmental risks associated with their activities. ISO 9001 aims to ensure greater quality in product or service delivery, focusing on the company's strategic management. This enables improved operational efficiency and Customer Satisfaction.",
     "gallery1": "Early Adventures - 1960s",
     "gallery2": "Rally Heritage - 1970s",
     "gallery3": "First Showroom - 1980s",
@@ -167,41 +167,331 @@
     "aboutDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "contactTitle": "Interested in {brand} Products?",
     "contactDescription": "Get in touch with our experts to learn more about {brand} products.",
-    "quickQuoteForm": "Quick Quote Form"
+    "quickQuoteForm": "Quick Quote Form",
+    "navigation": {
+      "home": "Home",
+      "title": "Navigation",
+      "tires": "Tires",
+      "technologies": "Technologies",
+      "about": "About",
+      "why-us": "Why {brand}",
+      "gallery": "Gallery",
+      "models": "Models"
+    },
+    "tires": {
+      "title": "{brand} Tires",
+      "subtitle": "Discover our complete range of tires",
+      "category": "Category",
+      "categories": {
+        "carro": "Car",
+        "suv": "SUV",
+        "van": "VAN"
+      },
+      "viewDetails": "View Details",
+      "noTires": "No tires available for this brand"
+    },
+    "technologies": {
+      "title": "{brand} Technologies",
+      "subtitle": "Innovation and cutting-edge technology",
+      "readMore": "Read More",
+      "readLess": "Read Less",
+      "noTechnologies": "No technologies available for this brand"
+    },
+    "infos": {
+      "title": "{brand} Information",
+      "subtitle": "Learn more about our brand",
+      "noInfos": "No additional information available"
+    },
+    "gallery": {
+      "title": "{brand} Gallery",
+      "subtitle": "Explore the world of {brand}",
+      "noImages": "No images available in gallery"
+    }
+  },
+  "Continental": {
+    "technologies": {
+      "tireReplacement": {
+        "title": "Do I need to replace my tires?",
+        "name": "The consumer plays an important role in tire maintenance",
+        "description": "Tires should be replaced for various reasons, including tread wear to the minimum depth or damage (punctures, cuts, impacts, bulges, inflation, overloading, etc.). For these reasons, tires, including spare parts, should be routinely inspected, i.e., at least once a month. Regular inspection becomes particularly important the longer a tire is kept in use. If tire damage is suspected, Continental recommends that the consumer have the tire checked by a professional. Consumers should use this consultation to determine whether tires can continue to be used. It is recommended that spare tires be inspected at the same time. This routine inspection should occur whether or not the vehicle is equipped with a tire pressure monitoring system (TPMS). Consumers are strongly encouraged to be aware of the visual condition of their tires. In addition, they should be alert to any changes in dynamic performance, such as increased air loss, noise or vibration. Such changes may be an indicator that one or more of the tires should be removed from use immediately to prevent tire failure."
+      },
+      "tireCare": {
+        "title": "Tire care considerations",
+        "name": "Main requirements",
+        "description": "There are a number of considerations we should take into account when buying tires, but let's start with some important considerations. The first is the tire size? Well, this can be found on the sidewall information and will be something like 205/55 R16. The next important consideration comes right after the size and is the tire's 'service description'. Actually, there are two pieces of information which are the tire's load and speed ratings. These can also be found on the sidewall information and consist of a number and a letter that relate to industry tables, meaning there is consistency across all tire brands. Now we know the size and service description we need now to look at other considerations."
+      },
+      "tireMaintenance": {
+        "title": "Tire care considerations",
+        "name": "Why is tire maintenance important?",
+        "description": "The consumer plays an important role in tire maintenance. Tires may need to be replaced for various reasons, including tread wear to the minimum depth, or damage (punctures, cuts, impacts, cracks, bulges, inflation, overloading, etc.). For these reasons, tires, including spare parts, should be routinely inspected, i.e., at least once a month. Regular inspection becomes particularly important the longer a tire is kept in use. If tire damage is suspected, Continental recommends that the consumer have the tire checked by a professional. Consumers should use this consultation to determine whether tires can continue in service. It is recommended that spare tires be inspected at the same time. This routine inspection should occur whether or not the vehicle is equipped with a tire pressure monitoring system (TPMS). Consumers are strongly encouraged to be aware of the visual condition of their tires. In addition, they should be alert to any changes in dynamic performance, such as increased air loss, noise or vibration. Such changes may be an indicator that one or more of the tires should be removed immediately to prevent tire deficiency."
+      }
+    },
+    "infos": {
+      "bestInBraking": {
+        "headline": "Best in braking. Best in know-how",
+        "title": "Curiosity is our main driver.",
+        "description": "Continental understands the world's roads \u2013 and how to brake on them. Every day, we put our passion and experience into developing our innovations. Manufacturing only with high-quality materials, we are setting standards with every new product. How? By applying the knowledge from our innovations to every new design: Our high-performance tires give us deep insight into how to develop a safer driving experience for daily use. The technology used in Conti.eContact will help ordinary cars become more efficient in the future. The ContiSeal principle has moved from paper to being unstoppable on the streets. Some examples of why Continental is one of the best in Braking. Just one reason for this: We never stop exploring."
+      },
+      "whyContinental": {
+        "headline": "Why Continental",
+        "title": "We strive for nothing less than excellence.",
+        "description": "Since its founding in 1871, Continental has worked with one goal: To bring safety to roads without compromising comfort and driving pleasure. From the world's first tire with tread patterns to the visionary Conti.eContact and our innovations in automotive safety \u2013 for over 140 years, we have been constantly developing our experiences in mobility, transport and processing. And while you read this, more than 200,000 highly qualified employees in 53 countries are working towards this goal."
+      },
+      "germanTechnology": {
+        "headline": "German Technology",
+        "title": "Learn from the past, Reach for the future",
+        "description": "German engineering and precision is legendary, as the inventors of the world's first tire with tread patterns, Continental seeks to prove this inventive spirit with every new product. Our engineering experience center can be found in Hanover, Germany. The research center with its huge test race track and international renown, the Contidrom brings together the expertise of more than 1000 dedicated scientists, engineers and designers in Europe and the United States. And each new test follows a simple purpose: to make driving safer, all of course according to the highest German standards \u2013 for over 140 years and counting."
+      },
+      "testedForSafety": {
+        "headline": "Tested for your Safety",
+        "title": "Defining standards in standards.",
+        "description": "Before any Continental Innovation goes into production it is tested intensively. The established test methods ensure daily suitability. Continental uses and develops more advanced test measurement technology to provide mature and optimized products. We Test for your safety- worldwide. Throughout the year we repeatedly show that there are no limits to our tire tests, at our test sites in the United States, New Zealand, Sweden, Spain and last but not least at our internal track near Hanover, the Contidrom \u2013 which is also a reference track sought after by independent experts. Each of our winter and summer tires from around the world is tested under all kinds of weather conditions and road surface conditions. Needless to say, all this happens with the most modern test methods and measurement technology."
+      },
+      "automotiveExperience": {
+        "headline": "Automotive Experience",
+        "title": "Looking ahead and further",
+        "description": "Since 1995, Continental has already developed important technologies for safety and better driving comfort. Now it's up to us to shape the future of the automobile. The Continental Automotive Group is one of the world's leading automotive suppliers, with more than 87,000 employees in over 170 locations. All of them work in a unique configuration from tires to advanced safety systems with a common vision: To make mobility safe, sustainable and interconnected. As cars get smarter, our three Chassis & Safety, Powertrain and Interior work together to use this data for a better driving experience. From active and passive safety, data and fuel management to the driver's eye, Continental covers the entire car driving process and maybe one day let it drive itself."
+      },
+      "originalEquipment": {
+        "headline": "Original Equipment",
+        "title": "Believe in us. as the experts do..",
+        "description": "Start with the highest quality. Car manufacturers only use premium tires that meet the highest quality standards. We ensure that Continental tires meet all these standards. From maximum speed for braking on wet or dry asphalt, handling, confrontation and noise level as well as mileage: Our engineers perform more than 100 different tests, to ensure that an OE tire fits the vehicle \u2013 whether it's a sports car or a van. As a result, Continental is one of the leading equipment suppliers to car manufacturers worldwide; Almost one third of vehicles in Europe leave the factory with Continental tires. This makes us the first choice in Europe among initial equipment manufacturers- and very proud too. If the leading car manufacturers trust Continental, you can too."
+      },
+      "independentTests": {
+        "headline": "Independent Tire Tests",
+        "title": "Approved Worldwide",
+        "description": "When developing our Premium tires, we consider every aspect of safety and performance. The result: maximum ratings for Continental tires \u2013 worldwide. Continental not only claims to produce world-class tires with the highest quality standard. We can also prove it: Our award-winning tires are regularly tested by international magazines. Since 2007, Continental products have received the highest recommendations in almost 80% of all tests. In addition, the company was voted the best tire brand by renowned car magazines such as AutoBild and Auto Zeitung and received the best tests of 50 years in motorsport. And our constant development of tires will maintain this tradition."
+      }
+    }
+  },
+  "GeneralTire": {
+    "infos": {
+      "goAnywhere": {
+        "title": "It's possible to go Anywhere",
+        "description": "100 Years of Adventures Whether driving on paved roads or navigating unknown territories in the desert. You can go anywhere with General Tire. With over 100 years of experience in the tire industry and as part of Continental- as a leading tire manufacturer based in Germany \u2013 General Tire offers products you can trust."
+      },
+      "tires": {
+        "title": "Passenger and Van Tires",
+        "description": "For your daily adventures, General Tires is your strong and reliable partner in all conditions — whether it's a family vacation, a kids' soccer game, or your daily commute to work. General Tire offers products you can trust for every small adventure in your everyday life."
+      },
+      "fourByFour": {
+        "title": "4x4 Tires",
+        "description": "your 4x4 expert Whether driving on paved roads or navigating unknown territories. General Tire offers robust and durable SUV and 4x4 tires for every application."
+      }
+    }
   },
   "Renault": {
-    "heroTitle": "Renault Trucks: Since 1894",
-    "heroDescription": "Productivity tools provider with over a century of innovative know-how in French trucks.",
+    "heroTitle": "Renault Trucks",
+    "heroDescription": "Productivity tools provider with over a century of innovative French truck know-how.",
     "exploreModels": "Explore Models",
-    "requestQuote": "Request Quote",
-    "aboutTitle": "About <span>Renault Trucks</span>",
-    "aboutDescription": "Based on the legacy of over a century of innovative know-how in French trucks, Renault Trucks provides transport professionals with the tools they need to run their businesses more efficiently.",
-    "since1894": "Since 1894",
-    "since1894Description": "Over a century of innovative know-how in French trucks",
-    "countries": "100+ Countries",
-    "countriesDescription": "Present in over 100 countries with 1400 service points",
-    "frenchManufacturing": "French Manufacturing",
-    "frenchManufacturingDescription": "Design and assembly carried out in France",
-    "productivityProvider": "Productivity Tools Provider",
-    "productivityProviderDescription": "Renault Trucks offers commercial vehicle users a wide range of innovative services and vehicles (from 3.1T to 120T) adapted to a broad spectrum of transport activities: distribution, construction, heavy construction and long distance.",
-    "reliablePartner": "A Robust and Reliable Partner",
-    "reliablePartnerDescription": "Renault trucks are robust, reliable and fuel-efficient, allowing them to offer greater productivity and lower operating costs.",
-    "volvoGroup": "A Key Role in the Volvo Group",
-    "volvoGroupDescription": "Renault Trucks is part of the VOLVO Group, one of the world's largest truck manufacturers, benefiting from the group's global synergy and expertise.",
-    "vehiclesTitle": "Our <span>Vehicles</span>",
+    "vehiclesTitle": "Our Vehicles",
     "vehiclesSubtitle": "Discover our range of Renault commercial vehicles",
-    "viewDetails": "View Details",
-    "brandLabel": "Brand:",
-    "galleryTitle": "<span>Renault</span> Gallery",
+    "galleryTitle": "Renault Gallery",
     "gallerySubtitle": "Explore the world of Renault through our visual journey",
+    "aboutTitle": "About Renault",
+    "aboutSubtitle": "Learn about our commitment to excellence and quality service",
     "loadingVehicles": "Loading Renault vehicles...",
-    "errorLoading": "Error loading vehicles. Please try again later."
+    "errorLoading": "Error loading vehicles. Please try again later.",
+    "catalogs": {
+      "serieK": {
+        "heavyConstruction": "Heavy Construction Brochure"
+      },
+      "serieC": {
+        "construction": "Construction Brochure",
+        "longHaul": "Long Haul Brochure"
+      },
+      "serieD": {
+        "distribution": "Distribution Brochure"
+      }
+    },
+    "infos": {
+      "since1894": {
+        "title": "Since 1894",
+        "description": "Based on the legacy of over a century of innovative French truck know-how, Renault Trucks provides transport professionals with the tools they need to run their businesses more efficiently."
+      },
+      "productivityProvider": {
+        "title": "Productivity tools provider",
+        "subtitle": "Renault Trucks offers commercial vehicle users a wide variety of innovative services and vehicles (from 3.1T to 120T) adapted to a wide range of transport activities: distribution, construction, heavy construction and long distance.<br>Renault trucks are robust, reliable and fuel-efficient, allowing them to offer higher productivity and lower operating costs."
+      },
+      "reliablePartner": {
+        "title": "A robust and reliable partner",
+        "description": "Present in over 100 countries, Renault Trucks builds and maintains close relationships with customers through a dealership network comprising over 1400 service points. The design and assembly of Renault vehicles as well as the production of most components are carried out in France."
+      },
+      "volvoGroup": {
+        "headline": "A key role in the Volvo group",
+        "title": "Part of the Volvo Group",
+        "description": "Renault Trucks is part of the VOLVO Group, one of the world's largest truck manufacturers."
+      }
+    },
+    "seriesTitle": "Renault {series} Series",
+    "models": "MODELS",
+    "engines": "ENGINES",
+    "gvw": "GVW",
+    "gcw": "GCW",
+    "cabins": "CABINS",
+    "business":"BUSINESS SOLUTIONS",
+    "distributionCatalog": "Distribution Vehicles Catalog",
+    "constructionCatalog": "Construction Vehicles Catalog",
+    "downloadCatalog": "Download Catalog (PDF)",
+    "tabs": {
+      "robustness": {
+        "label": "ROBUSTNESS",
+        "title": "STRONG ON ROBUSTNESS",
+        "subtitleK": "RUGGED TRUCKS FOR CHALLENGING APPLICATIONS",
+        "subtitleC": "RUGGED TRUCKS FOR CHALLENGING UTILITIES",
+        "subtitleD": "ROBUST TRUCK FOR URBAN CHALLENGES",
+        "descriptionK": "The new Renault Trucks construction offering has been designed using stringently tested, rugged components, units and solutions.",
+        "descriptionC": "The new Renault Trucks has been designed with robust and rigorously tested components, units and solutions.",
+        "descriptionD": "The D series chassis have been tested under extreme load conditions for highest reliability and durability.",
+        "features": {
+          "semiEllipticParabolicSuspension": "SEMI-ELLIPTIC OR PARABOLIC SUSPENSION",
+          "semiEllipticParabolicSuspensionDesc": "26 t parabolic 3 leaves, 32 t semi-elliptical 11 leaves, 32 t parabolic 4 leaves.",
+          "cabWidthReduced": "CAB WIDTH REDUCED IN THE FRONT",
+          "cabWidthReducedDesc": "for greater manoeuvrability.",
+          "steelCorners": "STEEL CORNERS",
+          "steelCornersDesc": "with polymer bumpers.",
+          "mechanicalAirSuspension": "MECHANICAL OR AIR REAR SUSPENSION",
+          "mechanicalAirSuspensionDesc": "21 t parabolic 3 leaves, 26 t parabolic 3 leaves, 21 t 2�2, air cushions.",
+          "threePartBumper": "THREE PART BUMPER",
+          "threePartBumperDesc": "to reduce maintenance costs.",
+          "chassisAirSuspension": "CHASSIS REAR AIR SUSPENSION",
+          "chassisAirSuspensionDesc": "offering greater stability and better protection for goods.",
+          "chassisSideMembers": "CHASSIS SIDE MEMBERS",
+          "chassisSideMembersDesc": "made of high elasticity steel.",
+          "reducedCabWidth": "REDUCED CAB WIDTH",
+          "reducedCabWidthDesc": "for negotiating very narrow streets.",
+          "reducedTurningCircle": "REDUCED TURNING CIRCLE",
+          "reducedTurningCircleDesc": "for easier manoeuvring",
+          "steelBumper": "ALL STEEL BUMPER",
+          "steelBumperDesc": "In three parts to reduce maintenance costs.",
+          "steelBumperDescC": "In three parts to reduce maintenance costs and increase the approach angle.",
+          "steelBumperDescD": "Cab D equipped with 2.1m with headlight protection grilles for greater impact resistance.",
+          "polycarbonateLights": "POLYCARBONATE HEADLIGHT AND OPTIC PROTECTION GRIDS",
+          "polycarbonateLightsDesc": "As standard providing greater impact resistance.",
+          "reinforcedMembers": "REINFORCED SIDE MEMBERS",
+          "reinforcedMembersDesc": "To guarantee the mechanical strength of the frames.",
+          "opticProtection": "POLYCARBONATE OPTIC GROUPS AND HEADLIGHT PROTECTION GRILLES",
+          "opticProtectionDesc": "Installed as standard providing greater impact resistance.",
+          "steelSides": "STEEL SIDES",
+          "steelSidesDesc": "With polymer bumpers.",
+          "shockAbsorber": "THREE-PART SHOCK ABSORBER",
+          "shockAbsorberDesc": "For reduced maintenance costs.",
+          "airSuspension": "REAR AIR SUSPENSION CHASSIS",
+          "airSuspensionDesc": "Offering greater stability and better protection for goods."
+        }
+      },
+      "profitability": {
+        "label": "PROFITABILITY",
+        "title": "EXCELLENT TECHNICAL CAPABILITIES",
+        "subtitleK": "AND BODYBUILDING POSSIBILITIES",
+        "subtitleC": "AND BODYBUILDING POSSIBILITIES",
+        "subtitleD": "READY FOR ANY ACTIVITY",
+        "descriptionK": "The K series is equipped with a chassis designed to support the heaviest loads, which helps reduce the number of trips.",
+        "descriptionC": "Aluminum tanks and rims, disc brakes, single drive tandem axle reduction: by optimizing the unladen weight.",
+        "descriptionD": "Various mechanical and electrical devices facilitate body mounting and allow installation of all necessary equipment.",
+        "features": {
+          "bracketsFixed": "BRACKETS FIXED TO THE SIDE MEMBERS",
+          "bracketsFixedDesc": "to make body mounting operations simpler.",
+          "rearOverhangCustom": "REAR OVERHANG",
+          "rearOverhangCustomDesc": "can be customised in 50 mm sections to avoid cutting the side members.",
+          "powerTakeOff": "POWER TAKE OFF",
+          "powerTakeOffDesc": "on the gearbox or engine for operating bodybuilder equipment when moving or stationary.",
+          "renaultK8x4": "RENAULT TRUCKS K 8X4",
+          "renaultK8x4Desc": "with vertical exhaust.",
+          "renaultK6x6": "RENAULT TRUCKS K 6X6",
+          "renaultK6x6Desc": "with bodybuilder fasteners and power takeoff.",
+          "optidriverGearbox": "OPTIDRIVER GEARBOX",
+          "optidriverGearboxDesc": "Devoted to challenging applications in 4�4, 6�6 and up to 120t. Optidriver Automated Transmission with off-road mode as standard",
+          "dxiEngines": "DXI 11 AND DXI 13 ENGINES",
+          "dxiEnginesDesc": "From 330 hp to 500 hp.",
+          "doubleReductionAxle": "DOUBLE REDUCTION TANDEM DRIVE AXLE",
+          "doubleReductionAxleDesc": "More pulling power over challenging terrain.",
+          "offRoadMode": "THE OFF-ROAD MODE MODIFIES GEARBOX SHIFT STRATEGY",
+          "offRoadModeDesc": "making it suitable for driving on construction sites.",
+          "powerMode": "THE POWER MODE ENABLES DRIVERS",
+          "powerModeDesc": "to overcome temporary difficulties",
+          "aluminumTank": "ALUMINIUM FUEL TANK",
+          "aluminumTankDesc": "for a weight saving of up to 50%.",
+          "renaultC8x4": "RENAULT TRUCKS C 8X4",
+          "renaultC8x4Desc": "for a weight saving of up to 50%.",
+          "renaultC6x4": "RENAULT TRUCKS C 6X4 TRACTOR",
+          "renaultC6x4Desc": "100 t GCW with provisions for crane mounting.",
+          "platesBrackets": "PLATES AND BRACKETS ON THE SIDE MEMBERS",
+          "platesBracketsDesc": "to make body mounting operations simpler.",
+          "extensivePowerTakeoffs": "AN EXTENSIVE OFFERING OF POWER TAKEOFFS",
+          "extensivePowerTakeoffsDesc": "to ensure equipment operates under optimal conditions.",
+          "renaultDCab": "RENAULT TRUCKS D CAB 2.1 M",
+          "renaultDCabDesc": "with refrigerated body.",
+          "renaultDCabVan": "RENAULT TRUCKS D CAB 2.1 M",
+          "renaultDCabVanDesc": "with van body and roof deflector to lower fuel consumption.",
+          "dxi5dxi7Engines": "DXI 5 AND DXI 7 ENGINES",
+          "dxi5dxi7EnginesDesc": "From 190 hp to 320 hp. Torque of up to 1,200 NM for better engine pickup on the DXI 7 Engine",
+          "steelTank": "STEEL FUEL TANK",
+          "steelTankDesc": "for greater robustness, with a capacity of up to 630 l of diesel.",
+          "aluminumTankLight": "ALUMINIUM TANK",
+          "aluminumTankLightDesc": "reducing weight by 50% compared with a steel tank.",
+          "fixedSupports": "FIXED SUPPORTS ON THE SIDE MEMBERS",
+          "fixedSupportsDesc": "To simplify the bodybuilding process.",
+          "rearTrack": "REAR TRACK",
+          "rearTrackDesc": "Can be customized in 50mm sections to avoid cutting side members.",
+          "powerTakeoffs": "EXTENSIVE RANGE OF POWER TAKE-OFFS",
+          "powerTakeoffsDesc": "To ensure equipment operates under optimal conditions.",
+          "engines": "DXI 5 AND DXI 7 ENGINES",
+          "enginesDesc": "From 190 hp to 320 hp. Torque up to 1200 NM for better engine development."
+        }
+      },
+      "comfort": {
+        "label": "COMFORT",
+        "title": "THE PERFECT WORK TOOL",
+        "subtitleK": "FOR MAXIMUM PRODUCTIVITY",
+        "subtitleD": "FOR URBAN PRODUCTIVITY",
+        "descriptionK": "A spacious working environment, driving comfort and easy access to the cab and body make the driver's daily work easier.",
+        "descriptionD": "A spacious working environment, driving comfort and easy access to the cab and body make the driver's daily work easier.",
+        "features": {
+          "easyCabAccess": "EASY CAB ACCESS",
+          "easyCabAccessDesc": "with 2 steps across the entire range.",
+          "wraparoundDashboard": "WRAPAROUND DASHBOARD",
+          "wraparoundDashboardDesc": "with all useful controls within easy reach, allowing drivers to concentrate on their assignments.",
+          "comfortableSeats": "COMFORTABLE SEATS",
+          "comfortableSeatsDesc": "suspended and heated, offering adjustable lateral and lumbar support.",
+          "pneumaticSteering": "PNEUMATIC",
+          "pneumaticSteeringDesc": "two-dimensional steering wheel.",
+          "colorDisplay": "7\" COLOUR DISPLAY AND MULTIFUNCTIONAL STEERING WHEEL",
+          "colorDisplayDesc": "to control the telephone, the cruise regulator/limiter and navigate through the menus.",
+          "increasedCabVolume": "INCREASED CAB VOLUME",
+          "increasedCabVolumeDesc": "with several storage spaces. cab interior designed with sturdy materials and easy to clean seat covers.",
+          "drumBrakes": "DRUM BRAKES",
+          "drumBrakesDesc": "for demanding applications. Disc brakes available as an option.",
+          "optibrake": "OPTIBRAKE + : 414 KW of breaking power",
+          "optibrakeDesc": "With a DXi 13 engine",
+          "hillStartAid": "HILL START AID",
+          "hillStartAidDesc": "for easier starting on hills. The brakes are held to prevent the truck from rolling back.",
+          "screenSteering": "7\" SCREEN & MULTIFUNCTIONAL STEERING WHEEL",
+          "screenSteeringDesc": "For phone management, cruise control and navigating through menus.",
+          "cabVolume": "INCREASED CAB VOLUME",
+          "cabVolumeDesc": "With various storage spaces. Cab interior designed with resistant materials.",
+          "technologyPanel": "ADVANCED TECHNOLOGY PANEL",
+          "technologyPanelDesc": "With all useful controls easily accessible allowing drivers to stay focused.",
+          "comfortSeats": "COMFORTABLE SEATS",
+          "comfortSeatsDesc": "Suspended and heated, offering adjustable lateral and lumbar support."
+        }
+      },
+      "solutions": {
+        "title": "SOLUTIONS",
+        "subtitleC": "COMPREHENSIVE SOLUTIONS FOR SERIE C",
+        "subtitleD": "COMPREHENSIVE SOLUTIONS FOR SERIE D",
+        "subtitleT": "COMPREHENSIVE SOLUTIONS FOR SERIE T",
+        "descriptionC": "Discover our complete range of solutions tailored for Serie C applications.",
+        "descriptionD": "Explore our comprehensive solutions designed for Serie D requirements.",
+        "descriptionT": "Find the perfect solutions for your Serie T transportation needs."
+      }
+    }
   },
   "Request": {
     "info": "Pioneering automotive solutions in Mozambique since 1996",
     "quote": "Request a Quote",
     "service": "Book a Service",
-    "service_content": "At Motorcare, providing maintenance services — whether preventive or corrective — is a top priority. Our modern workshops are equipped to handle large volumes of vehicles efficiently and with quality.\nYou can count on us for competent and transparent service — that’s how we do business and take care of our customers.\nBook your service with us and ensure the best care for your vehicle.",
+    "service_content": "At Motorcare, providing maintenance services \u2014 whether preventive or corrective \u2014 is a top priority. Our modern workshops are equipped to handle large volumes of vehicles efficiently and with quality.\nYou can count on us for competent and transparent service \u2014 that's how we do business and take care of our customers.\nBook your service with us and ensure the best care for your vehicle.",
     "other": "Request Other Brands",
     "test_drive": "Book a Test Drive",
     "test_drive_content": "Want to try the vehicle before deciding?\nFill out the form and book your test drive with us.",
@@ -233,9 +523,9 @@
     "service_description": "Desired Service",
     "category": "Category",
     "trade_in": "Trade-In / Vehicle Return Form",
-    "trade_info": "Want to exchange your used vehicle for a new one? With Motorcare’s Trade-In service, you can use your current vehicle as part of the payment.\nWe accept vehicles that:\nWere purchased from an authorized agent in Mozambique;\nHave a maintenance history;\nAre in good condition, without damage or mechanical issues.\nOur team will contact you to confirm the date, time, and location that work best for you.",
-    "drive_number": "Driver’s License Number",
-    "drive_date": "Driver’s License Expiry Date",
+    "trade_info": "Want to exchange your used vehicle for a new one? With Motorcare's Trade-In service, you can use your current vehicle as part of the payment.\nWe accept vehicles that:\nWere purchased from an authorized agent in Mozambique;\nHave a maintenance history;\nAre in good condition, without damage or mechanical issues.\nOur team will contact you to confirm the date, time, and location that work best for you.",
+    "drive_number": "Driver's License Number",
+    "drive_date": "Driver's License Expiry Date",
     "pretended_date": "Preferred Date",
     "suggestions": "Suggestions and Complaints",
     "submit": "Submit",
@@ -331,7 +621,7 @@
     "others": "Others",
     "closest_dealer": "Closest Branch",
     "carrear": "Career",
-    "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we’ll reach out to accelerate toward the future together."
+    "carrear_info": "At Motorcare, we believe that each talent brings new ideas, energy, and passion to grow with us. Register through the form and share your journey with us. We will carefully store your resume, and when the right opportunity arises, we'll reach out to accelerate toward the future together."
   },
   "Vehicles": {
     "info": "Pioneering automotive solutions in Mozambique since 1996",

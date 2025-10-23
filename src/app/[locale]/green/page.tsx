@@ -39,7 +39,7 @@ export default function GreenPage() {
       <Container>
         <PagePadding>
           <div className="text-center space-y-4">
-            <Title order={2} className="text-2xl sm:text-3xl font-bold">
+            <Title order={2} className="text-teal-600 text-2xl sm:text-3xl font-bold">
               {t.rich("introTitle", {
                 span: (chunks) => <span className="text-teal-600">{chunks}</span>
               })}
@@ -77,7 +77,7 @@ export default function GreenPage() {
       <Container>
         <PagePadding>
           <div className="text-center space-y-4">
-            <Title order={2} className="text-2xl sm:text-3xl font-bold">
+            <Title order={2} className="text-teal-600 text-2xl sm:text-3xl font-bold">
               {t.rich("visionTitle", {
                 span: (chunks) => <span className="text-teal-600">{chunks}</span>
               })}
@@ -115,7 +115,7 @@ export default function GreenPage() {
                   className="w-full h-auto object-cover"
                 />
                 <div className="p-4">
-                  <Title order={4} className="mt-2 text-lg font-semibold">
+                  <Title order={4} className="text-teal-600 mt-2 text-lg font-semibold">
                     {item.title}
                   </Title>
                   <Text className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -148,7 +148,7 @@ export default function GreenPage() {
         <PagePadding>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <div className="md:col-span-1">
-              <Title order={4} className="text-2xl sm:text-3xl font-bold">
+              <Title order={4} className="text-teal-600 text-2xl sm:text-3xl font-bold">
                 {t("chargingTitle")}
               </Title>
             </div>
@@ -183,7 +183,7 @@ export default function GreenPage() {
               },
             ].map((item, idx) => (
               <div key={idx}>
-                <Title order={4} className="mb-2 flex items-center gap-2 text-lg font-semibold">
+                <Title order={4} className="mb-2 text-teal-600 flex items-center gap-2 text-lg font-semibold">
                   {item.icon}
                   {item.title}
                 </Title>
@@ -201,7 +201,7 @@ export default function GreenPage() {
         <Container>
           <PagePadding>
             <div className="text-center space-y-4">
-              <Title order={2} className="text-2xl sm:text-3xl font-bold">
+              <Title order={2} className="text-teal-600 text-2xl sm:text-3xl font-bold">
                 {t("ctaTitle")}
               </Title>
               <Text className="max-w-3xl mx-auto text-white/90 text-sm sm:text-base">

@@ -12,7 +12,7 @@ import { AllBrands } from "../../about/constants/brands";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BrandsCarousel from "../../home/components/BrandCarousel";
-import BrandsHeader from "@/components/BrandsHeader/BrandsHeader";
+
 
 export default function BrandDetailPage() {
   const params = useParams();
@@ -47,10 +47,7 @@ export default function BrandDetailPage() {
   }
 
   return (
-    <main className="pt-16 bg-gray-50">
-      {/* ===== Header ===== */}
-      <BrandsHeader logo={brand.img} className="bg-white"/>
-      
+    <main >
       {/* ===== Gallery Slideshow ===== */}
       <section className="w-full">
         <div className="w-full">
@@ -64,7 +61,7 @@ export default function BrandDetailPage() {
             transitionTime={1000}
             className="carousel-container"
           >
-            {["/maxxis/img-1.jpg", "/maxxis/img-2.jpeg", "/maxxis/img-3.jpeg", "/maxxis/img-4.jpeg", "/maxxis/img-5.jpg"].map((src, idx) => (
+            {brand.gallery?.map((src, idx) => (
               <div 
                 key={idx} 
                 className="relative overflow-hidden"
