@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 
 const languageOptions = [
-  { label: "Pt", value: "pt", flag: "/icons/pt.png" },
+  { label: "Pt", value: "pt", flag: "/icons/mz.png" },
   { label: "En", value: "en", flag: "/icons/en.png" },
 ];
 

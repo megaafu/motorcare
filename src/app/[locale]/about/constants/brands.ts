@@ -152,18 +152,6 @@ const Renault: IBrand = {
     },
     {
       id: 3,
-      series: "T",
-      name: "Serie T",
-      description: "Highway trucks for long-distance transport with maximum comfort",
-      image: "/images/renault-serie-t.jpg",
-      engines: ["DXi 11L 380-520hp", "DXi 13L 430-520hp"],
-      gvw: "18T - 70T",
-      cabines: ["T-High Sleeper", "T-Xtreme", "T-Comfort"],
-      models: [],
-      catalogPdf: []
-    },
-    {
-      id: 4,
       series: "C",
       name: "Serie C",
       description: "Compact and agile trucks for urban distribution",

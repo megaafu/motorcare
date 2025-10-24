@@ -12,7 +12,7 @@ const ModelDetailPage: React.FC = () => {
   const brandId = params.id as string;
   const modelId = params.modelId as string;
   const t = useTranslations();
-  const [activeTab, setActiveTab] = useState("solutions");
+  const [activeTab, setActiveTab] = useState("robustness");
 
   const brand = AllBrands.brands.find((b) => b.id === Number(brandId));
   const model = brand?.models?.find((m) => m.id === Number(modelId));
@@ -154,7 +154,7 @@ const ModelDetailPage: React.FC = () => {
             description: t("Renault.tabs.robustness.features.steelCornersDesc")
           },
           {
-            image: "/serie-c/robust-4.jpg",
+            image: "/serie-c/robust-4.png",
             title: t("Renault.tabs.robustness.features.mechanicalAirSuspension"),
             description: t("Renault.tabs.robustness.features.mechanicalAirSuspensionDesc")
           }
@@ -346,19 +346,6 @@ const ModelDetailPage: React.FC = () => {
         ]
       }
     },
-    T: {
-      // Serie T only has solutions tab
-      solutions: {
-        title: t("Renault.tabs.solutions.title"),
-        subtitle: t("Renault.tabs.solutions.subtitleT"),
-        description: t("Renault.tabs.solutions.descriptionT"),
-        images: [
-          "/serie-t/solution-1.jpg",
-          "/serie-t/solution-2.jpg",
-          "/serie-t/solution-3.jpg"
-        ]
-      }
-    }
   };
 
   // Tab labels
@@ -444,7 +431,7 @@ const ModelDetailPage: React.FC = () => {
           </div>
         ) : (
           // Regular Tabs - Features with descriptions
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {tabData.features?.map((feature, index) => (
               <div 
                 key={index} 
