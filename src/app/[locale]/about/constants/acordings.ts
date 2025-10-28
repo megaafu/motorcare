@@ -20,18 +20,11 @@ const Mission: IAcordingItem = {
   id: 1,
   title: "mission",
   icon: MissionIcon,
-  description: ["mission_description1", "mission_description2",],
-};
-
-const Vision: IAcordingItem = {
-  id: 2,
-  title: "vision",
-  icon: VisionIcon,
-  description: ["vision_description",],
+  description: ["mission_description1", "mission_description2","vision_description"],
 };
 
 const Values: IAcordingItem = {
-  id: 3,
+  id: 2,
   title: "values",
   icon: ValuesIcon,
   description: [
@@ -43,5 +36,5 @@ const Values: IAcordingItem = {
 };
 
 export const AllAcording: IAcordings = {
-  acordings: [Values, Mission, Vision],
+  acordings: [Values, Mission,],
 };

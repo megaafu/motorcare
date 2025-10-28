@@ -45,12 +45,9 @@ const BrandTiresPage: React.FC = () => {
   const getCategoryDisplayName = (categoryKey: string): string => {
     // Define valid translation keys for tire categories
     const validCategoryKeys = [
-      "BrandDetail.tires.categories.allSeason",
-      "BrandDetail.tires.categories.summer",
-      "BrandDetail.tires.categories.winter",
-      "BrandDetail.tires.categories.allTerrain",
-      "BrandDetail.tires.categories.mud",
-      "BrandDetail.tires.categories.highway"
+      "BrandDetail.tires.categories.carro",
+      "BrandDetail.tires.categories.suv",
+      "BrandDetail.tires.categories.van",
     ] as const;
 
     // Check if the category key is one of the valid translation keys
@@ -74,7 +71,7 @@ const BrandTiresPage: React.FC = () => {
             {/* Category Header with Image */}
             <section className="relative h-64 w-full mb-8 rounded-lg overflow-hidden">
               <Image
-                src={brand.gallery?.[0] || "/placeholder.jpg"}
+                src={"/tires/banner.jpg"}
                 alt={getCategoryDisplayName(category)}
                 fill
                 className="object-cover"
@@ -97,7 +94,7 @@ const BrandTiresPage: React.FC = () => {
                 >
                   <div className="relative w-full h-40 mb-4">
                     <Image
-                      src={`/${tire.image}.jpg`}
+                      src={tire.image}
                       alt={tire.name}
                       fill
                       className="object-contain"

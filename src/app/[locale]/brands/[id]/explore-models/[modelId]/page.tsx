@@ -482,7 +482,7 @@ const ModelDetailPage: React.FC = () => {
           {/* Model Image */}
           <div className="flex-shrink-0 rounded-lg overflow-hidden">
             <Image
-              src={model.image}
+              src={model.detailImage}
               alt={model.name}
               width={600}
               height={400}

@@ -37,6 +37,7 @@ export interface VehicleModel {
   name: string;
   description: string;
   image: string;
+  detailImage:string;
   engines: string[];
   models: string[];
   gvw: string;
@@ -51,6 +52,7 @@ interface IBrand {
   brand: string;
   info: string;
   img: string;
+  banner?:string;
   url: string;
   navs?: NavLink[];
   gallery?: string[];
@@ -121,6 +123,7 @@ const Renault: IBrand = {
       name: "Serie K",
       description: "Heavy-duty construction trucks designed for the toughest sites",
       image: "/images/renault-serie-k.jpg",
+      detailImage:"/serie-k/details.jpg",
       engines: ["DXI 11: 380 / 440 HP", "DXI 13: 460 / 500 HP"],
       gvw: "19 – 42 T",
       gcw:"60 – 120 T",
@@ -139,6 +142,7 @@ const Renault: IBrand = {
       name: "Serie D",
       description: "Versatile distribution trucks for urban and regional transport",
       image: "/images/renault-serie-d.jpg",
+      detailImage:"/serie-d/details.jpg",
       engines: ["DXI 5: 190 / 220 HP", "DXI 7: 240 / 280 HP"],
       gvw: "13 – 15 T",
       cabines: ["DAY CAB : Day cab, normal roof / flat roof", "GLOBAL CAB : Intermediary cab", "CREW CAB : 4 door crew cab (standard) 6/7 seats"],
@@ -156,6 +160,7 @@ const Renault: IBrand = {
       name: "Serie C",
       description: "Compact and agile trucks for urban distribution",
       image: "/images/renault-serie-c.jpg",
+      detailImage:"/serie-c/details.jpg",
       engines: ["DXI 11: 330 / 440 HP", "DXI 13: 460 / 500 HP"],
       gvw: "19 – 42 T",
       gcw:"60 – 120 T",
@@ -200,18 +205,18 @@ const Continental: IBrand = {
     "/continental/img-10.jpg"
   ],
   tires: [
-    { id: 1, name: "ContiSportContact™ 3", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 2, name: "ContiSportContact™ 5", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 3, name: "ContiSportContact™ 5 SUV", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 4, name: "ContiSportContact™ 5p", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 5, name: "ContiSportContact™ 16", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 6, name: "ContiCrossContact™ AT", image: "tires/tire-1", category: "BrandDetail.tires.categories.suv" },
-    { id: 7, name: "ContiCrossContact™ LX", image: "tires/tire-1", category: "BrandDetail.tires.categories.suv" },
-    { id: 8, name: "ContiCrossContact™ LX2", image: "tires/tire-1", category: "BrandDetail.tires.categories.suv" },
-    { id: 9, name: "VANCO™ CONTACT", image: "tires/tire-1", category: "BrandDetail.tires.categories.van" },
-    { id: 10, name: "VANCO™ CONTACT 2", image: "tires/tire-1", category: "BrandDetail.tires.categories.van" },
-    { id: 11, name: "VANCO™ ECO CONTACT", image: "tires/tire-1", category: "BrandDetail.tires.categories.van" },
-    { id: 12, name: "VANCO CONTACT AP 30", image: "tires/tire-1", category: "BrandDetail.tires.categories.van" },
+    { id: 1, name: "ContiSportContact™ 3", image: "/tires/tire-1.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 2, name: "ContiSportContact™ 5", image: "/tires/tire-2.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 3, name: "ContiSportContact™ 5 SUV", image: "/tires/tire-3.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 4, name: "ContiSportContact™ 5p", image: "/tires/tire-4.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 5, name: "ContiSportContact™ 16", image: "/tires/tire-5.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 6, name: "ContiCrossContact™ AT", image: "/tires/tire-6.png", category: "BrandDetail.tires.categories.suv" },
+    { id: 7, name: "ContiCrossContact™ LX", image: "/tires/tire-7.png", category: "BrandDetail.tires.categories.suv" },
+    { id: 8, name: "ContiCrossContact™ LX2", image: "/tires/tire-8.png", category: "BrandDetail.tires.categories.suv" },
+    { id: 9, name: "VANCO™ CONTACT", image: "/tires/tire-9.png", category: "BrandDetail.tires.categories.van" },
+    { id: 10, name: "VANCO™ CONTACT 2", image: "/tires/tire-10.png", category: "BrandDetail.tires.categories.van" },
+    { id: 11, name: "VANCO™ ECO CONTACT", image: "/tires/tire-11.png", category: "BrandDetail.tires.categories.van" },
+    { id: 12, name: "VANCO CONTACT AP 30", image: "/tires/tire-12.png", category: "BrandDetail.tires.categories.van" },
   ],
   technologies: [
     {
@@ -294,6 +299,7 @@ const GeneralTyre: IBrand = {
   brand: "General Tire",
   info: "general",
   img: "/images/generaltire.png",
+  banner:"/images/background-about.png",
   url: "/brands/3",
   navs: [
     { label: "BrandDetail.navigation.tires", href: "/brands/3/tires" },
@@ -309,11 +315,11 @@ const GeneralTyre: IBrand = {
     "/general/img-7.jpeg"
   ],
   tires: [
-    { id: 1, name: "General Altimax Comfort", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 2, name: "General Altimax Sport", image: "tires/tire-1", category: "BrandDetail.tires.categories.carro" },
-    { id: 3, name: "General Grabber GT", image: "tires/tire-1", category: "BrandDetail.tires.categories.suv" },
-    { id: 4, name: "General Grabber AT", image: "tires/tire-1", category: "BrandDetail.tires.categories.suv" },
-    { id: 5, name: "EUROVAN 2", image: "tires/tire-1", category: "BrandDetail.tires.categories.van" },
+    { id: 1, name: "General Altimax Comfort", image: "/tires/general-1.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 2, name: "General Altimax Sport", image: "/tires/general-2.png", category: "BrandDetail.tires.categories.carro" },
+    { id: 3, name: "General Grabber GT", image: "/tires/general-3.png", category: "BrandDetail.tires.categories.suv" },
+    { id: 4, name: "General Grabber AT", image: "/tires/general-4.png", category: "BrandDetail.tires.categories.suv" },
+    { id: 5, name: "EUROVAN 2", image: "/tires/general-5.png", category: "BrandDetail.tires.categories.van" },
   ],
   infos: [
     {
