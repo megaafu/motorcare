@@ -19,5 +19,30 @@ export const galleryItems = [
     image: "/images/gallery4.jpg",
     rotation: 3
   },
+    {
+    title: "gallery4",
+    image: "/images/gallery5.jpg",
+    rotation: 3
+  },
+    {
+    title: "gallery4",
+    image: "/images/gallery6.jpg",
+    rotation: 3
+  },
+    {
+    title: "gallery4",
+    image: "/images/gallery7.jpg",
+    rotation: 3
+  },
+    {
+    title: "gallery4",
+    image: "/images/gallery8.jpg",
+    rotation: 3
+  },
+    {
+    title: "gallery4",
+    image: "/images/gallery9.jpg",
+    rotation: 3
+  },
 ];
 

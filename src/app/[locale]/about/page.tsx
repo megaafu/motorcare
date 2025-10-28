@@ -29,7 +29,7 @@ export default function About() {
   try {
     const t = useTranslations("About");
     return (
-      <main className="pt-16"> {/* Added padding to account for fixed header */}
+      <main className=""> {/* Added padding to account for fixed header */}
         {/* Hero section */}
         <div className="h-[30vh] min-h-[250px] w-full bg-[#303136] flex flex-col gap-4 justify-center items-center text-center px-4">
           <h4 className="text-white text-3xl md:text-4xl font-medium">{t("about")}</h4>
@@ -54,9 +54,6 @@ export default function About() {
               <Title.Root>
                 <Title.Label label={t(HistoryMenu.label)} />
               </Title.Root>
-
-              <div className="h-6 md:h-10"></div>
-
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
                 {/* Timeline on the left */}
                 <div className="w-full">

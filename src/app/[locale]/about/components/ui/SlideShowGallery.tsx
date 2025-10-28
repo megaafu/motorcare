@@ -46,9 +46,6 @@ export default function SlideShowGallery() {
 
                 {/* Overlay for text and dots */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 flex flex-col items-center gap-3">
-                  <p className="text-white text-center text-sm md:text-base font-medium">
-                    {t(item.title)}
-                  </p>
                   <div className="flex gap-2">
                     {galleryItems.map((_, dotIndex) => (
                       <button
