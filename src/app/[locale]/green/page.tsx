@@ -95,10 +95,12 @@ export default function GreenPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
+                img: "/images/nissan-img-1.jpg",
                 title: t("featuresGrid.organizations.title"),
                 text: t("featuresGrid.organizations.description"),
               },
               {
+                img: "/images/nissan-img-2.jpg",
                 title: t("featuresGrid.mobility.title"),
                 text: t("featuresGrid.mobility.description"),
               },
@@ -108,11 +110,11 @@ export default function GreenPage() {
                 className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
                 <Image
-                  src="/images/nissan-img.jpg"
+                  src={item.img}
                   alt={item.title}
                   width={600}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full ma-h-[400px] object-cover object-right-bottom"
                 />
                 <div className="p-4">
                   <Title order={4} className="text-teal-600 mt-2 text-lg font-semibold">
@@ -201,7 +203,7 @@ export default function GreenPage() {
         <Container>
           <PagePadding>
             <div className="text-center space-y-4">
-              <Title order={2} className="text-teal-600 text-2xl sm:text-3xl font-bold">
+              <Title order={2} className="text-2xl sm:text-3xl font-bold">
                 {t("ctaTitle")}
               </Title>
               <Text className="max-w-3xl mx-auto text-white/90 text-sm sm:text-base">

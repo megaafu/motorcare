@@ -6,6 +6,6 @@ interface RowProps {
   children: React.ReactNode;
 }
 const Row: React.FC<RowProps> = ({ children, className }) => {
-  return <div className={cn("grid gap-6", className)}>{children}</div>;
+  return <div className={cn("grid gap-6 lg:gap-8", className)}>{children}</div>;
 };
 export default Row;

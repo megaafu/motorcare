@@ -5,6 +5,17 @@ import Paragraph from "@/components/ui/Paragraph";
 import Row from "@/components/ui/Row";
 import { getTranslations } from "next-intl/server";
 import PeacesForm from "./form/PeaceForm";
+import CarouselImages from "@/components/ui/CarouselImages";
+
+
+// Sample images - replace with your actual images
+const PEACE_IMAGES = [
+  "/images/parts-1.jpg",
+  "/images/parts-2.jpg",
+  "/images/parts-3.jpg",
+  "/images/parts-4.jpg",
+  "/images/parts-5.jpg",
+];
 
 export default async function Requests() {
   const t = await getTranslations("Request");
@@ -22,7 +33,20 @@ export default async function Requests() {
           </Title.Root>
           <Row className="lg:grid-cols-2">
             <PeacesForm />
-            <Paragraph>{t("peaces_content")}</Paragraph>
+            <div className="mt-8">
+              <Paragraph>{t("peaces_content")}</Paragraph>
+              <div className="mt-12 p-10">
+                <CarouselImages
+                  images={PEACE_IMAGES}
+                  autoPlay={true}
+                  interval={4000}
+                  transitionTime={600}
+                  showArrows={true}
+                  showIndicators={true}
+                  className="max-w-4xl mx-auto"
+                />
+              </div>
+            </div>
           </Row>
         </PagePadding>
       </Container>

@@ -5,6 +5,14 @@ import Paragraph from "@/components/ui/Paragraph";
 import Row from "@/components/ui/Row";
 import { getTranslations } from "next-intl/server";
 import ServicesForm from "./components/ServiceForm";
+import CarouselImages from "@/components/ui/CarouselImages";
+
+// Sample service images - replace with your actual images
+const SERVICE_IMAGES = [
+  "/images/service-1.jpg",
+  "/images/service-2.jpg",
+  "/images/service-3.jpg",
+];
 
 export default async function Requests() {
   const t = await getTranslations("Request");
@@ -21,7 +29,20 @@ export default async function Requests() {
           </Title.Root>
           <Row className="lg:grid-cols-2">
             <ServicesForm />
-            <Paragraph>{t("service_content")}</Paragraph>
+            <div className="mt-8">
+              <Paragraph>{t("service_content")}</Paragraph>
+              <div className="mt-12 p-10">
+                <CarouselImages
+                  images={SERVICE_IMAGES}
+                  autoPlay={true}
+                  interval={4000}
+                  transitionTime={600}
+                  showArrows={true}
+                  showIndicators={true}
+                  className="max-w-4xl mx-auto"
+                />
+              </div>
+            </div>
           </Row>
         </PagePadding>
       </Container>
