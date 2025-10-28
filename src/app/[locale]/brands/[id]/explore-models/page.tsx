@@ -11,7 +11,6 @@ const ExploreModelsPage: React.FC = () => {
   const params = useParams();
   const id = params.id as string;
 
-
   const brand = AllBrands.brands.find((b) => b.id === Number(id));
 
   if (!brand) {
@@ -29,27 +28,27 @@ const ExploreModelsPage: React.FC = () => {
       {/* Models Grid Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 container mx-auto">
         {models.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {models.map((model) => (
               <Card
                 key={model.id}
-                shadow="lg"
+                shadow="none"
                 padding="lg"
                 radius="md"
-                className="hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                className="cursor-pointer group overflow-hidden"
                 component={Link}
                 href={`/brands/${brand.id}/explore-models/${model.id}`}
               >
-                <div className="relative h-48 w-full mb-4 rounded-md overflow-hidden">
+                <div className="relative h-96 w-full mb-4 rounded-md overflow-hidden">
                   <Image
                     src={model.image}
                     alt={model.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 
-                <div className="text-center">
+                <div className="text-center relative z-10">
                   <Title order={3} className="text-primary group-hover:text-[#355C7D] transition-colors">
                     {model.name}
                   </Title>

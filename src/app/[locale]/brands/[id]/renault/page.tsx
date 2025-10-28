@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Title, Text, Card } from "@mantine/core";
+import { Title, Text, Card, Button } from "@mantine/core";
 import Container from "@/components/ui/Container";
 import PagePadding from "@/components/ui/PagePadding";
 import { useTranslations } from "next-intl";
@@ -40,7 +40,7 @@ export default function RenaultPage() {
   return (
     <main className="flex flex-col min-h-screen">
 
-      {/* Hero Section - Image Only */}
+      {/* Hero Section - Enhanced with Big Text and Button */}
       <section className="relative w-full h-[70vh]">
         <Image
           src="/images/renault-hero.jpg"
@@ -49,6 +49,43 @@ export default function RenaultPage() {
           priority
           className="object-cover"
         />
+
+        {/* Dark Overlay for Better Text Readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40" />
+
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          {/* Big Brand Text */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 text-center tracking-tight">
+            {brand?.brand ?? ""}
+          </h1>
+          <Text className="text-white text-opacity-90 mb-6 group-hover:text-opacity-100 transition-all text-base md:text-lg leading-relaxed">
+            {t("Renault.vehiclesSubtitle")}
+          </Text>
+          {/* Button with White Border and Transparent Background */}
+          <Button
+            component={Link}
+            href="/brands/1/explore-models"
+            variant="outline"
+            size="xl"
+            className="
+              border-2 
+              border-white 
+              bg-transparent 
+              text-white 
+              hover:bg-white 
+              hover:text-black 
+              transition-all 
+              duration-300
+              font-semibold
+              px-8
+              py-4
+              text-lg
+            "
+          >
+            {t("Renault.vehiclesTitle")}
+          </Button>
+        </div>
       </section>
 
       {/* Brand Info Section - Two Columns */}
@@ -94,17 +131,17 @@ export default function RenaultPage() {
                   href={card.href}
                 >
                   {/* Background Image */}
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url(${card.bgImage})` }}
                   />
-                  
+
                   {/* Dark Overlay */}
-                  <div 
+                  <div
                     className="absolute inset-0 transition-all duration-500 group-hover:bg-opacity-70 bg-opacity-60"
                     style={{ backgroundColor: card.overlayColor }}
                   />
-                  
+
                   {/* Content */}
                   <div className="relative z-10 text-white p-4">
                     <Title order={3} className="mb-4 text-white group-hover:text-white transition-colors text-xl md:text-2xl">
@@ -113,7 +150,7 @@ export default function RenaultPage() {
                     <Text className="text-white text-opacity-90 mb-6 group-hover:text-opacity-100 transition-all text-base md:text-lg leading-relaxed">
                       {card.subtitle}
                     </Text>
-                    
+
                     {/* Hover Arrow */}
                     <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <svg className="w-6 h-6 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">

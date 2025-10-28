@@ -222,9 +222,8 @@ const ModelDetailPage: React.FC = () => {
         subtitle: t("Renault.tabs.solutions.subtitleC"),
         description: t("Renault.tabs.solutions.descriptionC"),
         images: [
-          "/serie-c/solution-1.jpg",
+          "/serie-c/solution-1.png",
           "/serie-c/solution-2.jpg",
-          "/serie-c/solution-3.jpg"
         ]
       }
     },
@@ -482,7 +481,7 @@ const ModelDetailPage: React.FC = () => {
           {/* Model Image */}
           <div className="flex-shrink-0 rounded-lg overflow-hidden">
             <Image
-              src={model.detailImage}
+              src={model.image}
               alt={model.name}
               width={600}
               height={400}

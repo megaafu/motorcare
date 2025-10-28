@@ -29,19 +29,19 @@ const BrandAboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-     {brand.banner && (
-  <section className="relative h-96 w-full">
-    <Image
-      src={brand.banner}
-      alt={brand.brand}
-      width={500}
-      height={300}
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    </div>
-  </section>
-)}
+      {brand.banner && (
+        <section className="relative h-96 w-full">
+          <Image
+            src={brand.banner}
+            alt={brand.brand}
+            width={500}
+            height={300}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          </div>
+        </section>
+      )}
 
       {/* Info Grid Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 container mx-auto">

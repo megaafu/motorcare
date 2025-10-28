@@ -34,56 +34,83 @@ const WhyUsPage: React.FC = () => {
           }
 
           return (
-            <div key={index} className="w-full">
+            <div key={index} className="w-full space-y-8">
               {/* Headline (top section with background) */}
               {info.headline && (
-                <div className="w-full bg-[#302929] text-white py-8 px-8">
-                  <h1 className="text-3xl sm:text-4xl font-semibold">
+                <div className="w-full bg-primary text-white py-4 px-8">
+                  <h1 className="text-3xl sm:text-4xl font-bold">
                     {t(info.headline)}
                   </h1>
                 </div>
               )}
 
-              {/* Content block */}
-              <div className="flex flex-col md:flex-row md:items-center gap-8 mt-8">
-                {/* Image (only if available) */}
+              {/* Content block with conditional layout */}
+              <div className={`
+                grid gap-8 items-start
+                ${info.image 
+                  ? 'grid-cols-1 lg:grid-cols-4' 
+                  : 'grid-cols-1'
+                }
+              `}>
+                {/* Image - increased size, no effects */}
                 {info.image && (
-                  <div className="flex-shrink-0 md:w-1/2 w-full">
-                    <Image
-                      src={info.image}
-                      alt={info.title || "Image"}
-                      width={600}
-                      height={400}
-                      className="rounded-md object-cover w-full h-auto"
-                    />
+                  <div className="lg:col-span-1 flex justify-center lg:justify-start">
+                    <div className="w-full max-w-[280px] lg:max-w-[320px]">
+                      <Image
+                        src={info.image}
+                        alt={info.title || "Image"}
+                        width={320}
+                        height={240}
+                        className="rounded-lg object-cover w-full h-auto"
+                      />
+                    </div>
                   </div>
                 )}
 
-                {/* Text content (title + description) */}
+                {/* Text content - adjusts based on image presence */}
                 {(info.title || info.description) && (
-                  <div className="md:w-1/2 w-full">
+                  <div className={`
+                    space-y-4
+                    ${info.image 
+                      ? 'lg:col-span-3' 
+                      : 'w-full'
+                    }
+                  `}>
                     {info.title && (
-                      <h2 className="text-xl font-semibold mb-3 text-gray-900">
+                      <h2 className="text-2xl font-bold mb-4 text-gray-900">
                         {t(info.title)}
                       </h2>
                     )}
                     {info.description && (
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">
                         {t(info.description)}
                       </p>
                     )}
                   </div>
                 )}
               </div>
+
+              {/* Separator between sections */}
+              {index < brand.infos!.length - 1 && (
+                <div className="border-t border-gray-200 pt-8" />
+              )}
             </div>
           );
         })}
 
         {/* Fallback */}
         {!brand.infos?.length && (
-          <p className="text-gray-600 text-center">
-            {t("BrandDetail.noTechnologiesAvailable")}
-          </p>
+          <div className="text-center py-16">
+            <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+              <span className="text-4xl">\u2139\ufe0f</span>
+            </div>
+            <p className="text-gray-600 text-lg font-medium">
+              {t("BrandDetail.noTechnologiesAvailable")}
+            </p>
+            <p className="text-gray-500 mt-2">
+              Check back later for updates.
+            </p>
+          </div>
         )}
       </div>
     </div>
