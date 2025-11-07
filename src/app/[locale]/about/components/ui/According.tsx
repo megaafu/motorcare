@@ -2,21 +2,18 @@
 
 import { useTranslations } from "next-intl";
 import { Card, Text } from "@mantine/core";
-import { AllAcording } from "../../constants/acordings";
+import { AllAcording, IAcordingItem } from "../../constants/acordings";
 import Row from "@/components/ui/Row";
 
 const CustomCards = () => {
   const t = useTranslations("About");
 
-  // Helper function to render description with titles
-  const renderDescription = (acording: any) => {
-    if (acording.id === 1) { // Mission & Vision merged card
+  const renderDescription = (acording: IAcordingItem) => {
+    if (acording.id === 1) {
       const items = [];
-      let currentSection = null;
       
       for (const desc of acording.description) {
         if (desc === "mission_title") {
-          currentSection = "mission";
           items.push(
             <div key="mission-title" className="mb-2 mt-1">
               <Text fw={600} size="sm" className="text-primary-700">
@@ -25,7 +22,6 @@ const CustomCards = () => {
             </div>
           );
         } else if (desc === "vision_title") {
-          currentSection = "vision";
           items.push(
             <div key="vision-title" className="mb-2 mt-4">
               <Text fw={600} size="sm" className="text-primary-700">
@@ -81,9 +77,9 @@ const CustomCards = () => {
       // Regular card rendering for other items
       return (
         <ul className="list-none space-y-2">
-          {acording.description.map((description: string, index: number) => (
+          {acording.description.map((description: string) => (
             <li 
-              key={index} 
+              key={description}
               className="
                 flex 
                 items-start 
@@ -127,7 +123,7 @@ const CustomCards = () => {
 
   return (
     <Row className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
-      {AllAcording.acordings.map((acording, index) => (
+      {AllAcording.acordings.map((acording) => (
         <Card
           key={acording.id}
           shadow="sm"

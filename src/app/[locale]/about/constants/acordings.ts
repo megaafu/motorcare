@@ -4,7 +4,7 @@ import {
   ValuesIcon,
 } from "@/components/icons/Icons";
 
-interface IAcordingItem {
+export interface IAcordingItem {
   id: number;
   title: string;
   icon: ElementType;
