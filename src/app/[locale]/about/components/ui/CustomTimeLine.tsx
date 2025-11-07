@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Timeline, Card, Text, Title } from "@mantine/core";
+import { Text } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Activities } from "../../constants/timeline";
 
@@ -9,164 +9,102 @@ const CustomTimeLine = () => {
   const t = useTranslations("About");
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8 md:py-12 px-4">
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center mb-8 md:mb-12"
-      >
-      </motion.div>
+    <div className="w-full py-8 lg:py-12">
+      {/* Modern vertical center line */}
+      <div className="relative max-w-4xl mx-auto">
+        <div 
+          className="absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2 opacity-30"
+          style={{ backgroundColor: "#5d5050" }}
+        />
 
-      <Timeline
-        color="linear-gradient(135deg, #F8B067, #355C7D)"
-        active={Activities.activities.length - 1}
-        bulletSize={36}
-        lineWidth={3}
-        className="w-full"
-      >
-        {Activities.activities.map((event, index) => (
-          <Timeline.Item
-            key={index}
-            bullet={
+        {/* Timeline items with zig-zag layout */}
+        <div className="space-y-12">
+          {Activities.activities.map((event, index) => {
+            const isEven = index % 2 === 0;
+            
+            return (
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex h-9 w-9 items-center justify-center rounded-full shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, #F8B067, #355C7D)",
-                  color: "#fff",
-                }}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </motion.div>
-            }
-            title={
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                key={index}
+                initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                className={`relative flex ${isEven ? "flex-row" : "flex-row-reverse"} items-center`}
               >
-                <Text 
-                  size="sm" 
-                  className="font-bold bg-gradient-to-r from-[#355C7D] to-[#F8B067] bg-clip-text text-transparent"
-                >
-                  {event.date}
-                </Text>
+                {/* Left side content */}
+                <div className={`w-1/2 ${isEven ? "pr-6" : "pl-6"}`}>
+                  <div className="bg-white rounded-lg p-4 border border-gray-200/80 shadow-sm hover:shadow-md transition-all duration-300 group">
+                    {/* Date */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <div 
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: "#F8B067" }}
+                      />
+                      <Text 
+                        size="xs" 
+                        className="font-semibold uppercase tracking-wide"
+                        style={{ color: "#5d5050" }}
+                      >
+                        {event.date}
+                      </Text>
+                    </div>
+
+                    {/* Title */}
+                    <Text 
+                      size="md" 
+                      className="font-bold mb-2 leading-tight"
+                      style={{ color: "#5d5050" }}
+                    >
+                      {t(event.event)}
+                    </Text>
+
+                    {/* Description */}
+                    <Text 
+                      size="sm" 
+                      className="leading-relaxed"
+                      style={{ color: "#2B415A" }}
+                    >
+                      {t(event.info)}
+                    </Text>
+
+                    {/* Subtle hover accent */}
+                    <div 
+                      className="w-0 group-hover:w-full h-0.5 mt-3 transition-all duration-300"
+                      style={{ backgroundColor: "#355C7D" }}
+                    />
+                  </div>
+                </div>
+
+                {/* Center node */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
+                    style={{ backgroundColor: "#5d5050" }}
+                  />
+                </div>
+
+                {/* Right side spacer */}
+                <div className="w-1/2" />
               </motion.div>
-            }
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 100
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
-            >
-              <Card
-                withBorder
-                shadow="lg"
-                radius="lg"
-                className="transition-all duration-300 hover:shadow-xl p-4 md:p-6 relative overflow-hidden group"
-                sx={{
-                  border: "none",
-                  background: "linear-gradient(135deg, rgba(53,92,125,0.08), rgba(248,176,103,0.08))",
-                  backdropFilter: "blur(10px)",
-                  position: "relative",
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: 'linear-gradient(90deg, #F8B067, #355C7D)',
-                    transform: 'scaleX(0)',
-                    transition: 'transform 0.3s ease',
-                  },
-                  '&:hover::before': {
-                    transform: 'scaleX(1)',
-                  }
-                }}
-              >
-                {/* Gradient accent corner */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#F8B067]/20 to-[#355C7D]/20 rounded-bl-2xl" />
-                
-                <Title
-                  size="md"
-                  order={3}
-                  mb="sm"
-                  className="text-lg md:text-xl font-bold group-hover:text-[#355C7D] transition-colors duration-300"
-                  sx={{ 
-                    color: "#355C7D",
-                    background: "linear-gradient(135deg, #355C7D, #F8B067)",
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent"
-                  }}
-                >
-                  {t(event.event)}
-                </Title>
-                
-                <Text 
-                  size="sm" 
-                  className="text-[#5d5050]/90 leading-relaxed text-sm md:text-base"
-                >
-                  {t(event.info)}
-                </Text>
+            );
+          })}
+        </div>
 
-                {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#F8B067]/5 to-[#355C7D]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-              </Card>
-            </motion.div>
-          </Timeline.Item>
-        ))}
-      </Timeline>
-
-      {/* Footer Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        viewport={{ once: true }}
-        className="text-center mt-8 md:mt-12"
-      >
-       
-      </motion.div>
-
-      {Activities.activities.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-        </motion.div>
-      )}
+        {/* Start/End markers */}
+        <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1">
+          <div 
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: "#F8B067" }}
+          />
+        </div>
+        <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1">
+          <div 
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: "#355C7D" }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

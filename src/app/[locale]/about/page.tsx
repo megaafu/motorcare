@@ -54,7 +54,7 @@ export default function About() {
               <Title.Root>
                 <Title.Label label={t(HistoryMenu.label)} />
               </Title.Root>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
                 {/* Timeline on the left */}
                 <div className="w-full">
                   <CustomTimeLine />
