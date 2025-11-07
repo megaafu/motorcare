@@ -41,50 +41,77 @@ export default function RenaultPage() {
     <main className="flex flex-col min-h-screen">
 
       {/* Hero Section - Enhanced with Big Text and Button */}
-      <section className="relative w-full h-[70vh]">
-        <Image
-          src="/images/renault-hero.jpg"
-          alt="Renault Trucks"
-          fill
-          priority
-          className="object-cover"
-        />
-
-        {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
-
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          {/* Big Brand Text */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 text-center tracking-tight">
-            {brand?.brand ?? ""}
-          </h1>
-          <Text className="text-white text-opacity-90 mb-6 group-hover:text-opacity-100 transition-all text-base md:text-lg leading-relaxed">
-            {t("Renault.vehiclesSubtitle")}
-          </Text>
-          {/* Button with White Border and Transparent Background */}
-          <Button
-            component={Link}
-            href="/brands/1/explore-models"
-            variant="outline"
-            size="xl"
-            className="
-              border-2 
-              border-white 
-              bg-transparent 
+      <section className="relative w-full h-[70vh] min-h-[600px] max-h-[800px]">
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/renault-hero.jpg"
+            alt="Renault Trucks"
+            fill
+            priority
+            className="object-cover object-center md:object-right-bottom"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent md:bg-gradient-to-b md:from-black/70 md:via-black/40 md:to-black/30" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 md:mb-8 text-center tracking-tight leading-tight">
+              {brand?.brand ?? ""}
+            </h1>
+            <Text className="
               text-white 
-              hover:bg-white 
-              hover:text-black 
+              text-opacity-90 
+              mb-6 
+              md:mb-8 
+              group-hover:text-opacity-100 
               transition-all 
-              duration-300
-              font-semibold
-              px-8
-              py-4
-              text-lg
-            "
-          >
-            {t("Renault.vehiclesTitle")}
-          </Button>
+              text-sm 
+              sm:text-base 
+              md:text-lg 
+              lg:text-xl 
+              leading-relaxed 
+              text-center 
+              max-w-2xl 
+              lg:max-w-3xl
+              px-4
+              drop-shadow-lg
+            ">
+              {t("Renault.vehiclesSubtitle")}
+            </Text>
+
+            <Button
+              component={Link}
+              href="/brands/1/explore-models"
+              variant="outline"
+              size="xl"
+              className="
+                border-2
+                border-white
+                bg-transparent
+                text-white
+                hover:bg-white
+                hover:text-black
+                transition-all
+                duration-300
+                font-semibold
+                px-6
+                sm:px-8
+                py-3
+                sm:py-4
+                text-base
+                sm:text-lg
+                md:text-xl
+                shadow-2xl
+                hover:shadow-2xl
+                hover:scale-105
+                backdrop-blur-sm
+                min-w-[200px]
+                sm:min-w-[240px]
+            ">
+              {t("Renault.vehiclesTitle")}
+            </Button>
+          </div>
         </div>
       </section>
 

@@ -8,6 +8,123 @@ import Row from "@/components/ui/Row";
 const CustomCards = () => {
   const t = useTranslations("About");
 
+  // Helper function to render description with titles
+  const renderDescription = (acording: any) => {
+    if (acording.id === 1) { // Mission & Vision merged card
+      const items = [];
+      let currentSection = null;
+      
+      for (const desc of acording.description) {
+        if (desc === "mission_title") {
+          currentSection = "mission";
+          items.push(
+            <div key="mission-title" className="mb-2 mt-1">
+              <Text fw={600} size="sm" className="text-primary-700">
+                {t("mission")}
+              </Text>
+            </div>
+          );
+        } else if (desc === "vision_title") {
+          currentSection = "vision";
+          items.push(
+            <div key="vision-title" className="mb-2 mt-4">
+              <Text fw={600} size="sm" className="text-primary-700">
+                {t("vision")}
+              </Text>
+            </div>
+          );
+        } else {
+          items.push(
+            <li 
+              key={desc}
+              className="
+                flex 
+                items-start 
+                transition-all 
+                duration-300 
+                group-hover:translate-x-1
+                hover:translate-x-2
+                py-1
+                rounded-lg
+                px-2
+                hover:bg-primary/5
+              "
+            >
+              <span className="
+                w-1.5 
+                h-1.5 
+                rounded-full 
+                bg-primary 
+                mt-2 
+                mr-3 
+                flex-shrink-0
+                group-hover:bg-primary-600
+                transition-colors 
+                duration-300
+              " />
+              <span className="
+                text-sm 
+                leading-relaxed
+                group-hover:text-gray-700
+                transition-colors 
+                duration-300
+              ">
+                {t(desc)}
+              </span>
+            </li>
+          );
+        }
+      }
+      
+      return <ul className="list-none space-y-2">{items}</ul>;
+    } else {
+      // Regular card rendering for other items
+      return (
+        <ul className="list-none space-y-2">
+          {acording.description.map((description: string, index: number) => (
+            <li 
+              key={index} 
+              className="
+                flex 
+                items-start 
+                transition-all 
+                duration-300 
+                group-hover:translate-x-1
+                hover:translate-x-2
+                py-1
+                rounded-lg
+                px-2
+                hover:bg-primary/5
+              "
+            >
+              <span className="
+                w-1.5 
+                h-1.5 
+                rounded-full 
+                bg-primary 
+                mt-2 
+                mr-3 
+                flex-shrink-0
+                group-hover:bg-primary-600
+                transition-colors 
+                duration-300
+              " />
+              <span className="
+                text-sm 
+                leading-relaxed
+                group-hover:text-gray-700
+                transition-colors 
+                duration-300
+              ">
+                {t(description)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  };
+
   return (
     <Row className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
       {AllAcording.acordings.map((acording, index) => (
@@ -83,58 +200,17 @@ const CustomCards = () => {
               z-10
             "
           >
-            {t(acording.title)}
+            {acording.id === 1 ? t("mission_vision") : t(acording.title)}
           </Text>
 
           {/* Enhanced list with better spacing and animations */}
-          <ul className="
-            list-none 
-            space-y-2 
-            text-gray-600 
+          <div className="
             flex-grow 
             relative
             z-10
           ">
-            {acording.description.map((description, index) => (
-              <li 
-                key={index} 
-                className="
-                  flex 
-                  items-start 
-                  transition-all 
-                  duration-300 
-                  group-hover:translate-x-1
-                  hover:translate-x-2
-                  py-1
-                  rounded-lg
-                  px-2
-                  hover:bg-primary/5
-                "
-              >
-                <span className="
-                  w-1.5 
-                  h-1.5 
-                  rounded-full 
-                  bg-primary 
-                  mt-2 
-                  mr-3 
-                  flex-shrink-0
-                  group-hover:bg-primary-600
-                  transition-colors 
-                  duration-300
-                " />
-                <span className="
-                  text-sm 
-                  leading-relaxed
-                  group-hover:text-gray-700
-                  transition-colors 
-                  duration-300
-                ">
-                  {t(description)}
-                </span>
-              </li>
-            ))}
-          </ul>
+            {renderDescription(acording)}
+          </div>
 
           {/* Subtle hover border effect */}
           <div className="

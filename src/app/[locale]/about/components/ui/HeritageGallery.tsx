@@ -11,7 +11,7 @@ export default function HeritageGallery() {
     <section className="w-full">
       {/* Gallery */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6 mt-6 md:mt-8 justify-items-center">
-        {galleryItems.slice(0,4).map((item, index) => (
+        {galleryItems.map((item, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.03, rotate: item.rotation }}
@@ -32,6 +32,9 @@ export default function HeritageGallery() {
                 priority={index < 2} // Only prioritize first 2 images
               />
             </div>
+            <p className="mt-3 text-center text-sm md:text-base font-medium line-clamp-2 px-1">
+              {t(item.title)}
+            </p>
           </motion.div>
         ))}
       </div>

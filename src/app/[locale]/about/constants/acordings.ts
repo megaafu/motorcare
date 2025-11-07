@@ -1,7 +1,6 @@
 import { ElementType } from "react";
 import {
   MissionIcon,
-  VisionIcon,
   ValuesIcon,
 } from "@/components/icons/Icons";
 
@@ -16,11 +15,17 @@ interface IAcordings {
   acordings: IAcordingItem[];
 }
 
-const Mission: IAcordingItem = {
+const MissionVision: IAcordingItem = {
   id: 1,
-  title: "mission",
+  title: "mission_vision", 
   icon: MissionIcon,
-  description: ["mission_description1", "mission_description2","vision_description"],
+  description: [
+    "mission_title",
+    "mission_description1", 
+    "mission_description2",
+    "vision_title", 
+    "vision_description",
+  ],
 };
 
 const Values: IAcordingItem = {
@@ -36,5 +41,5 @@ const Values: IAcordingItem = {
 };
 
 export const AllAcording: IAcordings = {
-  acordings: [Values, Mission,],
+  acordings: [MissionVision, Values],
 };

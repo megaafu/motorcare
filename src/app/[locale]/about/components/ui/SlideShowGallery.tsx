@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { galleryItems } from "../../constants/galleryItems";
+import { galleryHistoryItems, galleryItems } from "../../constants/galleryItems";
 
 export default function SlideShowGallery() {
   const t = useTranslations("About");
@@ -27,7 +27,7 @@ export default function SlideShowGallery() {
       {/* Carousel viewport */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {galleryItems.map((item, index) => (
+          {galleryHistoryItems.map((item, index) => (
             <div key={index} className="flex-[0_0_100%] min-w-0 relative p-4">
               <div
                 className="
@@ -38,7 +38,7 @@ export default function SlideShowGallery() {
               >
                 <Image
                   src={item.image}
-                  alt={t(item.title)}
+                  alt={item.image}
                   fill
                   className="object-cover"
                   priority={index === 0}
