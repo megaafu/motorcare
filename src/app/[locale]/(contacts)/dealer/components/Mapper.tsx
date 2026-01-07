@@ -2,7 +2,7 @@
 
 import { Accordion } from "@mantine/core";
 import { IconPlus, IconSearch } from "@tabler/icons-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Autocomplete from "react-google-autocomplete";
 import { useTranslations } from "next-intl";
 import MapWrapper from "./MapWrapper";
@@ -34,16 +34,36 @@ interface MapMarker {
   popupContent: string;
 }
 
+interface DistanceInfo {
+  dealer: Dealer;
+  roadDistance: number | null;
+  roadDuration: number | null;
+  straightDistance: number;
+  isExactRoadDistance: boolean;
+}
+
 const Mapp = () => {
   const t = useTranslations("Contacts");
   const GOOGLE_MAPS_API_KEY = "AIzaSyAD-sDFj__5UcpWyxXU-VuxgqFK3XtVwC8";
 
-  // Mozambique bounds for Google Maps
   const MOZ_BOUNDS = {
     north: -10.3,
     east: 41.5,
     south: -26.9,
     west: 30.2,
+  };
+
+  const ROAD_DISTANCE_FACTORS: Record<string, number> = {
+    "Maputo-Beira": 1.35,
+    "Maputo-Moatize": 1.4,
+    "Maputo-Nampula": 1.45,
+    "Maputo-Pemba": 1.5,
+    "Beira-Moatize": 1.25,
+    "Beira-Nampula": 1.3,
+    "Beira-Pemba": 1.35,
+    "Moatize-Nampula": 1.2,
+    "Moatize-Pemba": 1.3,
+    "Nampula-Pemba": 1.15,
   };
 
   const allMarkers: Dealer[] = [
@@ -114,121 +134,313 @@ const Mapp = () => {
     },
   ];
 
-  const [location, setLocation] = useState<PlaceCoordinate>({
-    lat: -25.964677970962004,
-    lng: 32.56043422890941,
-    name: "Maputo",
-  });
+  const MAPUTO_CITY_CENTER = {
+    lat: -25.969248,
+    lng: 32.573424,
+    name: "Maputo City Center"
+  };
 
+  const [location, setLocation] = useState<PlaceCoordinate>(MAPUTO_CITY_CENTER);
   const [filteredMarkers, setFilteredMarkers] = useState<Dealer[]>(allMarkers);
   const [isGoogleMapsLoaded, setIsGoogleMapsLoaded] = useState(false);
-  const [closestDealer, setClosestDealer] = useState<Dealer | null>(null);
+  const [closestDealer, setClosestDealer] = useState<Dealer | null>(allMarkers[0]);
+  const [distanceInfo, setDistanceInfo] = useState<DistanceInfo[]>([]);
+  const [isLoadingDistances, setIsLoadingDistances] = useState(false);
+  const distanceServiceRef = useRef<google.maps.DistanceMatrixService | null>(null);
+  const [apiStatus, setApiStatus] = useState<'not_loaded' | 'loading' | 'loaded' | 'error'>('not_loaded');
 
   useEffect(() => {
-    const checkGoogleMaps = () => {
-      if (typeof window !== 'undefined' && window.google && window.google.maps) {
-        setIsGoogleMapsLoaded(true);
-        return true;
+    const initGoogleMaps = async () => {
+      try {
+        if (typeof window !== 'undefined' && window.google && window.google.maps) {
+          setIsGoogleMapsLoaded(true);
+          distanceServiceRef.current = new google.maps.DistanceMatrixService();
+          setApiStatus('loaded');
+          calculateEstimatedDistances(MAPUTO_CITY_CENTER);
+          return;
+        }
+
+        setApiStatus('loading');
+
+        if (!document.querySelector('script[src*="maps.googleapis.com"]')) {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+          script.async = true;
+          script.defer = true;
+          script.onload = () => {
+            if (window.google && window.google.maps) {
+              setIsGoogleMapsLoaded(true);
+              distanceServiceRef.current = new google.maps.DistanceMatrixService();
+              setApiStatus('loaded');
+              calculateEstimatedDistances(MAPUTO_CITY_CENTER);
+            }
+          };
+          
+          script.onerror = () => {
+            setApiStatus('error');
+            calculateEstimatedDistances(MAPUTO_CITY_CENTER);
+          };
+          
+          document.head.appendChild(script);
+        }
+      } catch (error) {
+        console.error("Error initializing Google Maps:", error);
+        setApiStatus('error');
+        calculateEstimatedDistances(MAPUTO_CITY_CENTER);
       }
-      return false;
     };
 
-    // Check immediately
-    if (checkGoogleMaps()) return;
-
-    // If not loaded, check every 100ms for up to 5 seconds
-    const interval = setInterval(() => {
-      if (checkGoogleMaps()) {
-        clearInterval(interval);
-      }
-    }, 100);
-
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-    }, 5000);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
+    initGoogleMaps();
   }, []);
 
-  const handlePlaceSelected = (place: google.maps.places.PlaceResult) => {
-    if (!place.geometry || !place.geometry.location) return;
+  const getStraightDistance = (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+  ): number => {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  };
 
-    const searchPlace: PlaceCoordinate = {
-      name: place.formatted_address,
-      lat: place.geometry.location.lat(),
-      lng: place.geometry.location.lng(),
-    };
+  const getEstimatedRoadDistance = (originName: string, destinationName: string, straightDistance: number): number => {
+    const key1 = `${originName}-${destinationName}`;
+    const key2 = `${destinationName}-${originName}`;
+    const factor = ROAD_DISTANCE_FACTORS[key1] || ROAD_DISTANCE_FACTORS[key2] || 1.3;
+    
+    return straightDistance * factor;
+  };
 
-    setLocation(searchPlace);
-
-    // Find the closest dealer
-    let closest: Dealer | null = null;
-    let minDistance = Infinity;
-
-    allMarkers.forEach((dealer) => {
-      const distance = getDistance(
-        searchPlace.lat,
-        searchPlace.lng,
+  const calculateEstimatedDistances = (origin: PlaceCoordinate) => {
+    const originName = origin.name?.includes("Maputo") ? "Maputo" : "Custom";
+    
+    const distances: DistanceInfo[] = allMarkers.map((dealer) => {
+      const straightDistance = getStraightDistance(
+        origin.lat,
+        origin.lng,
         dealer.lat,
         dealer.lng
       );
 
-      if (distance < minDistance) {
-        minDistance = distance;
-        closest = dealer;
+      let roadDistance: number;
+      let isExactRoadDistance = false;
+      
+      if (originName === "Maputo" || dealer.name === "Maputo") {
+        const otherCity = originName === "Maputo" ? dealer.name : "Maputo";
+        roadDistance = getEstimatedRoadDistance("Maputo", otherCity, straightDistance);
+      } else {
+        roadDistance = straightDistance * 1.3;
+      }
+
+      return {
+        dealer,
+        roadDistance,
+        roadDuration: Math.round(roadDistance / 60 * 60),
+        straightDistance,
+        isExactRoadDistance: false,
+      };
+    });
+
+    setDistanceInfo(distances);
+
+    let closest: Dealer | null = null;
+    let minDistance = Infinity;
+
+    distances.forEach((info) => {
+      if (info.roadDistance < minDistance) {
+        minDistance = info.roadDistance;
+        closest = info.dealer;
       }
     });
 
     setClosestDealer(closest);
 
-    // Show all dealers but highlight the closest one by sorting
     const sortedMarkers = [...allMarkers].sort((a, b) => {
-      const distanceA = getDistance(searchPlace.lat, searchPlace.lng, a.lat, a.lng);
-      const distanceB = getDistance(searchPlace.lat, searchPlace.lng, b.lat, b.lng);
-      return distanceA - distanceB;
+      const infoA = distances.find(d => d.dealer.name === a.name)!;
+      const infoB = distances.find(d => d.dealer.name === b.name)!;
+      return infoA.roadDistance - infoB.roadDistance;
     });
 
     setFilteredMarkers(sortedMarkers);
   };
 
-  // Haversine Formula for distance in kilometers
-  const getDistance = (
-    lat1: number,
-    lng1: number,
-    lat2: number,
-    lng2: number
-  ) => {
-    const R = 6371; // Radius of Earth in km
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLng = ((lng2 - lng1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLng / 2) ** 2;
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const calculateGoogleRoadDistances = async (origin: PlaceCoordinate): Promise<boolean> => {
+    if (!distanceServiceRef.current || apiStatus !== 'loaded') {
+      return false;
+    }
+
+    try {
+      const response = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
+        distanceServiceRef.current!.getDistanceMatrix(
+          {
+            origins: [{ lat: origin.lat, lng: origin.lng }],
+            destinations: allMarkers.map(dealer => ({ lat: dealer.lat, lng: dealer.lng })),
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+          },
+          (response, status) => {
+            if (status === google.maps.DistanceMatrixStatus.OK && response) {
+              resolve(response);
+            } else {
+              reject(new Error(`Google Maps API error: ${status}`));
+            }
+          }
+        );
+      });
+
+      const distances: DistanceInfo[] = allMarkers.map((dealer, index) => {
+        const element = response.rows[0].elements[index];
+        const straightDistance = getStraightDistance(
+          origin.lat,
+          origin.lng,
+          dealer.lat,
+          dealer.lng
+        );
+
+        if (element.status === "OK") {
+          return {
+            dealer,
+            roadDistance: element.distance.value / 1000,
+            roadDuration: element.duration.value / 60,
+            straightDistance,
+            isExactRoadDistance: true,
+          };
+        } else {
+          const estimatedRoadDistance = getEstimatedRoadDistance(
+            origin.name?.includes("Maputo") ? "Maputo" : "Custom",
+            dealer.name,
+            straightDistance
+          );
+          
+          return {
+            dealer,
+            roadDistance: estimatedRoadDistance,
+            roadDuration: Math.round(estimatedRoadDistance / 60 * 60),
+            straightDistance,
+            isExactRoadDistance: false,
+          };
+        }
+      });
+
+      setDistanceInfo(distances);
+
+      let closest: Dealer | null = null;
+      let minDistance = Infinity;
+
+      distances.forEach((info) => {
+        if (info.roadDistance < minDistance) {
+          minDistance = info.roadDistance;
+          closest = info.dealer;
+        }
+      });
+
+      setClosestDealer(closest);
+
+      const sortedMarkers = [...allMarkers].sort((a, b) => {
+        const infoA = distances.find(d => d.dealer.name === a.name)!;
+        const infoB = distances.find(d => d.dealer.name === b.name)!;
+        return infoA.roadDistance - infoB.roadDistance;
+      });
+
+      setFilteredMarkers(sortedMarkers);
+      return true;
+    } catch (error) {
+      console.error("Error calculating Google road distances:", error);
+      return false;
+    }
   };
 
+  const handlePlaceSelected = async (place: google.maps.places.PlaceResult) => {
+    if (!place.geometry || !place.geometry.location) return;
 
-  const mapMarkers: MapMarker[] = filteredMarkers.map((dealer) => ({
-    position: { lat: dealer.lat, lng: dealer.lng },
-    iconUrl: dealer === closestDealer ? "/images/location-active.svg" : "/images/location.svg",
-    iconSize: { width: dealer === closestDealer ? 35 : 28, height: dealer === closestDealer ? 35 : 28 },
-    popupContent: `
-      <div class="p-2">
-        <p class="font-bold text-sm">${dealer.description} ${dealer === closestDealer ? '<span class="text-green-600">(Closest)</span>' : ''}</p>
-        <p class="text-xs">${dealer.address}</p>
-        <p class="text-xs">${t("phone")}: ${dealer.phone}</p>
-        <p class="text-xs">${t("email")}: info@mz.motorcare.com</p>
-        <p class="text-xs text-green-600">Distance: ${getDistance(location.lat, location.lng, dealer.lat, dealer.lng).toFixed(1)}km</p>
-      </div>
-    `,
-  }));
+    const searchPlace: PlaceCoordinate = {
+      name: place.formatted_address || place.name || "Selected Location",
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    };
 
-  if (!isGoogleMapsLoaded) {
+    setLocation(searchPlace);
+    setIsLoadingDistances(true);
+
+    try {
+      const success = await calculateGoogleRoadDistances(searchPlace);
+      
+      if (!success) {
+        calculateEstimatedDistances(searchPlace);
+      }
+    } catch (error) {
+      console.error("Error in handlePlaceSelected:", error);
+      calculateEstimatedDistances(searchPlace);
+    } finally {
+      setIsLoadingDistances(false);
+    }
+  };
+
+  const getDistanceForDealer = (dealer: Dealer) => {
+    const info = distanceInfo.find(d => d.dealer.name === dealer.name);
+    
+    if (!info) {
+      const straightDistance = getStraightDistance(location.lat, location.lng, dealer.lat, dealer.lng);
+      const estimatedRoadDistance = getEstimatedRoadDistance(
+        location.name?.includes("Maputo") ? "Maputo" : "Custom",
+        dealer.name,
+        straightDistance
+      );
+      
+      return {
+        distance: estimatedRoadDistance,
+        formatted: `${estimatedRoadDistance.toFixed(0)}km (estimated)`,
+        isExact: false,
+      };
+    }
+
+    return {
+      distance: info.roadDistance,
+      formatted: `${info.roadDistance.toFixed(0)}km${info.isExactRoadDistance ? '' : ' (estimated)'}`,
+      isExact: info.isExactRoadDistance,
+    };
+  };
+
+  const mapMarkers: MapMarker[] = filteredMarkers.map((dealer) => {
+    const distanceInfo = getDistanceForDealer(dealer);
+    const isClosest = closestDealer && dealer.name === closestDealer.name;
+    
+    return {
+      position: { lat: dealer.lat, lng: dealer.lng },
+      iconUrl: isClosest ? "/images/location-active.svg" : "/images/location.svg",
+      iconSize: { width: isClosest ? 35 : 28, height: isClosest ? 35 : 28 },
+      popupContent: `
+        <div class="p-2">
+          <p class="font-bold text-sm">${dealer.description} ${isClosest ? '<span class="text-green-600">(Closest)</span>' : ''}</p>
+          <p class="text-xs">${dealer.address}</p>
+          <p class="text-xs">${t("phone")}: ${dealer.phone}</p>
+          <p class="text-xs">${t("email")}: info@mz.motorcare.com</p>
+          <p class="text-xs text-green-600">Distance: ${distanceInfo.formatted}</p>
+        </div>
+      `,
+    };
+  });
+
+  const getRealDistancesFromMaputo = () => {
+    const realDistances: Record<string, number> = {
+      "Maputo": 0,
+      "Beira": 1250,
+      "Moatize": 1650,
+      "Nampula": 2000,
+      "Pemba": 2200,
+    };
+    
+    return realDistances;
+  };
+
+  if (!isGoogleMapsLoaded && apiStatus === 'loading') {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-lg">Loading map...</div>
@@ -267,16 +479,9 @@ const Mapp = () => {
           </div>
         </form>
 
-        {closestDealer && (
-          <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p className="font-bold text-green-800 text-sm mb-2">
-              {t("closest_dealer")}:
-            </p>
-            <p className="font-semibold text-green-700">{closestDealer.description}</p>
-            <p className="text-xs text-green-600">{closestDealer.address}</p>
-            <p className="text-xs text-green-600">
-              Distance: {getDistance(location.lat, location.lng, closestDealer.lat, closestDealer.lng).toFixed(1)}km
-            </p>
+        {isLoadingDistances && (
+          <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-blue-800 text-sm">Calculating accurate road distances...</p>
           </div>
         )}
 
@@ -289,38 +494,55 @@ const Mapp = () => {
             chevron: { "&[data-rotate]": { transform: "rotate(45deg)" } },
           }}
         >
-          {filteredMarkers.map((loc, index) => (
-            <Accordion.Item
-              key={`${loc.name}${index}`}
-              value={loc.name}
-              className={loc === closestDealer ? "border-2 border-green-500" : ""}
-            >
-              <Accordion.Control>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">
-                    {loc.name.toUpperCase()}
-                    {loc === closestDealer && <span className="ml-2 text-green-600 text-xs">(Closest)</span>}
-                  </span>
-                  <span className="text-xs text-gray-500">
-                    {getDistance(location.lat, location.lng, loc.lat, loc.lng).toFixed(1)}km
-                  </span>
-                </div>
-              </Accordion.Control>
-              <Accordion.Panel className="space-y-2 bg-slate-100 p-4 rounded-b-md">
-                <p className="font-semibold">{loc.description}</p>
-                <p className="text-sm">{loc.address}</p>
-                <p className="text-sm">{t("phone")}: {loc.phone}</p>
-                <p className="text-sm">{t("email")}: info@mz.motorcare.com</p>
-                <div className="mt-3 pt-2 border-t border-gray-200">
-                  <p className="text-sm font-medium">{t("working_hour")}:</p>
-                  <p className="text-sm">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
-                  <p className="text-sm">{t("sat")}: {loc.workingHour["sat"]}</p>
-                  <p className="text-sm">{t("sun")}: {loc.workingHour["sun"]}</p>
-                </div>
-              </Accordion.Panel>
-            </Accordion.Item>
-          ))}
+          {filteredMarkers.map((loc, index) => {
+            const distanceInfo = getDistanceForDealer(loc);
+            const isClosest = closestDealer && loc.name === closestDealer.name;
+            
+            return (
+              <Accordion.Item
+                key={`${loc.name}${index}`}
+                value={loc.name}
+                className={isClosest ? "border-2 border-green-500" : ""}
+              >
+                <Accordion.Control>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">
+                      {loc.name.toUpperCase()}
+                      {isClosest && <span className="ml-2 text-green-600 text-xs">(Closest)</span>}
+                    </span>
+                    <div className="text-xs text-gray-500 flex flex-col items-end">
+                      <span>{distanceInfo.formatted}</span>
+                      {isLoadingDistances && (
+                        <span className="text-blue-500 text-[10px]">Calculating...</span>
+                      )}
+                    </div>
+                  </div>
+                </Accordion.Control>
+                <Accordion.Panel className="space-y-2 bg-slate-100 p-4 rounded-b-md">
+                  <p className="font-semibold">{loc.description}</p>
+                  <p className="text-sm">{loc.address}</p>
+                  <p className="text-sm">{t("phone")}: {loc.phone}</p>
+                  <p className="text-sm">{t("email")}: info@mz.motorcare.com</p>
+                  <div className="mt-3 pt-2 border-t border-gray-200">
+                    <p className="text-sm font-medium">{t("working_hour")}:</p>
+                    <p className="text-sm">{t("mon-fri")}: {loc.workingHour["mon-fri"]}</p>
+                    <p className="text-sm">{t("sat")}: {loc.workingHour["sat"]}</p>
+                    <p className="text-sm">{t("sun")}: {loc.workingHour["sun"]}</p>
+                  </div>
+                </Accordion.Panel>
+              </Accordion.Item>
+            );
+          })}
         </Accordion>
+
+        {apiStatus === 'error' && (
+          <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-yellow-800 text-xs">
+              <strong>Note:</strong> Google Maps API not available. Showing estimated road distances.
+              Real road distances are typically 30-50% longer than straight-line distances.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Map */}
