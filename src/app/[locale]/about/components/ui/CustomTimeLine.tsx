@@ -30,13 +30,13 @@ const CustomTimeLine = () => {
               >
                 {/* Left side content */}
                 <div className={`w-1/2 ${isEven ? "pr-6" : "pl-6"}`}>
-                  <div className="bg-primary/10 rounded-lg p-4 border border-gray-200/80 shadow-md hover:bg-primary/80 hover:text-white transition-all duration-300 group">
+                  <div className="rounded-lg p-4 border border-gray-200/80 shadow-md bg-primary/80 text-white transition-all duration-300 group">
                     {/* Date */}
                     <div className="flex items-center gap-2 mb-3">
-                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-secundary group-hover:bg-white" />
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-white" />
                       <Text 
                         size="xs" 
-                        className="font-semibold uppercase tracking-wide text-primary group-hover:text-white transition-colors duration-300"
+                        className="font-semibold uppercase tracking-wide text-white transition-colors duration-300"
                       >
                         {event.date}
                       </Text>
@@ -45,7 +45,7 @@ const CustomTimeLine = () => {
                     {/* Title */}
                     <Text 
                       size="md" 
-                      className="font-bold mb-2 leading-tight text-primary group-hover:text-white transition-colors duration-300"
+                      className="font-bold mb-2 leading-tight text-white transition-colors duration-300"
                     >
                       {t(event.event)}
                     </Text>
@@ -53,7 +53,7 @@ const CustomTimeLine = () => {
                     {/* Description */}
                     <Text 
                       size="sm" 
-                      className="leading-relaxed text-light-text group-hover:text-white/90 transition-colors duration-300"
+                      className="leading-relaxed text-white/90 transition-colors duration-300"
                     >
                       {t(event.info)}
                     </Text>
@@ -67,7 +67,7 @@ const CustomTimeLine = () => {
                 <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="w-4 h-4 rounded-full border-2 border-white shadow-sm bg-primary group-hover:bg-white transition-colors duration-300"
+                    className="w-4 h-4 rounded-full border-2 border-white shadow-sm bg-white transition-colors duration-300"
                   />
                 </div>
 
