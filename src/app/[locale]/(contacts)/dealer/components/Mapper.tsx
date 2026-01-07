@@ -2,10 +2,11 @@
 
 import { Accordion } from "@mantine/core";
 import { IconPlus, IconSearch } from "@tabler/icons-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Autocomplete from "react-google-autocomplete";
 import { useTranslations } from "next-intl";
 import MapWrapper from "./MapWrapper";
+import { get } from "http";
 
 interface PlaceCoordinate {
   name: string | undefined;
@@ -65,80 +66,79 @@ const Mapp = () => {
     "Moatize-Pemba": 1.3,
     "Nampula-Pemba": 1.15,
   };
+const allMarkers: Dealer[] = useMemo(() => [
+  {
+    name: "Maputo",
+    lat: -25.964677970962004,
+    lng: 32.56043422890941,
+    phone: "21 35 08 00",
+    description: "Sede: Maputo",
+    address: "Rua Kanwalanga N.141",
+    workingHour: {
+      "mon-fri": "7:30 - 16:30",
+      sat: t("closed"),
+      sun: t("closed"),
+    },
+  },
+  {
+    name: "Beira",
+    lat: -19.831767430887417,
+    lng: 34.842768295566614,
+    phone: "23 32 65 03",
+    description: "Delegação da Beira",
+    address: "Av. Samora Machel, n.3024, Beira",
+    workingHour: {
+      "mon-fri": "7:30 - 16:30",
+      sat: "7:30 - 11:30",
+      sun: t("closed"),
+    },
+  },
+  {
+    name: "Moatize",
+    lat: -16.058213944734714,
+    lng: 33.71656936815897,
+    phone: "25 24 22 20",
+    description: "Delegação de Moatize",
+    address: "E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete",
+    workingHour: {
+      "mon-fri": "7:30 - 16:30",
+      sat: "7:30 - 11:30",
+      sun: t("closed"),
+    },
+  },
+  {
+    name: "Nampula",
+    lat: -15.103817890661702,
+    lng: 39.26370586526631,
+    phone: "26 21 72 51",
+    description: "Delegação da Nampula",
+    address: "Rua da França, Parcela 3, Bairro da Carrupeia",
+    workingHour: {
+      "mon-fri": "7:30 - 16:30",
+      sat: "7:30 - 11:30",
+      sun: t("closed"),
+    },
+  },
+  {
+    name: "Pemba",
+    lat: -13.009611051159483,
+    lng: 40.53329661075185,
+    phone: "27 22 07 71",
+    description: "Delegação de Pemba",
+    address: "E.N.106 Bairro do Alto Giongone",
+    workingHour: {
+      "mon-fri": "7:30 - 16:30",
+      sat: "7:30 - 11:30",
+      sun: t("closed"),
+    },
+  },
+], [t]);
 
-  const allMarkers: Dealer[] = [
-    {
-      name: "Maputo",
-      lat: -25.964677970962004,
-      lng: 32.56043422890941,
-      phone: "21 35 08 00",
-      description: "Sede: Maputo",
-      address: "Rua Kanwalanga N.141",
-      workingHour: {
-        "mon-fri": "7:30 - 16:30",
-        sat: t("closed"),
-        sun: t("closed"),
-      },
-    },
-    {
-      name: "Beira",
-      lat: -19.831767430887417,
-      lng: 34.842768295566614,
-      phone: "23 32 65 03",
-      description: "Delegação da Beira",
-      address: "Av. Samora Machel, n.3024, Beira",
-      workingHour: {
-        "mon-fri": "7:30 - 16:30",
-        sat: "7:30 - 11:30",
-        sun: t("closed"),
-      },
-    },
-    {
-      name: "Moatize",
-      lat: -16.058213944734714,
-      lng: 33.71656936815897,
-      phone: "25 24 22 20",
-      description: "Delegação de Moatize",
-      address: "E.N.7 Unidade 25 de Setembro, Chithatha Moatize, Tete",
-      workingHour: {
-        "mon-fri": "7:30 - 16:30",
-        sat: "7:30 - 11:30",
-        sun: t("closed"),
-      },
-    },
-    {
-      name: "Nampula",
-      lat: -15.103817890661702,
-      lng: 39.26370586526631,
-      phone: "26 21 72 51",
-      description: "Delegação da Nampula",
-      address: "Rua da França, Parcela 3, Bairro da Carrupeia",
-      workingHour: {
-        "mon-fri": "7:30 - 16:30",
-        sat: "7:30 - 11:30",
-        sun: t("closed"),
-      },
-    },
-    {
-      name: "Pemba",
-      lat: -13.009611051159483,
-      lng: 40.53329661075185,
-      phone: "27 22 07 71",
-      description: "Delegação de Pemba",
-      address: "E.N.106 Bairro do Alto Giongone",
-      workingHour: {
-        "mon-fri": "7:30 - 16:30",
-        sat: "7:30 - 11:30",
-        sun: t("closed"),
-      },
-    },
-  ];
-
-  const MAPUTO_CITY_CENTER = {
+  const MAPUTO_CITY_CENTER = useMemo(() => ({
     lat: -25.969248,
     lng: 32.573424,
     name: "Maputo City Center"
-  };
+  }), []);
 
   const [location, setLocation] = useState<PlaceCoordinate>(MAPUTO_CITY_CENTER);
   const [filteredMarkers, setFilteredMarkers] = useState<Dealer[]>(allMarkers);
@@ -148,6 +148,83 @@ const Mapp = () => {
   const [isLoadingDistances, setIsLoadingDistances] = useState(false);
   const distanceServiceRef = useRef<google.maps.DistanceMatrixService | null>(null);
   const [apiStatus, setApiStatus] = useState<'not_loaded' | 'loading' | 'loaded' | 'error'>('not_loaded');
+
+  const getStraightDistance = useCallback((
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+  ): number => {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }, []);
+
+  const getEstimatedRoadDistance = useCallback((originName: string, destinationName: string, straightDistance: number): number => {
+    const key1 = `${originName}-${destinationName}`;
+    const key2 = `${destinationName}-${originName}`;
+    const factor = ROAD_DISTANCE_FACTORS[key1] || ROAD_DISTANCE_FACTORS[key2] || 1.3;
+    
+    return straightDistance * factor;
+  }, []);
+
+  const calculateEstimatedDistances = useCallback((origin: PlaceCoordinate) => {
+    const originName = origin.name?.includes("Maputo") ? "Maputo" : "Custom";
+    
+    const distances: DistanceInfo[] = allMarkers.map((dealer) => {
+      const straightDistance = getStraightDistance(
+        origin.lat,
+        origin.lng,
+        dealer.lat,
+        dealer.lng
+      );
+
+      let roadDistance: number;
+      
+      if (originName === "Maputo" || dealer.name === "Maputo") {
+        const otherCity = originName === "Maputo" ? dealer.name : "Maputo";
+        roadDistance = getEstimatedRoadDistance("Maputo", otherCity, straightDistance);
+      } else {
+        roadDistance = straightDistance * 1.3;
+      }
+
+      return {
+        dealer,
+        roadDistance,
+        roadDuration: Math.round(roadDistance / 60 * 60),
+        straightDistance,
+        isExactRoadDistance: false,
+      };
+    });
+
+    setDistanceInfo(distances);
+
+    let closest: Dealer | null = null;
+    let minDistance = Infinity;
+
+    distances.forEach((info) => {
+      if (info.roadDistance! < minDistance) {
+        minDistance = info.roadDistance!;
+        closest = info.dealer;
+      }
+    });
+
+    setClosestDealer(closest);
+
+    const sortedMarkers = [...allMarkers].sort((a, b) => {
+      const infoA = distances.find(d => d.dealer.name === a.name)!;
+      const infoB = distances.find(d => d.dealer.name === b.name)!;
+      return infoA.roadDistance! - infoB.roadDistance!;
+    });
+
+    setFilteredMarkers(sortedMarkers);
+  }, [allMarkers, getStraightDistance, getEstimatedRoadDistance]);
 
   useEffect(() => {
     const initGoogleMaps = async () => {
@@ -191,37 +268,34 @@ const Mapp = () => {
     };
 
     initGoogleMaps();
-  }, []);
+  }, [allMarkers,getStraightDistance, getEstimatedRoadDistance]);
 
-  const getStraightDistance = (
-    lat1: number,
-    lon1: number,
-    lat2: number,
-    lon2: number
-  ): number => {
-    const R = 6371;
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
-  };
+ const calculateGoogleRoadDistances = async (origin: PlaceCoordinate): Promise<boolean> => {
+  if (!distanceServiceRef.current || apiStatus !== 'loaded') {
+    return false;
+  }
 
-  const getEstimatedRoadDistance = (originName: string, destinationName: string, straightDistance: number): number => {
-    const key1 = `${originName}-${destinationName}`;
-    const key2 = `${destinationName}-${originName}`;
-    const factor = ROAD_DISTANCE_FACTORS[key1] || ROAD_DISTANCE_FACTORS[key2] || 1.3;
-    
-    return straightDistance * factor;
-  };
+  try {
+    const response = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
+      distanceServiceRef.current!.getDistanceMatrix(
+        {
+          origins: [{ lat: origin.lat, lng: origin.lng }],
+          destinations: allMarkers.map(dealer => ({ lat: dealer.lat, lng: dealer.lng })),
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.METRIC,
+        },
+        (response, status) => {
+          if (status === google.maps.DistanceMatrixStatus.OK && response) {
+            resolve(response);
+          } else {
+            reject(new Error(`Google Maps API error: ${status}`));
+          }
+        }
+      );
+    });
 
-  const calculateEstimatedDistances = (origin: PlaceCoordinate) => {
-    const originName = origin.name?.includes("Maputo") ? "Maputo" : "Custom";
-    
-    const distances: DistanceInfo[] = allMarkers.map((dealer) => {
+    const distances: DistanceInfo[] = allMarkers.map((dealer, index) => {
+      const element = response.rows[0].elements[index];
       const straightDistance = getStraightDistance(
         origin.lat,
         origin.lng,
@@ -229,23 +303,29 @@ const Mapp = () => {
         dealer.lng
       );
 
-      let roadDistance: number;
-      let isExactRoadDistance = false;
-      
-      if (originName === "Maputo" || dealer.name === "Maputo") {
-        const otherCity = originName === "Maputo" ? dealer.name : "Maputo";
-        roadDistance = getEstimatedRoadDistance("Maputo", otherCity, straightDistance);
+      if (element.status === "OK") {
+        return {
+          dealer,
+          roadDistance: element.distance.value / 1000,
+          roadDuration: element.duration.value / 60,
+          straightDistance,
+          isExactRoadDistance: true,
+        };
       } else {
-        roadDistance = straightDistance * 1.3;
+        const estimatedRoadDistance = getEstimatedRoadDistance(
+          origin.name?.includes("Maputo") ? "Maputo" : "Custom",
+          dealer.name,
+          straightDistance
+        );
+        
+        return {
+          dealer,
+          roadDistance: estimatedRoadDistance,
+          roadDuration: Math.round(estimatedRoadDistance / 60 * 60),
+          straightDistance,
+          isExactRoadDistance: false,
+        };
       }
-
-      return {
-        dealer,
-        roadDistance,
-        roadDuration: Math.round(roadDistance / 60 * 60),
-        straightDistance,
-        isExactRoadDistance: false,
-      };
     });
 
     setDistanceInfo(distances);
@@ -254,8 +334,8 @@ const Mapp = () => {
     let minDistance = Infinity;
 
     distances.forEach((info) => {
-      if (info.roadDistance < minDistance) {
-        minDistance = info.roadDistance;
+      if (info.roadDistance! < minDistance) {
+        minDistance = info.roadDistance!;
         closest = info.dealer;
       }
     });
@@ -265,97 +345,16 @@ const Mapp = () => {
     const sortedMarkers = [...allMarkers].sort((a, b) => {
       const infoA = distances.find(d => d.dealer.name === a.name)!;
       const infoB = distances.find(d => d.dealer.name === b.name)!;
-      return infoA.roadDistance - infoB.roadDistance;
+      return infoA.roadDistance! - infoB.roadDistance!;
     });
 
     setFilteredMarkers(sortedMarkers);
-  };
-
-  const calculateGoogleRoadDistances = async (origin: PlaceCoordinate): Promise<boolean> => {
-    if (!distanceServiceRef.current || apiStatus !== 'loaded') {
-      return false;
-    }
-
-    try {
-      const response = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
-        distanceServiceRef.current!.getDistanceMatrix(
-          {
-            origins: [{ lat: origin.lat, lng: origin.lng }],
-            destinations: allMarkers.map(dealer => ({ lat: dealer.lat, lng: dealer.lng })),
-            travelMode: google.maps.TravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.METRIC,
-          },
-          (response, status) => {
-            if (status === google.maps.DistanceMatrixStatus.OK && response) {
-              resolve(response);
-            } else {
-              reject(new Error(`Google Maps API error: ${status}`));
-            }
-          }
-        );
-      });
-
-      const distances: DistanceInfo[] = allMarkers.map((dealer, index) => {
-        const element = response.rows[0].elements[index];
-        const straightDistance = getStraightDistance(
-          origin.lat,
-          origin.lng,
-          dealer.lat,
-          dealer.lng
-        );
-
-        if (element.status === "OK") {
-          return {
-            dealer,
-            roadDistance: element.distance.value / 1000,
-            roadDuration: element.duration.value / 60,
-            straightDistance,
-            isExactRoadDistance: true,
-          };
-        } else {
-          const estimatedRoadDistance = getEstimatedRoadDistance(
-            origin.name?.includes("Maputo") ? "Maputo" : "Custom",
-            dealer.name,
-            straightDistance
-          );
-          
-          return {
-            dealer,
-            roadDistance: estimatedRoadDistance,
-            roadDuration: Math.round(estimatedRoadDistance / 60 * 60),
-            straightDistance,
-            isExactRoadDistance: false,
-          };
-        }
-      });
-
-      setDistanceInfo(distances);
-
-      let closest: Dealer | null = null;
-      let minDistance = Infinity;
-
-      distances.forEach((info) => {
-        if (info.roadDistance < minDistance) {
-          minDistance = info.roadDistance;
-          closest = info.dealer;
-        }
-      });
-
-      setClosestDealer(closest);
-
-      const sortedMarkers = [...allMarkers].sort((a, b) => {
-        const infoA = distances.find(d => d.dealer.name === a.name)!;
-        const infoB = distances.find(d => d.dealer.name === b.name)!;
-        return infoA.roadDistance - infoB.roadDistance;
-      });
-
-      setFilteredMarkers(sortedMarkers);
-      return true;
-    } catch (error) {
-      console.error("Error calculating Google road distances:", error);
-      return false;
-    }
-  };
+    return true;
+  } catch (error) {
+    console.error("Error calculating Google road distances:", error);
+    return false;
+  }
+};
 
   const handlePlaceSelected = async (place: google.maps.places.PlaceResult) => {
     if (!place.geometry || !place.geometry.location) return;
@@ -403,7 +402,7 @@ const Mapp = () => {
 
     return {
       distance: info.roadDistance,
-      formatted: `${info.roadDistance.toFixed(0)}km${info.isExactRoadDistance ? '' : ' (estimated)'}`,
+      formatted: `${info.roadDistance!.toFixed(0)}km${info.isExactRoadDistance ? '' : ' (estimated)'}`,
       isExact: info.isExactRoadDistance,
     };
   };
@@ -427,18 +426,6 @@ const Mapp = () => {
       `,
     };
   });
-
-  const getRealDistancesFromMaputo = () => {
-    const realDistances: Record<string, number> = {
-      "Maputo": 0,
-      "Beira": 1250,
-      "Moatize": 1650,
-      "Nampula": 2000,
-      "Pemba": 2200,
-    };
-    
-    return realDistances;
-  };
 
   if (!isGoogleMapsLoaded && apiStatus === 'loading') {
     return (
